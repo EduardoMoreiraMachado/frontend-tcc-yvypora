@@ -6,26 +6,16 @@
   padding: 30px;
 }
 
-.posts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 30px;
+.button-container {
+  min-height: 60px;
+  display: flex;
+  align-items: flex-end;
 }
 
-.post {
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 100ms ease-in-out;
+.search-container {
+  margin-bottom: 30px;
 }
 
-.post:hover {
-  transform: scale(1.05);
-}
-
-.post img {
-  max-width: 100%;
-}
-
-.post-content {
-  padding: 30px;
+.search-container h1 {
+  margin-bottom: 30px;
 }
