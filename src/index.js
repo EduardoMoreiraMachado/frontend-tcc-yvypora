@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/global-style.css';
-import Home from './templates/Home';
+import { TypeUserSelect } from './templates/TypeUserSelect';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Home />
+    <TypeUserSelect/>
   </React.StrictMode>,
 );
-

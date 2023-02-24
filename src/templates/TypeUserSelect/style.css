@@ -1,0 +1,40 @@
+.welcome-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5vh 10vw 30vh 10vw;
+    gap: 30vw;
+}
+
+.welcome-message {
+    display: flex;
+    flex-direction: column;
+    gap: 7vh;
+}
+
+.welcome-text {
+    width: 20vw;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 200;
+}
+
+.strong-welcome-text {
+    font-weight: bold;
+    color: #538D22    ;
+}
+
+.user-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+}
+
+.user-select-text {
+    width: 24vw;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 200;
+    color: #245501;
+}

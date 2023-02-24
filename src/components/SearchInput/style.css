@@ -1,0 +1,14 @@
+.text-input {
+    background-color: #538D22;
+    background-image: url(../../imgs/search_icon.svg);
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    background-size: 1.3rem;
+    width: 45%;
+    height: 5vh;
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+}
