@@ -33,7 +33,7 @@
 }
 
 .user-select-text {
-    width: 24vw;
+    max-width: 24vw;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 200;
     color: #245501;

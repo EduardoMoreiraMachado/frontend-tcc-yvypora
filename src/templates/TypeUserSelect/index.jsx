@@ -5,6 +5,7 @@ import WelcomeImage from '../../imgs/fruits_greenery.svg'
 import {EmptyHeader} from '../../components/EmptyHeader'
 import { GreenButton } from '../../components/GreenButton'
 import { WhiteButton } from '../../components/WhiteButton'
+import { ShoppingCartItem } from '../../components/ShoppingCartItem'
 
 export const TypeUserSelect = () => {
 
@@ -24,6 +25,7 @@ export const TypeUserSelect = () => {
                     <WhiteButton text='Feirante'/>
                 </div>
             </div>
+            <ShoppingCartItem/>
         </>
     )
 

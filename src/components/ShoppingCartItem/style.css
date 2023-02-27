@@ -1,0 +1,112 @@
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.shopping-cart-item-container {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    gap: 2vw;
+}
+
+.item-check {
+    width: 1.7vw;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    border: 2px solid #538D22;
+    border-radius: 5px;
+    padding: 2vh 3vw 2vh 3vw;
+}
+
+.item-image {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.name {
+    font-weight: bolder;
+    color: #245501;
+    font-size: 2.2rem;
+}
+
+.image {
+    width: 10vw;
+}
+
+.item-count {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+}
+
+.total {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.unit {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+    color: #5A5A5A;
+}
+
+.price {
+    font-weight: bolder;
+    color: #245501;
+    font-size: 2.2rem;
+}
+
+.amount {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+}
+
+.sub-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    background-image: url(../../imgs/sub_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 3vw;
+    height: 5.5vh;
+    font-size: 3rem;
+    border-radius: 5px;
+} 
+
+.amount h1 {
+    font-weight: 700;
+    color: #000;
+    font-size: 2.5rem;
+}
+
+.add-button {
+    width: 3vw;
+    height: 5.5vh;
+    background-color: #538D22;
+    background-image: url(../../imgs/add_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #538D22;
+    font-size: 3rem;
+    font-weight: lighter;
+    color: #fff;
+    border-radius: 5px;
+}
