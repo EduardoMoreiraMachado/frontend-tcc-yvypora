@@ -1,15 +1,15 @@
-import { ShoppingCartItem } from '../../components/ShoppingCartItem';
+import { ShoppingItem } from '../../components/ShoppingItem';
 import './style.css';
 
 export const Test = () => {
 
     return (
         <>
-            <ShoppingCartItem 
-                name='Abóbora'
-                imgUrl='https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover'
-                unit={1}
-                price={10}
+            <ShoppingItem 
+                name='Abobrinha'
+                imgUrl='https://us-southeast-1.linodeobjects.com/storage/comercial-supermercado-genesio/media/uploads/produto/abobrinha_italiana_kg_8753cd49-6b6a-4033-9faf-cb8fcaea55c1.png'
+                weight='200g'
+                price='6,00'
             />
         </>
     )

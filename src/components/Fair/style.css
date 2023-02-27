@@ -1,0 +1,51 @@
+* {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: lighter;
+}
+
+.fair-container {
+    margin: 10%;
+    width: fit-content;
+    background-color: #73A942;
+    display: flex;
+    align-items: center;
+    border-radius: 10px 0px;
+    padding: 1.5%;
+    gap: 2vw;
+}
+
+.fair-image {
+    width: 200px;
+    height: 200px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0px;
+}
+
+.fair-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.name {
+    font-size: 1.7rem;
+    color: white;
+}
+
+.data {
+}
+
+.data-type {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.data-text{
+    font-size: 1.5rem;
+    color: #143601;
+}

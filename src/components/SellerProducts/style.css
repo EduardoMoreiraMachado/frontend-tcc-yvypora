@@ -2,31 +2,20 @@
     font-family: 'Space Grotesk', sans-serif;
 }
 
-.shopping-cart-item-container {
+.seller-products-container {
     width: fit-content;
-    height: fit-content;
     display: flex;
-    gap: 2vw;
+    flex-direction: column;
 }
 
-.item-check {
-    width: 1.7vw;
-}
-
-.item-info {
+.product-data {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 5vw;
     border: 2px solid #538D22;
     border-radius: 5px;
-    padding: 2vh 3vw 2vh 3vw;
-}
-
-.item-image {
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
+    padding: 2vh 5vw 2vh 5vw;
 }
 
 .name {
@@ -37,21 +26,6 @@
 
 .image {
     width: 10vw;
-}
-
-.item-count {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3vh;
-}
-
-.total {
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
 }
 
 .unit {
@@ -66,6 +40,25 @@
     font-weight: bolder;
     color: #245501;
     font-size: 2.2rem;
+}
+
+.product-quantity {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 1vw 1vh 1vw;
+    gap: 5vw;
+}
+
+.number-quantity {
+    display: flex;
+    gap: 1vw;
+}
+
+.text {
+    min-width: 6.6vw;
+    font-weight: bolder;
+    color: #245501;
+    font-size: 1.5rem;
 }
 
 .amount {
@@ -88,7 +81,7 @@
     border-radius: 5px;
 } 
 
-.amount h1 {
+.number {
     font-weight: 700;
     color: #000;
     font-size: 2.5rem;
@@ -109,4 +102,20 @@
     font-weight: lighter;
     color: #fff;
     border-radius: 5px;
+}
+
+.edit-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+
+.status-button {
+    background-color: #fff;
+}
+
+.status-image {
+    min-width: 1.7vw;
+    height: 5vh;
 }

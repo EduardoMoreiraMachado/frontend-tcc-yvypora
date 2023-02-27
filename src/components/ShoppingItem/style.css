@@ -1,0 +1,20 @@
+.shopping-item-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-visual {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-icon {
+    width: 50px;
+    height: 50px;
+    background-image: url(../../imgs/shopping_cart_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #245501;
+    border-radius: 25px;
+}
