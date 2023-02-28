@@ -2,6 +2,7 @@ import { DefaultInput } from '../../components/DefaultInput';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import './style.css';
 import { ProductCategory } from '../../components/ProductCategory';
+import { AddImage } from '../../components/AddImage';
 
 export const Test = () => {
 
@@ -18,6 +19,9 @@ export const Test = () => {
                 type="text"
             />
             <ProductCategory />
+            <AddImage 
+                text="Adicione uma foto"
+            />
         </>
     )
 
