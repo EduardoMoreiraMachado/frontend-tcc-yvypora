@@ -1,0 +1,19 @@
+.main-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 80%;
+    width: 60%;
+    border-radius: 50%;   
+}
+
+.inner-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #538D22;
+    border-radius: 50%;
+    height: 75%;
+    width: 75%;
+}

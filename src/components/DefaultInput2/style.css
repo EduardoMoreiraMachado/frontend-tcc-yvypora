@@ -1,0 +1,59 @@
+.animated-form {
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+}
+
+.animated-input {
+    color: #fff;
+    font-size: 28px;
+    width: 100%;
+    padding: 20px 5px 5px;
+    background-color: #4f4f4f;
+    border: none;
+    border-radius: 4px;
+}
+  
+.animated-label {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #ffffff;
+}
+  
+.animated-span {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 28px;
+    transition: all 0.3s ease;
+}
+  
+.animated-label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #e0138c;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+  
+.animated-input:focus + .animated-label .animated-span,
+.animated-input:valid + .animated-label .animated-span {
+    transform: translateY(-150%);
+    font-size: 14px;
+    bottom: 10px;
+    color: #e0138c;
+}
+  
+.animated-input:focus + .animated-label::after,
+.animated-input:valid + .animated-form::after {
+    transform: translateX(0%);
+}

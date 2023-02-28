@@ -1,0 +1,41 @@
+.product-category-container {
+    width: fit-content;
+    display: flex;
+    gap: 5vw;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    transition: all 0.5s;
+}
+
+.category-item:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+.category-image {
+    width: 150px;
+    height: 110px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.category-name{
+    font-weight: 400;
+    color: #000;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.category-name:hover {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s;
+}

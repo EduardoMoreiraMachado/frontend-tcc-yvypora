@@ -1,6 +1,7 @@
 import { DefaultInput } from '../../components/DefaultInput';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import './style.css';
+import { ProductCategory } from '../../components/ProductCategory';
 
 export const Test = () => {
 
@@ -16,6 +17,7 @@ export const Test = () => {
                 name="Nome do cartão"
                 type="text"
             />
+            <ProductCategory />
         </>
     )
 
