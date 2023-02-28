@@ -5,7 +5,9 @@ export const ShoppingItem = ({name, imgUrl, weight, price}) => {
         <div className='shopping-item-container'>
             <div className='item-visual'>
                 <h1 className='name'>{name}</h1>
-                <img className='image' src={imgUrl} alt=''/>
+                <div className='item-image'>
+                    <img className='image' src={imgUrl} alt=''/>
+                </div>
             </div>
             <div className='item-numbers'>
                 <div className='numbers'>

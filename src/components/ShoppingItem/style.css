@@ -1,20 +1,67 @@
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 .shopping-item-container {
     width: fit-content;
     display: flex;
     flex-direction: column;
+    padding: 1%;
+    gap: 2vh;
+    border: 1px solid #538D22;
+    border-radius: 10px;
 }
 
 .item-visual {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+
+.name {
+    color: #245501;
+    font-size: 1.6rem;
+}
+
+.item-image {
+    width: 110px;
+    height: 110px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.item-numbers {
+    display: flex;
+    justify-content: space-between;
+    gap: 3vw;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: column;
+}
+
+.weight {
+    font-size: 1rem;
+    color: #7D7D7D;
+}
+
+.price {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #245501;
 }
 
 .cart-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-image: url(../../imgs/shopping_cart_icon.svg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 80%;
     background-color: #245501;
-    border-radius: 25px;
+    border-radius: 30px;
 }
