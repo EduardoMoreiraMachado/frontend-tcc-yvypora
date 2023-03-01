@@ -5,6 +5,7 @@
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
@@ -40,7 +41,6 @@ header {
 }
 
 .sign-up {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.2rem;
 }
 
