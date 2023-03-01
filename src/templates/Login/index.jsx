@@ -4,6 +4,7 @@ import { EmptyHeader } from '../../components/EmptyHeader'
 import { DefaultInput } from '../../components/DefaultInput';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
+import Title from '../../components/Title';
 // import FooterImg from '../../imgs/footer-login.svg'
 
 
@@ -13,7 +14,8 @@ export const Login = () => {
         <div className='main'>
             <EmptyHeader />
 
-            <h1 className='login-title'>Login</h1>
+             <Title text='Login'/>
+
 
             <div className="input-container">
                 <div className="input">
@@ -34,16 +36,6 @@ export const Login = () => {
             </div>
 
             <Footer />
-
-
-
-
-
-
-
-
-
-
         </div>
     )
 }
