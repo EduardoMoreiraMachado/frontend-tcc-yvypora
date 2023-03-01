@@ -1,12 +1,11 @@
 import './style.css'
 
+// import FruitsFooter from '../../imgs/fruits_footer.jpg'
+
 import { EmptyHeader } from '../../components/EmptyHeader'
 import { DefaultInput } from '../../components/DefaultInput';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
-// import FooterImg from '../../imgs/footer-login.svg'
-
-
 
 export const Login = () => {
     return (
@@ -33,17 +32,9 @@ export const Login = () => {
                 </div>
             </div>
 
+            {/* <div className='fruits-footer'></div> */}
+
             <Footer />
-
-
-
-
-
-
-
-
-
-
         </div>
     )
 }
