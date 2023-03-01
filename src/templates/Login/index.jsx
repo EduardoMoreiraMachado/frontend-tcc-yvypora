@@ -1,13 +1,12 @@
 import './style.css'
 
+// import FruitsFooter from '../../imgs/fruits_footer.jpg'
+
 import { EmptyHeader } from '../../components/EmptyHeader'
 import { DefaultInput } from '../../components/DefaultInput';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
-import Title from '../../components/Title';
-// import FooterImg from '../../imgs/footer-login.svg'
-
-
+import {Title} from '../../components/Title'
 
 export const Login = () => {
     return (
@@ -34,6 +33,8 @@ export const Login = () => {
                         text='Cadastrar' />
                 </div>
             </div>
+
+            {/* <div className='fruits-footer'></div> */}
 
             <Footer />
         </div>

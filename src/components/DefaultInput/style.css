@@ -1,11 +1,8 @@
-* {
-    color: #245501;
-}
-
 .default-input-container {
     width: fit-content;
     display: flex;
     flex-direction: column;
+    color: #245501;
 }
 
 .default-label {

@@ -5,13 +5,13 @@ import WelcomeImage from '../../imgs/fruits_greenery.svg'
 import {EmptyHeader} from '../../components/EmptyHeader'
 import { GreenButton } from '../../components/GreenButton'
 import { WhiteButton } from '../../components/WhiteButton'
-import { ShoppingCartItem } from '../../components/ShoppingCartItem'
+import { Footer } from '../../components/Footer'
 
 export const TypeUserSelect = () => {
 
     return (
         <>
-            <EmptyHeader/>
+            <EmptyHeader />
             <div className='welcome-container'>
                 <div className='welcome-message'>
                     <h1 className='welcome-text'>
@@ -25,7 +25,7 @@ export const TypeUserSelect = () => {
                     <WhiteButton text='Feirante'/>
                 </div>
             </div>
-            <ShoppingCartItem/>
+            <Footer />
         </>
     )
 

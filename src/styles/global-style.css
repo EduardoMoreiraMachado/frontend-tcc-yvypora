@@ -30,6 +30,10 @@ header {
   padding: 10px 45px 10px 45px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .text-icon {
   width: 70px;
 }

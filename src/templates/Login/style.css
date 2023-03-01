@@ -3,6 +3,13 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    margin: 0;    
+}
+
+.login-title{
+    display: flex;
+    justify-content: center;
+    font-size: 3.3rem;   
 }
 
 
@@ -12,9 +19,8 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
-    
-    
 }
+
 .input{
     display: flex;
     flex-direction: column;
@@ -30,3 +36,11 @@
     justify-content: space-around;
     flex-direction: column;
 }
+/* .fruits-footer {
+    width: 100vw;
+    height: 50vh;
+    background-image: url(../../imgs/fruits_footer.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
