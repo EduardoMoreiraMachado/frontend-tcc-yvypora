@@ -10,15 +10,17 @@
 .text {
     font-size: 1.5rem;
     font-weight: 400;
+    color: #143601;
 }
 
 .image-button {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     background-color: #AAD576;
-    background-image: url(../../imgs/add_photo_icon.png);
+    background-image: url(../../imgs/add_photo_icon.svg);
     background-repeat: no-repeat;
-    background-position: 60%;
+    background-position-x: center;
+    background-position-y: 30%;
     background-size: 70px;
-    border-radius: 50px;
+    border-radius: 60px;
 }
