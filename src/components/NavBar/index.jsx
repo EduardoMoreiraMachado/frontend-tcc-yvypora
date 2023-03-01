@@ -1,14 +1,14 @@
 
 import { ButtonCart } from "../ButtonCart";
 import './style.css'
-import HomeImg from '../../imgs/home.png'
-import VideoImg from '../../imgs/video.png'
-import FairImg from '../../imgs/fair.png'
-import ProfileImg from '../../imgs/profile.png'
+import HomeImg from '../../imgs/home.svg'
+import VideoImg from '../../imgs/video.svg'
+import FairImg from '../../imgs/fair.svg'
+import ProfileImg from '../../imgs/profile.svg'
 
-export const Navbar = () => {
+export const NavBar = () => {
   return (
-    <>
+    <div className="nav-bar-container">
       <div className="upper-nav">
         <a href="#">
           <img src={HomeImg} alt="" className="icon" />
@@ -29,11 +29,6 @@ export const Navbar = () => {
           <img src={ProfileImg} alt="" className="icon" />
         </a>
       </div>
-
-
-    </>
-
-
-
+    </div>
   )
 }

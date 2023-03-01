@@ -1,3 +1,13 @@
+.nav-bar-container {
+    background-color:#538D22;
+    border-radius:  0px 25px 25px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    width: 7.5vw;
+    justify-content: space-evenly;
+}
 
 .upper-nav{
     display: flex;
@@ -6,6 +16,7 @@
     justify-content: space-evenly;
     height: 100%;
 }
+
 .lower-nav{
     height: 100%;
     display: flex;
@@ -13,18 +24,17 @@
     align-items: center;
     justify-content: space-evenly;  
 }
+
 .icon{
     width: 60px;
     height: 60px;
 }
 
 .button-container{
-    
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
     width: 140%;
     height: 50%;
-
 }

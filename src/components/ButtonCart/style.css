@@ -4,11 +4,14 @@
     align-items: center;
     background-color: white;
     height: 80%;
-    width: 60%;
+    width: 55%;
     border-radius: 50%;   
 }
 
 .inner-circle{
+    background-image: url(../../imgs/shopping_cart_icon.svg);
+    background-position: 60%;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
