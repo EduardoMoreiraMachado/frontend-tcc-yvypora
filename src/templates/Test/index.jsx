@@ -22,6 +22,8 @@ export const Test = () => {
             <AddImage 
                 text="Adicione uma foto"
             />
+
+            <DefaultInput/>
         </>
     )
 
