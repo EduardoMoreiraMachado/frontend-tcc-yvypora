@@ -24,5 +24,4 @@ yarn-error.log*
 
 # test folder
 /src/templates/Test
-/index.js
 /src/index.js
