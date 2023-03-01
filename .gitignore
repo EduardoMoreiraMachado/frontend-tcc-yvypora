@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # test folder
-./src/templates/Test
+/src/templates/Test/**/*
