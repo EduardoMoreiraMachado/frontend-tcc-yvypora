@@ -1,23 +1,20 @@
 import './style.css'
-import { Footer } from '../../../components/Footer'
-import { EmptyHeader } from '../../../components/EmptyHeader'
-import { DefaultInput } from '../../../components/DefaultInput'
-import { GreenButton } from '../../../components/GreenButton'
+import { EmptyHeader } from '../../components/EmptyHeader'
+import {Title} from '../../components/Title'
+import { DefaultInput } from '../../components/DefaultInput'
+import{AddImage} from '../../components/AddImage'
+import { GreenButton } from '../../components/GreenButton'
+import { Footer } from '../../components/Footer'
+ 
 
-import Title from '../../../components/Title'
-import AddImage from '../../../components/AddImage'
-
-
-export const CadastroConsu = () => {
+export const SignUpFeirante = () => {
     return (
-        <div className='main-cadastro'>
+        <div className='main-cadastro'> 
             <EmptyHeader />
 
-            <div className="title-container">
-                <Title text='Cadastre-se' />
-            </div>
+            <Title text='Cadastre-se' />
             <div className="input-container">
-                <div className="inputs">
+                <div className="inputs-feirante">
                     <DefaultInput
                         name='Nome'
                         type='text'
@@ -32,11 +29,19 @@ export const CadastroConsu = () => {
                     />
                     <DefaultInput
                         name='CPF'
-                        type='number'
+                        type='text'
                     />
                     <DefaultInput
-                        name='CEP'
-                        type='number'
+                        name='Telefone'
+                        type='text'
+                    />
+                    <DefaultInput
+                        name='Nome do estabelecimento'
+                        type='text'
+                    />
+                    <DefaultInput
+                        name='Data de nascimento'
+                        type='date'
                     />
                 </div>
 
@@ -54,4 +59,4 @@ export const CadastroConsu = () => {
 }
 
 
-export default CadastroConsu
+export default SignUpFeirante

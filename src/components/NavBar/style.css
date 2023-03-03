@@ -25,9 +25,30 @@
     justify-content: space-evenly;  
 }
 
-.icon{
+.bar-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60px;
     height: 60px;
+    background-color: #73A942;
+    border-radius: 100%;
+    transition: all 0.5s;
+}
+
+.bar-image:hover {
+    background-color: #AAD576;
+    transition: all 0.5s;
+}
+
+.bar-image:active {
+    background-color: rgba(255, 255, 255, 0.647);
+    transition: all 0s;
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
 }
 
 .button-container{

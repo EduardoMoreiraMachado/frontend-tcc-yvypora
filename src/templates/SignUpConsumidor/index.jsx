@@ -1,20 +1,23 @@
 import './style.css'
-import { EmptyHeader } from '../../../components/EmptyHeader'
-import {Title} from '../../../components/Title'
-import { DefaultInput } from '../../../components/DefaultInput'
-import{AddImage} from '../../../components/AddImage'
-import { GreenButton } from '../../../components/GreenButton'
-import { Footer } from '../../../components/Footer'
- 
+import { Footer } from '../../components/Footer'
+import { EmptyHeader } from '../../components/EmptyHeader'
+import { DefaultInput } from '../../components/DefaultInput'
+import { GreenButton } from '../../components/GreenButton'
 
-export const CadastroFeirant = () => {
+import Title from '../../components/Title'
+import AddImage from '../../components/AddImage'
+
+
+export const SignUpConsumidor = () => {
     return (
-        <div className='main-cadastro'> 
+        <div className='main-cadastro'>
             <EmptyHeader />
 
-            <Title text='Cadastre-se' />
+            <div className="title-container">
+                <Title text='Cadastre-se' />
+            </div>
             <div className="input-container">
-                <div className="inputs-feirante">
+                <div className="inputs">
                     <DefaultInput
                         name='Nome'
                         type='text'
@@ -29,15 +32,15 @@ export const CadastroFeirant = () => {
                     />
                     <DefaultInput
                         name='CPF'
-                        type='number'
-                    />
-                    <DefaultInput
-                        name='Telefone'
-                        type='number'
-                    />
-                    <DefaultInput
-                        name='Nome do estabelecimento'
                         type='text'
+                    />
+                    <DefaultInput
+                        name='CEP'
+                        type='text'
+                    />
+                    <DefaultInput
+                        name='Data de nascimento'
+                        type='date'
                     />
                 </div>
 
@@ -55,4 +58,4 @@ export const CadastroFeirant = () => {
 }
 
 
-export default CadastroFeirant
+export default SignUpConsumidor

@@ -1,11 +1,25 @@
 .white_button {
+    width: 12vw;
+    height: 8vh;
     display: flex;
     justify-content: center;
-    width: 12vw;
+    align-items: center;
     color: #538D22;
     font-size: 1.5rem;
     padding: 30px 20px 30px 20px;
     border-radius: 5px;
     border: 2px solid #538D22;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.white_button:hover {
+    box-shadow: 0px 4px 50px #AAD576; 
+    background-color: #73A942;
+    font-size: 1.6rem;
+    transition: all 1s;  
+}
+
+.white_button:active {
+    background-color: #AAD576;
+    transition: all 0s;
 }

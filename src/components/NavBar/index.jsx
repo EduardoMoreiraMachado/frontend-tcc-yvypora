@@ -10,10 +10,10 @@ export const NavBar = () => {
   return (
     <div className="nav-bar-container">
       <div className="upper-nav">
-        <a href="#">
+        <a className="bar-image" href="#">
           <img src={HomeImg} alt="" className="icon" />
         </a>
-        <a href="#">
+        <a className="bar-image" href="#">
           <img src={VideoImg} alt="" className="icon" />
         </a>
       </div>
@@ -22,10 +22,10 @@ export const NavBar = () => {
       </div>
 
       <div className="lower-nav">
-        <a href="#">
+        <a className="bar-image" href="#">
           <img src={FairImg} alt="" className="icon" />
         </a>
-        <a href="#">
+        <a className="bar-image" href="#">
           <img src={ProfileImg} alt="" className="icon" />
         </a>
       </div>

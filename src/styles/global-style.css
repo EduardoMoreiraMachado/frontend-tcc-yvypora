@@ -46,6 +46,11 @@ a {
 
 .sign-up {
   font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.sign-up:active {
+  text-decoration: underline;
 }
 
 .sign-in {
@@ -54,4 +59,11 @@ a {
   padding: 10px 20px 10px 20px;
   border-radius: 10px 0px;
   color: white;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+.sign-in:active {
+  background-color: #AAD576;
+  transition: all 0s;
 }

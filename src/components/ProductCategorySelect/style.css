@@ -1,0 +1,14 @@
+.product-category-select-container {
+    display: flex;
+    gap: 5vw;
+    padding-top: 8vh;
+    border-bottom: solid 1px #000;
+}
+
+.category-select {
+    font-size: 1.5rem;
+    font-weight: 400;
+    cursor: pointer;
+    padding-bottom: 1vh;
+    background-color: #fff;
+}

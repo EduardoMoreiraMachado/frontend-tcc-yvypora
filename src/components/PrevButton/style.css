@@ -1,0 +1,15 @@
+.prev-button-container {
+    width: 80px;
+    height: 80px;
+    background-image: url(../../imgs/prev-icon.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 38%;
+    border: solid 1px #000;
+    transition: all 1s;
+}
+
+.prev-button-container:active {
+    background-color: #AAD576;
+    transition: all 0s;
+}

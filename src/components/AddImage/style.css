@@ -1,5 +1,6 @@
 .add-image-container {
     width: fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,19 +9,30 @@
 }
 
 .text {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     color: #143601;
 }
 
 .image-button {
-    width: 120px;
-    height: 120px;
+    width: 220px;
+    height: 220px;
     background-color: #AAD576;
     background-image: url(../../imgs/add_photo_icon.svg);
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y: 30%;
-    background-size: 70px;
+    background-position-y: 40%;
+    background-size: 110px;
     border-radius: 100%;
+    transition: all 1s;
+}
+
+.image-button:hover {
+    border: 4px solid #538D22;
+    transition: all 0.5s;
+}
+
+.image-button:active {
+    background-color: #d3e6bb;
+    transition: all 0s;
 }
