@@ -6,13 +6,15 @@ import { EmptyHeader } from '../../components/EmptyHeader'
 import { DefaultInput } from '../../components/DefaultInput';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
+import {Title} from '../../components/Title'
 
 export const Login = () => {
     return (
         <div className='main'>
             <EmptyHeader />
 
-            <h1 className='login-title'>Login</h1>
+             <Title text='Login'/>
+
 
             <div className="input-container">
                 <div className="input">

@@ -8,7 +8,7 @@
 }
 
 .text {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
     color: #143601;
 }
@@ -22,5 +22,5 @@
     background-position-x: center;
     background-position-y: 30%;
     background-size: 70px;
-    border-radius: 60px;
+    border-radius: 100%;
 }
