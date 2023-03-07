@@ -1,7 +1,7 @@
 import YvyporaIcon from '../../imgs/yvypora_icon.svg'
 import { SearchInput } from '../SearchInput'
 
-export const InputHeader = () => {
+export const SearchInputHeader = () => {
     return (
         <header>
             <img className='icon' src={YvyporaIcon} alt=''/>

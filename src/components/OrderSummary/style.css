@@ -1,0 +1,37 @@
+.order-summary-container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: #AAD576;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    gap: 1.5vh;
+}
+
+.summary-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #31572C;
+}
+
+.summary-price {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+.total-text {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: #538D22;
+}
+
+.total-price {
+    color: #143601;
+}
+
+.payment-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

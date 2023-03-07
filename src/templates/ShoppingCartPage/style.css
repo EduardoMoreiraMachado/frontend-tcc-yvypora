@@ -1,0 +1,8 @@
+.shopping-cart-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-page-content {
+    display: flex;
+}
