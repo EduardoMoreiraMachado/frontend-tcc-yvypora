@@ -1,7 +1,7 @@
 import './style.css'
 
-export const PrevButton = () => {
+export const PrevButton = ({onClick}) => {
     return (
-        <div className="prev-button-container"></div>
+        <button className="prev-button-container" onClick={onClick}></button>
     )
 }

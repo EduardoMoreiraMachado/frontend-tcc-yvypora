@@ -18,11 +18,22 @@
 }
 
 .products-carrossel {
-  width: 80vw;
+  width: 50vw;
   height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 5vh;
   gap: 2vw;
+}
+
+.carousel-items {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1vw;
+}
+
+.carousel-items::-webkit-scrollbar {
+  display: none;
 }

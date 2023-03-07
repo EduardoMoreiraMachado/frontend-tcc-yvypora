@@ -7,6 +7,8 @@
     background-position-x: 38%;
     border: solid 1px #000;
     transition: all 1s;
+    cursor: pointer;
+    flex: none;
 }
 
 .prev-button-container:active {

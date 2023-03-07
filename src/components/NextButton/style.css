@@ -8,6 +8,8 @@
     border: solid 1px #000;
     transform: rotate(180deg);
     transition: all 1s;
+    cursor: pointer;
+    flex: none;
 }
 
 .next-button-container:active {

@@ -63,7 +63,12 @@ a {
   transition: all 1s;
 }
 
-.sign-in:active {
-  background-color: #AAD576;
+.sign-in:hover {
+  background-color: #638b3e;
   transition: all 0s;
+}
+
+
+.sign-in:active {
+  background-color: #73A942;
 }

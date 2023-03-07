@@ -1,7 +1,7 @@
 import './style.css'
 
-export const NextButton = () => {
+export const NextButton = ({onClick}) => {
     return (
-        <div className="next-button-container"></div>
+        <button className="next-button-container" onClick={onClick}></button>
     )
 }
