@@ -43,30 +43,36 @@ export const GeneralStartPage = () => {
                     imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
                     weight="100g"
                     price="5,00"
+                    promo={true}
                   />
                   <ShoppingItem 
                     name="Laranja 2"
                     imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
                     weight="100g"
                     price="5,00"
+                    promo={false}
+                    
                   />
                   <ShoppingItem 
                     name="Laranja 3"
                     imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
                     weight="100g"
                     price="5,00"
+                    
                   />
                   <ShoppingItem 
                     name="Laranja 4"
                     imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
                     weight="100g"
                     price="5,00"
+                    promo={false}
                   />
                   <ShoppingItem 
                     name="Laranja 5"
                     imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
                     weight="100g"
                     price="5,00"
+                    promo={false}
                   />
                   <ShoppingItem 
                     name="Laranja 6"
@@ -79,6 +85,7 @@ export const GeneralStartPage = () => {
                     imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
                     weight="100g"
                     price="5,00"
+                    promo={false}
                   />
                   <ShoppingItem 
                     name="Laranja 8"
@@ -103,6 +110,7 @@ export const GeneralStartPage = () => {
                     imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
                     weight="100g"
                     price="5,00"
+                    promo={false}
                   />
                   <ShoppingItem 
                     name="Laranja 12"
