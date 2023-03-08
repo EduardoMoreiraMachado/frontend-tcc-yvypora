@@ -6,12 +6,8 @@ import { EmptyHeader } from '../../components/EmptyHeader'
 import { DefaultInput } from '../../components/DefaultInput';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
-<<<<<<< HEAD
-import { Title } from '../../components/Title'
-=======
 import {Title} from '../../components/Title'
 import { commonsAPI } from '../../api/api';
->>>>>>> 44b496d67d1a662165c87edb47ff77e1c4a87891
 
 export const Login = () => {
 
