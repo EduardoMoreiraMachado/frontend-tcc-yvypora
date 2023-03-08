@@ -1,13 +1,26 @@
 import './style.css'
+
 import { EmptyHeader } from '../../components/EmptyHeader'
-import {Title} from '../../components/Title'
+import { Title } from '../../components/Title'
 import { DefaultInput } from '../../components/DefaultInput'
-import{AddImage} from '../../components/AddImage'
+import { AddImage } from '../../components/AddImage'
 import { GreenButton } from '../../components/GreenButton'
 import { Footer } from '../../components/Footer'
+import { SpecialInput } from '../../components/SpecialInput'
+
+import { useState } from 'react'
  
 
 export const SignUpFeirante = () => {
+    const [values, setValues] = useState({});
+
+    function handleChange(event) {
+        setValues({
+            ...values,
+            [event.target.name]: event.target.value
+        });
+    }
+
     return (
         <div className='main-cadastro'> 
             <EmptyHeader />
@@ -27,13 +40,19 @@ export const SignUpFeirante = () => {
                         name='Senha'
                         type='password'
                     />
-                    <DefaultInput
-                        name='CPF'
-                        type='text'
+                    <SpecialInput 
+                        name="cpf"
+                        label="CPF"
+                        mask="999.999.999-99"
+                        value={values.cpf}
+                        onChange={handleChange}
                     />
-                    <DefaultInput
-                        name='Telefone'
-                        type='text'
+                    <SpecialInput 
+                        name="phone"
+                        label="Telefone"
+                        mask="(999) 9 9999-9999"
+                        value={values.phone}
+                        onChange={handleChange}
                     />
                     <DefaultInput
                         name='Nome do estabelecimento'
@@ -57,6 +76,5 @@ export const SignUpFeirante = () => {
         </div>
     )
 }
-
 
 export default SignUpFeirante
