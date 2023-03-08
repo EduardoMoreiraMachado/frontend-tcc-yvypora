@@ -1,0 +1,31 @@
+.products-filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.up-container {
+    display: flex;
+    gap: 4vw;
+}
+
+.category-filter,
+.rating-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.category-filter-title,
+.rating-filter-title {
+    padding-bottom: 2vh;
+}
+
+.rating-filter button {
+    display: flex;
+    gap: 0.5vw;
+}
+
+.rating-filter button img {
+    width: 1vw;
+}

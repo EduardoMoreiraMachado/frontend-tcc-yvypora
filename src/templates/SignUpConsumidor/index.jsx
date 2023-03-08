@@ -8,11 +8,37 @@ import { SpecialInput } from '../../components/SpecialInput'
 import { Title } from '../../components/Title'
 import { AddImage } from '../../components/AddImage'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import singUpCostumer from '../../utils/singUpCostumer'
+import { cepAPI } from '../../api/api'
+import { fetchCostumerFormFields } from '../../utils/formFieldsFetch'
 
 
 export const SignUpConsumidor = () => {
     const [values, setValues] = useState({});
+    const [genders, setGenders] = useState([
+        {
+          "id": 1,
+          "name": "Male"
+        },
+        {
+          "id": 2,
+          "name": "Female"
+        }
+      ]);
+    const [addresType, setAddressType] = useState([ {
+        "id": 1,
+        "name": "Casa"
+      },
+      {
+        "id": 2,
+        "name": "Apartamento"
+      },
+      {
+        "id": 3,
+        "name": "Feira"
+      }]);
+    
 
     function handleChange(event) {
         setValues({
@@ -21,6 +47,67 @@ export const SignUpConsumidor = () => {
         });
     }
 
+    useEffect(() => {
+        const fetch = async () => {
+            const fields = await fetchCostumerFormFields() 
+        
+            setGenders(fields.genders)
+            setAddressType(fields.typesOfAddress)            
+        }
+        
+        fetch().catch()    
+    }, [])
+    
+    const handleClick = async (e) => {
+        e.preventDefault()
+        const costumer = {
+            name: String,
+            email: String,
+            password: String,
+            cpf: String,
+            address: {
+                cep: String,
+                uf: String,
+                city: String,
+                neighborhood: String,
+                logradouro: String,
+                number: Number,
+                complemento: String,
+                addressTypeId: Number
+            },
+            dataDeNascimento: String,
+            gender: String,
+            
+        }
+        const { cep, cpf } = values
+        const inputs = document.querySelectorAll("input")
+        const valuesOfInputs = []
+        inputs.forEach((input) => {valuesOfInputs.push(input.value)})
+        
+        costumer.name = valuesOfInputs[0]
+        costumer.email = valuesOfInputs[1]
+        costumer.password = valuesOfInputs[2]
+        costumer.cpf = cpf
+        costumer.cep = cep
+        costumer.gender = "M" // add to input
+        costumer.dataDeNascimento = valuesOfInputs[5]
+        
+        const { data } = await cepAPI.get(`${cep}/json/`)
+
+        costumer.address.cep = cep
+        costumer.address.city = data.localidade
+        costumer.address.uf = data.uf
+        costumer.address.logradouro = data.logradouro
+        costumer.address.number = 146 // add to input
+        costumer.address.neighborhood = data.bairro
+        costumer.address.complemento = "" // add to input
+        costumer.address.addressTypeId = 1 // add to input
+
+        const res = await singUpCostumer(costumer)
+
+        console.log(res);
+    }
+    
     return (
         <div className='main-cadastro'>
             <EmptyHeader />
@@ -60,13 +147,24 @@ export const SignUpConsumidor = () => {
                         name='Data de nascimento'
                         type='date'
                     />
+                
+                    {/* TODO  */}
+
+                    {
+                        // transform gender data into input options
+                    
+                    }
+
+                    {
+                        // transform type of address data into input options
+                    }
                 </div>
 
 
                 <div className="button-add-image-container">
                     <AddImage text='Adicione uma foto de perfil' />
                     <GreenButton
-                        text='Cadastrar' />
+                        text='Cadastrar' onClick={handleClick}/>
                 </div>
             </div>
 

@@ -14,8 +14,7 @@ export const Login = () => {
             <EmptyHeader />
 
              <Title text='Login'/>
-
-
+             
             <div className="input-container">
                 <div className="input">
                 <DefaultInput

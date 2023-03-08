@@ -9,7 +9,6 @@ import { Footer } from '../../components/Footer'
 import { SpecialInput } from '../../components/SpecialInput'
 
 import { useState } from 'react'
- 
 
 export const SignUpFeirante = () => {
     const [values, setValues] = useState({});
