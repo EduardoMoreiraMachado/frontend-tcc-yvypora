@@ -147,6 +147,7 @@ export const SignUpConsumidor = () => {
                         name='Data de nascimento'
                         type='date'
                     />
+                    
                 
                     {/* TODO  */}
 
