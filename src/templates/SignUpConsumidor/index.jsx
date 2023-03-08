@@ -9,6 +9,8 @@ import AddImage from '../../components/AddImage'
 
 
 export const SignUpConsumidor = () => {
+
+    
     return (
         <div className='main-cadastro'>
             <EmptyHeader />
