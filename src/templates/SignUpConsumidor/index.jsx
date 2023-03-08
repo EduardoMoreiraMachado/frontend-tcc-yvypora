@@ -1,14 +1,26 @@
 import './style.css'
+
 import { Footer } from '../../components/Footer'
 import { EmptyHeader } from '../../components/EmptyHeader'
 import { DefaultInput } from '../../components/DefaultInput'
 import { GreenButton } from '../../components/GreenButton'
+import { SpecialInput } from '../../components/SpecialInput'
+import { Title } from '../../components/Title'
+import { AddImage } from '../../components/AddImage'
 
-import Title from '../../components/Title'
-import AddImage from '../../components/AddImage'
+import { useState } from 'react'
 
 
 export const SignUpConsumidor = () => {
+    const [values, setValues] = useState({});
+
+    function handleChange(event) {
+        setValues({
+            ...values,
+            [event.target.name]: event.target.value
+        });
+    }
+
     return (
         <div className='main-cadastro'>
             <EmptyHeader />
@@ -30,13 +42,19 @@ export const SignUpConsumidor = () => {
                         name='Senha'
                         type='password'
                     />
-                    <DefaultInput
-                        name='CPF'
-                        type='text'
+                    <SpecialInput 
+                        name="cpf"
+                        label="CPF"
+                        mask="999.999.999-99"
+                        value={values.cpf}
+                        onChange={handleChange}
                     />
-                    <DefaultInput
-                        name='CEP'
-                        type='text'
+                    <SpecialInput 
+                        name="cep"
+                        label="CEP"
+                        mask="99999-999"
+                        value={values.cep}
+                        onChange={handleChange}
                     />
                     <DefaultInput
                         name='Data de nascimento'

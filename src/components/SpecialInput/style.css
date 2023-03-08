@@ -1,0 +1,16 @@
+.cpf-input-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    color: #245501;
+}
+
+.cpf-label {
+    font-size: 1.5rem;
+}
+
+.cpf-input {
+    width: 35vw;
+    font-size: 2rem;
+    border-bottom: 2px solid #538D22;
+}
