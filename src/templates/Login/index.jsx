@@ -7,8 +7,37 @@ import { DefaultInput } from '../../components/DefaultInput';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
 import {Title} from '../../components/Title'
+import { commonsAPI } from '../../api/api';
 
 export const Login = () => {
+
+    const handleClick = async () => {
+        try {
+            const inputs = document.querySelectorAll("input")
+            
+            const email = inputs[0].value
+            const password = inputs[1].value
+
+            const res = await commonsAPI.post('/login/', {
+                email,
+                password,
+                typeOfUser: "COSTUMER"
+            })
+            
+            if (res.data.error) {
+                // append sweet alert   
+                console.log(res.data.message); 
+            }
+        
+            // redirect if everything is ok!
+            console.log(res.data);
+        } catch (error) {
+            console.log(error);
+            // append sweet alert
+        }
+    }
+
+
     return (
         <div className='main'>
             <EmptyHeader />
@@ -29,7 +58,7 @@ export const Login = () => {
 
                 <div className="button-container">
                     <GreenButton
-                        text='Cadastrar' />
+                        text='Cadastrar' onClick={handleClick}/>
                 </div>
             </div>
 
