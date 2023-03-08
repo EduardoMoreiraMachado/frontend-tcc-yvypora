@@ -66,3 +66,12 @@
     background-color: #245501;
     border-radius: 30px;
 }
+
+.promotion-img{
+    position: absolute;
+    margin-left: 120px;
+    margin-top: -21px;
+    z-index: 10;
+    min-width: 150px;
+    min-height: 1px;
+  }
