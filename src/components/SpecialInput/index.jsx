@@ -17,9 +17,9 @@ export const SpecialInput = ({label, value, onChange, name, mask}) => {
     }
 
     return(
-        <div className='cpf-input-container'>
-            <label className="cpf-label" htmlFor="input-default">{label}</label>
-            <InputMask className='cpf-input' mask={mask} value={value} onChange={handleChange} />
+        <div className='special-input-container'>
+            <label className="special-label">{label}</label>
+            <InputMask className='special-input' mask={mask} value={value} onChange={handleChange} />
         </div>
     )
 }

@@ -1,0 +1,71 @@
+.add-adress-page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.add-adress-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+.title {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.prev-page-button {
+    width: fit-content;
+    background-color: transparent;
+    padding: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.prev-page-button:hover .prev-page-icon {
+    width: 4.2vw;
+}
+
+.add-adress-subtitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #143601;
+    padding-bottom: 5vh;
+}
+
+.inputs-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    background-color: #AAD576;
+    padding: 2vh 3vw 10vh 3vw;
+    border-radius: 10px 0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.inputs h1 {
+    color: #143601;
+    padding-bottom: 3vh;
+}
+
+.save-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}

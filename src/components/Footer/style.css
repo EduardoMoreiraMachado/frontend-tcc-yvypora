@@ -66,10 +66,6 @@ footer {
     color: #fff
 }
 
-.title {
-    margin-top: 9vh;
-}
-
 @media (max-width: 768px) {
     footer {
         height: auto;
