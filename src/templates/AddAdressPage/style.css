@@ -26,8 +26,13 @@
     position: absolute;
 }
 
+.prev-page-icon {
+    transition: all 0.5s;
+}
+
 .prev-page-button:hover .prev-page-icon {
-    width: 4.2vw;
+    transform: scale(1.1);
+    transition: all 0.5s;
 }
 
 .add-adress-subtitle {

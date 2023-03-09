@@ -1,0 +1,23 @@
+.option-container {
+    width: 40vw;
+    display: flex;
+    background-color: #AAD576;
+    background-image: url(../../imgs/arrow_icon.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 99%;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 1vw;
+}
+
+.option-image {
+    width: 25px;
+    height: 25px;
+}
+
+.option-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #143601
+}

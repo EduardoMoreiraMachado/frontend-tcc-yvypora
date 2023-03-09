@@ -33,7 +33,7 @@ export const SignUpFeirante = () => {
                     />
                     <DefaultInput
                         name='Email'
-                        type='text'
+                        type='email'
                     />
                     <DefaultInput
                         name='Senha'

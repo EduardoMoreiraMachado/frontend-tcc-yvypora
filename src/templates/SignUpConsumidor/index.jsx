@@ -123,7 +123,7 @@ export const SignUpConsumidor = () => {
                     />
                     <DefaultInput
                         name='Email'
-                        type='text'
+                        type='email'
                     />
                     <DefaultInput
                         name='Senha'
