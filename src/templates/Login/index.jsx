@@ -1,73 +1,82 @@
-import './style.css'
+import "./style.css";
 
 // import FruitsFooter from '../../imgs/fruits_footer.jpg'
 
-import { EmptyHeader } from '../../components/EmptyHeader'
-import { DefaultInput } from '../../components/DefaultInput';
-import { GreenButton } from '../../components/GreenButton';
-import { Footer } from '../../components/Footer';
-import {Title} from '../../components/Title'
-import { commonsAPI } from '../../api/api';
+import { EmptyHeader } from "../../components/EmptyHeader";
+import { DefaultInput } from "../../components/DefaultInput";
+import { GreenButton } from "../../components/GreenButton";
+import { Footer } from "../../components/Footer";
+import { Title } from "../../components/Title";
+import { commonsAPI } from "../../api/api";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
+const MySwal = withReactContent(Swal);
 
 export const Login = () => {
+  const navigate = useNavigate();
 
-    const handleClick = async () => {
-        try {
-            const inputs = document.querySelectorAll("input")
-            
-            const email = inputs[0].value
-            const password = inputs[1].value
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try {
+      const inputs = document.querySelectorAll("input");
 
-            const res = await commonsAPI.post('/login/', {
-                email,
-                password,
-                typeOfUser: "COSTUMER"
-            })
-            
-            if (res.data.error) {
-                // append sweet alert   
-                console.log(res.data.message); 
-            }
-        
-            // redirect if everything is ok!
-            console.log(res.data);
-        } catch (error) {
-            console.log(error);
-            // append sweet alert
-        }
+      const email = inputs[0].value;
+      const password = inputs[1].value;
+
+      const { data } = await commonsAPI.post("/login/", {
+        email,
+        password,
+        typeOfUser: "COSTUMER",
+      });
+
+      MySwal.fire({
+        timer: 1500,
+        showConfirmButton: false,
+        title: <p>Login Bem Sucedido!</p>,
+        icon: "success",
+        buttonsStyling: false,
+        timerProgressBar: true,
+      });
+
+      localStorage.setItem("user-logged-token", data.token);
+
+      navigate("/home")
+    } catch (error) {
+      MySwal.fire({
+        timer: 4500,
+        showConfirmButton: false,
+        title: <p>{error.response.data.message}</p>,
+        icon: "error",
+        buttonsStyling: false,
+        timerProgressBar: true,
+      });
     }
+  };
 
+  return (
+    <div className="main">
+      <EmptyHeader />
 
-    return (
-        <div className='main'>
-            <EmptyHeader />
+      <Title text="Login" />
+      <form>
+        <div className="input-container">
+          <div className="input">
+            <DefaultInput name="Email" type="text" />
+            <DefaultInput name="Senha" type="password" />
+          </div>
 
-            <Title text='Login' />
-
-            <div className="input-container">
-                <div className="input">
-                    <DefaultInput
-                        name='Email'
-                        type='text'
-                    />
-                    <DefaultInput
-                        name='Senha'
-                        type='password'
-                    />
-                </div>
-
-                <div className="button-container">
-                    <GreenButton
-                        text='Cadastrar' onClick={handleClick}/>
-                </div>
-            </div>
-
-            {/* <div className='fruits-footer'></div> */}
-
-            <Footer />
+          <div className="button-container">
+            <GreenButton text="Entrar" onClick={handleClick} type="submit" />
+          </div>
         </div>
-    )
-}
+      </form>
 
+      {/* <div className='fruits-footer'></div> */}
+
+      <Footer />
+    </div>
+  );
+};
 
 export default Login;

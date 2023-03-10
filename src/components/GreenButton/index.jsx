@@ -1,7 +1,7 @@
 import './style.css'
 
-export const GreenButton = ({text, onClick}) => {
+export const GreenButton = ({text, onClick, type}) => {
     return (
-        <button href='#' className="green_button" onClick={onClick}>{text}</button>
+        <button type={type} href='#' className="green_button" onClick={onClick}>{text}</button>
     )
 }
