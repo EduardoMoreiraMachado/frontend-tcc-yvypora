@@ -5,13 +5,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2vh;
 }
 
 .text {
     font-size: 2rem;
     font-weight: 400;
     color: #143601;
+    padding-bottom: 1vh;
+}
+
+.subtext {
+    width: 60%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #4E4C4C;
+    padding-bottom: 3vh;
 }
 
 .image-button {
@@ -24,15 +33,15 @@
     background-position-y: 40%;
      background-size: 110px;
     border-radius: 100%;
-    transition: all 1s;
-}
-
-.image-button:hover {
-    border: 4px solid #538D22;
     transition: all 0.5s;
 }
 
+.image-button:hover {
+    background-color: #aad5768b;
+    transition: all 0.3s;
+}
+
 .image-button:active {
-    background-color: #d3e6bb;
+    background-color: #4e6138;
     transition: all 0s;
 }

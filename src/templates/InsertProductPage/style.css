@@ -1,0 +1,77 @@
+.insert-product-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.side-containers {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 3vw;
+    padding-left: 3vw;
+}
+
+.right-container {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.drop-box {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3vh;
+}
+
+.drop-box select {
+    width: fit-content;
+    font-size: 1.5rem;
+    border: solid 1px #538D22;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.product-input-title {
+    color: #245501;
+    font-weight: 400;
+    font-size: 2rem;
+    padding-bottom: 1vh;
+}
+
+.product-input {
+    font-size: 1.5rem;
+    border: solid 1px #538D22;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.input-container {
+    padding-bottom: 3vh;
+}
+
+.input-container textarea {
+    font-size: 1.5rem;
+    border: solid 1px #538D22;
+    border-radius: 10px;
+    padding: 5px;
+    resize: none;
+}
+
+.mid-container {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promotion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container {
+    width: 33.33%;
+}
