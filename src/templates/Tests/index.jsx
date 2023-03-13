@@ -22,6 +22,8 @@ export const Tests = () => {
         price='40'
         promo={true}/>
        </>
+
+       
     )
 }
 

@@ -1,0 +1,32 @@
+.main-container{
+    background-color: aqua;
+    display: flex;
+}
+.photo-day-container{
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  
+}
+.day-hour-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: azure;
+    height: 20vh;
+    width: 46vw;
+}
+.day-hour-container h1{
+font-size: 1.5rem; 
+    font-weight: lighter;
+    color: #1A4301;
+}
+.button-container{
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: crimson;
+}

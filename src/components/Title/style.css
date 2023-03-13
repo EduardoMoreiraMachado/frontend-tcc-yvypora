@@ -1,8 +1,14 @@
 .title {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 24px;
     font-size: 1.5rem; 
     font-weight: lighter;
     color: #1A4301;
+    height: 20vh;
+}
+.title h2{
+    font-size: 1.5rem;
 }
