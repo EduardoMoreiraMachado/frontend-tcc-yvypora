@@ -67,6 +67,7 @@ input:checked + .slider:before {
 }
 
 .input-active {
+    animation: fadeIn 0.3s ease-in-out;
     width: 7vw;
     text-align: center;
     border: solid 1px #538D22;

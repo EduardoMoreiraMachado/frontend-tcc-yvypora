@@ -2,7 +2,29 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.data-containers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.insert-product-data {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.insert-image-data {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14vh;
 }
 
 .drop-box {
@@ -52,7 +74,23 @@
 
 .price-values {
     display: flex;
-    gap: 1vw;
+    flex-direction: column;
+}
+
+#options-weight {
+    display: flex;
+    flex-direction: column;
+}
+
+.options-weight {
+    display: flex;
+    gap: 1vw
+}
+
+.product-weight {
+    animation: fadeIn 0.3s ease-in-out;
+    display: flex;
+    gap: 0.5vw;
 }
 
 .product-price {
@@ -66,5 +104,11 @@
     color: #245501;
     font-weight: 400;
     font-size: 1.5rem;
+}
+
+.register-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 

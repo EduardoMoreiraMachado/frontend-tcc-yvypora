@@ -7,7 +7,7 @@ export const ToggleSwitch = () => {
     const [value, setValue] = useState('');
 
     // verificar se o checkbox está ativado
-    const handleCheckboxChannge = (event) => {
+    const handleCheckboxChange = (event) => {
         setIsChecked(event.target.checked);
     }
     
@@ -25,7 +25,7 @@ export const ToggleSwitch = () => {
     return(
         <div className='toggle-switch-container'>
             <label className="switch">
-                <input type="checkbox" checked={isChecked} onChange={handleCheckboxChannge}/>
+                <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange}/>
                 <span className="slider round"></span>
             </label>
             <input className={isChecked ? 'input-active' : 'input-not-active'} type="number" value={value} min='1' max='100' onKeyDown={handleKeyDown} onChange={handleChange} placeholder='% de desconto'/>
