@@ -23,7 +23,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: 14vh;
 }
 
@@ -107,8 +107,6 @@
 }
 
 .register-button {
-    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
-
