@@ -31,24 +31,28 @@ export const AddFairPage = () => {
             <div className="main-container">
                 <div className='inputs-container'>
                     <div className='inputs'>
-                        <h1>Detalhes do endereço</h1>
+                        <h1>Detalhes da feira</h1>
                         <DefaultInput
-                            name="Nome do endereço"
+                            name="Nome da feira"
                             type="text"
                         />
                         <SpecialInput
                             name="cep"
-                            label="CEP"
+                            label="CEP do local da feira"
                             mask="99999-999"
                             value={values.cep}
                             onChange={handleChange}
                         />
                         <DefaultInput
-                            name="Rua"
-                            type="text"
+                            name="Horário de abertura"
+                            type="time"
                         />
                         <DefaultInput
-                            name="Bairro"
+                            name="Horário de encerramento"
+                            type="time"
+                        />
+                        <DefaultInput
+                            name="Dias de funcionamento"
                             type="text"
                         />
                     </div>
