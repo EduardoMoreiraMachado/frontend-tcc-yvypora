@@ -17,24 +17,6 @@
     display: flex;
     justify-content: center;
 }
-
-.prev-page-button {
-    width: fit-content;
-    background-color: transparent;
-    padding: 20px;
-    cursor: pointer;
-    position: absolute;
-}
-
-.prev-page-icon {
-    transition: all 0.5s;
-}
-
-.prev-page-button:hover .prev-page-icon {
-    transform: scale(1.1);
-    transition: all 0.5s;
-}
-
 .add-adress-subtitle {
     width: 100%;
     display: flex;

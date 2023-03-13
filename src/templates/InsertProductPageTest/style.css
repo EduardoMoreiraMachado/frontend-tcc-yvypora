@@ -2,21 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.side-containers {
-    display: flex;
-    justify-content: space-between;
-    padding-right: 3vw;
-    padding-left: 3vw;
-}
-
-.right-container {
-    width: 33.33%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .drop-box {
@@ -59,24 +45,9 @@
     resize: none;
 }
 
-.mid-container {
-    width: 33.33%;
-    display: flex;
-    flex-direction: column;
-}
-
 .promotion {
-    width: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.left-container {
-    width: 33.33%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .price-values {

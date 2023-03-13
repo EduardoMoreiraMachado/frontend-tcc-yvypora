@@ -121,3 +121,21 @@ a {
   padding-top: 5vh;
   padding-bottom: 5vh;
 }
+
+.prev-page-button {
+  width: fit-content;
+  background-color: transparent;
+  padding: 20px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.prev-page-icon {
+  transition: all 0.5s;
+}
+
+.prev-page-button:hover .prev-page-icon {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+

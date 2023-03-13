@@ -33,19 +33,35 @@ export const InsertProductPage = () => {
                     </div>
                 </div>
                 <div className='mid-container'>
-                    <AddImage 
-                        text="Imagem do produto"
-                        subtext="Anexe uma imagem do produto que ficará visível ao cliente"
-                    />
+                    <h1 className='product-input-title' htmlFor="product-type">Preço</h1>
+                    <div className='price-values'>
+                        <div className='drop-box'>
+                            <select name="product-type" id="type">
+                                <option value="duzia">Dúzia</option>
+                                <option value="peso">Peso</option>
+                                <option value="unitario">Unitário</option>
+                            </select>
+                            <div className='product-price'>
+                                <h1 className='product-price-coin'>R$</h1>
+                                <input className='product-input' type="number" min="0" max="100" step=".01"/>   
+                            </div>
+                        </div>
+                    </div>
                     <div className='promotion'>
                         <h1 className='product-input-title'>Promoção:</h1>
                         <ToggleSwitch />
                     </div>
                 </div>
                 <div className='left-container'>
-                    <GreenButton 
-                        text="Cadastrar"
+                    <AddImage 
+                        text="Imagem do produto"
+                        subtext="Anexe uma imagem do produto que ficará visível ao cliente"
                     />
+                    <div className='register-button'>
+                        <GreenButton 
+                            text="Cadastrar"
+                        />
+                    </div>
                 </div>
             </div>
             <Footer />
