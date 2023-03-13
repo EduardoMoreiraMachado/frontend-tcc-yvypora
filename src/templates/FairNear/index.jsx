@@ -10,8 +10,7 @@ export const FairNear = () =>{
             <EmptyHeader/>
             <Title text={'Feiras Próximas'}/>
             <NavBar/>
-            <FairNearCard title={'Feira Livre da Rua Oscar Freire'}
-            />
+            <FairNearCard title={'Feira Livre da Rua Oscar Freire'} />
         </div>
     )
 }
