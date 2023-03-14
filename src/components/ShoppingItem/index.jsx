@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import PromoImg from '../../imgs/promotion.svg'
  
 import './style.css'

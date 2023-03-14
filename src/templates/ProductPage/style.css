@@ -1,0 +1,29 @@
+.product-containers {
+    display: flex;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-main {
+    display: flex;
+}
+
+.image-container {
+    width: 40vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    background-image: url(../../imgs/green_wave.svg);
+    background-repeat: no-repeat;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.product-image {
+    width: 60%;
+    height: 100%;
+}
