@@ -9,8 +9,10 @@ export const cepAPI = axios.create({
 });
 
 export const marketerAPI = axios.create({
-  baseURL: "https://marketer-api.onrender.com",
+  baseURL: "http://localhost:3335/",
   headers: {
-    Authorization: `Bearer ${localStorage.getItem("user-logged-token")}`,
+    common: {
+      Authorization: `Bearer ${localStorage.getItem("user-logged-token")}`,
+    },
   },
 });
