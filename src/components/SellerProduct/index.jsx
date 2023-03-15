@@ -6,11 +6,11 @@ import DeleteImage from '../../imgs/delete_icon.svg'
 import UpdateImage from '../../imgs/update_icon.svg'
 import PauseImage from '../../imgs/pause_icon.svg'
 
-export const SellerProducts = ({name, imgUrl, unit, price}) => {
+export const SellerProduct = ({name, imgUrl, unit, price}) => {
     const [itemCount, setItemCount] = useState(1);
 
     return(
-        <div className='seller-products-container'>
+        <div className='seller-product-container'>
             <div className='product-data'>
                 <div className='product-visual'>
                     <h1 className='name'>{name}</h1>

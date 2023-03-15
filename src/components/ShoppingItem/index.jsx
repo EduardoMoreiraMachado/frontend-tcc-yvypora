@@ -2,7 +2,7 @@ import PromoImg from '../../imgs/promotion.svg'
  
 import './style.css'
 
-export const ShoppingItem = ({name, imgUrl, weight, price,promo}) => {
+export const ShoppingItem = ({name, imgUrl, weight, price, promo}) => {
    
 
     // if exist

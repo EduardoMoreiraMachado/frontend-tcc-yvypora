@@ -1,10 +1,10 @@
 import { SpecialInput } from '../../components/SpecialInput'
-import Title from '../../components/Title'
+import { TitleSubtitle } from '../../components/TitleSubtitle'
 import { useState } from 'react'
 import { DefaultInput } from '../../components/DefaultInput'
 import { AddImage } from '../../components/AddImage'
-import {GreenButton} from '../../components/GreenButton'
-import {Footer} from '../../components/Footer'
+import { GreenButton } from '../../components/GreenButton'
+import { Footer } from '../../components/Footer'
 import './style.css'
 import PrevPageIcon from '../../imgs/prev_page_icon.svg'
 
@@ -25,8 +25,10 @@ export const AddFairPage = () => {
             <a className='prev-page-button'>
                 <img className='prev-page-icon' src={PrevPageIcon} alt=''/>
             </a>
-            <Title text={'Escolha o local'}
-                subtitle='Insira as feiras onde seus produtos serão vendidos' />
+            <TitleSubtitle 
+                text={'Escolha o local'}
+                subtitle='Insira as feiras onde seus produtos serão vendidos' 
+            />
 
             <div className="main-container">
                 <div className='inputs-container'>
