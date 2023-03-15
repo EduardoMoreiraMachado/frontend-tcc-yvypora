@@ -1,0 +1,20 @@
+
+.all-content-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-card-container{
+    display: flex;
+    
+}
+.cards{
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+    height: 100%;
+    gap: 36px;
+    justify-content: center;
+    flex-direction: column; 
+    align-items: center;
+}
