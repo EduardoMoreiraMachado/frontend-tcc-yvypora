@@ -8,7 +8,7 @@ import { ToggleSwitch } from "../../components/ToggleSwitch";
 import { GreenButton } from "../../components/GreenButton";
 
 import { useState } from "react";
-import { createProduct } from "../../utils/productFetch";
+import { addSaleOff, createProduct } from "../../utils/productFetch";
 
 export const InsertProductPage = () => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -18,6 +18,7 @@ export const InsertProductPage = () => {
   }
   async function handleClick(e) {
     e.preventDefault();
+    const image = document.querySelector("")
     const inputs = document.querySelectorAll(".product-input");
 
     const categorySelector = document.getElementById("type");
@@ -33,6 +34,7 @@ export const InsertProductPage = () => {
     const name = inputs[0].value;
     const price = inputs[1].value;
     const availableQuantity = document.getElementById("available-quant").value;
+    const saleOffValue = document.querySelectorAll(".input-active")[0]?.value;
 
     const data = {
       category: {
@@ -49,7 +51,22 @@ export const InsertProductPage = () => {
       available_quantity: parseInt(availableQuantity, 10),
     };
 
-    const res = await createProduct(data)
+    try {
+      const { payload } = await createProduct(data);
+      const { id } = payload.data;
+
+      // TODO append picture here
+      const formdata = new FormData();  
+      formdata.append("picture", )
+      // TODO append sale off if exist!
+      if (saleOffValue) {
+        try {
+          await addSaleOff({ id, value: saleOffValue });
+        } catch (error) {
+          // TODO append to error page state
+        }
+      }
+    } catch (e) {}
   }
   return (
     <div className="insert-product-page">
