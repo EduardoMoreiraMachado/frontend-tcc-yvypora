@@ -5,7 +5,8 @@ export const AddImage = ({text, subtext}) => {
         <div className="add-image-container">
             <h1 className="text">{text}</h1>
             <h2 className='subtext'>{subtext}</h2>
-            <button className="image-button"/>
+            <label for="file-selection" className="image-button"/>
+            <input id="file-selection" type="file"/>
         </div>
     )
 }

@@ -36,6 +36,10 @@
     transition: all 0.5s;
 }
 
+input[type='file'] {
+    display: none
+}
+ 
 .image-button:hover {
     background-color: #aad5768b;
     transition: all 0.3s;

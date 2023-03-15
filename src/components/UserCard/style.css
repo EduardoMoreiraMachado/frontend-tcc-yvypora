@@ -1,0 +1,22 @@
+.user-card-container {
+    display: flex;
+    background-color: chartreuse;
+}
+
+.user-card-image-container {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: aqua;
+}
+
+.user-card-image {
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+}
