@@ -8,6 +8,7 @@ import { ToggleSwitch } from "../../components/ToggleSwitch";
 import { GreenButton } from "../../components/GreenButton";
 
 import { useState } from "react";
+import { createProduct } from "../../utils/productFetch";
 
 export const InsertProductPage = () => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -28,25 +29,27 @@ export const InsertProductPage = () => {
     const priceTypeOptionSelected =
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
-    console.log(categoryOptionSelected, priceTypeOptionSelected);
-
     const description = document.getElementById("description").value;
     const name = inputs[0].value;
     const price = inputs[1].value;
-
+    const availableQuantity = document.getElementById("available-quant").value;
 
     const data = {
-      category: { name: categoryOptionSelected.value, id: 1 },
+      category: {
+        name: categoryOptionSelected.value,
+        id: parseInt(categoryOptionSelected.id),
+      },
       name,
-    //   description,
-      price,
+      description,
+      price: parseFloat(price),
       price_type: {
-        id: 1,
+        id: parseInt(priceTypeOptionSelected.id),
         name: priceTypeOptionSelected.value,
       },
+      available_quantity: parseInt(availableQuantity, 10),
     };
 
-    console.log(data);
+    const res = await createProduct(data)
   }
   return (
     <div className="insert-product-page">
@@ -60,9 +63,15 @@ export const InsertProductPage = () => {
               Categoria:
             </label>
             <select name="product-type" id="type">
-              <option value="fruta">Fruta</option>
-              <option value="verdura">Verdura</option>
-              <option value="especiaria">Especiaria</option>
+              <option value="fruta" id="1">
+                Fruta
+              </option>
+              <option value="verdura" id="2">
+                Verdura
+              </option>
+              <option value="especiaria" id="3">
+                Especiaria
+              </option>
               <option value="outro">Outro</option>
             </select>
           </div>
@@ -94,9 +103,15 @@ export const InsertProductPage = () => {
                   name="product-type"
                   id="price-type"
                 >
-                  <option value="duzia">Dúzia</option>
-                  <option value="peso">Peso</option>
-                  <option value="unitario">Unitário</option>
+                  <option value="duzia" id="3">
+                    Dúzia
+                  </option>
+                  <option value="peso" id="1">
+                    Peso
+                  </option>
+                  <option value="unitario" id="2">
+                    Unitário
+                  </option>
                 </select>
 
                 {selectedValue === "peso" && (
@@ -137,14 +152,15 @@ export const InsertProductPage = () => {
 
         <div className="insert-image-data">
           <div className="product-quantity">
-              <h1 className="product-input-title">Quant. disponível:</h1>
-              <input
-                className="product-input"
-                type="number"
-                min="0"
-                max="100"
-                step="1"
-              />
+            <h1 className="product-input-title">Quant. disponível:</h1>
+            <input
+              className="product-input"
+              id="available-quant"
+              type="number"
+              min="0"
+              max="100"
+              step="1"
+            />
           </div>
 
           <AddImage
