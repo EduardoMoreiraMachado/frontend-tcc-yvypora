@@ -136,6 +136,17 @@ export const InsertProductPage = () => {
         </div>
 
         <div className="insert-image-data">
+          <div className="product-quantity">
+              <h1 className="product-input-title">Quant. disponível:</h1>
+              <input
+                className="product-input"
+                type="number"
+                min="0"
+                max="100"
+                step="1"
+              />
+          </div>
+
           <AddImage
             text="Imagem do produto"
             subtext="Anexe uma imagem do produto que ficará visível ao cliente"

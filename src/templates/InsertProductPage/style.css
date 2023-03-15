@@ -15,8 +15,10 @@
 
 .insert-product-data {
     width: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .insert-image-data {
@@ -24,6 +26,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 14vh;
 }
 
