@@ -10,11 +10,11 @@ import { Title } from "../../components/Title";
 import { commonsAPI } from "../../api/api";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
-  const navigate = useNavigate(); // hook
+  // const navigate = useNavigate(); // hook
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -30,6 +30,7 @@ export const Login = () => {
         typeOfUser: "COSTUMER",
       });
 
+
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
@@ -41,10 +42,9 @@ export const Login = () => {
 
       localStorage.setItem("user-logged-token", data.token);
 
-      navigate("/home") // path
+      // navigate("/home") // path
     } catch (error) {
       let message = error.response?.data.message
-      console.log("teste", error)
       if (!message) message = "Error!"
       MySwal.fire({
         timer: 4500,

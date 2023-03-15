@@ -7,3 +7,10 @@ export const commonsAPI = axios.create({
 export const cepAPI = axios.create({
   baseURL: "https://viacep.com.br/ws/",
 });
+
+export const marketerAPI = axios.create({
+  baseURL: "https://marketer-api.onrender.com",
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("user-logged-token")}`,
+  },
+});
