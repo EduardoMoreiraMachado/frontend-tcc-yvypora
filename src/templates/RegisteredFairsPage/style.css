@@ -1,0 +1,25 @@
+.registered-fairs-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.fairs-content {
+    display: flex;
+}
+
+.fairs-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.fairs {
+    height: 70%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}

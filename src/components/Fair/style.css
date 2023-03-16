@@ -3,14 +3,13 @@
 }
 
 .fair-container {
-    margin: 10%;
     width: fit-content;
     background-color: #73A942;
     display: flex;
     align-items: center;
     border-radius: 10px 0px;
-    padding: 1.5%;
-    gap: 2vw;
+    padding: 15px;
+    gap: 30px;
 }
 
 .fair-image {
@@ -28,7 +27,7 @@
 .fair-info {
     display: flex;
     flex-direction: column;
-    gap: 1vh;
+    gap: 10px;
 }
 
 .name {
