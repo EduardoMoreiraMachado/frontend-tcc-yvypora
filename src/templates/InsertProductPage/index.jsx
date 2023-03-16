@@ -7,8 +7,18 @@ import { AddImage } from "../../components/AddImage";
 import { ToggleSwitch } from "../../components/ToggleSwitch";
 import { GreenButton } from "../../components/GreenButton";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 import { useState } from "react";
-import { addSaleOff, createProduct } from "../../utils/productFetch";
+
+import {
+  addPictureToProduct,
+  addSaleOff,
+  createProduct,
+} from "../../utils/productFetch";
+
+const MySwal = withReactContent(Swal);
 
 export const InsertProductPage = () => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -18,7 +28,9 @@ export const InsertProductPage = () => {
   }
   async function handleClick(e) {
     e.preventDefault();
-    const image = document.querySelector("")
+    const image = document.getElementById("file-selection").files[0];
+    console.log(image);
+
     const inputs = document.querySelectorAll(".product-input");
 
     const categorySelector = document.getElementById("type");
@@ -55,18 +67,55 @@ export const InsertProductPage = () => {
       const { payload } = await createProduct(data);
       const { id } = payload.data;
 
-      // TODO append picture here
-      const formdata = new FormData();  
-      formdata.append("picture", )
-      // TODO append sale off if exist!
+      const formdata = new FormData();
+
+      formdata.append("picture", image);
+
+      console.log("formdata", formdata);
+
+      await addPictureToProduct({ id: id, formData: formdata }); // is required
+
       if (saleOffValue) {
         try {
           await addSaleOff({ id, value: saleOffValue });
+          MySwal.fire({
+            timer: 1500,
+            showConfirmButton: false,
+            title: <p>Produto Cadastrado Com Sucesso!</p>,
+            icon: "success",
+            buttonsStyling: false,
+            timerProgressBar: true,
+          });
         } catch (error) {
-          // TODO append to error page state
+          MySwal.fire({
+            timer: 1500,
+            showConfirmButton: false,
+            title: <p>Falha Ao Cadastrar!</p>,
+            icon: "error",
+            buttonsStyling: false,
+            timerProgressBar: true,
+          });
         }
+      } else {
+        MySwal.fire({
+          timer: 1500,
+          showConfirmButton: false,
+          title: <p>Produto Cadastrado Com Sucesso!</p>,
+          icon: "success",
+          buttonsStyling: false,
+          timerProgressBar: true,
+        });
       }
-    } catch (e) {}
+    } catch (e) {
+      MySwal.fire({
+        timer: 1500,
+        showConfirmButton: false,
+        title: <p>Falha Ao Cadastrar!</p>,
+        icon: "error",
+        buttonsStyling: false,
+        timerProgressBar: true,
+      });
+    }
   }
   return (
     <div className="insert-product-page">

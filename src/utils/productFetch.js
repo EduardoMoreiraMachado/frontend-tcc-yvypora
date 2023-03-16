@@ -20,8 +20,12 @@ export const addSaleOff = async ({ id, value }) => {
   return res.data;
 };
 
-export const addPictureToProduct = async ({id, formData}) => {
-  const res = await marketerAPI.put(`product/picture/${id}`, formData);
+export const addPictureToProduct = async ({ id, formData }) => {
+  const res = await marketerAPI.put(`product/picture/${id}`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 
   if (res.data.error) {
     return res.data.message;
