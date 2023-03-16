@@ -111,7 +111,6 @@ a {
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 2vh;
   background-color: #AAD576;
   padding: 2vh 3vw 10vh 3vw;
   border-radius: 10px 0px;

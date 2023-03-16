@@ -1,0 +1,20 @@
+.update-consumidor-account-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-content {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5vh;
+}
+
+.nav-bar {
+    width: 50%;
+}
+
+.green-button {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
