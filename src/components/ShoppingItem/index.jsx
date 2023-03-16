@@ -1,20 +1,19 @@
-import PromoImg from '../../imgs/promotion.svg'
+import PromoImg from '../../imgs/promotion1.svg'
  
 import './style.css'
 
 export const ShoppingItem = ({name, imgUrl, weight, price, promo}) => {
-   
-
     // if exist
 if (promo !== false) {
    console.log(promo)
     return(
         
         <div className='shopping-item-container'>
-            
-            <div className='item-visual'>
-            <img className = 'promotion-img 'src={PromoImg} alt="" />
+            <div className='item-visual'> 
+            <div className='header-card'>  
                 <h1 className='name'>{name}</h1>
+                <img className = 'promotion-img 'src={PromoImg} alt="" />
+            </div>
                 <div className='item-image'>
                     <img className='image' src={imgUrl} alt=''/>
                 </div>
@@ -31,7 +30,8 @@ if (promo !== false) {
 
 }
     return(
-        <div className='shopping-item-container'>
+
+        <div className='shopping-item-container-noPromo'>
             <div className='item-visual'>
                 <h1 className='name'>{name}</h1>
                 <div className='item-image'>

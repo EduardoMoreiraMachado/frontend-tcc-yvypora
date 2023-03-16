@@ -1,7 +1,8 @@
 import './style.css'
 
 export const WhiteButton = ({text}) => {
+
     return (
-        <span className="white_button">{text}</span>
+        <button className="white_button" >{text}</button>
     )
 }

@@ -1,26 +1,25 @@
 import './style.css'
 import { OrderSummary } from '../../components/OrderSummary'
 import { ShoppingItem } from '../../components/ShoppingItem'
+import { GreenButton } from '../../components/GreenButton'
+import { WhiteButton } from '../../components/WhiteButton'
+import { handler } from 'daisyui'
+
 
 
 
 
 export const Tests = () => {
+
+    
+
+
+
+
+
     return (
        <>
-        <ShoppingItem
-        name='abobrinha'
-        imgUrl = 'https://tempodecozimento.com.br/wp-content/uploads/2017/10/abobrinha.jpg'
-        weight='20'
-        price='40'
-        promo={true}/>
-
-        <ShoppingItem
-        name='abobrinha'
-        imgUrl = 'https://tempodecozimento.com.br/wp-content/uploads/2017/10/abobrinha.jpg'
-        weight='20'
-        price='40'
-        promo={true}/>
+        <Near/>
        </>
 
        

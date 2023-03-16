@@ -7,6 +7,24 @@
     border: 1px solid #538D22;
     border-radius: 10px;
 }
+.shopping-item-container-noPromo {
+    width: fit-content;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 2vh;
+    border: 1px solid #538D22;
+    border-radius: 10px;
+}
+.header-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
 
 .item-visual {
     display: flex;
@@ -68,10 +86,8 @@
 }
 
 .promotion-img{
-  position: absolute;
-  margin-left: 120px;
-  margin-top: -21px;
-  z-index: 10;
-  min-width: 150px;
-  min-height: 1px;
+
+  width: 100px;
+  height: 100px;
+
 }
