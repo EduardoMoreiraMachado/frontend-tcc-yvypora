@@ -4,7 +4,7 @@ import { SearchInput } from '../SearchInput'
 export const SearchInputHeader = () => {
     return (
         <header>
-            <img className='icon' src={YvyporaIcon} alt=''/>
+            <img className='icon-yvy' src={YvyporaIcon} alt=''/>
             <SearchInput />
             <div className='sign-container'>
                 <span className='sign-up'>Criar conta</span>

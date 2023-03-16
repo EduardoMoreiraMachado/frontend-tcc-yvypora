@@ -1,8 +1,10 @@
 import './style.css'
 
-export const WhiteButton = ({text}) => {
+export const WhiteButton = ({text, img}) => {
 
     return (
-        <button className="white_button" >{text}</button>
+      
+        <button className="white_button">{text}</button>
+       
     )
 }

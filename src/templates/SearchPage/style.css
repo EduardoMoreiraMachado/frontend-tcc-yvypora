@@ -1,0 +1,25 @@
+.main-content-container{
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+.result-search{
+    /* background-color: lightgreen; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    gap: 5%;
+    font-size: 2rem;
+    color: #143601;
+}
+.cards-result{
+    /* background-color: lightblue; */
+    display: grid;  
+    grid-template-columns: 20fr 20fr 20fr
+    
+    
+    
+}
