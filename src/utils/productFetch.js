@@ -1,5 +1,15 @@
 import { marketerAPI } from "../api/api";
 
+export const indexProducts = async () => {
+  const res = await marketerAPI.get("product/");
+
+  if (res.data.error) {
+    return res.data.message;
+  }
+
+  return res.data;
+};
+
 export const createProduct = async (data) => {
   const res = await marketerAPI.post("product/", data);
 
