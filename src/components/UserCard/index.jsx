@@ -13,3 +13,4 @@ export const UserCard = ({imgUrl, name, email}) => {
         </div>
     )
 }
+export default UserCard

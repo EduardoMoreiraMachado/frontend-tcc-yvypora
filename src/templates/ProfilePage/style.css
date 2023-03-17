@@ -1,0 +1,19 @@
+.user-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+}
+
+.profile-container{
+    display: flex;
+    align-items: center;
+}
+
+.options-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+}

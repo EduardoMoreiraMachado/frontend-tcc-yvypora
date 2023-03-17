@@ -11,6 +11,7 @@ import { NextButton } from '../../components/NextButton';
 import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
+import { SearchInputHeader } from '../../components/SearchInputHeader';
 
 export const GeneralStartPage = () => {
   const carousel = useRef(null);
@@ -28,11 +29,10 @@ export const GeneralStartPage = () => {
 
   return (
     <div className='general-start-page-container'>
-        <SignHeader />
+        <SearchInputHeader />
         <div className='page-content'>
           <NavBar />
           <div className='products-container'>
-            <SearchInput />
             <ProductCategory />
             <ProductCategorySelect />
             <div className='products-carrossel'>

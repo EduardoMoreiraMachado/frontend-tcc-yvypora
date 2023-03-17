@@ -8,3 +8,5 @@ export const Option = ({imgUrl, text}) => {
         </div>
     )
 }
+
+export default Option
