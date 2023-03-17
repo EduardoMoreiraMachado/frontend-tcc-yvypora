@@ -1,0 +1,14 @@
+.feirante-start-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url(../../imgs/header_green_wave.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}

@@ -3,9 +3,10 @@ import './style.css'
 import { SearchInputHeader } from '../../components/SearchInputHeader'
 import { Footer } from '../../components/Footer'
 import { NavBar } from '../../components/NavBar'
-import { WhiteButton } from '../../components/WhiteButton' 
 
 import StarsIconTest from '../../imgs/stars_icon_test.svg'
+import AddCartIcon from '../../imgs/add_cart_icon.svg'
+
 import { useState } from 'react'
 
 export const ProductPage = () => {
@@ -53,9 +54,10 @@ export const ProductPage = () => {
                             <h1 className="description-title">Descrição</h1>
                             <h2 className="description-text">A beterraba é uma planta herbácea da família das Quenopodiáceas, por Cronquist, ou das Amarantáceas, pela APG. Nome derivado do substantivo francês betterave. O colo tuberizado serve, para além dos fins culinários, produção de açúcar.</h2>
                         </div>
-                        <WhiteButton 
-                            text="Adicionar ao carrinho"
-                        />
+                        <button className='add-cart-button'>
+                            <img src={AddCartIcon} alt=""/>
+                            <span>Adicionar ao carrinho</span>
+                        </button>
                     </div>
                 </div>
             </div>
