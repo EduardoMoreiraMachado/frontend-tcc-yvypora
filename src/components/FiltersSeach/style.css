@@ -1,18 +1,18 @@
 .main-content-container-filters{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 35%;
     font-size: 2rem;
     color: #245501;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-    
+    box-shadow: 6px 10px 6px 10px rgba(0, 0, 0, 0.5);
 }
 
 .filters-container{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     height: 60vh;
+    width: 100%;
     gap:50px;
 }
 .category-container{

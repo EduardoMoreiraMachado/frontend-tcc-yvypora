@@ -3,6 +3,7 @@ import './style.css'
 import {SearchInputHeader} from '../../components/SearchInputHeader'
 import { ShoppingItem } from '../../components/ShoppingItem'
 import FiltersSearch from '../../components/FiltersSeach'
+import ProductsFilters from '../../components/ProductsFilters'
 import { Footer } from '../../components/Footer'
 
 export const SearchPage = ({name}) =>{
@@ -85,7 +86,8 @@ export const SearchPage = ({name}) =>{
                         />      
                     </div>
                   </div>
-                  <FiltersSearch/>
+                  {/* <FiltersSearch/> */}
+                  <ProductsFilters/>
             </div>
             <Footer/>
         </div>

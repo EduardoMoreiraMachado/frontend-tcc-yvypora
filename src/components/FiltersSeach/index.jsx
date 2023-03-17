@@ -1,6 +1,5 @@
 import { WhiteButton } from "../WhiteButton"
-import {DefaultInput} from '../DefaultInput'
-import IconStar from '../../imgs/icon_star.svg'
+// import IconStar from '../../imgs/icon_star.svg'
 import './style.css'
 import { useState } from "react"
 
@@ -10,9 +9,8 @@ export const FiltersSearch = () =>{
 
     const [price,setPrice] = useState(0)
 
-    const changePrice = (event) =>{
+    const handleChange = (event) =>{
         setPrice(event.target.value)
-        
     }
 
     return(
@@ -42,7 +40,7 @@ export const FiltersSearch = () =>{
                     <WhiteButton text='0'/>
                     <WhiteButton text={price}/>
                 </div>
-                <input type="range" onClick={changePrice} className="range-price" />
+                <input type="range" onClick={handleChange} className="range-price"/>
             </div>
         </div>
     )

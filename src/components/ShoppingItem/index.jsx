@@ -5,7 +5,6 @@ import './style.css'
 export const ShoppingItem = ({name, imgUrl, weight, price, promo}) => {
     // if exist
 if (promo !== false) {
-   console.log(promo)
     return(
         
         <div className='shopping-item-container'>

@@ -6,20 +6,19 @@
    
 }
 .result-search{
-    /* background-color: lightgreen; */
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
-
-    gap: 5%;
+    align-items: center;
     font-size: 2rem;
     color: #143601;
 }
 .cards-result{
-    /* background-color: lightblue; */
-    display: grid;  
-    grid-template-columns: 20fr 20fr 20fr
-    
-    
-    
+    margin-top: 5vh;
+    width: 100%;
+    display: grid; 
+    grid-template-columns: repeat(3, 2fr);
+    grid-template-rows: repeat(3,1fr);
+    row-gap: 50px;
+    justify-items:center ;
 }
