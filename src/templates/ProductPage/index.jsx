@@ -34,14 +34,14 @@ export const ProductPage = () => {
                             <span className="user-name">ZédoAlfácil</span>
                             
                             <div className="price-result">
-                                <div className="price-text">
-                                    <h2 className="unit">1kg</h2>
+                                <h2 className="unit">1kg</h2>
+                                <div className="price-amount">
                                     <h1 className="price">R$ {7.50 * itemCount}</h1>
-                                </div>
-                                <div className='amount'>
-                                    <button className='sub-button' onClick={() => {itemCount > 0 && (setItemCount(itemCount - 1))}}/>
-                                    <h1 className='number'>{itemCount}</h1>
-                                    <button className='add-button' onClick={() => setItemCount(itemCount + 1)}/>
+                                    <div className='amount'>
+                                        <button className='sub-button' onClick={() => {itemCount > 0 && (setItemCount(itemCount - 1))}}/>
+                                        <h1 className='number'>{itemCount}</h1>
+                                        <button className='add-button' onClick={() => setItemCount(itemCount + 1)}/>
+                                    </div>
                                 </div>
                             </div>
 

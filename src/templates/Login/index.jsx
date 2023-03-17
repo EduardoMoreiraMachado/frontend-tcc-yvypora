@@ -59,8 +59,9 @@ export const Login = () => {
 
   return (
     <div className="main">
-      <EmptyHeader />
-
+      <header>
+        <EmptyHeader />
+      </header>
       <Title text="Login" />
       <form>
         <div className="input-container">
