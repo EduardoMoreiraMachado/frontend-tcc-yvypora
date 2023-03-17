@@ -7,3 +7,4 @@ export const UserImage = ({imgUrl}) => {
         </div>
     )
 }
+export default UserImage
