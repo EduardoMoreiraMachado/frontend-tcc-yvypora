@@ -19,7 +19,7 @@ export const SpecialInput = ({label, value, onChange, name, mask}) => {
     return(
         <div className='special-input-container'>
             <label className="special-label">{label}</label>
-            <InputMask className='special-input' mask={mask} value={value} onChange={handleChange} />
+            <InputMask className='special-input' mask={mask} value={value} onChange={handleChange} name={name} />
         </div>
     )
 }

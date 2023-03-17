@@ -1,29 +1,45 @@
-.main-container{
-    display: flex;
+.main-container {
+  display: flex;
+  margin: 0 auto;
 }
-.photo-day-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  
+.photo-day-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%
 }
-.day-hour-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 20vh;
-    width: 46vw;
+.day-hour-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20vh;
+  width: 46vw;
 }
-.day-hour-container h2{
-    font-size: 1.5rem; 
-    font-weight: bold;
-    color: #1A4301;
+.day-hour-container h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a4301;
 }
-.button-container{
-    height: 15vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.button-container {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  padding-bottom: 3vh;
+}
+
+.drop-box select {
+  width: fit-content;
+  font-size: 1.5rem;
+  border: solid 1px #538d22;
+  border-radius: 10px;
+  padding: 5px;
 }
