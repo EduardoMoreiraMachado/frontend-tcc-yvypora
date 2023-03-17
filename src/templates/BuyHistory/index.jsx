@@ -1,5 +1,4 @@
 import "./style.css"
-import { EmptyHeader } from "../../components/EmptyHeader"
 import Title from "../../components/Title"
 import UserImage from "../../components/UserImage"
 import InfoBuy from "../../components/InfoBuy"

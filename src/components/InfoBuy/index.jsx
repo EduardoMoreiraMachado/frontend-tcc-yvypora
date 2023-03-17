@@ -3,11 +3,11 @@ import "./style.css"
 export const InfoBuy = ({imgURL,nameCostumer, nameFair, date}) => {
     return(
         <div className="info-buy-container">
-            <img src={imgURL} alt="" />
+            <img src={imgURL} alt="" className="img-infobuy"/>
             <div className="text-info-container">
-                <p>{nameCostumer}</p>
-                <p>{nameFair}</p>
-                <p>Data : {date}</p>
+                <p className="name-costumer">{nameCostumer}</p>
+                <p className="name-fair">{nameFair}</p>
+                <p className="date-buy">Data : {date}</p>
             </div>
         </div>
     )

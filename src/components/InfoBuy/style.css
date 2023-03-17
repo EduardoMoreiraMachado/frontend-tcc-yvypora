@@ -1,6 +1,30 @@
-.iconyvy-container{
-    width: 20vw;
+.info-buy-container{
+    background-color: lightcoral;
     display: flex;
+    width: max-content;
+}
+.img-infobuy{
+    height: 200px;
+    width: 300px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 5px;
+}
+.text-info-container{
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #538D22;
+ gap: 12px;
+}
+.name-costumer{
+    font-size: 2rem;
+}   
+.name-fair{
+    font-size: 1.5rem;
+}
+.date-buy{
+    font-size: 1.5rem;
+    font-weight: bold;
 }
