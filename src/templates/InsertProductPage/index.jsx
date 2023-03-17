@@ -29,7 +29,6 @@ export const InsertProductPage = () => {
   async function handleClick(e) {
     e.preventDefault();
     const image = document.getElementById("file-selection").files[0];
-    console.log(image);
 
     const inputs = document.querySelectorAll(".product-input");
 
@@ -43,8 +42,10 @@ export const InsertProductPage = () => {
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
     const description = document.getElementById("description").value;
+    
     const name = inputs[0].value;
     const price = inputs[1].value;
+
     const availableQuantity = document.getElementById("available-quant").value;
     const saleOffValue = document.querySelectorAll(".input-active")[0]?.value;
 

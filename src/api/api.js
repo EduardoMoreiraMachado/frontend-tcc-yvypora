@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const commonsAPI = axios.create({
-  baseURL: "https://deploy-commons-api.onrender.com",
+  baseURL: "http://localhost:3333/",
 });
 
 export const cepAPI = axios.create({
