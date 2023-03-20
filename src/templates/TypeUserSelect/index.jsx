@@ -30,3 +30,5 @@ export const TypeUserSelect = () => {
     )
 
 }
+
+export default TypeUserSelect

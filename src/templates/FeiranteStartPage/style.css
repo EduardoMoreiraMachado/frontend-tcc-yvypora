@@ -3,12 +3,90 @@
     flex-direction: column;
 }
 
-header {
+header img {
+    width: 100%;
+    z-index: 1;
+}
+
+.user-image {
+    z-index: 2;
+}
+
+.page-content {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    padding-bottom: 5vh;
+}
+
+.info-boxes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background-image: url(../../imgs/header_green_wave.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    justify-content: center;
+}
+
+.add-products-or-fairs {
+    width: 40vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    box-shadow: 0px 4px 4px #245501;
+}
+
+.add-products-or-fairs h1 {
+    color: #245501;
+}
+
+.add-products-or-fairs p {
+    color: #666666;
+}
+
+.add-icons {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-products,
+.add-fairs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#products-add img,
+#fairs-add img {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.add-products:hover #products-add img {
+    transform: scale(1.3);
+    transition: all 0.3s;
+}
+
+.add-fairs:hover #fairs-add img {
+    transform: scale(1.3);
+    transition: all 0.3s;
+}
+
+.green-add-icon {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.products-icon,
+.fairs-icon {
+    width: 100px;
 }
