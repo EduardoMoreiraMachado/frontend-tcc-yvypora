@@ -7,8 +7,8 @@ export const SearchInputHeader = () => {
             <img className='icon-yvy' src={YvyporaIcon} alt=''/>
             <SearchInput />
             <div className='sign-container'>
-                <span className='sign-up'>Criar conta</span>
-                <span className='sign-in'>Login</span>
+                <a href='/signup' className='sign-up'>Criar conta</a>
+                <a href = "/login" className='sign-in'>Login</a>
             </div>
         </header>
     )

@@ -5,7 +5,7 @@ export const ButtonCart = () => {
     return (
         <>
             <div className="main-circle">
-                <a className='inner-circle' href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">
+                <a className='inner-circle' href="/cart">
                     {/* <img src={CartImg} alt="" className="icon-cart" /> */}
                 </a>
             </div>

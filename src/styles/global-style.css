@@ -4,6 +4,7 @@
   box-sizing: border-box;
   box-shadow: 0 0 0 0;
   border: 0 none;
+  text-decoration: none;
   outline: 0;
   font-family: "Space Grotesk", sans-serif;
 }

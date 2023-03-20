@@ -26,11 +26,11 @@ export const ProfilePage = () => {
                     <Option imgUrl={iconUser} text={'Perfil'} />
                     <Option imgUrl={iconMap} text={'Endereço'} />
                     <Option imgUrl={iconCard} text={'Formas de Pagamento'} />
-                    <Option imgUrl={iconBag} text={'Histórico de compra'} />
+                    <Option imgUrl={iconBag} text={'Histórico de compra'} link={'/profile/buy-history'}/>
                     <Option imgUrl={iconLogoff} text={'Sair'} />
                 </div>
             </div>
-        <Footer/>
+            <Footer/>
         </div>  
     )
 

@@ -1,12 +1,12 @@
-import './style.css'
+import "./style.css"
 
-export const Option = ({imgUrl, text, link}) => {
+export const LittleOption = ({imgUrl, text, link}) => {
     return (
-        <div className='option-container'>
+        <div className='little-option-container'>
             <img className='option-image' src={imgUrl}/>
             <a href={link}className='option-text'>{text}</a>
         </div>
     )
 }
 
-export default Option
+export default LittleOption

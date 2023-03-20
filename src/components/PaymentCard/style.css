@@ -1,0 +1,42 @@
+.payment-card-container{
+    background-color: #AAD576;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 20vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.title-payment{
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 45px;
+    color: #31572C;
+}
+.total-pay{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-evenly;
+    gap: 16px;
+    font-size: 2rem;
+    color: #538D22;
+    width: 100%;
+    height: 10vh;
+}
+.price-payment{
+    font-weight: 700;
+    font-size: 2.5rem;
+    height: fit-content;
+    color: #143601;
+}
+.button-payment{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: #73A942;
+    color: #FFFFFF;
+    width: 80%;
+    height: 9vh;
+}

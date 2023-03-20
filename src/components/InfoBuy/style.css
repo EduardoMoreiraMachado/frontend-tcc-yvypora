@@ -3,6 +3,7 @@
     border-style: solid;
     display: flex;
     width: max-content;
+    border-radius: 5px;
 }
 .img-infobuy{
     height: 200px;

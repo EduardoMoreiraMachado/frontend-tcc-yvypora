@@ -27,3 +27,5 @@ export const ShoppingCartItem = ({name, imgUrl, unit, price}) => {
         </div>
     )
 }
+
+export default ShoppingCartItem

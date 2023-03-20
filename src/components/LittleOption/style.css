@@ -1,0 +1,12 @@
+.little-option-container {
+    width: 15vw;
+    display: flex;
+    background-color: #AAD576;
+    background-image: url(../../imgs/arrow_icon.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 99%;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 1vw;
+}
