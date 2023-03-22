@@ -1,8 +1,12 @@
 .user-info{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 15vh;
+    height: 10vh;
+}
+.main-address{
+    height: 100vh;
 }
 
 .profile-container{

@@ -1,0 +1,38 @@
+.address-card-main{
+    background-color: #73A942;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+    width: 33vw;
+    color: white;
+    border-radius: 0px 10px;
+
+}
+.main-address-container{
+    display: flex;
+    justify-content: center;
+    background-color: #143601;
+    border-radius: 0px 10px;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #AAD576;
+    width: 10vw;
+}
+.infos-card-address{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.img-card-address{
+    width: 250px;
+    height: 150px;
+}
+.text-container-card-address{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 5%;
+}

@@ -48,7 +48,7 @@ export const EditProfilePage = () =>{
                         onChange={handleChange}
                     />
                 </div>
-                <GreenButton  text="Salvar" type="submit"/>
+                <GreenButton text="Salvar" type="submit"/>
             </div>
             <Footer/>
         </div>
