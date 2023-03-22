@@ -36,55 +36,7 @@ export const FairNear = () =>{
                         dayWorkText ={'Domingo'}
                         hourWorkText = {'08:00 - 16:00'}
                         fairmanText = {'Aprox 4 feirantes cadastrados no yvy'}
-                    />
-                    <FairNearCard 
-                        title={'Feira Livre da Rua Oscar Freire'}
-                        img={'https://conteudo.solutudo.com.br/wp-content/uploads/2019/10/15220191645824798_5zxyp.jpg'} 
-                        note={3.5}
-                        dayWorkText ={'Domingo'}
-                        hourWorkText = {'08:00 - 16:00'}
-                        fairmanText = {'Aprox 4 feirantes cadastrados no yvy'}
-                    />
-                    <FairNearCard 
-                        title={'Feira Livre da Rua Oscar Freire'}
-                        img={'https://conteudo.solutudo.com.br/wp-content/uploads/2019/10/15220191645824798_5zxyp.jpg'} 
-                        note={3.5}
-                        dayWorkText ={'Domingo'}
-                        hourWorkText = {'08:00 - 16:00'}
-                        fairmanText = {'Aprox 4 feirantes cadastrados no yvy'}
-                    />
-                    <FairNearCard 
-                        title={'Feira Livre da Rua Oscar Freire'}
-                        img={'https://conteudo.solutudo.com.br/wp-content/uploads/2019/10/15220191645824798_5zxyp.jpg'} 
-                        note={3.5}
-                        dayWorkText ={'Domingo'}
-                        hourWorkText = {'08:00 - 16:00'}
-                        fairmanText = {'Aprox 4 feirantes cadastrados no yvy'}
-                    />
-                    <FairNearCard 
-                        title={'Feira Livre da Rua Oscar Freire'}
-                        img={'https://conteudo.solutudo.com.br/wp-content/uploads/2019/10/15220191645824798_5zxyp.jpg'} 
-                        note={3.5}
-                        dayWorkText ={'Domingo'}
-                        hourWorkText = {'08:00 - 16:00'}
-                        fairmanText = {'Aprox 4 feirantes cadastrados no yvy'}
-                    />
-                    <FairNearCard 
-                        title={'Feira Livre da Rua Oscar Freire'}
-                        img={'https://conteudo.solutudo.com.br/wp-content/uploads/2019/10/15220191645824798_5zxyp.jpg'} 
-                        note={3.5}
-                        dayWorkText ={'Domingo'}
-                        hourWorkText = {'08:00 - 16:00'}
-                        fairmanText = {'Aprox 4 feirantes cadastrados no yvy'}
-                    />
-                    <FairNearCard 
-                        title={'Feira Livre da Rua Oscar Freire'}
-                        img={'https://conteudo.solutudo.com.br/wp-content/uploads/2019/10/15220191645824798_5zxyp.jpg'} 
-                        note={3.5}
-                        dayWorkText ={'Domingo'}
-                        hourWorkText = {'08:00 - 16:00'}
-                        fairmanText = {'Aprox 4 feirantes cadastrados no yvy'}
-                    />
+                    />  
                 </div>
             </div>
             <Footer/>

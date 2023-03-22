@@ -25,7 +25,7 @@ export const ProfilePage = () => {
                 <div className="options-container">
                     <Option imgUrl={iconUser} text={'Perfil'}  link={'/profile/edit'}/>
                     <Option imgUrl={iconMap} text={'Endereço'}  link="/profile/address"/>
-                    <Option imgUrl={iconCard} text={'Formas de Pagamento'} />
+                    <Option imgUrl={iconCard} text={'Formas de Pagamento'} link={"/profile/payment"}/>
                     <Option imgUrl={iconBag} text={'Histórico de compra'} link={'/profile/buy-history'}/>
                     <Option imgUrl={iconLogoff} text={'Sair'} />
                 </div>

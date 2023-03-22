@@ -29,6 +29,7 @@
 .img-card-address{
     width: 250px;
     height: 150px;
+    border-radius: 10px 0px;
 }
 .text-container-card-address{
     display: flex;
