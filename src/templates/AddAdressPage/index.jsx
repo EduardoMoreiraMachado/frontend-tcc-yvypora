@@ -1,7 +1,5 @@
 import './style.css'
 
-import PrevPageIcon from '../../imgs/prev_page_icon.svg'
-
 import { Footer } from '../../components/Footer'
 import { Title } from '../../components/Title'
 import { DefaultInput } from '../../components/DefaultInput'
@@ -9,6 +7,7 @@ import { SpecialInput } from '../../components/SpecialInput'
 import { GreenButton } from '../../components/GreenButton'
 
 import { useState } from 'react'
+import { PrevPageHeader } from '../../components/PrevPageHeader'
 
 export const AddAdressPage = () => {
     const [values, setValues] = useState({});
@@ -22,9 +21,9 @@ export const AddAdressPage = () => {
 
     return(
         <div className='add-adress-page-container'>
-            <a className='prev-page-button'>
-                <img className='prev-page-icon' src={PrevPageIcon} alt=''/>
-            </a>
+
+            <PrevPageHeader />
+
             <div className='add-adress-title'>
                 <Title className='title' text='Adicione um endereço'/>
                 <h1 className='add-adress-subtitle'>Insira os dados do endereço onde seus produtos serão entregados.</h1>

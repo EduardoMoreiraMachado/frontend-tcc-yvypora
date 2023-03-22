@@ -16,6 +16,7 @@ footer {
 
 .contact-item {
     display: flex;
+    align-items: center;
     gap: 24px;
 }
 
@@ -32,6 +33,7 @@ footer {
 .copyright-text {
     font-size: 22px;
     font-weight: 300;
+    text-align: center;
 }
 
 .social-container {
@@ -79,7 +81,7 @@ footer {
     
     .contacts-container {
         flex-direction: column;
-        gap: 12px;
+        gap: 50px;
     }
     
     .contact-item {

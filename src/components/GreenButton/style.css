@@ -22,3 +22,10 @@
     background-color: #4e6138;
     transition: all 0s;
 }
+
+@media (max-width: 768px) {
+    .green_button {
+        width: 50vw;
+        height: 10vh;
+    }
+}

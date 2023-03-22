@@ -219,3 +219,10 @@ a {
 .add-button {
   transition: all 0.5s;
 }
+
+@media (max-width: 768px) {
+  .text-icon,
+  .icon-yvy {
+    width: 40px;
+  }
+}
