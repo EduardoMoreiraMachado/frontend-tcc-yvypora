@@ -23,7 +23,7 @@ export const ProfilePage = () => {
             <div className="profile-container">
                 <NavBar/>
                 <div className="options-container">
-                    <Option imgUrl={iconUser} text={'Perfil'} />
+                    <Option imgUrl={iconUser} text={'Perfil'}  link={'/profile/edit'}/>
                     <Option imgUrl={iconMap} text={'Endereço'} />
                     <Option imgUrl={iconCard} text={'Formas de Pagamento'} />
                     <Option imgUrl={iconBag} text={'Histórico de compra'} link={'/profile/buy-history'}/>

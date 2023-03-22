@@ -23,3 +23,4 @@ export const SpecialInput = ({label, value, onChange, name, mask}) => {
         </div>
     )
 }
+export default SpecialInput

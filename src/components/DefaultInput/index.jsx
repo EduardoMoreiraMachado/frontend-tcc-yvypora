@@ -8,3 +8,4 @@ export const DefaultInput = ({name, type}) => {
         </div>
     )
 }
+export default DefaultInput
