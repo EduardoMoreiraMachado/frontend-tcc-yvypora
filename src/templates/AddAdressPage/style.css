@@ -28,3 +28,32 @@
     color: #143601;
     padding-bottom: 5vh;
 }
+
+@media (max-width: 768px) {   
+    .add-adress-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 5vh;
+    }
+    
+    .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .add-adress-subtitle {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #143601;
+        padding-bottom: 5vh;
+        text-align: center;
+    }
+    
+}

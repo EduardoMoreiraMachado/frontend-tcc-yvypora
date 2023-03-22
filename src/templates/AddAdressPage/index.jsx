@@ -21,9 +21,7 @@ export const AddAdressPage = () => {
 
     return(
         <div className='add-adress-page-container'>
-
             <PrevPageHeader />
-
             <div className='add-adress-title'>
                 <Title className='title' text='Adicione um endereço'/>
                 <h1 className='add-adress-subtitle'>Insira os dados do endereço onde seus produtos serão entregados.</h1>
