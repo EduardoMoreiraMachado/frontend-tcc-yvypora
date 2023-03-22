@@ -1,7 +1,5 @@
 import './style.css'
 
-import WelcomeImage from '../../imgs/fruits_greenery.svg'
-
 import {EmptyHeader} from '../../components/EmptyHeader'
 import { GreenButton } from '../../components/GreenButton'
 import { WhiteButton } from '../../components/WhiteButton'
@@ -10,14 +8,14 @@ import { Footer } from '../../components/Footer'
 export const TypeUserSelect = () => {
 
     return (
-        <>
+        <div className='type-user-select-container'>
             <EmptyHeader />
             <div className='welcome-container'>
                 <div className='welcome-message'>
                     <h1 className='welcome-text'>
                         Bem-vindo(a) ao <span className='strong-welcome-text'>yvyporã</span>, a sua feira digital!
                     </h1>
-                    <img className='welcome-image' src={WelcomeImage} alt=''/>
+                    <div className='welcome-image'></div>
                 </div>
                 <div className='user-select'>
                     <h1 className='user-select-text'>Como você usará a plataforma?</h1>
@@ -26,7 +24,7 @@ export const TypeUserSelect = () => {
                 </div>
             </div>
             <Footer />
-        </>
+        </div>
     )
 
 }
