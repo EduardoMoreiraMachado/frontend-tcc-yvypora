@@ -8,11 +8,13 @@ import iconMap from "../../imgs/map.svg"
 import iconCard from "../../imgs/card.svg"
 import iconBag from "../../imgs/bag.svg"
 import iconLogoff from "../../imgs/exportsquare.svg"
+import MenuBurguer from "../../components/MenuBurguer"
 
 
 export const ProfilePage = () => {
     return (
         <div className="profile-main">
+            <MenuBurguer/>
             <div className="user-info">
                 <UserCard
                     name={'Carlos Arcanjo'}

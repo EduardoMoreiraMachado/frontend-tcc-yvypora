@@ -4,10 +4,12 @@ import {NavBar} from '../../components/NavBar'
 import Title from '../../components/Title'
 import FairNearCard from '../../components/FairNearCard'
 import { Footer } from '../../components/Footer'
+import MenuBurguer from '../../components/MenuBurguer'
 
 export const FairNear = () =>{
     return(
         <div className='all-content-container'>
+            <MenuBurguer/>
             <EmptyHeader/>
             <Title text={'Feiras Próximas'}/>
            <div className="nav-card-container">

@@ -37,6 +37,7 @@
       .bm-menu-wrap {
         position: fixed;
         height: 100%;
+        
       }
       
       /* General sidebar styles */
@@ -55,14 +56,14 @@
       .bm-item-list {
         color: #245501;
         padding: 0.8em;
-        text-decoration: none;
+      
       }
       
       /* Individual item */
       .bm-item {
         display: inline-block;
         list-style: none;
-        
+        text-decoration: none;
         gap: 100px;
       }
       
