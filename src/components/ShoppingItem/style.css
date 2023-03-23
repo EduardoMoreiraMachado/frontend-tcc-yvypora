@@ -1,5 +1,5 @@
 .shopping-item-container {
-    width: fit-content;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -7,9 +7,9 @@
     border: 1px solid #538D22;
     border-radius: 10px;
 }
+
 .shopping-item-container-noPromo {
-    width: fit-content;
-    height: min-content;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -17,6 +17,7 @@
     border: 1px solid #538D22;
     border-radius: 10px;
 }
+
 .header-card{
     display: flex;
     flex-direction: row;
@@ -85,9 +86,54 @@
     border-radius: 30px;
 }
 
-.promotion-img{
+.promotion-img {
+    width: 70px;
+    height: 70px;
+}
 
-  width: 100px;
-  height: 100px;
+@media (max-width: 768px) {
+    .shopping-item-container {
+        justify-content: center;
+        padding: 10px;
+    }
 
+    .name {
+        font-size: 1rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .weight {
+        font-size: 0.7rem;
+    }
+
+    .item-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .promotion-img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .cart-icon-box {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .cart-icon {
+        width: 45px;
+        height: 45px;
+        background-size: 30px;
+        background-position: 62%;
+    }
+
+    .item-numbers {
+        flex-direction: column;
+    }
 }

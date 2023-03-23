@@ -7,6 +7,7 @@
 
 .page-content {
   display: flex;
+  height: 78vh;
 }
 
 
@@ -37,4 +38,15 @@
 
 .carousel-items::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .prev-button-container,
+  .next-button-container {
+    display: none;
+  }
+
+  .products-carrossel {
+    width: 80vw;
+  }
 }
