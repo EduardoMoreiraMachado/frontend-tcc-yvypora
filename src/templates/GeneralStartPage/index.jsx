@@ -12,6 +12,7 @@ import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
 import { SearchInputHeader } from '../../components/SearchInputHeader';
+import MenuBurguer from '../../components/MenuBurguer';
 
 export const GeneralStartPage = () => {
   const carousel = useRef(null);
@@ -29,6 +30,7 @@ export const GeneralStartPage = () => {
 
   return (
     <div className='general-start-page-container'>
+      <MenuBurguer/>
         <SearchInputHeader />
         <div className='page-content'>
           <NavBar />

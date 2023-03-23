@@ -5,6 +5,7 @@ import './style.css'
 // import { WhiteButton } from '../../components/WhiteButton'
 import { PaymentCard} from '../../components/PaymentCard'
 import NavBar from '../../components/NavBar'
+import MenuBurguer from '../../components/MenuBurguer'
 // import { handler } from 'daisyui'
 
 
@@ -14,7 +15,7 @@ import NavBar from '../../components/NavBar'
 export const Tests = () => {
     return (
        <>
-        <NavBar/>
+        <MenuBurguer/>
        </>  
     )
 }
