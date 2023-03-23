@@ -17,7 +17,7 @@
 }
 .cards-container-address{
     display: grid; 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 0.5fr);
     justify-items:center;
     align-items: center;
     width: 100%;

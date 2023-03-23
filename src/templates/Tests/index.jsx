@@ -4,6 +4,7 @@ import './style.css'
 // import { GreenButton } from '../../components/GreenButton'
 // import { WhiteButton } from '../../components/WhiteButton'
 import { PaymentCard} from '../../components/PaymentCard'
+import NavBar from '../../components/NavBar'
 // import { handler } from 'daisyui'
 
 
@@ -13,7 +14,7 @@ import { PaymentCard} from '../../components/PaymentCard'
 export const Tests = () => {
     return (
        <>
-        <PaymentCard price={6786.89}/>
+        <NavBar/>
        </>  
     )
 }
