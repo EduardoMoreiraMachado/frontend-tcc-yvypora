@@ -28,7 +28,7 @@ export const ToggleSwitch = () => {
                 <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange}/>
                 <span className="slider round"></span>
             </label>
-            <input className={isChecked ? 'input-active' : 'input-not-active'} type="number" value={value} min='1' max='100' onKeyDown={handleKeyDown} onChange={handleChange} placeholder='% de desconto'/>
+            <input className={isChecked ? 'input-active' : 'input-not-active'} type="number" value={value} min='1' max='100' onKeyDown={handleKeyDown} onChange={handleChange} placeholder='%'/>
         </div>
     )
 }

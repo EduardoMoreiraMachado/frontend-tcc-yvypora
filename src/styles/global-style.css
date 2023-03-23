@@ -158,6 +158,8 @@ a {
 }
 
 .sub-button {
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,8 +167,6 @@ a {
   background-image: url(../imgs/sub_icon.svg);
   background-repeat: no-repeat;
   background-position: center;
-  width: 3vw;
-  height: 5.5vh;
   font-size: 3rem;
   border-radius: 5px;
 } 
@@ -192,8 +192,8 @@ a {
 }
 
 .add-button {
-  width: 3vw;
-  height: 5.5vh;
+  width: 60px;
+  height: 60px;
   background-color: #538D22;
   background-image: url(../imgs/add_icon.svg);
   background-repeat: no-repeat;
@@ -252,5 +252,9 @@ a {
 
   .sign-in {
     font-size: 1rem;
+  }
+
+  .amount {
+    gap: 10vw;
   }
 }

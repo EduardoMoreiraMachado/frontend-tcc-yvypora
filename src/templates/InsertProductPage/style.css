@@ -113,3 +113,50 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .data-containers {
+        flex-direction: column;
+    }
+
+    .product-input-title {
+        font-size: 1rem;
+    }
+
+    .drop-box {
+        gap: 3vw;
+    }
+
+    .drop-box select {
+        font-size: 0.7rem;
+    }
+
+    .product-input {
+        font-size: 1rem;
+    }
+
+    .input-container textarea {
+        font-size: 1rem;
+        border: solid 1px #538D22;
+        border-radius: 10px;
+        padding: 5px;
+        resize: none;
+    }
+
+    .product-price {
+        gap: 3vw;
+    }
+
+    .product-price-coin {
+        font-size: 1rem;
+    }
+
+    .insert-image-data {
+        padding-top: 3vh;
+        gap: 3vh;
+    }
+
+    .product-quantity {
+        width: 84%;
+    }
+}

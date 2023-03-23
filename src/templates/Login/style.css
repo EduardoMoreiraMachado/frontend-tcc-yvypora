@@ -39,12 +39,12 @@ form {
     justify-content: space-around;
     flex-direction: column;
 }
-/* .fruits-footer {
-    width: 100vw;
-    height: 50vh;
-    background-image: url(../../imgs/fruits_footer.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
 
+@media (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+    }
+    .button-container {
+        height: fit-content;
+    }
+}

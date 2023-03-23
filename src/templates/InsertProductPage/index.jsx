@@ -120,6 +120,7 @@ export const InsertProductPage = () => {
   }
   return (
     <div className="insert-product-page">
+
       <EmptyHeader />
       <Title text="Inserir um novo produto" />
 
@@ -184,7 +185,7 @@ export const InsertProductPage = () => {
                 {selectedValue === "peso" && (
                   <div className="product-weight">
                     <select name="product-unit" id="unit">
-                      <option value="kg">Kg</option>
+                      <option value="kg">kg</option>
                       <option value="g">g</option>
                     </select>
                     <input
@@ -212,7 +213,7 @@ export const InsertProductPage = () => {
           </div>
 
           <div className="promotion">
-            <h1 className="product-input-title">Promoção:</h1>
+            <h1 className="product-input-title">Desconto:</h1>
             <ToggleSwitch />
           </div>
         </div>
@@ -242,6 +243,7 @@ export const InsertProductPage = () => {
       </div>
 
       <Footer />
+      
     </div>
   );
 };

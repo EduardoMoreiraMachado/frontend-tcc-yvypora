@@ -1,6 +1,6 @@
 import './style.css'
 
-import { SearchInputHeader } from '../../components/SearchInputHeader'
+import { SignHeader } from '../../components/SignHeader'
 import { Footer } from '../../components/Footer'
 import { NavBar } from '../../components/NavBar'
 
@@ -14,13 +14,13 @@ export const ProductPage = () => {
 
     return(
         <div className="product-page-container">
-            <SearchInputHeader />
+            <SignHeader />
             <div className="product-containers">
                 <NavBar />
                 <div className="product-info">
                     <div className="product-main">
-                        <div className="image-container">
-                            <img className="product-image" src="https://superazevedo.com.br/wp-content/uploads/2022/02/172.png" alt=""/>
+                        <div className="image-container" style={{backgroundImage: `url('http://4.bp.blogspot.com/-vjFNYU7wLPQ/TiWyV0H6HEI/AAAAAAAAAJs/T1WqLaCOO1U/s1600/beterraba.jpg')`}}>
+                            {/* <img className="product-image" src="https://superazevedo.com.br/wp-content/uploads/2022/02/172.png" alt=""/> */}
                         </div>
                         <div className="texts">
                             <h1 className="title">Beterraba</h1>

@@ -22,16 +22,16 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    background-image: url(../../imgs/green_wave.svg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 70%;
+    background-position: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.product-image {
+/* .product-image {
     width: 60%;
     height: 100%;
-}
+} */
 
 .texts .title {
     font-size: 3rem;
@@ -141,4 +141,99 @@
 .add-cart-button:active {
     background-color: #4e6138;
     transition: all 0s;
+}
+
+@media (max-width: 768px) {
+    .product-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container {
+        width: 90%;
+    }
+
+    .review {
+        flex-direction: column;
+    }
+
+    .grade-info {
+        display: flex;
+        padding-left: 0vw;
+        gap: 10vw;
+    }
+
+    .review-count,
+    .order-count {
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
+    .texts {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .texts .title {
+        font-size: 2rem;
+    }
+
+    .user-name {
+        padding-top: 2vh;
+        font-size: 1rem;
+    }
+
+    .price-result {
+        width: fit-content;
+    }
+
+    .price-amount {
+        width: fit-content;
+        flex-direction: column;
+        gap: 2vh;
+    }
+
+    .price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        color: #245501;
+        white-space: nowrap; 
+    }
+
+    .product-footer {
+        flex-direction: column;
+        gap: 5vh;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+    }
+
+    .description-title {
+        font-size: 2rem;
+    }
+
+    .description-text {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    .add-cart-button {
+        width: 50vw;
+        height: 10vh;
+    }
+
+    .add-cart-button img {
+        width: 30px;
+    }
+
+    .add-cart-button span {
+        font-size: 1.1rem;
+    }
 }
