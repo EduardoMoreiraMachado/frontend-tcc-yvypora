@@ -58,6 +58,7 @@ a {
 .sign-up {
   font-size: 1.2rem;
   cursor: pointer;
+  color: #143601;
 }
 
 .sign-up:active {
@@ -221,6 +222,20 @@ a {
   transition: all 0.5s;
 }
 
+.text-input {
+  background-color: #538D22;
+  background-image: url(../imgs/search_icon.svg);
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+  background-size: 1.3rem;
+  width: 45%;
+  height: 5vh;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 1.2rem;
+  color: white;
+}
+
 @media (max-width: 768px) {
   .text-icon,
   .icon-yvy {
@@ -229,5 +244,13 @@ a {
 
   .prev-page-icon {
     width: 50px;
+  }
+
+  .sign-up {
+    font-size: 1rem;
+  }
+
+  .sign-in {
+    font-size: 1rem;
   }
 }

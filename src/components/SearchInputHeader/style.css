@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    .text-input {
+        width: 80vw;
+        position: absolute;
+        margin-top: 15vh;
+        margin-left: 5vw;
+        padding: 10px;
+    }
+}

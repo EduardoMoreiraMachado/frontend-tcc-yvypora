@@ -12,3 +12,9 @@
     padding-bottom: 1vh;
     background-color: #fff;
 }
+
+@media (max-width: 768px) {
+    .category-select {
+        font-size: 1rem;
+    }
+}
