@@ -11,6 +11,8 @@ import { NextButton } from '../../components/NextButton';
 import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
+import { SearchInput } from '../../components/SearchInput'
+
 import MenuBurguer from '../../components/MenuBurguer';
 
 export const GeneralStartPage = () => {
@@ -40,6 +42,7 @@ export const GeneralStartPage = () => {
 
   return (
     <div className='general-start-page-container'>
+      <SignHeader />
       <div className='page-content'>
         <NavBar />
         <div className='products-container'>
@@ -81,7 +84,41 @@ export const GeneralStartPage = () => {
                 price="5,00"
                 promo={true}
               />
-              
+              <ShoppingItem
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
+                weight="100g"
+                price="5,00"
+                promo={true}
+              />
+              <ShoppingItem
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
+                weight="100g"
+                price="5,00"
+                promo={true}
+              />
+              <ShoppingItem
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
+                weight="100g"
+                price="5,00"
+                promo={true}
+              />
+              <ShoppingItem
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
+                weight="100g"
+                price="5,00"
+                promo={true}
+              />
+              <ShoppingItem
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
+                weight="100g"
+                price="5,00"
+                promo={true}
+              />
             </div>
             <NextButton onClick={handleRightClick} />
           </div>
