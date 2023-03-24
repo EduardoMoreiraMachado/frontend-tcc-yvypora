@@ -1,8 +1,7 @@
 import "./style.css";
 
-// import FruitsFooter from '../../imgs/fruits_footer.jpg'
+import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
 
-import { EmptyHeader } from "../../components/EmptyHeader";
 import { DefaultInput } from "../../components/DefaultInput";
 import { GreenButton } from "../../components/GreenButton";
 import { Footer } from "../../components/Footer";
@@ -59,7 +58,11 @@ export const Login = () => {
 
   return (
     <div className="main">
-      <EmptyHeader />
+        <header>
+            <div className='header-icon'>
+                <img className='icon-yvy' src={YvyporaTextIcon} alt=''/>
+            </div>
+        </header>
       <Title text="Login" />
       <form>
         <div className="input-container">
@@ -67,15 +70,11 @@ export const Login = () => {
             <DefaultInput name="Email" type="text" />
             <DefaultInput name="Senha" type="password" />
           </div>
-
           <div className="button-container">
             <GreenButton text="Entrar" onClick={handleClick} type="submit" />
           </div>
         </div>
       </form>
-
-      {/* <div className='fruits-footer'></div> */}
-
       <Footer />
     </div>
   );

@@ -1,14 +1,12 @@
 import './style.css'
 
-import { UserCard } from '../../components/UserCard'
+import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { NavBar } from '../../components/NavBar'
 import { Title } from '../../components/Title'
 import { DefaultInput } from '../../components/DefaultInput'
 import { SpecialInput } from '../../components/SpecialInput'
 import { GreenButton } from '../../components/GreenButton'
-
-import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
 
 import { useState } from 'react'
 
@@ -24,14 +22,9 @@ export const UpdateConsumidorAccount = () => {
 
     return(
         <div className='update-consumidor-account-container'>
-            <header>
-                <img className='text-icon' src={YvyporaTextIcon} alt=""/>
-                <UserCard
-                    imgUrl="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                    name="Carlos Arcanjo"
-                    email="carlaoprof@gmail.com"
-                />
-            </header>
+            <Header 
+                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+            />
             <div className='update-content'>
                 <div className='nav-bar'>
                     <NavBar />
@@ -66,7 +59,17 @@ export const UpdateConsumidorAccount = () => {
                         value={values.cep}
                         onChange={handleChange}
                     />
-                    <DefaultInput name="Data de nascimento" type="date" />
+                    {/* <DefaultInput
+                        name='Data de nascimento'
+                        type='date'
+                    /> */}
+                    <SpecialInput 
+                        name="date"
+                        label="Data de nascimento"
+                        mask="99/99/9999"
+                        value={values.date}
+                        onChange={handleChange}
+                    />
                 </div>
                 <div className='green-button'>
                     <GreenButton 

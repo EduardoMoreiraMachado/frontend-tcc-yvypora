@@ -1,12 +1,12 @@
 import "./style.css";
 
 import { Footer } from "../../components/Footer";
-import { UserCard } from "../../components/UserCard";
+import { Header } from "../../components/Header";
 import { Title } from "../../components/Title";
 import { NavBar } from "../../components/NavBar";
 import { Fair } from "../../components/Fair";
 import { GreenButton } from "../../components/GreenButton";
-import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
+
 import { useEffect, useState } from "react";
 
 export const RegisteredFairsPage = () => {
@@ -16,14 +16,9 @@ export const RegisteredFairsPage = () => {
 
   return (
     <div className="registered-fairs-page">
-      <header>
-        <img className="text-icon" src={YvyporaTextIcon} alt="" />
-        <UserCard
-          imgUrl="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          name="Carlos Arcanjo"
-          email="carlaoprof@gmail.com"
-        />
-      </header>
+      <Header 
+          imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+      />
       <Title text="Feiras" />
       <div className="fairs-content">
         <NavBar />

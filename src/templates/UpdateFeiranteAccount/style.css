@@ -6,7 +6,6 @@
 .update-content {
     display: flex;
     justify-content: center;
-    padding-bottom: 5vh;
 }
 
 .nav-bar {
@@ -17,4 +16,27 @@
     width: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .update-content {
+        flex-direction: column;
+    }
+
+    .update-inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    .green-button {
+        width: 100%;
+        padding-top: 5vh;
+    }
 }

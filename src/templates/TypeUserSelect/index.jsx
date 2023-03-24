@@ -1,6 +1,6 @@
 import './style.css'
 
-import YvyporaIcon from '../../imgs/yvypora_icon.svg'
+import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
 
 import { GreenButton } from '../../components/GreenButton'
 import { WhiteButton } from '../../components/WhiteButton'
@@ -12,7 +12,7 @@ export const TypeUserSelect = () => {
         <div className='type-user-select-container'>
             <header>
                 <div className='header-icon'>
-                    <img className='icon-yvy' src={YvyporaIcon} alt=''/>
+                    <img className='icon-yvy' src={YvyporaTextIcon} alt=''/>
                 </div>
             </header>
             <div className='welcome-container'>
