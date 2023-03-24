@@ -10,7 +10,7 @@
     border-radius: 0px 10px;
 
 }
-.main-address-container{
+.main-address-container-active{
     display: flex;
     justify-content: center;
     background-color: #143601;
@@ -20,6 +20,9 @@
     color: #AAD576;
     width: 10vw;
 }
+.main-address-container-off{
+    display: none;
+}
 .infos-card-address{
     display: flex;
     flex-direction: row;
@@ -27,7 +30,8 @@
 
 }
 .img-card-address{
-    width: 250px;
+    width: 50%;
+    max-width: 200px;
     height: 150px;
     border-radius: 10px 0px;
 }
@@ -36,4 +40,8 @@
     flex-direction: column;
     align-items: flex-start;
     padding-left: 5%;
+}
+
+@media(max-width:768px){
+
 }

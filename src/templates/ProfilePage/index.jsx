@@ -14,7 +14,7 @@ import MenuBurguer from "../../components/MenuBurguer"
 export const ProfilePage = () => {
     return (
         <div className="profile-main">
-            <MenuBurguer/>
+            {/* <MenuBurguer/> */}
             <div className="user-info">
                 <UserCard
                     name={'Carlos Arcanjo'}

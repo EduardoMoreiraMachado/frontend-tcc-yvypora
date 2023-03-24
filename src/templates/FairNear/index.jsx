@@ -9,7 +9,7 @@ import MenuBurguer from '../../components/MenuBurguer'
 export const FairNear = () =>{
     return(
         <div className='all-content-container'>
-            <MenuBurguer/>
+            {/* <MenuBurguer/> */}
             <EmptyHeader/>
             <Title text={'Feiras Próximas'}/>
            <div className="nav-card-container">

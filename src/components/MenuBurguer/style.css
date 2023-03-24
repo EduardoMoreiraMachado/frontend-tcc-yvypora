@@ -1,4 +1,12 @@
 
+.bm-overlay {
+
+}
+.bm-menu{
+  
+}
+
+
 @media(max-width:768px){
 
     .bm-burger-button {
@@ -37,13 +45,14 @@
       .bm-menu-wrap {
         position: fixed;
         height: 100%;
-        
       }
       
       /* General sidebar styles */
       .bm-menu {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
         background: #73A942;
-        padding: 2.5em 0;
         font-size: 2em;
       }
       
@@ -52,24 +61,15 @@
         fill: #73A942;
       }
       
-      /* Wrapper for item list */
-      .bm-item-list {
-        color: #245501;
-        padding: 0.8em;
-      
-      }
-      
-      /* Individual item */
-      .bm-item {
-        display: inline-block;
-        list-style: none;
-        text-decoration: none;
-        gap: 100px;
-      }
-      
       /* Styling of overlay */
       .bm-overlay {
+        display: flex;
         background: rgba(0, 0, 0, 0.3);
       }
+
+      /* .my-class{
+        background-color: aqua;
+        gap: 20px;
+      } */
     
 }

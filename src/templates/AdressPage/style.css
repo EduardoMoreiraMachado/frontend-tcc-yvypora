@@ -4,22 +4,34 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+}
+.cards-container-address{
+    margin-top: 5vh;
+    width: 75%;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2,1fr);
+    row-gap: 20px;
+    justify-items:center; 
 }
 .button-adress-page{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 20px;
     align-items: center;
-    height: 50%;
-    width: 20vw;
+    height: 100%;
+    width: 100%;
+    font-weight: 400; 
+    font-size: 1.5rem;
+    color: #245501;
 }
-.cards-container-address{
-    display: grid; 
-    grid-template-columns: repeat(2, 0.5fr);
-    justify-items:center;
+.card-button-addres{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 5vh;
     width: 100%;
     height: 100%;
-} 
+
+}
+ 

@@ -1,18 +1,24 @@
 .main-container-cart{
     display: flex;
-    justify-content: space-between;
     padding-bottom: 3%;
+    background-color: tomato;
+}
+.card-buy-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+.card-payment-container{
+    display: flex;
+    background-color: lemonchiffon;
 }
 .payment-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 40vw;
-}
-.payment-option{
-    display: flex;
-    flex-direction: column;
-    font-weight: 700;
-    font-size: 1.7rem;
+   justify-content: center; 
+   width: 10;
+
 }
