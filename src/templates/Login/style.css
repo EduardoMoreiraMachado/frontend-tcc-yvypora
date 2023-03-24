@@ -1,15 +1,5 @@
 .main {
-    height: 100vh;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    margin: 0;    
-}
-
-.login-title{
-    display: flex;
-    justify-content: center;
-    font-size: 3.3rem;   
+    height: 78vh;  
 }
 
 form {
@@ -29,12 +19,11 @@ form {
 .input {
     display: flex;
     flex-direction: column;
-    height: 40%;
     justify-content: space-between;
+    gap: 5vh;
 }
 
 .button-container{
-    height:100%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;

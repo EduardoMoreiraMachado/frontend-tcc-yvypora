@@ -1,7 +1,8 @@
 import "./style.css";
 
+import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
+
 import { Footer } from "../../components/Footer";
-import { EmptyHeader } from "../../components/EmptyHeader";
 import { DefaultInput } from "../../components/DefaultInput";
 import { GreenButton } from "../../components/GreenButton";
 import { SpecialInput } from "../../components/SpecialInput";
@@ -93,11 +94,12 @@ export const SignUpConsumidor = () => {
 
   return (
     <div className="main-cadastro">
-      <EmptyHeader />
-
-      <div className="title-container">
-        <Title text="Cadastre-se" />
-      </div>
+      <header>
+          <div className='header-icon'>
+              <img className='icon-yvy' src={YvyporaTextIcon} alt=''/>
+          </div>
+      </header>
+      <Title text="Cadastre-se" />
       <div className="input-container">
         <div className="inputs">
           <DefaultInput name="Nome" type="text" />

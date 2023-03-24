@@ -50,6 +50,12 @@
 }
 
 @media (max-width: 768px) {
+    .header-icon {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     .welcome-container {
         display: flex;
         flex-direction: column;

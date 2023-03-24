@@ -5,9 +5,9 @@ import { Title } from '../../components/Title'
 import { DefaultInput } from '../../components/DefaultInput'
 import { SpecialInput } from '../../components/SpecialInput'
 import { GreenButton } from '../../components/GreenButton'
+import { Header } from '../../components/Header'
 
 import { useState } from 'react'
-import { PrevPageHeader } from '../../components/PrevPageHeader'
 
 export const AddAdressPage = () => {
     const [values, setValues] = useState({});
@@ -21,7 +21,7 @@ export const AddAdressPage = () => {
 
     return(
         <div className='add-adress-page-container'>
-            <PrevPageHeader />
+            <Header />
             <div className='add-adress-title'>
                 <Title className='title' text='Adicione um endereço'/>
                 <h1 className='add-adress-subtitle'>Insira os dados do endereço onde seus produtos serão entregados.</h1>

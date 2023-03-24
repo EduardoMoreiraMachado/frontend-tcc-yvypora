@@ -1,6 +1,7 @@
 import './style.css'
 
-import { EmptyHeader } from '../../components/EmptyHeader'
+import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
+
 import { Title } from '../../components/Title'
 import { DefaultInput } from '../../components/DefaultInput'
 import { AddImage } from '../../components/AddImage'
@@ -22,11 +23,14 @@ export const SignUpFeirante = () => {
 
     return (
         <div className='main-cadastro'> 
-            <EmptyHeader />
-
+            <header>
+                <div className='header-icon'>
+                    <img className='icon-yvy' src={YvyporaTextIcon} alt=''/>
+                </div>
+            </header>
             <Title text='Cadastre-se' />
             <div className="input-container">
-                <div className="inputs-feirante">
+                <div className="inputs">
                     <DefaultInput
                         name='Nome'
                         type='text'
@@ -62,8 +66,6 @@ export const SignUpFeirante = () => {
                         type='date'
                     />
                 </div>
-
-
                 <div className="button-add-image-container">
                     <AddImage text='Adicione uma foto de perfil' />
                     <GreenButton

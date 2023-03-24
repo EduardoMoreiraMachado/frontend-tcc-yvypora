@@ -32,12 +32,17 @@ code {
 }
 
 header {
+  background-color: #aad5761e;
   width: 100%;
-  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7vh 5vw 7vh 5vw;
+  padding: 3vh 5vw 3vh 5vw;
+  margin-bottom: 5vh;
+}
+
+footer {
+  margin-top: 5vh;
 }
 
 a {
@@ -116,7 +121,7 @@ a {
   flex-direction: column;
   align-items: center;
   background-color: #AAD576;
-  padding: 2vh 3vw 10vh 3vw;
+  padding: 50px;
   border-radius: 10px 0px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -237,9 +242,13 @@ a {
 }
 
 @media (max-width: 768px) {
+  header {
+    padding: 2vh 7vw 2vh 7vw;
+  }
+
   .text-icon,
   .icon-yvy {
-    width: 40px;
+    width: 50px;
   }
 
   .prev-page-icon {

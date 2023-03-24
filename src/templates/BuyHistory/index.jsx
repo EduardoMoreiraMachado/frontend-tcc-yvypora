@@ -1,23 +1,20 @@
 import "./style.css"
 import Title from "../../components/Title"
-import UserImage from "../../components/UserImage"
 import InfoBuy from "../../components/InfoBuy"
-import iconYvY from "../../imgs/yvypora_icon.svg"
 import Footer from "../../components/Footer"
 import { ShoppingCartItem } from "../../components/ShoppingCartItem"
+import { Header } from "../../components/Header"
 
 export const BuyHistory = () =>{
     return (
         <div className="buy-history-container">
-            <div className="header-buy-container">
-                <div className="iconyvy-container">
-                    <img src={iconYvY} alt=""  className="icon-yvy"/>
-                </div>
-                <Title text={'Histórico de Compras'}/>
-                <UserImage                     
-                    imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-                />
-            </div>
+            <Header 
+                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+            />
+            <Title text={'Histórico de Compras'}/>
+            {/* <UserImage                     
+                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+            /> */}
             <div className="main-buy-container">
                 <div className="card-buy-container">
                     <InfoBuy 
