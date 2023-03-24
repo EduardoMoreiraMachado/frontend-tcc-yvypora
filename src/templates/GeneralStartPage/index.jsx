@@ -7,8 +7,6 @@ import { NavBar } from '../../components/NavBar';
 import { SignHeader } from '../../components/SignHeader';
 import { ProductCategory } from '../../components/ProductCategory';
 import { ProductCategorySelect } from '../../components/ProductCategorySelect';
-import { DefaultInput } from '../../components/DefaultInput';
-
 import { NextButton } from '../../components/NextButton';
 import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
@@ -38,95 +36,48 @@ export const GeneralStartPage = () => {
 
   return (
     <div className='general-start-page-container'>
-      <SignHeader/>
       <div className='page-content'>
         <NavBar />
         <div className='products-container'>
-          <ProductCategory />
+          <div className='search-category'>
+            <div className='general-search'>
+                <SearchInput />
+            </div>
+            <ProductCategory />
+          </div>
           <ProductCategorySelect />
           <div className='products-carrossel'>
             <PrevButton onClick={handleLeftClick} />
             <div className='carousel-items' ref={carousel}>
               <ShoppingItem
                 name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
                 weight="100g"
                 price="5,00"
                 promo={true}
               />
               <ShoppingItem
-                name="Laranja 2"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={false}
-
-              />
-              <ShoppingItem
-                name="Laranja 3"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
                 weight="100g"
                 price="5,00"
                 promo={true}
               />
               <ShoppingItem
-                name="Laranja 4"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
                 weight="100g"
                 price="5,00"
-                promo={false}
+                promo={true}
               />
               <ShoppingItem
-                name="Laranja 5"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
+                name="Laranja 1"
+                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
                 weight="100g"
                 price="5,00"
-                promo={false}
+                promo={true}
               />
-              <ShoppingItem
-                name="Laranja 6"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-              />
-              <ShoppingItem
-                name="Laranja 7"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={false}
-              />
-              <ShoppingItem
-                name="Laranja 8"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-              />
-              <ShoppingItem
-                name="Laranja 9"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-              />
-              <ShoppingItem
-                name="Laranja 10"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-              />
-              <ShoppingItem
-                name="Laranja 11"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={false}
-              />
-              <ShoppingItem
-                name="Laranja 12"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-              />
+              
             </div>
             <NextButton onClick={handleRightClick} />
           </div>
