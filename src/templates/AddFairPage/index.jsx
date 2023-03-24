@@ -13,6 +13,7 @@ import PrevPageIcon from "../../imgs/prev_page_icon.svg";
 import { consumeCep } from "../../utils/cepFetch";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { Header } from "../../components/Header";
 
 const MySwal = withReactContent(Swal);
 
@@ -129,14 +130,11 @@ export const AddFairPage = () => {
 
   return (
     <div>
-      <a className="prev-page-button">
-        <img className="prev-page-icon" src={PrevPageIcon} alt="" />
-      </a>
+      <Header />
       <TitleSubtitle
-        text={"Escolha o local"}
-        subtitle="Insira as feiras onde seus produtos serão vendidos"
+          text={"Escolha o local"}
+          subtitle="Insira as feiras onde seus produtos serão vendidos"
       />
-
       <div className="main-container">
         <div className="inputs-container">
           <div className="inputs">
