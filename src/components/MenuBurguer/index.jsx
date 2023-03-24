@@ -1,6 +1,7 @@
 import "./style.css"
 
 import { slide as Menu } from 'react-burger-menu';
+import { useEffect, useState } from "react";
 
 var styles = {
 
@@ -19,8 +20,25 @@ var styles = {
 
 
 export const MenuBurguer = () => {
-    return (
-        <a href="#" class="menu-burger-container">
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+
+    const setWindowDimensions = () => {
+      setWindowWidth(window.innerWidth)
+      console.log(windowWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', setWindowDimensions);
+        return () => {
+          window.removeEventListener('resize', setWindowDimensions)
+        }
+      }, [])
+
+    if(windowWidth < 769 ){
+        return(
+            <a href="#" class="menu-burger-container">
             <i class="menu-burger">
                 <Menu itemListClassName={"my-class"} styles={ styles }>
                     <nav>
@@ -40,7 +58,7 @@ export const MenuBurguer = () => {
                 </Menu>
             </i>
         </a>
-    )
-
+        )
+    }
 }
 export default MenuBurguer

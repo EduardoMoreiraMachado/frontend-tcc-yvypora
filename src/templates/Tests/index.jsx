@@ -6,6 +6,7 @@ import './style.css'
 // import { PaymentCard} from '../../components/PaymentCard'
 // import NavBar from '../../components/NavBar'
 import MenuBurguer from '../../components/MenuBurguer'
+import { useEffect, useState } from 'react'
 // import { handler } from 'daisyui'
 
 
@@ -13,8 +14,23 @@ console.log(window.screen.width)
 
 
 export const Tests = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight)
 
-    if(window.screen.width < 769 ){
+    const setWindowDimensions = () => {
+      setWindowWidth(window.innerWidth)
+      setWindowHeight(window.innerHeight)
+      console.log(windowWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', setWindowDimensions);
+        return () => {
+          window.removeEventListener('resize', setWindowDimensions)
+        }
+      }, [])
+
+    if(windowWidth < 769 ){
         return(
           <MenuBurguer/>
         )
