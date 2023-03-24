@@ -7,6 +7,7 @@ import { NavBar } from '../../components/NavBar';
 import { SignHeader } from '../../components/SignHeader';
 import { ProductCategory } from '../../components/ProductCategory';
 import { ProductCategorySelect } from '../../components/ProductCategorySelect';
+import { DefaultInput } from '../../components/DefaultInput';
 
 import { NextButton } from '../../components/NextButton';
 import { PrevButton } from '../../components/PrevButton';
@@ -33,15 +34,11 @@ export const GeneralStartPage = () => {
 
   
 
-  if(window.screen.width === 768 ){
-    return(
-      <MenuBurguer/>
-    )
-  }
+ 
 
   return (
     <div className='general-start-page-container'>
-
+      <SignHeader/>
       <div className='page-content'>
         <NavBar />
         <div className='products-container'>
