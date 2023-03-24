@@ -1,6 +1,5 @@
 import './style.css'
 
-import {SearchInputHeader} from '../../components/SearchInputHeader'
 import { ShoppingItem } from '../../components/ShoppingItem'
 import FiltersSearch from '../../components/FiltersSeach'
 import ProductsFilters from '../../components/ProductsFilters'
@@ -9,7 +8,7 @@ import { Footer } from '../../components/Footer'
 export const SearchPage = ({name}) =>{
     return(
         <div className="all-container">
-            <SearchInputHeader/>
+
             <div className="main-content-container">
                 <div className="result-search">
                     <p> Resultados de: {name}</p>

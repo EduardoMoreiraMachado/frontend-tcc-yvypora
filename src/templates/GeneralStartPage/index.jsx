@@ -7,12 +7,11 @@ import { NavBar } from '../../components/NavBar';
 import { SignHeader } from '../../components/SignHeader';
 import { ProductCategory } from '../../components/ProductCategory';
 import { ProductCategorySelect } from '../../components/ProductCategorySelect';
-import { SearchInput } from '../../components/SearchInput';
+
 import { NextButton } from '../../components/NextButton';
 import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
-import { SearchInputHeader } from '../../components/SearchInputHeader';
 import MenuBurguer from '../../components/MenuBurguer';
 
 export const GeneralStartPage = () => {
@@ -43,7 +42,6 @@ export const GeneralStartPage = () => {
   return (
     <div className='general-start-page-container'>
 
-      <SearchInputHeader />
       <div className='page-content'>
         <NavBar />
         <div className='products-container'>
