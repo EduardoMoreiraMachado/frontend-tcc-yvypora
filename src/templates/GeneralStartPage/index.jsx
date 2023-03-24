@@ -34,11 +34,7 @@ export const GeneralStartPage = () => {
 
   
 
-  if(window.screen.width === 768 ){
-    return(
-      <MenuBurguer/>
-    )
-  }
+ 
 
   return (
     <div className='general-start-page-container'>
