@@ -3,6 +3,7 @@ import './style.css'
 import { UserImage } from '../../components/UserImage'
 import { NavBar } from '../../components/NavBar'
 import { Footer } from '../../components/Footer'
+import { Header } from '../../components/Header'
 
 import GreenAddIcon from '../../imgs/green_add_icon.svg'
 import AddProductsIcon from '../../imgs/add_products_icon.png'
@@ -12,14 +13,17 @@ import HeaderGreenWave from '../../imgs/header_green_wave.svg'
 export const FeiranteStartPage = () => {
     return(
         <div className='feirante-start-page-container'>
-            <header>
+            {/* <header>
                 <img src={HeaderGreenWave}/>
                 <div className='user-image'>
                     <UserImage 
                         imgUrl="https://wl-incrivel.cf.tsp.li/resize/728x/jpg/91b/430/964a9c5ac9933cc012d0bd80be.jpg"
                     />
                 </div>
-            </header>
+            </header> */}
+            <Header 
+                imgUrl="https://wl-incrivel.cf.tsp.li/resize/728x/jpg/91b/430/964a9c5ac9933cc012d0bd80be.jpg"
+            />
             <div className='page-content'>
                 <NavBar />
                 <div className='info-boxes'>

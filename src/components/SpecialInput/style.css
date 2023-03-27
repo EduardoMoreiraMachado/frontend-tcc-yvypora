@@ -17,7 +17,11 @@
     background-color: transparent;
 }
 
-@media (max-width: 768px) {    
+@media (max-width: 768px) {   
+    .special-input-container {
+        margin-bottom: 30px;
+    }
+
     .special-label {
         font-size: 1.3rem;
     }

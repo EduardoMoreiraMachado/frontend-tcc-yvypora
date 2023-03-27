@@ -28,7 +28,7 @@
     padding-bottom: 5vh;
 }
 
-@media (max-width: 768px) {   
+@media (max-width: 768px) {
     .add-adress-title {
         display: flex;
         flex-direction: column;

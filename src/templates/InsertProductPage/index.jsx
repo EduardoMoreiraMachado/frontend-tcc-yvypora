@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { EmptyHeader } from "../../components/EmptyHeader";
+import { Header } from "../../components/Header";
 import { Title } from "../../components/Title";
 import { Footer } from "../../components/Footer";
 import { AddImage } from "../../components/AddImage";
@@ -118,10 +118,12 @@ export const InsertProductPage = () => {
       });
     }
   }
+
   return (
     <div className="insert-product-page">
-
-      <EmptyHeader />
+      <Header 
+        imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+      />
       <Title text="Inserir um novo produto" />
 
       <div className="data-containers">

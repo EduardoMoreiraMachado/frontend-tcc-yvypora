@@ -59,16 +59,9 @@ export const UpdateConsumidorAccount = () => {
                         value={values.cep}
                         onChange={handleChange}
                     />
-                    {/* <DefaultInput
+                    <DefaultInput
                         name='Data de nascimento'
                         type='date'
-                    /> */}
-                    <SpecialInput 
-                        name="date"
-                        label="Data de nascimento"
-                        mask="99/99/9999"
-                        value={values.date}
-                        onChange={handleChange}
                     />
                 </div>
                 <div className='green-button'>

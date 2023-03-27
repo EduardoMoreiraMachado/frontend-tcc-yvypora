@@ -57,7 +57,15 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 select {
-  background-color: #c5d9ac;
+  background-color: transparent;
+}
+
+.button-add-image-container{
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 .text-icon,
@@ -250,6 +258,10 @@ select {
   padding: 20px;
   font-size: 1.2rem;
   color: white;
+}
+
+.default-label {
+  color: #245501;
 }
 
 @media (max-width: 768px) {

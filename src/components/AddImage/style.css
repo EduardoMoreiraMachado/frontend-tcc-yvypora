@@ -5,11 +5,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 7vh;
 }
 
 .text {
     font-size: 2rem;
     font-weight: 400;
+    text-align: center;
     color: #143601;
     padding-bottom: 1vh;
 }
@@ -51,6 +53,10 @@ input[type='file'] {
 }
 
 @media (max-width: 768px) {
+    .add-image-container {
+        margin-top: 3vh;
+    }
+
     .text {
         font-size: 1.5rem;
     }
