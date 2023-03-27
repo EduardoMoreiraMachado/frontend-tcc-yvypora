@@ -20,7 +20,7 @@ export const Tests = () => {
     const setWindowDimensions = () => {
       setWindowWidth(window.innerWidth)
       setWindowHeight(window.innerHeight)
-      console.log(windowWidth);
+      
     }
 
     useEffect(() => {

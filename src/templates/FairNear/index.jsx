@@ -1,5 +1,4 @@
 import './style.css'
-import {EmptyHeader} from '../../components/EmptyHeader'
 import {NavBar} from '../../components/NavBar'
 import Title from '../../components/Title'
 import FairNearCard from '../../components/FairNearCard'
@@ -10,7 +9,7 @@ export const FairNear = () =>{
     return(
         <div className='all-content-container'>
             {/* <MenuBurguer/> */}
-            <EmptyHeader/>
+            <header/>
             <Title text={'Feiras Próximas'}/>
            <div className="nav-card-container">
                 <NavBar/>

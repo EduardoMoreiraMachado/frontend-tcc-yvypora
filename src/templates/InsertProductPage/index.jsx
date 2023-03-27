@@ -1,7 +1,7 @@
 import "./style.css";
 
-import { EmptyHeader } from "../../components/EmptyHeader";
 import { Title } from "../../components/Title";
+
 import { Footer } from "../../components/Footer";
 import { AddImage } from "../../components/AddImage";
 import { ToggleSwitch } from "../../components/ToggleSwitch";
@@ -121,7 +121,8 @@ export const InsertProductPage = () => {
   return (
     <div className="insert-product-page">
 
-      <EmptyHeader />
+      <header/>
+     
       <Title text="Inserir um novo produto" />
 
       <div className="data-containers">
