@@ -10,7 +10,7 @@ import MenuBurguer from "../../components/MenuBurguer"
 export const AdressPage = () => {
     return (
         <div className="main-address">
-            {/* <MenuBurguer/> */}
+            <MenuBurguer/>
             <div className="user-info">
                 <UserCard
                     name={'Carlos Arcanjo'}

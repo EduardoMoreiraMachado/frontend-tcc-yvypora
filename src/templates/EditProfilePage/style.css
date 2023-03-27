@@ -1,5 +1,13 @@
 .main-edit-profile{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+
+}
+
+.inputs-button-container{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: center;
+    width: 100%;
 }

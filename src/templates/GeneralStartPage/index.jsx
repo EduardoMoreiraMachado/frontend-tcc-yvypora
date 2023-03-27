@@ -1,6 +1,6 @@
 import './style.css';
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 
 import { NavBar } from '../../components/NavBar';
@@ -12,7 +12,6 @@ import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
 import { SearchInput } from '../../components/SearchInput'
-
 import MenuBurguer from '../../components/MenuBurguer';
 
 export const GeneralStartPage = () => {
@@ -32,7 +31,8 @@ export const GeneralStartPage = () => {
 
   return (
     <div className='general-start-page-container'>
-      <SignHeader />
+      <MenuBurguer/>
+      <SignHeader /> 
       <div className='page-content'>
         <NavBar />  
         <div className='products-container'>

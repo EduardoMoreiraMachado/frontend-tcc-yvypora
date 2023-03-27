@@ -1,13 +1,13 @@
-
-.bm-overlay {
-
+.menu-burger-container{
+  display: none;
+  text-decoration: none;
 }
-.bm-menu{
-  
-}
-
 
 @media(max-width:768px){
+  .menu-burger-container{
+    display: flex;
+  }
+  
 
     .bm-burger-button {
         position: fixed;
