@@ -21,7 +21,9 @@ export const AddAdressPage = () => {
 
     return(
         <div className='add-adress-page-container'>
-            <Header />
+            <Header 
+                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+            />
             <div className='add-adress-title'>
                 <Title className='title' text='Adicione um endereço'/>
                 <h1 className='add-adress-subtitle'>Insira os dados do endereço onde seus produtos serão entregados.</h1>

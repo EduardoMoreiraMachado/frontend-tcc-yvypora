@@ -1,5 +1,5 @@
 import "./style.css"
-import { UserCard } from "../../components/UserCard"
+import { Header } from "../../components/Header"
 import NavBar from "../../components/NavBar"
 import Footer from "../../components/Footer"
 import AddressCard from "../../components/AddressCard"
@@ -11,13 +11,10 @@ export const AdressPage = () => {
     return (
         <div className="main-address">
             <MenuBurguer/>
-            <div className="user-info">
-                <UserCard
-                    name={'Carlos Arcanjo'}
-                    imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-                    email={"carlaoprof@gmail.com"} />
-                <Title text={'Endereços'} />
-            </div>
+            <Header 
+                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+            />
+            <Title text={'Endereços'} />
             <div className="main-card-address">
                 <NavBar />
                 <div className="card-button-addres">

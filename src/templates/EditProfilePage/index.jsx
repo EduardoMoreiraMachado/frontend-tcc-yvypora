@@ -1,5 +1,6 @@
 import "./style.css"
-import { UserCard } from '../../components/UserCard'
+
+import { Header } from '../../components/Header'
 import NavBar from "../../components/NavBar"
 import DefaultInput from "../../components/DefaultInput"
 import SpecialInput from "../../components/SpecialInput"
@@ -20,12 +21,9 @@ export const EditProfilePage = () => {
     }
     return (
         <div className="edit-profile">
-            <div className="user-info">
-                <UserCard
-                    name={'Carlos Arcanjo'}
-                    imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-                    email={"carlaoprof@gmail.com"} />
-            </div>
+            <Header 
+                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+            />
             <Title text={'Editar Perfil'} />
             <div className="main-edit-profile">
                 <NavBar />

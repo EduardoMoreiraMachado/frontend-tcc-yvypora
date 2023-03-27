@@ -11,27 +11,27 @@ export const NavBar = () => {
 
   return (
     <div className="nav-bar-container">
-        <div className={'upper-nav'}>
-          <a className="bar-image menu-item" href="/">
-            <img src={HomeImg} alt="" className="icon" />
-          </a>
-          <a className="bar-image menu-item" href="#">
-            <img src={VideoImg} alt="" className="icon" />
-          </a>
-        </div>
-        <div className="button-container">
-          <ButtonCart />
-        </div>
-
-        <div className={'lower-nav'}>
-          <a className="bar-image menu-item" href="/fair-near">
-            <img src={FairImg} alt="" className="icon" />
-          </a>
-          <a className="bar-image menu-item" href="/profile">
-            <img src={ProfileImg} alt="" className="icon" />
-          </a>
-        </div>
+      <div className={'upper-nav'}>
+        <a className="bar-image menu-item" href="/">
+          <img src={HomeImg} alt="" className="icon" />
+        </a>
+        <a className="bar-image menu-item" href="#">
+          <img src={VideoImg} alt="" className="icon" />
+        </a>
       </div>
+      <div className="button-container">
+        <ButtonCart />
+      </div>
+
+      <div className={'lower-nav'}>
+        <a className="bar-image menu-item" href="/fair-near">
+          <img src={FairImg} alt="" className="icon" />
+        </a>
+        <a className="bar-image menu-item" href="/profile">
+          <img src={ProfileImg} alt="" className="icon" />
+        </a>
+      </div>
+    </div>
   )
 }
 export default NavBar
