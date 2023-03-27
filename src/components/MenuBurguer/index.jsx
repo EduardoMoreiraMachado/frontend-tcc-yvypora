@@ -12,32 +12,35 @@ var styles = {
       'justify-content':'space-evenly',
       'width' : '100%',
       'height' : '100%',
-    //   'background-color' : 'aqua',
       'text-decoration' : 'none',
       'list-style':'none'
     }  
   }
 
 
-export const MenuBurguer = () => {
+export const MenuBurguer = (width) => {
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  
 
+    
 
-    const setWindowDimensions = () => {
-      setWindowWidth(window.innerWidth)
-      console.log(windowWidth);
-    }
+    // const setWindowDimensions = () => {
+    //   setWindowWidth(window.innerWidth)
+    //   setWindowHeight(window.innerHeight)
+    //   console.log(windowWidth);
+    // }
 
-    useEffect(() => {
-        window.addEventListener('resize', setWindowDimensions);
-        return () => {
-          window.removeEventListener('resize', setWindowDimensions)
-        }
-      }, [])
+    // useEffect(() => {
+    //     window.addEventListener('resize', setWindowDimensions);
+    //     return () => {
+    //       window.removeEventListener('resize', setWindowDimensions)
+    //     }
+    //   }, [])
 
-    if(windowWidth < 769 ){
-        return(
+    // if(windowWidth < 769 ){
+        
+    
+    return(
             <a href="#" class="menu-burger-container">
             <i class="menu-burger">
                 <Menu itemListClassName={"my-class"} styles={ styles }>
@@ -60,5 +63,5 @@ export const MenuBurguer = () => {
         </a>
         )
     }
-}
+// }
 export default MenuBurguer

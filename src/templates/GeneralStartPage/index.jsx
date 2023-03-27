@@ -16,9 +16,6 @@ import { SearchInput } from '../../components/SearchInput'
 import MenuBurguer from '../../components/MenuBurguer';
 
 export const GeneralStartPage = () => {
-
-  const [width, setWidth] = useState(1920)
-
   const carousel = useRef(null);
 
   const handleLeftClick = (e) => {
@@ -32,15 +29,12 @@ export const GeneralStartPage = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth
   }
 
-  
-
- 
 
   return (
     <div className='general-start-page-container'>
       <SignHeader />
       <div className='page-content'>
-        <NavBar />
+        <NavBar />  
         <div className='products-container'>
           <div className='search-category'>
             <div className='general-search'>
