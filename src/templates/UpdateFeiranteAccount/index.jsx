@@ -63,10 +63,10 @@ export const UpdateFeiranteAccount = () => {
                         name='Nome do estabelecimento'
                         type='text'
                     />
-                    {/* <DefaultInput
+                    <DefaultInput
                         name='Data de nascimento'
                         type='date'
-                    /> */}
+                    />
                     <SpecialInput 
                         name="date"
                         label="Data de nascimento"

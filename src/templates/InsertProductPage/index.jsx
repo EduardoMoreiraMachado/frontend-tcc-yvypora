@@ -1,5 +1,6 @@
 import "./style.css";
 
+import { Header } from "../../components/Header";
 import { Title } from "../../components/Title";
 
 import { Footer } from "../../components/Footer";
@@ -118,11 +119,13 @@ export const InsertProductPage = () => {
       });
     }
   }
+
   return (
     <div className="insert-product-page">
 
-      <header/>
-     
+      <Header 
+        imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+      />
       <Title text="Inserir um novo produto" />
 
       <div className="data-containers">

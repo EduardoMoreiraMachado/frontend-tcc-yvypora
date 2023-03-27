@@ -1,5 +1,5 @@
 .default-input-container {
-    width: fit-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
     color: #245501;
@@ -18,6 +18,10 @@
 }
 
 @media (max-width: 768px) {    
+    .default-input-container {
+        margin-bottom: 30px;
+    }
+
     .default-label {
         font-size: 1.3rem;
     }

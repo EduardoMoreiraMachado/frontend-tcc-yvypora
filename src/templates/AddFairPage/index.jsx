@@ -147,13 +147,12 @@ export const AddFairPage = () => {
               value={values.cep}
               onChange={handleChange}
             />
-            {/* <DefaultInput name="Nome da feira" type="text"/> */}
-
+            
             <DefaultInput name="Horário de abertura" type="time" />
             <DefaultInput name="Horário de encerramento" type="time" />
 
             <div className="drop-box">
-              <label className="product-input-title" htmlFor="product-type">
+              <label className="default-label" htmlFor="product-type">
                 Dia de Funcionamento
               </label>
               <select name="product-type" id="day-of-week">
@@ -168,14 +167,12 @@ export const AddFairPage = () => {
             </div>
           </div>
         </div>
-        <div className="photo-day-container">
-          <div className="add-image-container">
-            <AddImage text={"Adicione uma foto da feira"} />
-          </div>
+        <div className="button-add-image-container">
+          <AddImage text='Adicione uma foto de perfil' />
+          <GreenButton
+            text='Cadastrar' 
+          />
         </div>
-      </div>
-      <div className="button-container">
-        <GreenButton text={"Adicionar"} onClick={handleClick} />
       </div>
       <Footer />
     </div>
