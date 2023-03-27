@@ -154,7 +154,7 @@ export const AddFairPage = () => {
 
             <div className="drop-box">
               <label className="product-input-title" htmlFor="product-type">
-                Dia de Funcionamento:
+                Dia de Funcionamento
               </label>
               <select name="product-type" id="day-of-week">
                 {daysOfWeekFields.map((day) => {
@@ -170,7 +170,7 @@ export const AddFairPage = () => {
         </div>
         <div className="photo-day-container">
           <div className="add-image-container">
-            <AddImage text={"Adicione uma foto da Feira!"} />
+            <AddImage text={"Adicione uma foto da feira"} />
           </div>
         </div>
       </div>
