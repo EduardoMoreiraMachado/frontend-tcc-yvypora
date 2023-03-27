@@ -1,18 +1,10 @@
-.main-container {
+.input-container{
+  height: 70%;
   display: flex;
-}
-
-.day-hour-container {
-  display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
-  height: 20vh;
-  width: 46vw;
-}
-.day-hour-container h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1a4301;
+  flex-direction: row;
+  padding: 2vh 5vw 10vh 5vw;
 }
 
 .drop-box {
@@ -36,9 +28,8 @@
   text-align: justify;
 }
 
-@media (max-width: 768px) {
-  .main-container {
-    flex-direction: column;
-    align-items: center;
+@media (max-width:730px) {
+  .input-container{
+      flex-direction: column;
   }
 }

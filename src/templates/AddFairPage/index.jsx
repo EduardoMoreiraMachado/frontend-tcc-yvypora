@@ -9,7 +9,6 @@ import { fetchFairFormFields } from "../../utils/formFieldsFetch";
 import { createFair, addImageInFair } from "../../utils/fairsFetch";
 
 import "./style.css";
-import PrevPageIcon from "../../imgs/prev_page_icon.svg";
 import { consumeCep } from "../../utils/cepFetch";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -129,42 +128,42 @@ export const AddFairPage = () => {
   };
 
   return (
-    <div>
-      <Header />
+    <div className="add-fair-page-container">
+      <Header 
+        imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+      />
       <TitleSubtitle
           text={"Escolha o local"}
           subtitle="Insira as feiras onde seus produtos serão vendidos"
       />
-      <div className="main-container">
-        <div className="inputs-container">
-          <div className="inputs">
-            <h1>Detalhes da feira</h1>
-            <h2 id="fair-name">Nome da Feira: </h2>
-            <SpecialInput
-              name="cep"
-              label="CEP do local da feira"
-              mask="99999-999"
-              value={values.cep}
-              onChange={handleChange}
-            />
-            
-            <DefaultInput name="Horário de abertura" type="time" />
-            <DefaultInput name="Horário de encerramento" type="time" />
+      <div className="input-container">
+        <div className="inputs">
+          <h1>Detalhes da feira</h1>
+          <h2 id="fair-name">Nome da Feira: </h2>
+          <SpecialInput
+            name="cep"
+            label="CEP do local da feira"
+            mask="99999-999"
+            value={values.cep}
+            onChange={handleChange}
+          />
+          
+          <DefaultInput name="Horário de abertura" type="time" />
+          <DefaultInput name="Horário de encerramento" type="time" />
 
-            <div className="drop-box">
-              <label className="default-label" htmlFor="product-type">
-                Dia de Funcionamento
-              </label>
-              <select name="product-type" id="day-of-week">
-                {daysOfWeekFields.map((day) => {
-                  return (
-                    <option value={day.name} id={day.id}>
-                      {day.name}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
+          <div className="drop-box">
+            <label className="default-label" htmlFor="product-type">
+              Dia de Funcionamento
+            </label>
+            <select name="product-type" id="day-of-week">
+              {daysOfWeekFields.map((day) => {
+                return (
+                  <option value={day.name} id={day.id}>
+                    {day.name}
+                  </option>
+                );
+              })}
+            </select>
           </div>
         </div>
         <div className="button-add-image-container">
@@ -174,6 +173,7 @@ export const AddFairPage = () => {
           />
         </div>
       </div>
+        
       <Footer />
     </div>
   );
