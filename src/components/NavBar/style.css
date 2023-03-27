@@ -71,14 +71,6 @@
 
 @media (max-width:768px) {
     .nav-bar-container{
-        background-color: white;
-    }
-
-    .upper-nav{
         display: none;
     }
-    .lower-nav{
-        display: none;
-    }
-    
 }

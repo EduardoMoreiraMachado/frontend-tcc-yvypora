@@ -44,7 +44,7 @@ export const GeneralStartPage = () => {
         <div className='products-container'>
           <div className='search-category'>
             <div className='general-search'>
-                {/* <SearchInput /> */}
+                <SearchInput />
             </div>
             <ProductCategory />
           </div>

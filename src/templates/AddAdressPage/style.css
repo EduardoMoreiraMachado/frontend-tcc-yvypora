@@ -53,5 +53,9 @@
         padding-bottom: 5vh;
         text-align: center;
     }
+
+    .inputs h1 {
+        font-size: 1.7rem;
+    }
     
 }
