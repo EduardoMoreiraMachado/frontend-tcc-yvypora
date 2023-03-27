@@ -1,3 +1,4 @@
+import { MapContainer } from '../../components/Maps'
 import './style.css'
 // import { OrderSummary } from '../../components/OrderSummary'
 // import { ShoppingItem } from '../../components/ShoppingItem'
@@ -9,13 +10,9 @@ import './style.css'
 // import { useEffect, useState } from 'react'
 // import { handler } from 'daisyui'
 
-
-console.log(window.screen.width)
-
-
 export const Tests = () => {
 
-    
+    <MapContainer/>
 }
 
 
