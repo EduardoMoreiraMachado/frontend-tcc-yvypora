@@ -1,4 +1,4 @@
-import { MapContainer } from '../../components/Maps'
+import { MapComponent} from '../../components/Maps'
 import './style.css'
 // import { OrderSummary } from '../../components/OrderSummary'
 // import { ShoppingItem } from '../../components/ShoppingItem'
@@ -11,9 +11,9 @@ import './style.css'
 // import { handler } from 'daisyui'
 
 export const Tests = () => {
-
-    <MapContainer/>
+    <MapComponent/>
 }
 
 
 export default Tests
+

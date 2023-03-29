@@ -1,7 +1,6 @@
 import './style.css'
 
 import { ShoppingItem } from '../../components/ShoppingItem'
-import FiltersSearch from '../../components/FiltersSeach'
 import ProductsFilters from '../../components/ProductsFilters'
 import { Footer } from '../../components/Footer'
 
