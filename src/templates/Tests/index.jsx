@@ -1,4 +1,4 @@
-import { MapComponent} from '../../components/Maps'
+import { MyComponent } from '../../components/Maps'
 import './style.css'
 // import { OrderSummary } from '../../components/OrderSummary'
 // import { ShoppingItem } from '../../components/ShoppingItem'
@@ -11,7 +11,13 @@ import './style.css'
 // import { handler } from 'daisyui'
 
 export const Tests = () => {
-    <MapComponent/>
+    <div>
+
+        <p>nao renderizou</p>
+
+
+        <MyComponent />
+    </div>
 }
 
 
