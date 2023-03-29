@@ -21,9 +21,9 @@ header img {
 .info-boxes {
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10vw;
 }
 
 .add-products-or-fairs {
@@ -89,4 +89,66 @@ header img {
 .products-icon,
 .fairs-icon {
     width: 100px;
+}
+
+.feirante-activity {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.half-historic {
+    box-shadow: 0px 4px 4px #245501;
+    padding: 50px 20px 50px 30px;
+}
+
+.half-historic h1 {
+    color: #245501;
+    padding-bottom: 4vh;
+    text-align: center;
+}
+
+.half-historic h2 {
+    color: #666666;
+    font-size: 1.3rem;
+}
+
+.money-visibility {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding-bottom: 4vh;
+}
+
+.money-visibility h1 {
+    height: fit-content;
+    padding-bottom: 0vh;
+}
+
+.money-visibility button {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.sales {
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+    color: #666666;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.all-historic-button {
+    box-shadow: 0px 4px 4px #245501;
+    font-size: 0.7rem;
+    text-align: center;
+    text-decoration: underline;
+    padding: 10px;
+    cursor: pointer;
 }
