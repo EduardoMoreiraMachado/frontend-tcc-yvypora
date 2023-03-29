@@ -2,14 +2,12 @@ import "./style.css";
 
 import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
 
-import { DefaultInput } from "../../components/DefaultInput";
 import { GreenButton } from "../../components/GreenButton";
 import { Footer } from "../../components/Footer";
 import { Title } from "../../components/Title";
 import { commonsAPI } from "../../api/api";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-// import { useNavigate } from "react-router-dom";
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
@@ -57,24 +55,32 @@ export const Login = () => {
   };
 
   return (
-    <div className="main">
+    <div className="login-container">
         <header>
             <div className='header-icon'>
                 <img className='icon-yvy' src={YvyporaTextIcon} alt=''/>
             </div>
         </header>
-      <Title text="Login" />
-      <form>
+      <div className="login-content">
+        <Title text="Login" />
         <div className="input-container">
           <div className="input">
-            <DefaultInput name="Email" type="text" />
-            <DefaultInput name="Senha" type="password" />
+            <div className='default-input-container'>
+              <label className="default-label" htmlFor="input-default">E-mail</label>
+              <input className="default-input" type="text" id="input-default" name="e-mail"/>
+            </div>
+
+            <div className='default-input-container'>
+              <label className="default-label" htmlFor="input-default">Senha</label>
+              <input className="default-input" type="password" id="input-default" name="senha"/>
+            </div>
+
           </div>
           <div className="button-container">
             <GreenButton text="Entrar" onClick={handleClick} type="submit" />
           </div>
         </div>
-      </form>
+      </div>
       <Footer />
     </div>
   );

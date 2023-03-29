@@ -1,0 +1,43 @@
+header {
+    margin-bottom: 0vh;
+}
+
+footer {
+    margin-top: 0vh;
+}
+
+.sign-to-continue-content {
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='5120' height='2880' preserveAspectRatio='none' viewBox='0 0 5120 2880'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1007%26quot%3b)' fill='none'%3e%3crect width='5120' height='2880' x='0' y='0' fill='rgba(170%2c 213%2c 118%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c2427.498C447.539%2c2393.087%2c799.205%2c2073.825%2c1176.925%2c1831.332C1554.836%2c1588.716%2c2000.465%2c1406.518%2c2209.476%2c1009.034C2422.61%2c603.711%2c2378.542%2c120.667%2c2314.923%2c-332.836C2251.128%2c-787.59%2c2203.727%2c-1312.49%2c1843.799%2c-1597.661C1487.194%2c-1880.199%2c962.466%2c-1669.486%2c516.187%2c-1757.973C124.186%2c-1835.698%2c-214.601%2c-2125.87%2c-612.097%2c-2084.61C-1043.646%2c-2039.815%2c-1529.594%2c-1891.833%2c-1756.552%2c-1522.061C-1982.982%2c-1153.148%2c-1695.858%2c-680.699%2c-1738.191%2c-249.914C-1777.77%2c152.849%2c-2072.46%2c514.045%2c-1995.686%2c911.399C-1911.094%2c1349.216%2c-1654.356%2c1751.978%2c-1299.283%2c2021.723C-930.522%2c2301.866%2c-461.74%2c2463%2c0%2c2427.498' fill='%2371a533'%3e%3c/path%3e%3cpath d='M5120 4791.225C5531.572 4839.5509999999995 5987.241 4995.916 6337.912 4775.108 6688.732 4554.207 6732.145 4071.025 6879.299 3683.445 7016.455 3322.2 7181.639 2971.563 7169.3060000000005 2585.354 7156.035 2169.7889999999998 7090.796 1722.063 6806.961 1418.24 6525.799 1117.278 6064.421 1123.459 5675.899 986.7819999999999 5261.255 840.915 4864.298 449.8899999999999 4447.02 588.0410000000002 4028.078 726.7420000000002 3994.321 1321.088 3692.812 1643.334 3373.313 1984.807 2771.531 2075.189 2636.63 2522.945 2502.289 2968.842 2760.193 3455.701 3033.087 3833.061 3280.38 4175.019 3689.483 4333.0830000000005 4072.998 4509.166 4408.264 4663.097 4753.602 4748.2029999999995 5120 4791.225' fill='%23e1f0cf'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1007'%3e%3crect width='5120' height='2880' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.message-box {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #AAD576;
+    padding: 50px 30px 50px 30px;
+    border-radius: 0px 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.message-box h1 {
+    width: 30vw;
+    color: #143601;
+    text-align: center;
+    padding-bottom: 5vh;
+}
+
+.message-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}

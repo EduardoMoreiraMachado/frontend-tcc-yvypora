@@ -18,7 +18,7 @@ export const TypeUserSelect = () => {
             <div className='welcome-container'>
                 <div className='welcome-message'>
                     <h1 className='welcome-text'>
-                        Bem-vindo(a) ao <span className='strong-welcome-text'>yvyporã</span>, a sua feira digital!
+                        Boas-vindas ao <span className='strong-welcome-text'>yvyporã</span>, a sua feira digital!
                     </h1>
                     <div className='welcome-image'></div>
                 </div>

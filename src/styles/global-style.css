@@ -32,8 +32,7 @@ code {
 }
 
 header {
-  background-color: #aad5761e;
-  width: 100%;
+  /* background-color: #aad57687; */
   display: flex;
   justify-content: space-between;
   align-items: center;
