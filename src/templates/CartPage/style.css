@@ -15,20 +15,45 @@
     flex-direction: column;
     gap: 20px;
     margin-bottom: 3%;
-    
 }
 .card-payment-container{
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
     width: 100%;
+
     
 }
 .payment-container{
     display: flex;
     flex-direction: column;
-   justify-content: center;
-   width: 20%;
+    justify-content: center;
+    width: fit-content;
 
-
+}
+@media(max-width:768px){
+    .card-cart-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .card-cart{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    .card-payment-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .payment-container{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
 }

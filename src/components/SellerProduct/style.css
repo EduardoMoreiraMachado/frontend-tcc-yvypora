@@ -59,10 +59,8 @@
     font-size: 1.5rem;
 }
 
-.amount {
-    display: flex;
-    justify-content: center;
-    gap: 1vw;
+.amount{
+    width: 100%;
 }
 
 .sub-button {
@@ -74,8 +72,8 @@
     background-image: url(../../imgs/sub_icon.svg);
     background-repeat: no-repeat;
     background-position: center;
-    width: 3vw;
-    height: 5.5vh;
+    width: 60px;
+    height: 60px;
     font-size: 3rem;
     border-radius: 5px;
 } 
@@ -102,8 +100,8 @@
 
 .add-button {
     cursor: pointer;
-    width: 3vw;
-    height: 5.5vh;
+    width: 60px;
+    height: 60px;
     background-color: #538D22;
     background-image: url(../../imgs/add_icon.svg);
     background-repeat: no-repeat;

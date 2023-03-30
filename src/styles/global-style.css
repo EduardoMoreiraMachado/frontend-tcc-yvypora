@@ -286,10 +286,11 @@ select {
   }
 
   .amount {
-    gap: 10vw;
+    width:10vw;
   }
 
   .inputs {
     padding: 50px 20px 50px 20px;
   }
+  
 }

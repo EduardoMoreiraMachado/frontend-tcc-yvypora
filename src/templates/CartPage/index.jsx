@@ -7,9 +7,14 @@ import ShoppingCartItem from "../../components/ShoppingCartItem";
 import PaymentCard from "../../components/PaymentCard";
 
 import Footer from "../../components/Footer";
+import { useState } from "react";
 
 
-export const CartPage = (price) => {
+
+export const CartPage = () => {
+
+
+
     return (
         <div className="cartpage-container">
             <Header
@@ -31,13 +36,13 @@ export const CartPage = (price) => {
                                 name={'Abobora'}
                                 imgUrl={'https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover'}
                                 unit={8591}
-                                price={9.09}
+                                price={2}
                             />
                             <ShoppingCartItem
                                 name={'Abobora'}
                                 imgUrl={'https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover'}
                                 unit={8591}
-                                price={9.09}
+                                price={2}
                             />
                             <ShoppingCartItem
                                 name={'Abobora'}

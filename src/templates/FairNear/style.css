@@ -4,7 +4,6 @@
     flex-direction: column;
     height: 100vh;
 }
-
 .nav-card-container{
     display: flex;
     flex-direction: row;
@@ -12,12 +11,10 @@
 }
 .map-container{
     display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    margin-left: 3%;
-    padding-top: 3%;    
-    height: 100%;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    height: 100%;
 }
 .cards{
     display: flex;
@@ -28,6 +25,20 @@
     justify-content: center;
     flex-direction: column; 
     align-items: center;
-    padding-bottom: 3%;
-    
+    padding-bottom: 12%;
+    margin-top: 4%;
+}
+
+@media(max-width:768px){
+    .map-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .cards{
+        
+        display: flex;
+        flex-direction: column;
+    }
 }

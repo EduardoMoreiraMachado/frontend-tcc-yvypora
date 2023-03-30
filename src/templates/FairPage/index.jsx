@@ -9,7 +9,7 @@ import { GreenButton } from "../../components/GreenButton";
 
 import { useEffect, useState } from "react";
 
-export const RegisteredFairsPage = () => {
+export const FairPage = () => {
   const [fairs, setFairs] = useState([]);
   
   useEffect(() => {}, []);
@@ -69,4 +69,4 @@ export const RegisteredFairsPage = () => {
   );
 };
 
-export default RegisteredFairsPage;
+export default FairPage;

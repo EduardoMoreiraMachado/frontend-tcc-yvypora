@@ -7,13 +7,6 @@ import { NavigationType } from 'react-router-dom'
 
 
 export const FairNearCard = ({title,img,note,dayWorkText, hourWorkText,fairmanText}) =>{
-    // let t = title
-    // let n = note
-    // let d = dayWorkText
-    // let h = hourWorkText
-    // let f = fairmanText
-
-    // console.log(t,n,d,h,f);
     return (
         <div className="main-card">
         <div className="card-container">
