@@ -50,7 +50,7 @@ export const FeiranteStartPage = () => {
                             <h1>Sua atividade hoje</h1>
                             <h2>Ganhos</h2>
                             <div className='money-visibility'>
-                                <h1 style={isVisible ? {color: '#245501'} : {color: 'transparent'}}>R$ 0,00</h1>
+                                <h1 style={isVisible ? {color: '#245501'} : {color: 'transparent', backgroundColor: '#6661'}}>R$ 0,00</h1>
                                 <button onClick={toggleVisibility} style={isVisible ? {backgroundImage: `url(${EyeNotVisible})`} : {backgroundImage: `url(${EyeVisible})`}}/>
                             </div>
                             <div className='sales'>
