@@ -1,18 +1,15 @@
 .user-info{
+    width: 100%;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 10vh;
-}
-.main-address{
-    height: 100vh;
 }
 
 .profile-container{
     display: flex;
     align-items: center;
-    height: 85vh;
 }
 
 .options-container{
@@ -21,4 +18,9 @@
     flex-direction: column;
     align-items: center;
     gap: 36px;
+}
+
+#exit {
+    position: absolute;
+    top: 72.5vh;
 }

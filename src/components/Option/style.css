@@ -1,6 +1,7 @@
 .option-container {
     width: 40vw;
     display: flex;
+    align-items: center;
     background-color: #AAD576;
     background-image: url(../../imgs/arrow_icon.svg);
     background-repeat: no-repeat;
@@ -9,6 +10,7 @@
     padding: 15px;
     border-radius: 10px;
     gap: 1vw;
+    cursor: pointer;
 }
 
 .option-image {
