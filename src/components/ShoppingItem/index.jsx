@@ -27,7 +27,7 @@ export const ShoppingItem = ({name, imgUrl, weight, price, promo}) => {
             <div className='item-numbers'>
                 <div className='numbers'>
                     <h1 className='weight'>{weight}</h1>
-                    <span className='price'>R$ {price}</span>
+                    <span className='price-general'>R$ {price}</span>
                 </div>
                 <div className='cart-icon-box'>
                     <button className='cart-icon'/>

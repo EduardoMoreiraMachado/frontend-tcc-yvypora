@@ -67,11 +67,9 @@
     color: #7D7D7D;
 }
 
-.price {
-    width: 100%;
-    white-space: nowrap;
-    font-size: 1.7rem;
+.price-general {
     font-weight: 700;
+    font-size: 1.5rem;
     color: #245501;
 }
 
@@ -100,8 +98,15 @@
         font-size: 1rem;
     }
 
-    .price {
-        font-size: 1.3rem;
+    .price-general {
+        /* font-size: 1.3rem; */
+        font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31px;
+
+    color: #245501;
     }
 
     .weight {

@@ -6,6 +6,10 @@ import { ShoppingCartItem } from "../../components/ShoppingCartItem"
 import { Header } from "../../components/Header"
 
 export const BuyHistory = () =>{
+
+    //  Tem que ser o preco que cada card vai passar para o banco
+    //  tem que ter um retorno aqui pra ir pro infoBuy
+    const preco = 189.80
     return (
         <div className="buy-history-container">
             <Header 
@@ -22,6 +26,7 @@ export const BuyHistory = () =>{
                         nameCostumer={"Barraca do Seu Zé"}
                         nameFair={"Feira de Barueri"}
                         date={'31/02/23'}
+                        price={preco}
                     />
                     <ShoppingCartItem
                         name={'Abobora'}
