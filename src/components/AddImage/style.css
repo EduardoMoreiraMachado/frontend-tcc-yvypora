@@ -49,6 +49,7 @@ input[type='file'] {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
+    border: dashed 2px #AAD576;
     transition: all 0.5s;
 }
 
@@ -89,5 +90,11 @@ input[type='file'] {
         width: 110px;
         height: 110px;
         background-size: 60px;
+    }
+
+    .image-preview {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 2vh;
     }
 }
