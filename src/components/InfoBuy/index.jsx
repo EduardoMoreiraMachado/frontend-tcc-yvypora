@@ -1,8 +1,19 @@
+import { useState } from "react"
 import "./style.css"
 
-export const InfoBuy = ({imgURL,nameCostumer, nameFair, date, price}) => {
+export const InfoBuy = ({imgURL,nameCostumer, nameFair, date, price, state}) => {
+    
+
+    const [disabled, setDisabled] = useState(state)
+
+    const handleClick = (e) =>{
+        setDisabled(!disabled)
+        
+    }
+
+
     return(
-        <div className="info-buy-container">
+        <div className="info-buy-container" onClick={handleClick}>
             <img src={imgURL} alt="" className="img-infobuy"/>
             <div className="text-info-container">
                 <p className="name-costumer">{nameCostumer}</p>
@@ -12,7 +23,6 @@ export const InfoBuy = ({imgURL,nameCostumer, nameFair, date, price}) => {
             </div>
         </div>
     )
-
 }
 
 export default InfoBuy

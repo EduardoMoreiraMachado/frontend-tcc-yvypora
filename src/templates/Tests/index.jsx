@@ -1,3 +1,4 @@
+import InfoBuyClick from '../../components/InfoBuyClick'
 import { MyComponent } from '../../components/Maps'
 import './style.css'
 // import { OrderSummary } from '../../components/OrderSummary'
@@ -13,10 +14,9 @@ import './style.css'
 export const Tests = () => {
     <div>
 
-        <p>nao renderizou</p>
 
 
-        <MyComponent />
+        <InfoBuyClick />
     </div>
 }
 
