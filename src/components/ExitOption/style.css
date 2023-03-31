@@ -38,15 +38,15 @@
 @keyframes fade {
     0%   {opacity: 0;}
     100% {opacity: 1;}
-  }
+}
 
 .exit-confirm-options {
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2vh;
-    padding-bottom: 3vh;
     animation-name: fade;
     animation-duration: 0.5s;
 }
@@ -79,4 +79,36 @@
 #no {
     background-color: red;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .exit-option-container {
+        width: 80VW;
+    }
+
+    .exit-content {
+        gap: 3vw;
+    }
+
+    .exit-option-text {
+        font-size: 1rem;
+    }
+
+    .exit-confirm-options h1 {
+        font-size: 1rem;
+    }
+
+    .options-buttons {
+        gap: 20vw;
+    }
+
+    #yes, #no {
+        width: 50px;
+        font-size: 0.9rem;
+    }
+
+    .exit-option-image {
+        width: 20px;
+        height: 20px;
+    }
 }

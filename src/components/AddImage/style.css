@@ -41,13 +41,33 @@
 input[type='file'] {
     display: none
 }
- 
-.image-button:hover {
+
+.image-preview {
+    width: 220px;
+    height: 220px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.modify-image {
+    background-color: #AAD576;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 2vh;
+}
+
+.image-button:hover,
+.modify-image:hover {
     background-color: #aad5768b;
     transition: all 0.3s;
 }
 
-.image-button:active {
+.image-button:active,
+.modify-image:active {
     background-color: #4e6138;
     transition: all 0s;
 }

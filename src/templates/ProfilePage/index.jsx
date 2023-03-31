@@ -10,12 +10,16 @@ import iconBag from "../../imgs/bag.svg"
 import MenuBurguer from "../../components/MenuBurguer"
 import { EmptyHeader } from "../../components/EmptyHeader"
 import { ExitOption } from "../../components/ExitOption"
+import { Header } from "../../components/Header"
 
 
 export const ProfilePage = () => {
     return (
         <div className="profile-main">
             <MenuBurguer/>
+            <Header 
+                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+            />
             <EmptyHeader />
             <div className="user-info">
                 <UserCard
@@ -30,9 +34,7 @@ export const ProfilePage = () => {
                     <Option imgUrl={iconMap} text={'Endereço'} link="/profile/address"/>
                     <Option imgUrl={iconCard} text={'Formas de Pagamento'} link={""}/>
                     <Option imgUrl={iconBag} text={'Histórico de compra'} link={'/profile/buy-history'}/>
-                    <div id='exit'>
-                        <ExitOption />
-                    </div>
+                    <ExitOption />
                 </div>
             </div>
             <Footer/>

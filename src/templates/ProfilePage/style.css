@@ -1,3 +1,7 @@
+#default-header {
+    display: none;
+}
+
 .user-info{
     width: 100%;
     position: absolute;
@@ -20,7 +24,16 @@
     gap: 36px;
 }
 
-#exit {
-    position: absolute;
-    top: 72.5vh;
+@media (max-width: 768px) {
+    #empty-header {
+        display: none;
+    }
+
+    #default-header {
+        display: flex;
+    }
+
+    .user-info {
+        display: none;
+    }
 }

@@ -238,6 +238,7 @@ export const InsertProductPage = () => {
           <AddImage
             text="Imagem do produto"
             subtext="Anexe uma imagem do produto que ficará visível ao cliente"
+            imgUrl='https://s2.glbimg.com/nWM1K-pYSWhlx5UPU6Nw1zfI6o8=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/w/p/oBzknsShyCcvqLUEWs1Q/nc-laranja-safra-230619.jpg'
           />
 
           <div className="register-button">
