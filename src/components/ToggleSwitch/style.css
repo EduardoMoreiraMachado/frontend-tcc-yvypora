@@ -68,7 +68,8 @@ input:checked + .slider:before {
 
 .input-active {
     animation: fadeIn 0.3s ease-in-out;
-    width: 50px;
+    width: 100px;
+    font-size: 1.7rem;
     text-align: center;
     border: solid 1px #538D22;
     border-radius: 10px;
@@ -76,7 +77,4 @@ input:checked + .slider:before {
 
 .input-not-active {
     display: none;
-}
-
-@media (max-width: 768px) {
 }
