@@ -7,10 +7,18 @@ import { NavBar } from '../../components/NavBar'
 import StarsIconTest from '../../imgs/stars_icon_test.svg'
 import AddCartIcon from '../../imgs/add_cart_icon.svg'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+
+function calculateResult(num1, num2) {
+    const result = num1 * num2
+    const updatedResult = result.toString().replace(/\./g, ',')
+    return updatedResult
+}
 
 export const ProductPage = () => {
     const [itemCount, setItemCount] = useState(1)
+    const price = 5.5
+    const result = calculateResult(price, itemCount)
 
     return(
         <div className="product-page-container">
@@ -20,7 +28,6 @@ export const ProductPage = () => {
                 <div className="product-info">
                     <div className="product-main">
                         <div className="image-container" style={{backgroundImage: `url('https://images2.alphacoders.com/554/thumb-1920-554950.jpg')`}}>
-                            {/* <img className="product-image" src="https://superazevedo.com.br/wp-content/uploads/2022/02/172.png" alt=""/> */}
                         </div>
                         <div className="texts">
                             <h1 className="title">Beterraba</h1>
@@ -37,7 +44,7 @@ export const ProductPage = () => {
                             <div className="price-result">
                                 <h2 className="unit">1kg</h2>
                                 <div className="price-amount">
-                                    <h1 className="price">R$ {5.5 * itemCount}</h1>
+                                    <h1 className="price">R$ {result}</h1>
                                     <div className='amount'>
                                         <button className='sub-button' onClick={() => {itemCount > 0 && (setItemCount(itemCount - 1))}}/>
                                         <h1 className='number'>{itemCount}</h1>
