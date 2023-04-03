@@ -40,6 +40,17 @@
     transition: all 0.5s;
 }
 
+@media (max-width: 1000px) {
+    .category-image {
+        width: 80px;
+        height: 65px;
+    }
+
+    .category-name {
+        font-size: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .category-item {
         gap: 0vh;

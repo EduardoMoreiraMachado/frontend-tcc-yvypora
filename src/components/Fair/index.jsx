@@ -11,7 +11,7 @@ export const Fair = ({imgUrl, name, days, hours}) => {
                 <div className='data-info'>
                     <div className='data'>
                         <h1 className='data-type'>Dias:</h1>
-                        <h1 className='data-text'>{days}</h1>
+                        <h1 className='data-text' id='days'>{days}</h1>
                     </div>
                     <div className='data'>
                         <h1 className='data-type'>Horário de funcionamento:</h1>

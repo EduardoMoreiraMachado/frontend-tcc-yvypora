@@ -177,12 +177,12 @@ select {
 .amount {
   display: flex;
   justify-content: center;
-  gap: 2vw;
+  gap: 50px;
 }
 
 .sub-button {
-  width: 60px;
-  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,8 +215,8 @@ select {
 }
 
 .add-button {
-  width: 60px;
-  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
   background-color: #538D22;
   background-image: url(../imgs/add_icon.svg);
   background-repeat: no-repeat;
@@ -243,20 +243,6 @@ select {
 .sub-button,
 .add-button {
   transition: all 0.5s;
-}
-
-.text-input {
-  background-color: #538D22;
-  background-image: url(../imgs/search_icon.svg);
-  background-repeat: no-repeat;
-  background-position: 97% 50%;
-  background-size: 1.3rem;
-  width: 100%;
-  height: 5vh;
-  border-radius: 15px;
-  padding: 20px;
-  font-size: 1.2rem;
-  color: white;
 }
 
 .default-label {

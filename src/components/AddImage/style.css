@@ -43,8 +43,8 @@ input[type='file'] {
 }
 
 .image-preview {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

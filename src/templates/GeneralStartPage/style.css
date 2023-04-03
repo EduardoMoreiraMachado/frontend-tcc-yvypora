@@ -46,6 +46,10 @@
 }
 
 @media (max-width: 768px) {
+  .page-content {
+    height: 60vh;
+  }
+
   .prev-button-container,
   .next-button-container {
     display: none;

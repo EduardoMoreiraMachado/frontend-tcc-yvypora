@@ -19,10 +19,10 @@ export const FairPage = () => {
       <Header 
           imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
       />
-      <Title text="Feiras" />
       <div className="fairs-content">
         <NavBar />
         <div className="fairs-list">
+          <Title text="Feiras" />
           <div className="fairs">
             <Fair
               imgUrl="https://vidasimples.co/wp-content/uploads/2019/09/vida-simples-feira-vai-ter-feira-4.png"
@@ -61,7 +61,9 @@ export const FairPage = () => {
               hours="07:30 até as 12:00"
             />
           </div>
-          <GreenButton text="Adicionar feira" />
+          <div id="add-fair-button">
+            <GreenButton text="Adicionar feira" />
+          </div>
         </div>
       </div>
       <Footer />
