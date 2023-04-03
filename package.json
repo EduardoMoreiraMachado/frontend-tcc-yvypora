@@ -13,6 +13,7 @@
     "daisyui": "^2.51.3",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.9",
+    "react-charts": "^3.0.0-beta.54",
     "react-dom": "^18.2.0",
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.9.0",
