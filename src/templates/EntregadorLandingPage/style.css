@@ -1,0 +1,157 @@
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    width: 100vw;
+    margin-bottom: 0vh;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+footer {
+    margin-top: 0vh;
+}
+
+.header-links {
+    display: flex;
+    gap: 100px;
+    font-size: 1.5rem;
+}
+
+.header-links a {
+    color: #1A4301;
+}
+
+.welcome-message-content {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url(../../imgs/welcome_content_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 12vw;
+}
+
+.welcome-message {
+    width: 40vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background-color: #AAD576;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.welcome-message h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #1A4301;
+}
+
+.welcome-message p {
+    font-size: 1.3rem;
+    text-align: justify;
+    color: #1A4301;
+}
+
+.benefits-content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 0px 100px 0px;
+}
+
+.benefits-content h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #1A4301;
+}
+
+.benefits {
+    display: flex;
+    align-items: center;
+    gap: 6vw;
+}
+
+.benefit {
+    width: 15vw;
+    height: 18vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.benefit img {
+    width: 100px;
+}
+
+.benefit span {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #538D22;
+}
+
+.info-content {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 0px 100px 0px;
+    background-color: #73A942;
+}
+
+.info-content h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #1A4301;
+}
+
+.about-content {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 0px 100px 0px;
+}
+
+.about-content h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #1A4301;
+}
+
+.about-texts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   
+    gap: 5vw;
+}
+
+.about-text {
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+.about-text img {
+    width: 200px;
+}
+
+.about-text span {
+    font-size: 1.7rem;
+    color: #538D22;
+}

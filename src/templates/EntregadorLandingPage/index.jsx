@@ -18,27 +18,27 @@ export const EntregadorLandingPage = () => {
                     <img className='text-icon' src={YvyporaTextIcon} alt=''/>
                 </div>
                 <div className="header-links">
-                    <a href='/benefits-content'>Vantagens</a>
-                    <a href='/info-content'>Entregas</a>
-                    <a href='/about-content'>Sobre a plataforma</a>
+                    <a href='#benefits'>Vantagens</a>
+                    <a href='#info'>Entregas</a>
+                    <a href='#about'>Sobre a plataforma</a>
                 </div>
             </header>
             <div className="welcome-message-content">
-                <div className='welcone-message'>
+                <div className='welcome-message'>
                     <h1>Lorem ipsum dolor sit amet</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.</p>
                 </div>
             </div>
-            <div className="benefits-content">
+            <div className="benefits-content" id='benefits'>
                 <h1>Vantagens</h1>
                 <div className='benefits'>
                     <div className='benefit'>
                         <img src={ShoppingBag} alt=''/>
-                        <span>Desconto em compras online</span>
+                        <span>Desconto em compras na nossa plataforma</span>
                     </div>
                     <div className='benefit'>
                         <img src={ShoppingBag} alt=''/>
-                        <span>Desconto em compras online</span>
+                        <span>Frete grátis</span>
                     </div>
                     <div className='benefit'>
                         <img src={ShoppingBag} alt=''/>
@@ -50,7 +50,7 @@ export const EntregadorLandingPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="info-content">
+            <div className="info-content" id='info'>
                 <h1>Entregas</h1>
                 <Option 
                     text='Como começar?'
@@ -68,24 +68,24 @@ export const EntregadorLandingPage = () => {
                     text='Mais dicas'
                 />
             </div>
-            <div className="about-content">
+            <div className="about-content" id='about'>
                 <h1>Sobre a plataforma</h1>
                 <div className='about-texts'>
                     <div className='about-text'>
                         <img src={GainIcon} alt=''/>
-                        <span>Acompanhe os ganhos de maneira fácil e simples</span>
-                    </div>
-                    <div className='about-text'>
-                        <img src={SecretaryIcon} alt=''/>
-                        <span>Plataforma simplificada para melhor entendimento</span>
+                        <span>Acompanhe os ganhos de maneira fácil e simples!</span>
                     </div>
                     <div className='about-text'>
                         <img src={HealthyFoodIcon} alt=''/>
-                        <span>Trabalhe com os produtos mais saudáveis possíveis</span>
+                        <span>Trabalhe com os produtos mais saudáveis possíveis!</span>
+                    </div>
+                    <div className='about-text'>
+                        <img src={SecretaryIcon} alt=''/>
+                        <span>Plataforma simplificada para melhor entendimento!</span>
                     </div>
                     <div className='about-text'>
                         <img src={LocationIcon} alt=''/>
-                        <span>Encontre as rotas mais rápidas para manter rápidas para manter o produto o mais fresco possível</span>
+                        <span>Encontre as rotas mais rápidas para manter o produto o mais fresco possível!</span>
                     </div>
                 </div>
             </div>

@@ -186,6 +186,7 @@
 
     .review {
         flex-direction: column;
+        align-items: center;
     }
 
     .grade-info {
