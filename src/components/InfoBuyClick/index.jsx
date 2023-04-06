@@ -12,7 +12,6 @@ export const InfoBuy = ({imgURL,nameCostumer, nameFair, date, price, state}) => 
         
     }
 
-
     return(
         <div className="info-buy-click-container" onClick={handleClick}>
             <div className="img-container-click">

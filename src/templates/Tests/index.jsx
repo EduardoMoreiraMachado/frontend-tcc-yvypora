@@ -1,5 +1,5 @@
-import InfoBuyClick from '../../components/InfoBuyClick'
-import { MyComponent } from '../../components/Maps'
+import Chart from '../../components/Chart'
+
 import './style.css'
 // import { OrderSummary } from '../../components/OrderSummary'
 // import { ShoppingItem } from '../../components/ShoppingItem'
@@ -16,7 +16,7 @@ export const Tests = () => {
 
 
 
-        <InfoBuyClick />
+        
     </div>
 }
 
