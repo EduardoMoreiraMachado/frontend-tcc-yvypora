@@ -1,18 +1,23 @@
 import { Chart } from 'react-charts'
 import './style.css'
 
-export const GainsCard = ({title,data,charts}) =>{
+export const GainsCard = ({title,data}) =>{
 
 return(
    <div class Name="card-gain-container">
-        <p>{title}</p>
-        <p>{data}</p>
-        <div className={charts ? "charts-container" : "charts-container-disable"}>
-            <Chart/>
+        <div className={title!=='Mensal' ? 'card-gain' : ""}>
+            <p className='title-gain-card'>{title}</p>
+            <p className='data-gain-card'>{data}</p>
+            
+            {/* {percent > 1.10 &&
+
+            <div>
+                <p></p>
+            </div>
+            } */}
         </div>
     </div>
 )
-
 }
 
 export default GainsCard 

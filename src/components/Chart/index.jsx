@@ -49,15 +49,17 @@ const data = [
 export default function Chart() {
   return (
     <div>
-        <LineChart width={730} height={250} data={data}
+      <ResponsiveContainer width={600} height={500}>
+        <LineChart  data={data}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Legend verticalAlign="bottom" height={36}/>
-          <Line type="monotone" dataKey="pv" stroke="#143601"/>
+          <Legend />
+          <Line type="monotone" dataKey="uv" stroke="#4FD49D" />
         </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 }
