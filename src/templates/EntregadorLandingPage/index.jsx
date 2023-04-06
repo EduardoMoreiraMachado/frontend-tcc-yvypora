@@ -1,7 +1,7 @@
 import './style.css'
 
 import { Footer } from '../../components/Footer'
-import { Option } from '../../components/Option'
+import { MoreTextOption } from '../../components/MoreTextOption'
 
 import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
 import ShoppingBag from '../../imgs/shopping_bag.png'
@@ -33,12 +33,12 @@ export const EntregadorLandingPage = () => {
                 <h1>Vantagens</h1>
                 <div className='benefits'>
                     <div className='benefit'>
-                        <img src={ShoppingBag} alt=''/>
+                        <img src={ShoppingBag} alt=''/> 
                         <span>Desconto em compras na nossa plataforma</span>
                     </div>
                     <div className='benefit'>
                         <img src={ShoppingBag} alt=''/>
-                        <span>Frete grátis</span>
+                        <span>Frete grátis em pedidos na nossa plataforma</span>
                     </div>
                     <div className='benefit'>
                         <img src={ShoppingBag} alt=''/>
@@ -52,39 +52,50 @@ export const EntregadorLandingPage = () => {
             </div>
             <div className="info-content" id='info'>
                 <h1>Entregas</h1>
-                <Option 
-                    text='Como começar?'
-                />
-                <Option 
-                    text='Quais são os melhores horários para trabalhar?'
-                />
-                <Option 
-                    text='O que não fazer?'
-                />
-                <Option 
-                    text='Como otimizar meu tempo?'
-                />
-                <Option 
-                    text='Mais dicas'
-                />
+                <div className='options-container'>
+                    <MoreTextOption 
+                        title='Como começar?'
+                        text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.'
+                    />
+                    <MoreTextOption 
+                        title='Quais são os melhores horários para trabalhar'
+                        text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.'
+                    />
+                    <MoreTextOption 
+                        title='O que não fazer?'
+                        text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.'
+                    />
+                    <MoreTextOption 
+                        title='Como otimzar meu tempo?'
+                        text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.'
+                    />
+                    <MoreTextOption 
+                        title='Mais dicas'
+                        text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.'
+                    />
+                </div>
             </div>
             <div className="about-content" id='about'>
                 <h1>Sobre a plataforma</h1>
                 <div className='about-texts'>
                     <div className='about-text'>
-                        <img src={GainIcon} alt=''/>
+                        {/* <img src={GainIcon} alt=''/> */}
+                        <div className='about-image' style={{backgroundImage: `url(${GainIcon})`}}></div>
                         <span>Acompanhe os ganhos de maneira fácil e simples!</span>
                     </div>
                     <div className='about-text'>
-                        <img src={HealthyFoodIcon} alt=''/>
+                        {/* <img src={HealthyFoodIcon} alt=''/> */}
+                        <div className='about-image' style={{backgroundImage: `url(${HealthyFoodIcon})`}}></div>
                         <span>Trabalhe com os produtos mais saudáveis possíveis!</span>
                     </div>
                     <div className='about-text'>
-                        <img src={SecretaryIcon} alt=''/>
+                        {/* <img src={SecretaryIcon} alt=''/> */}
+                        <div className='about-image' style={{backgroundImage: `url(${SecretaryIcon})`}}></div>
                         <span>Plataforma simplificada para melhor entendimento!</span>
                     </div>
                     <div className='about-text'>
-                        <img src={LocationIcon} alt=''/>
+                        {/* <img src={LocationIcon} alt=''/> */}
+                        <div className='about-image' style={{backgroundImage: `url(${LocationIcon})`}}></div>
                         <span>Encontre as rotas mais rápidas para manter o produto o mais fresco possível!</span>
                     </div>
                 </div>

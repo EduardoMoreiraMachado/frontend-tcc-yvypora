@@ -16,14 +16,6 @@
     align-items: center;
 }
 
-.options-container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 36px;
-}
-
 @media (max-width: 768px) {
     #empty-header {
         display: none;

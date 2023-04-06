@@ -8,6 +8,7 @@ header {
     margin-bottom: 0vh;
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0px 30px 0px 30px;
 }
 
 footer {
@@ -38,7 +39,7 @@ footer {
 
 .welcome-message {
     width: 40vw;
-    height: 35vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +48,7 @@ footer {
     background-color: #AAD576;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    padding: 50px;
+    padding: 100px 50px 100px 50px;
 }
 
 .welcome-message h1 {
@@ -63,15 +64,18 @@ footer {
 }
 
 .benefits-content {
-    height: 50vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 5vh;
     padding: 100px 0px 100px 0px;
 }
 
-.benefits-content h1 {
+.benefits-content h1,
+.info-content h1,
+.about-content h1 {
     font-size: 2.5rem;
     font-weight: 400;
     color: #1A4301;
@@ -103,7 +107,7 @@ footer {
 }
 
 .info-content {
-    height: 70vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,24 +117,17 @@ footer {
 }
 
 .info-content h1 {
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: #1A4301;
+    padding-bottom: 4vh;
 }
 
 .about-content {
-    height: 80vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 5vh;
     padding: 100px 0px 100px 0px;
-}
-
-.about-content h1 {
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: #1A4301;
 }
 
 .about-texts {
@@ -144,14 +141,132 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1vw;
+    gap: 2vw;
 }
 
 .about-text img {
-    width: 200px;
+    max-width: 200px;
+}
+
+.about-image {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .about-text span {
+    max-width: 300px;
     font-size: 1.7rem;
     color: #538D22;
+}
+
+@media(max-width: 1450px) {
+    .about-text span {
+        font-size: 1.2rem;
+    }
+
+    .about-image {
+        min-width: 100px;
+    }
+}
+
+@media(max-width: 768px) {
+    header {
+        position: relative;
+        justify-content: center;
+        box-shadow: none;
+        padding: 2vh 7vw 2vh 7vw;
+    }
+
+    .header-links {
+        display: none;
+    }
+
+    .welcome-message-content {
+        height: 89vh;
+        justify-content: center;
+        padding: 0px;
+        background-position: 34%;
+    }
+
+    .welcome-message {
+        width: 70vw;
+        height: fit-content;
+        padding: 25px;
+    }
+
+    .welcome-message h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .welcome-message p {
+        font-size: 1rem;
+        text-align: start;
+    }
+
+    .benefits-content {
+        padding: 30px 0px 30px 0px;
+    }
+
+    .benefits-content h1,
+    .info-content h1,
+    .about-content h1 {
+        font-size: 1.7rem;
+    }
+
+    .benefits {
+        flex-direction: column;
+    }
+
+    .benefit {
+        width: 100%;
+        flex-direction: row;
+        padding: 0px 50px 0px 50px;
+        gap: 5vw;
+    }
+
+    .benefit img {
+        width: 70px;
+    }
+
+    .benefit span {
+        font-size: 1.2rem;
+        text-align: start;
+    }
+
+    .info-content {
+        padding: 30px 0px 30px 0px;
+    }
+
+    .about-content {
+        padding: 30px 0px 30px 0px;
+    }
+
+    .about-texts {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+    }
+
+    .about-text {
+        width: 90vw;
+        gap: 7vw;
+    }
+
+    .about-text img {
+        width: 70px;
+    }
+
+    .about-image {
+        width: 100px;
+        height: 70px;
+    }
+
+    .about-text span{
+        max-width: 200px;
+        font-size: 1rem;
+    }
 }

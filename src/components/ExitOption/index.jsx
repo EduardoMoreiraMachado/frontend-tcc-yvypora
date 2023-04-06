@@ -1,6 +1,9 @@
 import './style.css'
 
 import iconLogoff from "../../imgs/exportsquare.svg"
+import ArrowIcon from '../../imgs/arrow_icon.svg'
+import ArrowIconDown from '../../imgs/arrow_icon_down.svg'
+
 import { useState } from 'react'
 
 export const ExitOption = () => {
@@ -16,7 +19,7 @@ export const ExitOption = () => {
 
     return(
         <div className='exit-option-container'>
-            <button onClick={handleClick} className='exit-content'>
+            <button onClick={handleClick} className='exit-content' style={click ? {backgroundImage: `url(${ArrowIconDown})`} : {backgroundImage: `url(${ArrowIcon})`}}>
                 <img className='exit-option-image' src={iconLogoff}/>
                 <a href='#' className='exit-option-text'>Sair</a>
             </button>

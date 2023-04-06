@@ -1,4 +1,4 @@
-.exit-option-container {
+.more-text-option-container {
     width: 40vw;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     transition: all 0.5s;
 }
 
-.exit-content {
+.more-text-content {
     width: 100%;
     height: 100%;
     display: flex;
@@ -23,12 +23,7 @@
     cursor: pointer;
 }
 
-.exit-option-image {
-    width: 25px;
-    height: 25px;
-}
-
-.exit-option-text {
+.more-text-title {
     font-size: 1.5rem;
     font-weight: 400;
     color: #143601;
@@ -39,8 +34,8 @@
     100% {opacity: 1;}
 }
 
-.exit-confirm-options {
-    height: 150px;
+.more-text-text {
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,64 +45,37 @@
     animation-duration: 0.5s;
 }
 
-.exit-confirm-options h1 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #143601
-}
-
-.options-buttons {
-    display: flex;
-    gap: 4vw;
-}
-
-#yes, #no {
-    width: 60px;
+.more-text-text p {
     font-size: 1.3rem;
     font-weight: 400;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
+    color: #143601;
+    padding: 30px;
 }
 
-#yes {
-    background-color: greenyellow;
-    color: black;
-}
-
-#no {
-    background-color: red;
-    color: white;
+@media(max-width: 1455px) {
+    .more-text-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 @media (max-width: 768px) {
-    .exit-option-container {
+    .more-text-option-container {
         width: 80VW;
     }
 
-    .exit-content {
+    .more-text-content {
         gap: 3vw;
     }
 
-    .exit-option-text {
+    .more-text-title {
+        max-width: 22ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 1rem;
     }
 
-    .exit-confirm-options h1 {
-        font-size: 1rem;
-    }
-
-    .options-buttons {
-        gap: 20vw;
-    }
-
-    #yes, #no {
-        width: 50px;
-        font-size: 0.9rem;
-    }
-
-    .exit-option-image {
-        width: 20px;
-        height: 20px;
+    .more-text-text p {
+        font-size: 0.8rem;
     }
 }
