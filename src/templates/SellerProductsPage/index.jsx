@@ -6,7 +6,7 @@ import AddProductIcon from "../../imgs/add_product_icon.svg";
 import { Title } from "../../components/Title";
 import { SellerProduct } from "../../components/SellerProduct";
 import { useEffect, useState } from "react";
-import { indexProducts } from "../../utils/productFetch";
+import { indexProducts } from "../../utils/fetchs/Marketer/productFetch";
 
 export const SellerProductsPage = () => {
   const [listOfProducts, setListOfProducts] = useState([]);

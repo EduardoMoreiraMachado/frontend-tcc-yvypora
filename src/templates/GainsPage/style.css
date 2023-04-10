@@ -1,5 +1,5 @@
 .gains-main-container{
-    width: fit-content;
+    /* width: fit-content; */
 }
 
 .cards-gain{
@@ -28,7 +28,6 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-
 }
 .sales-container-title{
     font-weight: 400;
@@ -41,7 +40,6 @@
     align-items: center;
     justify-content: space-evenly;
     height: 91%;
-
 }
 
 @media(max-width:1264px){
@@ -50,6 +48,7 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
+        height: fit-content;
         gap: 30px;        
     }
     .daily-mensal-sales{

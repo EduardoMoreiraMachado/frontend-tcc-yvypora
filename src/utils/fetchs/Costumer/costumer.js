@@ -9,3 +9,5 @@ export const singUpCostumer = async (data) => {
 
   return res.data;
 };
+
+export default singUpCostumer
