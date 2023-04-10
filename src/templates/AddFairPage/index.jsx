@@ -5,11 +5,11 @@ import { DefaultInput } from "../../components/DefaultInput";
 import { AddImage } from "../../components/AddImage";
 import { GreenButton } from "../../components/GreenButton";
 import { Footer } from "../../components/Footer";
-import { fetchFairFormFields } from "../../utils/formFieldsFetch";
-import { createFair, addImageInFair } from "../../utils/fairsFetch";
+import { fetchFairFormFields } from "../../utils/fetchs/common/formFieldsFetch";
+import { createFair, addImageInFair } from "../../utils/fetchs/Marketer/fairsFetch";
 
 import "./style.css";
-import { consumeCep } from "../../utils/cepFetch";
+import { consumeCep } from "../../utils/fetchs/common/cepFetch";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { Header } from "../../components/Header";

@@ -17,7 +17,7 @@ import {
   addPictureToProduct,
   addSaleOff,
   createProduct,
-} from "../../utils/productFetch";
+} from "../../utils/fetchs/Marketer/productFetch";
 
 const MySwal = withReactContent(Swal);
 

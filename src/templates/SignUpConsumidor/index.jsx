@@ -10,9 +10,9 @@ import { Title } from "../../components/Title";
 import { AddImage } from "../../components/AddImage";
 
 import { useEffect, useState } from "react";
-import singUpCostumer from "../../utils/singUpCostumer";
+import singUpCostumer from "../../utils/fetchs/Costumer/costumer";
 import { cepAPI } from "../../api/api";
-import { fetchCostumerFormFields } from "../../utils/formFieldsFetch";
+import { fetchCostumerFormFields } from "../../utils/fetchs/common/formFieldsFetch";
 
 export const SignUpConsumidor = () => {
   const [values, setValues] = useState({});

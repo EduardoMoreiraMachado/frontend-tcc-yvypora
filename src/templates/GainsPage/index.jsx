@@ -32,12 +32,8 @@ export const GainsPage = () => {
                 </div>
 
             </div>
-            {/*  */}
-
             <Footer />
         </div>
-
-      //  <Chart/>
     )
 }
 export default GainsPage
