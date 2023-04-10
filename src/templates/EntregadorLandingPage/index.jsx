@@ -13,7 +13,7 @@ import LocationIcon from '../../imgs/location_icon.png'
 export const EntregadorLandingPage = () => {
     return(
         <div className="entregador-landing-page-container">
-            <header>
+            <header id='header-entregador'>
                 <div className='header-icon' id='default-header-icon'>
                     <img className='text-icon' src={YvyporaTextIcon} alt=''/>
                 </div>
@@ -100,7 +100,9 @@ export const EntregadorLandingPage = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <div id='footer-entregador'>
+                <Footer />
+            </div>
         </div>
     )
 }
