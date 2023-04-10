@@ -13,8 +13,11 @@ import { ShoppingItem } from "../../components/ShoppingItem";
 import { Footer } from "../../components/Footer";
 import { SearchInput } from "../../components/SearchInput";
 import MenuBurguer from "../../components/MenuBurguer";
+import { listProducts } from "../../utils/fetchs/Costumer/products";
 
 export const GeneralStartPage = () => {
+  const [user, setUser] = useState("");
+  const [listOfProducts, setListOfProducts] = useState([]);
   const carousel = useRef(null);
 
   const handleLeftClick = (e) => {
@@ -22,8 +25,6 @@ export const GeneralStartPage = () => {
 
     carousel.current.scrollLeft -= carousel.current.offsetWidth;
   };
-
-  const [user, setUser] = useState("");
 
   useEffect(() => {
     function checkUserData() {
@@ -34,8 +35,16 @@ export const GeneralStartPage = () => {
         console.log(user);
       }
     }
-    
-    checkUserData()
+
+    checkUserData();
+  }, []);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const products = await listProducts();
+      setListOfProducts(products);
+    };
+    fetch().then();
   }, []);
 
   const handleRightClick = (e) => {
@@ -68,7 +77,18 @@ export const GeneralStartPage = () => {
           <div className="products-carrossel">
             <PrevButton onClick={handleLeftClick} />
             <div className="carousel-items" ref={carousel}>
-              <ShoppingItem
+              {listOfProducts.map((product) => {
+                return (
+                  <ShoppingItem
+                    name = {product.name}
+                    imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
+                    weight="100g"
+                    price="5,00"
+                    promo={true}
+                  />
+                );
+              })}
+              {/* <ShoppingItem
                 name="Laranja 1"
                 imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
                 weight="100g"
@@ -130,7 +150,7 @@ export const GeneralStartPage = () => {
                 weight="100g"
                 price="5,00"
                 promo={true}
-              />
+              /> */}
             </div>
             <NextButton onClick={handleRightClick} />
           </div>

@@ -1,38 +1,39 @@
-import './style.css'
+import "./style.css";
 
-import FruitsCategoryIcon from '../../imgs/fruits_category_icon.png'
-import VegetablesCategoryIcon from '../../imgs/vegetables_category_icon.png'
-import SpicesCategoryIcon from '../../imgs/spices_category_icon.png'
-import OthersCategoryIcon from '../../imgs/others_category_icon.png'
+import FruitsCategoryIcon from "../../imgs/fruits_category_icon.png";
+import VegetablesCategoryIcon from "../../imgs/vegetables_category_icon.png";
+import SpicesCategoryIcon from "../../imgs/spices_category_icon.png";
+import OthersCategoryIcon from "../../imgs/others_category_icon.png";
 
+import { listCategories } from "../../utils/fetchs/common/category";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export const ProductCategory = () => {
-    return(
-        <div className="product-category-container">
-            <div className="category-item">
-                <div className="category-image">
-                    <img className="image" src={FruitsCategoryIcon} alt=""/>
-                </div>
-                <h1 className="category-name">Frutas</h1>
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const categories = await listCategories();
+      setCategories(categories);
+    };
+
+    console.log(categories);
+    fetch().then();
+  }, []);
+
+  return (
+    <div className="product-category-container">
+      {categories.map((category) => {
+        return (
+          <div className="category-item" key={category.id}>
+            <div className="category-image">
+              <img className="image" src={category.image.uri} alt="" />
             </div>
-            <div className="category-item">
-                <div className="category-image">
-                    <img className="image" src={VegetablesCategoryIcon} alt=""/>
-                </div>
-                <h1 className="category-name">Vegetais</h1>
-            </div>
-            <div className="category-item">
-                <div className="category-image">
-                    <img className="image" src={SpicesCategoryIcon} alt=""/>
-                </div>
-                <h1 className="category-name">Especiarias</h1>
-            </div>
-            <div className="category-item">
-                <div className="category-image">
-                    <img className="image" src={OthersCategoryIcon} alt=""/>
-                </div>
-                <h1 className="category-name">Outros</h1>
-            </div>
-        </div>
-    )
-}
+            <h1 className="category-name">{category.name}</h1>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
