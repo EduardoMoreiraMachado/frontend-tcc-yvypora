@@ -23,10 +23,14 @@ const MySwal = withReactContent(Swal);
 
 export const InsertProductPage = () => {
   const [selectedValue, setSelectedValue] = useState("");
+  const [value, setValue] = useState(0)
+  const [price, setPrice] = useState(0)
+  const [amount, setAmount] = useState(0)
 
   function handleChange(event) {
     setSelectedValue(event.target.value);
   }
+
   async function handleClick(e) {
     e.preventDefault();
     const image = document.getElementById("file-selection").files[0];
@@ -120,6 +124,24 @@ export const InsertProductPage = () => {
     }
   }
 
+  const handleWeightChange = (event) => {
+    setValue(event.target.value);
+  }
+
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  }
+
+  const handleAmountChange = (event) => {
+    setAmount(event.target.value)
+  }
+
+  const handleKeyDown = (event) => {
+    if(event.key === '-' || event.key === '+' || event.key === 'e') {
+      event.preventDefault();
+    }
+  }
+
   return (
     <div className="insert-product-page">
 
@@ -160,7 +182,7 @@ export const InsertProductPage = () => {
               rows="5"
               maxLength="200"
               id="description"
-            ></textarea>
+            />
           </div>
 
           <div className="price-values">
@@ -198,6 +220,9 @@ export const InsertProductPage = () => {
                       min="0"
                       max="100"
                       step=".01"
+                      onChange={handleWeightChange}
+                      onKeyDown={handleKeyDown}
+                      value={value}
                     />
                   </div>
                 )}
@@ -211,6 +236,9 @@ export const InsertProductPage = () => {
                   min="0"
                   max="100"
                   step=".01"
+                  onChange={handlePriceChange}
+                  onKeyDown={handleKeyDown}
+                  value={price}
                 />
               </div>
             </div>
@@ -232,13 +260,15 @@ export const InsertProductPage = () => {
               min="0"
               max="100"
               step="1"
+              onChange={handleAmountChange}
+              onKeyDown={handleKeyDown}
+              value={amount}
             />
           </div>
 
           <AddImage
             text="Imagem do produto"
             subtext="Anexe uma imagem do produto que ficará visível ao cliente"
-            // imgUrl='https://s2.glbimg.com/nWM1K-pYSWhlx5UPU6Nw1zfI6o8=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/w/p/oBzknsShyCcvqLUEWs1Q/nc-laranja-safra-230619.jpg'
           />
 
           <div className="register-button">
