@@ -1,69 +1,59 @@
-import "./style.css"
+import "./style.css";
 
-import { slide as Menu } from 'react-burger-menu';
+import { slide as Menu } from "react-burger-menu";
 import { useEffect, useState } from "react";
 
 var styles = {
-
-  
-
-    bmItem: {
-      display: 'flex',
-      'flex-direction': 'column',
-      'align-items': 'center',
-      'justify-content':'space-evenly',
-      'width' : '100%',
-      'height' : '100%',
-      'text-decoration' : 'none',
-      'list-style':'none'
-    }  
-  }
-
+  bmItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    width: "100%",
+    height: "100%",
+    textDecoration: "none",
+    listStyle: "none",
+  },
+};
 
 export const MenuBurguer = (width) => {
+  // const setWindowDimensions = () => {
+  //   setWindowWidth(window.innerWidth)
+  //   setWindowHeight(window.innerHeight)
+  //   console.log(windowWidth);
+  // }
 
-  
+  // useEffect(() => {
+  //     window.addEventListener('resize', setWindowDimensions);
+  //     return () => {
+  //       window.removeEventListener('resize', setWindowDimensions)
+  //     }
+  //   }, [])
 
-    
+  // if(windowWidth < 769 ){
 
-    // const setWindowDimensions = () => {
-    //   setWindowWidth(window.innerWidth)
-    //   setWindowHeight(window.innerHeight)
-    //   console.log(windowWidth);
-    // }
-
-    // useEffect(() => {
-    //     window.addEventListener('resize', setWindowDimensions);
-    //     return () => {
-    //       window.removeEventListener('resize', setWindowDimensions)
-    //     }
-    //   }, [])
-
-    // if(windowWidth < 769 ){
-        
-    
-    return(
-            <a href="#" class="menu-burger-container">
-            <i class="menu-burger">
-                <Menu itemListClassName={"my-class"} styles={ styles }>
-                    <nav>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li>
-                            <a>Lives</a>
-                        </li>
-                        <li>
-                            <a href="/fair-near">Feiras próximas</a>
-                        </li>
-                        <li>
-                            <a href="/profile">Perfil</a>
-                        </li>
-                    </nav>
-                </Menu>
-            </i>
-        </a>
-        )
-    }
+  return (
+    <div href="#" className="menu-burger-container">
+      <i className="menu-burger">
+        <Menu itemListClassName={"my-class"} styles={styles}>
+          <nav>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a>Lives</a>
+            </li>
+            <li>
+              <a href="/fair-near">Feiras próximas</a>
+            </li>
+            <li>
+              <a href="/profile">Perfil</a>
+            </li>
+          </nav>
+        </Menu>
+      </i>
+    </div>
+  );
+};
 // }
-export default MenuBurguer
+export default MenuBurguer;

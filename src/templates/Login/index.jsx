@@ -1,6 +1,6 @@
 import "./style.css";
 
-import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
+import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
 
 import { GreenButton } from "../../components/GreenButton";
 import { Footer } from "../../components/Footer";
@@ -8,6 +8,8 @@ import { Title } from "../../components/Title";
 import { commonsAPI } from "../../api/api";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+
+import { getDetails } from "../../utils/fetchs/common/user";
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
@@ -27,11 +29,14 @@ export const Login = () => {
         typeOfUser: "COSTUMER",
       });
 
+      const details = await getDetails();
+
+      localStorage.setItem("user-details", JSON.stringify(details))
 
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Login Bem Sucedido!</p>,
+        title: <p>Bem Vindo de volta {details.name}</p>,
         icon: "success",
         buttonsStyling: false,
         timerProgressBar: true,
@@ -41,12 +46,12 @@ export const Login = () => {
 
       // navigate("/home") // path
     } catch (error) {
-      let message = error.response?.data.message
-      if (!message) message = "Error!"
+      let message = error.response?.data.message;
+      if (!message) message = "Error!";
       MySwal.fire({
         timer: 4500,
         showConfirmButton: false,
-        title: <p>{message}</p>,
+        title: <p>Erro! Verifique o email ou a senha</p>,
         icon: "error",
         buttonsStyling: false,
         timerProgressBar: true,
@@ -56,25 +61,38 @@ export const Login = () => {
 
   return (
     <div className="login-container">
-        <header>
-            <div className='header-icon'>
-                <img className='icon-yvy' src={YvyporaTextIcon} alt=''/>
-            </div>
-        </header>
+      <header>
+        <div className="header-icon">
+          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
+        </div>
+      </header>
       <div className="login-content">
         <Title text="Login" />
         <div className="input-container">
           <div className="input">
-            <div className='default-input-container'>
-              <label className="default-label" htmlFor="input-default">E-mail</label>
-              <input className="default-input" type="text" id="input-default" name="e-mail"/>
+            <div className="default-input-container">
+              <label className="default-label" htmlFor="input-default">
+                E-mail
+              </label>
+              <input
+                className="default-input"
+                type="text"
+                id="input-default"
+                name="e-mail"
+              />
             </div>
 
-            <div className='default-input-container'>
-              <label className="default-label" htmlFor="input-default">Senha</label>
-              <input className="default-input" type="password" id="input-default" name="senha"/>
+            <div className="default-input-container">
+              <label className="default-label" htmlFor="input-default">
+                Senha
+              </label>
+              <input
+                className="default-input"
+                type="password"
+                id="input-default"
+                name="senha"
+              />
             </div>
-
           </div>
           <div className="button-container">
             <GreenButton text="Entrar" onClick={handleClick} type="submit" />

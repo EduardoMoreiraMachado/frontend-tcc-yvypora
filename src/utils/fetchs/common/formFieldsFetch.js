@@ -1,4 +1,4 @@
-import { commonsAPI } from "../api/api";
+import { commonsAPI } from "../../../api/api";
 
 export const fetchCostumerFormFields = async () => {
   const { data } = await commonsAPI.get("forms/costumer");
@@ -11,3 +11,5 @@ export const fetchFairFormFields = async ({ lat, long }) => {
 
   return data.payload;
 };
+
+

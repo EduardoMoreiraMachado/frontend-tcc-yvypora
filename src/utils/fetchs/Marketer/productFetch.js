@@ -1,4 +1,4 @@
-import { marketerAPI } from "../api/api";
+import { marketerAPI } from "../../../api/api";
 
 export const indexProducts = async () => {
   const res = await marketerAPI.get("product/");
