@@ -1,0 +1,49 @@
+.product-review-content {
+    height: 100vh;
+}
+
+.review-containers {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.review-containers h1 {
+    font-size: 2rem; 
+    text-align: center;
+    color: #1A4301;
+    margin-bottom: 3vh;
+}
+
+.produtos-review p,
+.entrega-review p {
+    font-size: 1.5rem;
+}
+
+#produto,
+#entrega {
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 10px;
+    resize: none;
+    background-color: #AAD576;
+}
+
+.produtos-vendedor {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.vendedor-photo {
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.produtos-vendedor span {
+    font-size: 1.2rem;
+}
