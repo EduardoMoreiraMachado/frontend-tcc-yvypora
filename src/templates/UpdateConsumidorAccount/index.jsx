@@ -12,8 +12,6 @@ import { useState } from 'react'
 
 export const UpdateConsumidorAccount = () => {
     const [values, setValues] = useState({});
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user-details")))
-
     function handleChange(event) {
         setValues({
             ...values,
