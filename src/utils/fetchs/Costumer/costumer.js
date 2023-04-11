@@ -1,13 +1,7 @@
 import { commonsAPI } from "../../../api/api";
 
-export const singUpCostumer = async (data) => {
-  const res = await commonsAPI.post("register/costumer", data);
+export const singUpCostumer = async (costumer) => {
+  const { data } = await commonsAPI.post("register/costumer", costumer);
 
-  if (res.data.error) {
-    return res.data.message;
-  }
-
-  return res.data;
+  return data;
 };
-
-export default singUpCostumer

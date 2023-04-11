@@ -14,6 +14,7 @@ import { Footer } from "../../components/Footer";
 import { SearchInput } from "../../components/SearchInput";
 import MenuBurguer from "../../components/MenuBurguer";
 import { listProducts } from "../../utils/fetchs/Costumer/products";
+import { getDetails } from "../../utils/fetchs/common/user";
 
 export const GeneralStartPage = () => {
   const [user, setUser] = useState("");
@@ -28,12 +29,24 @@ export const GeneralStartPage = () => {
 
   useEffect(() => {
     function checkUserData() {
-      const item = localStorage.getItem("user-details");
-
-      if (item) {
-        setUser(JSON.parse(item));
-        console.log(user);
+      const details = localStorage.getItem("user-details");
+      const token = localStorage.getItem("user-logged-token")
+      
+      if (details) {
+        setUser(JSON.parse(details));  
       }
+      if (token && !details) {
+        const fetch = async () => {
+          const details = await getDetails()
+          
+          localStorage.setItem("user-detais", JSON.stringify(details))
+
+          setUser(details)
+        }
+
+        fetch().then()
+      }
+      
     }
 
     checkUserData();

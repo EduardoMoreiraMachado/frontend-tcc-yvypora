@@ -10,11 +10,13 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 import { getDetails } from "../../utils/fetchs/common/user";
+import { useState } from "react";
+import { getLocation } from "../../utils/location";
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
   // const navigate = useNavigate(); // hook
-
+  const [location, setLocation] = useState({});
   const handleClick = async (e) => {
     e.preventDefault();
     try {
@@ -26,11 +28,11 @@ export const Login = () => {
       const { data } = await commonsAPI.post("/login/", {
         email,
         password,
-        typeOfUser: "COSTUMER",
       });
+      
+      localStorage.setItem("user-logged-token", data.token);
 
       const details = await getDetails();
-
       localStorage.setItem("user-details", JSON.stringify(details))
 
       MySwal.fire({
@@ -42,10 +44,10 @@ export const Login = () => {
         timerProgressBar: true,
       });
 
-      localStorage.setItem("user-logged-token", data.token);
-
       // navigate("/home") // path
     } catch (error) {
+      console.log(error);
+      
       let message = error.response?.data.message;
       if (!message) message = "Error!";
       MySwal.fire({

@@ -6,10 +6,15 @@ export const fetchCostumerFormFields = async () => {
   return data.payload[0];
 };
 
-export const fetchFairFormFields = async ({ lat, long }) => {
-  const { data } = await commonsAPI.get(`forms/fairs?lat=${lat}&long=${long}`);
+export const fetchFairFormFields = async ({ latitude, longitude }) => {
+  const { data } = await commonsAPI.get(`forms/fairs?lat=${latitude}&long=${longitude}`);
 
   return data.payload;
 };
 
 
+export const fetchMarketerFormFields = async ({latitude, longitude}) => {
+  const { data } = await commonsAPI.get(`forms/marketer?lat=${latitude}&long=${longitude}`);
+
+  return data.payload[0];
+};
