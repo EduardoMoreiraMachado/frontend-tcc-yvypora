@@ -1,0 +1,17 @@
+.rating-stars-container {
+    height: 146px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rating-stars-container button {
+    width: 80px;
+    height: 30px;
+    font-size: 1rem;
+    background-color: #AAD576;
+    cursor: pointer;
+    border-radius: 15px;
+    color: #245501;
+}

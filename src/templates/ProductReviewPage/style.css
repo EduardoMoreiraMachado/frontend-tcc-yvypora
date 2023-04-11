@@ -1,18 +1,35 @@
 .product-review-content {
-    height: 100vh;
+    display: flex;
+    /*height: 70vh;*/
 }
 
 .review-containers {
     display: flex;
     flex-direction: column;
-    gap: 4vh;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .review-containers h1 {
     font-size: 2rem; 
     text-align: center;
     color: #1A4301;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
+}
+
+.entrega-review {
+    margin-bottom: 7vh;
+}
+
+.produtos-review,
+.entrega-review {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
 }
 
 .produtos-review p,
@@ -22,6 +39,7 @@
 
 #produto,
 #entrega {
+    width: 80%;
     font-size: 1.2rem;
     border-radius: 10px;
     padding: 10px;
@@ -33,6 +51,7 @@
     display: flex;
     align-items: center;
     gap: 1vw;
+    margin-bottom: 1vh;
 }
 
 .vendedor-photo {
@@ -46,4 +65,36 @@
 
 .produtos-vendedor span {
     font-size: 1.2rem;
+}
+
+.stars-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.entrega-stars,
+.produtos-stars {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entrega-stars h1,
+.produtos-stars h1 {
+    font-size: 1.7rem;
+}
+
+.produtos-stars p {
+    width: 50%;
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+.produtos-stars a {
+    color: #73A942;
+    text-decoration: underline;
 }
