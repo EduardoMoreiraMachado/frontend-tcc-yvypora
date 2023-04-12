@@ -17,4 +17,5 @@ export const Header = ({imgUrl}) => {
         </header>
     )
 }
+
 export default Header

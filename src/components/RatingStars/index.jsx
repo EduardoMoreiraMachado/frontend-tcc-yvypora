@@ -14,7 +14,6 @@ export const RatingStars = () => {
     const handleReset = () => {
         // volta para o valor inicial
         setRating(0)
-        console.log(rating)
     }
 
     return(
@@ -29,19 +28,21 @@ export const RatingStars = () => {
                 tooltipDefaultText='Sua avaliação'
                 tooltipArray={[
                     'Horrível',
-                    'Horrível+',
+                    'Muito ruim',
                     'Ruim',
-                    'Ruim+',
+                    'Não gostei',
                     'Médio',
-                    'Médio+',
+                    'Ok',
+                    'Podia ser melhor',
                     'Bom',
-                    'Bom+',
                     'Incrível',
                     'Perfeito'
                 ]}
             />
             {rating > 0 &&
-                <button onClick={handleReset}>Cancelar</button>
+                <div className='reset-button-container'>
+                    <button onClick={handleReset}>Cancelar</button>
+                </div>
             }
         </div>
     )

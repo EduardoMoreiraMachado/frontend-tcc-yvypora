@@ -9,9 +9,9 @@ import { GreenButton } from '../../components/GreenButton'
 const ProductReviewPage = () => {
     return(
         <div className='product-review-page-container'>
-            <Header 
+            {/* <Header 
                 imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-            />
+            /> */}
             <Title 
                 text='Compra #30495'
             />
@@ -19,7 +19,7 @@ const ProductReviewPage = () => {
                 <div className='review-containers'>
                     <h1>Avalie esta compra</h1>
                     <div className='entrega-review'>
-                        <p>Relate aqui a experiência com essa entrega</p>
+                        <p>Relate aqui sua experiência com essa entrega</p>
                         <textarea
                             cols="30"
                             rows="5"
@@ -29,7 +29,7 @@ const ProductReviewPage = () => {
                         />      
                     </div>
                     <div className='produtos-review'>
-                        <p>Relate aqui a experiência com os produtos comprados</p>
+                        <p>Relate aqui sua experiência com os produtos comprados</p>
                         <div id='review'>
                             <div className='produtos-vendedor'>
                                 <div className='vendedor-photo' style={{backgroundImage: `url('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg')`}}></div>

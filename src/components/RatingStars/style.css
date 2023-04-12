@@ -1,9 +1,16 @@
 .rating-stars-container {
-    height: 146px;
-    width: 100%;
+    height: 150px;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+}
+
+.reset-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .rating-stars-container button {
