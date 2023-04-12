@@ -32,9 +32,9 @@ export const RatingStars = () => {
                     'Ruim',
                     'Não gostei',
                     'Médio',
-                    'Ok',
                     'Podia ser melhor',
                     'Bom',
+                    'Ótimo',
                     'Incrível',
                     'Perfeito'
                 ]}

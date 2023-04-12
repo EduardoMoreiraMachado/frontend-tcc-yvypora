@@ -7,10 +7,17 @@
     justify-content: space-between;
 }
 
+@keyframes fade {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
 .reset-button-container {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    animation-name: fade;
+    animation-duration: 0.3s;
 }
 
 .rating-stars-container button {
