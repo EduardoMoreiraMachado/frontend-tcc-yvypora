@@ -4,13 +4,7 @@ import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
 import UserImage from "../UserImage";
 import { useState } from "react";
 
-export const Header = ({ imgUrl }) => {
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    localStorage.setItem("",JSON.parse(localStorage.getItem("user-details")));
-  }, [user]);
-
+export const Header = ({ user }) => {
   return (
     <header id="default-header">
       <div className="header-icon" id="default-header-icon">

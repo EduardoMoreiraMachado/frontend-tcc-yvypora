@@ -26,7 +26,7 @@ export const UpdateFeiranteAccount = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user-details"))
   );
-  
+
   const [values, setValues] = useState({});
 
   useEffect(() => {
@@ -107,8 +107,11 @@ export const UpdateFeiranteAccount = () => {
 
       const updatedDetails = await getDetails();
 
+      console.log(updatedDetails);
+
       localStorage.setItem("user-details", JSON.stringify(updatedDetails));
-      setUser(JSON.parse(localStorage.getItem("user-details")));
+      
+      setUser(updatedDetails);
 
       MySwal.fire({
         timer: 1500,
@@ -125,11 +128,7 @@ export const UpdateFeiranteAccount = () => {
 
   return (
     <div className="update-feirante-account-container">
-      <Header
-        imgUrl={
-          "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
-        }
-      />
+      <Header user={user} />
       <div className="update-content">
         <div className="nav-bar">
           <NavBar />
@@ -154,10 +153,6 @@ export const UpdateFeiranteAccount = () => {
             onChange={handleChange}
           />
           <DefaultInput name="Nome do estabelecimento" type="text" />
-          {/* <DefaultInput
-                        name='Data de nascimento'
-                        type='date'
-                    /> */}
           <SpecialInput
             name="date"
             type="date"
