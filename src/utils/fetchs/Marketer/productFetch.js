@@ -43,3 +43,10 @@ export const addPictureToProduct = async ({ id, formData }) => {
 
   return res.data;
 };
+
+// deletar produto
+export const disableProduct = async ({ id }) => {
+   const res = await marketerAPI.delete(`disable/${id}`)
+
+  return res.data;
+};
