@@ -2,11 +2,6 @@ import { marketerAPI } from "../../../api/api";
 
 export async function createFair(data) {
   const res = await marketerAPI.post("/fair/", data);
-  
-  if (res.data.error) {
-    return res.data.message;
-  }
-
   return res.data;
 }
 
@@ -21,4 +16,11 @@ export async function addImageInFair(id, data) {
     return res.data.message;
   }
   return res.data;
+}
+
+
+export const addFairToMarketer = async (id) => {
+  const res = await marketerAPI.put(`/fair/add/${id}`)
+
+  return res.data
 }

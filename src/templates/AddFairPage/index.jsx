@@ -6,7 +6,11 @@ import { AddImage } from "../../components/AddImage";
 import { GreenButton } from "../../components/GreenButton";
 import { Footer } from "../../components/Footer";
 import { fetchFairFormFields } from "../../utils/fetchs/common/formFieldsFetch";
-import { createFair, addImageInFair } from "../../utils/fetchs/Marketer/fairsFetch";
+import {
+  createFair,
+  addImageInFair,
+  addFairToMarketer,
+} from "../../utils/fetchs/Marketer/fairsFetch";
 
 import "./style.css";
 import { consumeCep } from "../../utils/fetchs/common/cepFetch";
@@ -23,7 +27,10 @@ export const AddFairPage = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const fields = await fetchFairFormFields({ lat: 20, long: -20 });
+      const fields = await fetchFairFormFields({
+        latitude: 20,
+        longitude: -20,
+      });
       console.log(fields);
       setDaysOfWeek(fields[0].daysOfWeeks);
     };
@@ -99,6 +106,7 @@ export const AddFairPage = () => {
 
     try {
       const { payload } = await createFair(data);
+      console.log(payload);
       const { id } = payload;
 
       const file = document.querySelector("#file-selection").files[0];
@@ -111,6 +119,18 @@ export const AddFairPage = () => {
       } catch (e) {
         console.log(e);
       }
+
+      await addFairToMarketer(id);
+
+      MySwal.fire({
+        timer: 3000,
+        showConfirmButton: false,
+        title: <p>Nova Feira</p>,
+        html: <p>Successo! Nova Feira Cadastrada</p>,
+        icon: "success",
+        buttonsStyling: false,
+        timerProgressBar: true,
+      });
     } catch (e) {
       console.log(e);
       let message = e.response?.data.message;
@@ -129,12 +149,14 @@ export const AddFairPage = () => {
 
   return (
     <div className="add-fair-page-container">
-      <Header 
-        imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+      <Header
+        imgUrl={
+          "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
+        }
       />
       <TitleSubtitle
-          text={"Escolha o local"}
-          subtitle="Insira as feiras onde seus produtos serão vendidos"
+        text={"Escolha o local"}
+        subtitle="Insira as feiras onde seus produtos serão vendidos"
       />
       <div className="input-container">
         <div className="inputs">
@@ -147,7 +169,7 @@ export const AddFairPage = () => {
             value={values.cep}
             onChange={handleChange}
           />
-          
+
           <DefaultInput name="Horário de abertura" type="time" />
           <DefaultInput name="Horário de encerramento" type="time" />
 
@@ -167,13 +189,11 @@ export const AddFairPage = () => {
           </div>
         </div>
         <div className="button-add-image-container">
-          <AddImage text='Adicione uma foto de perfil' />
-          <GreenButton
-            text='Cadastrar' 
-          />
+          <AddImage text="Adicione uma foto de perfil" />
+          <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>
       </div>
-        
+
       <Footer />
     </div>
   );

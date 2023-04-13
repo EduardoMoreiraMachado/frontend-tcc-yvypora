@@ -28,6 +28,7 @@ export const SellerProductsPage = () => {
       </header>
       <div className="registered-products">
         {listOfProducts.map((product) => {
+          console.log(product);
           return (
             <SellerProduct
               name={product.name}
@@ -35,7 +36,7 @@ export const SellerProductsPage = () => {
               unit={product.available_quantity}
               price={product.price}
               available_quantity={product.available_quantity}
-              type_of_price={product.type_of_price_product.name}
+              type_of_price={product.type_of_price.name}
             />
           );
         })}

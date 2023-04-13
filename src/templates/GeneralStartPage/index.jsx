@@ -94,7 +94,7 @@ export const GeneralStartPage = () => {
                 return (
                   <ShoppingItem
                     name = {product.name}
-                    imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
+                    imgUrl={product.image_of_product.map((el) => el.image.uri)}
                     weight="100g"
                     price="5,00"
                     promo={true}
