@@ -9,6 +9,7 @@ export const RatingStars = () => {
     // pegar o valor da avaliação
     const handleRating = (newRating) => {
         setRating(newRating)
+        // SOMAR 0.5 AO PEGAR O VALOR DO ESTADO PARA O BACK-END
     } 
 
     const handleReset = () => {
@@ -22,6 +23,7 @@ export const RatingStars = () => {
                 initialValue={rating}
                 style={{display: 'flex', flexDirection: 'column'}}
                 size={80}
+                SVGclassName='star-rate-icon'
                 onClick={handleRating} 
                 allowFraction={true}
                 showTooltip={true}

@@ -22,8 +22,8 @@ const ProductReviewPage = () => {
                         <p>Relate aqui sua experiência com essa entrega</p>
                         <textarea
                             cols="30"
-                            rows="5"
-                            maxLength="200"
+                            rows="10"
+                            maxLength="500"
                             placeholder='Exemplo: Entrega ultra veloz'
                             id="entrega"
                         />      
@@ -37,8 +37,8 @@ const ProductReviewPage = () => {
                             </div>
                             <textarea
                                 cols="30"
-                                rows="5"
-                                maxLength="200"
+                                rows="10"
+                                maxLength="500"
                                 placeholder='Exemplo: Produto de ótima qualidade'
                                 id="produto"
                             />      

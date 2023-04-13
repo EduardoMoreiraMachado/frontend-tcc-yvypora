@@ -29,3 +29,15 @@
     border-radius: 15px;
     color: #245501;
 }
+
+@media(max-width: 1140px) {
+    .star-rate-icon {
+        width: 60px;
+    }
+}
+
+@media(max-width: 768px) {
+    .star-rate-icon {
+        width: 50px;
+    }
+}

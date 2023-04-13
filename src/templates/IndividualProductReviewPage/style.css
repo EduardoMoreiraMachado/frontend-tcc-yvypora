@@ -1,0 +1,36 @@
+.individual-review-containers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.individual-item {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.sent-review-button {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 150px;
+}
+
+@media(max-width: 1500px) {
+    .individual-review-containers {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sent-review-button {
+        justify-content: center;
+        padding-right: 0px;
+    }
+}

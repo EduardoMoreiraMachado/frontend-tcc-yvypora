@@ -2,8 +2,6 @@
     width: max-content;
     display: flex;
     gap: 2vw;
-    
-
 }
 
 .item-check {
@@ -16,7 +14,7 @@
     justify-content: center;
     gap: 5vw;
     border: 2px solid #538D22;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 2vh 3vw 2vh 3vw;
     width: max-content;
 
