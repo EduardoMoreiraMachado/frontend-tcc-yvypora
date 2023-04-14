@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { slide as Menu } from "react-burger-menu";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 var styles = {
   bmItem: {
@@ -12,7 +12,7 @@ var styles = {
     width: "100%",
     height: "100%",
     textDecoration: "none",
-    listStyle: "none",
+    listStyle: "none"
   },
 };
 
@@ -38,10 +38,10 @@ export const MenuBurguer = (width) => {
         <Menu itemListClassName={"my-class"} styles={styles}>
           <nav>
             <li>
-              <a href="/">Home</a>
+              <a href="#">Home</a>
             </li>
             <li>
-              <a>Lives</a>
+              <a href="#">Transmissões ao vivo</a>
             </li>
             <li>
               <a href="/fair-near">Feiras próximas</a>
