@@ -7,112 +7,76 @@ import { Header } from "../../components/Header";
 import { SearchInput } from "../../components/SearchInput";
 import { useEffect, useState } from "react";
 import { listByCategory } from "../../utils/fetchs/Costumer/products";
-export const SearchPage = ({ search_key, category }) => {
+import { search, searchForProducts } from "../../utils/fetchs/Costumer/search";
+
+export const SearchPage = ({ context, category }) => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user-details"))
   );
 
   const [listOfProducts, setListOfProducts] = useState([]);
+  const [search_key, setSearchKey] = useState(context)
 
   useEffect(() => {
     if (!category) return;
 
     const fetch = async () => {
-      const data = await listByCategory(category);
+      const { data } = await listByCategory(category.id);
+
       setListOfProducts(data);
     };
 
     fetch().then();
   }, [category]);
 
-
   useEffect(() => {
-    if (!search_key) return
+    if (!search_key) return;
 
-    // TODO 
-  })
+    const fetch = async () => {
+      const { data } = await search(search_key);
+      const { products } = data;
+      console.log(products);
+
+      setListOfProducts(products);
+    };
+
+    fetch().then();
+  }, [search_key]);
+
+  const onValueChange = (event) =>  {
+    const { value: newValue } = event.target  
+    setSearchKey(newValue)
+  }
 
   return (
     <>
       <Header user={user}></Header>
       <div className="text-input-wrapper">
-        <SearchInput />
+        <SearchInput onChange={onValueChange} value={
+          search_key ? search_key 
+          : category ? category.name 
+          : ""
+          }  />
       </div>
       <div className="all-container">
         <div className="main-content-container">
           <div className="result-search">
-            <p> Resultados de: {search_key}</p>
+            <p> Resultados de: {search_key ? search_key 
+          : category ? category.name 
+          : ""}</p>
             <div className="cards-result">
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="https://superprix.vteximg.com.br/arquivos/ids/175265-292-292/Laranja-pera.png?v=636299524396200000"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
+              {listOfProducts.map((product) => {
+                console.log(product);
+                return (
+                  <ShoppingItem
+                    name={product.name}
+                    imgUrl={product.image_of_product.map((el) => el.image.uri)}
+                    weight="100g"
+                    price={product.price}
+                    key={product.id}
+                  />
+                );
+              })}
             </div>
           </div>
           {/* <FiltersSearch/> */}
