@@ -1,12 +1,17 @@
-import './style.css'
+import "./style.css";
 
-export const ProductCategorySelect = () => {
-
-    return(
-        <div className='product-category-select-container'>
-            <button className='category-select' id="all">Todos</button>
-            <button className='category-select' id="discount">Em desconto</button>
-            <button className='category-select' id="close">Perto de você</button>
-        </div>
-    )
-}
+export const ProductCategorySelect = ({ onClick }) => {
+  return (
+    <div className="product-category-select-container">
+      <button className="category-select" id="all" onClick={onClick}>
+        Todos
+      </button>
+      <button className="category-select" id="discount" onClick={onClick}>
+        Em desconto
+      </button>
+      <button className="category-select" id="close" onClick={onClick}>
+        Perto de você
+      </button>
+    </div>
+  );
+};

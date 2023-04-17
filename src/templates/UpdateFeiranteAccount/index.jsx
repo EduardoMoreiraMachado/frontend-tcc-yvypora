@@ -8,7 +8,7 @@ import { DefaultInput } from "../../components/DefaultInput";
 import { SpecialInput } from "../../components/SpecialInput";
 import { GreenButton } from "../../components/GreenButton";
 import { AddImage } from "../../components/AddImage";
-
+import { login } from "../../utils/fetchs/common/login";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -77,8 +77,6 @@ export const UpdateFeiranteAccount = () => {
     newBirthday = `${newBirthday[0]}/${newBirthday[1]}/${newBirthday[2]}`;
     newBirthday = newBirthday.replaceAll("/", "-");
 
-    console.log(newBirthday);
-
     const marketer = {
       name,
       email,
@@ -87,34 +85,26 @@ export const UpdateFeiranteAccount = () => {
       tent_name,
     };
 
-    if (cpf) marketer.cpf = cpf;
+    if (cpf)
+      marketer.cpf = cpf.replaceAll(".", "").replaceAll("-", "").toString();
     if (password) marketer.password = password;
-
+    
     try {
-      await updateMarketerAccount(marketer);
+      const { newToken: token } = await updateMarketerAccount(marketer);
+      localStorage.setItem("user-logged-token", token);
+    } catch (e) {
+      MySwal.fire({
+        timer: 1500,
+        showConfirmButton: false,
+        title: (
+          <p>Erro! Confirme as informaçoes fornecidas</p>
+        ),
+        icon: "error",
+        timerProgressBar: true,
+      });
+    }
 
-      if (!image) {
-        MySwal.fire({
-          timer: 1500,
-          showConfirmButton: false,
-          title: <p>Perfil Atualizado</p>,
-          icon: "success",
-          buttonsStyling: false,
-          timerProgressBar: true,
-        });
-        return null;
-      }
-
-      await appendPictureToUser(formdata);
-
-      const updatedDetails = await getDetails();
-
-      console.log(updatedDetails);
-
-      localStorage.setItem("user-details", JSON.stringify(updatedDetails));
-
-      setUser(updatedDetails);
-
+    if (!image) {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
@@ -123,8 +113,46 @@ export const UpdateFeiranteAccount = () => {
         buttonsStyling: false,
         timerProgressBar: true,
       });
+
+      const updatedDetails = await getDetails();
+
+      localStorage.setItem("user-details", JSON.stringify(updatedDetails));
+
+      setUser(updatedDetails);
+
+      return null;
+    }
+
+    try {
+      await appendPictureToUser(formdata);
+
+      const updatedDetails = await getDetails();
+
+      localStorage.setItem("user-details", JSON.stringify(updatedDetails));
+
+      setUser(updatedDetails);
+
+      await MySwal.fire({
+        timer: 1500,
+        showConfirmButton: false,
+        title: <p>Perfil Atualizado</p>,
+        icon: "success",
+        buttonsStyling: false,
+        timerProgressBar: true,
+      });
+
+      window.location.reload(true)
     } catch (err) {
       console.log(err);
+      MySwal.fire({
+        timer: 1500,
+        showConfirmButton: false,
+        title: (
+          <p>Erro! Confirme as informaçoes fornecidas</p>
+        ),
+        icon: "error",
+        timerProgressBar: true,
+      });
     }
   };
 

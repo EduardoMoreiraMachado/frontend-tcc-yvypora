@@ -22,10 +22,13 @@ import {
 const MySwal = withReactContent(Swal);
 
 export const InsertProductPage = () => {
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user-details"))
+  );
   const [selectedValue, setSelectedValue] = useState("");
-  const [value, setValue] = useState(0)
-  const [price, setPrice] = useState(0)
-  const [amount, setAmount] = useState(0)
+  const [value, setValue] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [amount, setAmount] = useState(0);
 
   function handleChange(event) {
     setSelectedValue(event.target.value);
@@ -48,18 +51,28 @@ export const InsertProductPage = () => {
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
     const description = document.getElementById("description").value;
-    
+
     const name = inputs[0].value;
-    const price = inputs[1].value;
+    let quantity = null;
+    let price = inputs[1].value;
 
     const availableQuantity = document.getElementById("available-quant").value;
     const saleOffValue = document.querySelectorAll(".input-active")[0]?.value;
+
+    console.log(saleOffValue);
+
+
+    if (priceTypeOptionSelected.value === "peso") {
+      quantity = inputs[1].value;
+      price = inputs[2].value;
+    }
 
     const data = {
       category: {
         name: categoryOptionSelected.value,
         id: parseInt(categoryOptionSelected.id),
       },
+      quantity,
       name,
       description,
       price: parseFloat(price),
@@ -72,7 +85,6 @@ export const InsertProductPage = () => {
 
     console.log(data);
 
-    
     try {
       const { payload } = await createProduct(data);
       const { id } = payload.data;
@@ -130,28 +142,25 @@ export const InsertProductPage = () => {
 
   const handleWeightChange = (event) => {
     setValue(event.target.value);
-  }
+  };
 
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
-  }
+  };
 
   const handleAmountChange = (event) => {
-    setAmount(event.target.value)
-  }
+    setAmount(event.target.value);
+  };
 
   const handleKeyDown = (event) => {
-    if(event.key === '-' || event.key === '+' || event.key === 'e') {
+    if (event.key === "-" || event.key === "+" || event.key === "e") {
       event.preventDefault();
     }
-  }
+  };
 
   return (
     <div className="insert-product-page">
-
-      <Header 
-        imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-      />
+      <Header user={user} />
       <Title text="Inserir um novo produto" />
 
       <div className="data-containers">
@@ -181,12 +190,7 @@ export const InsertProductPage = () => {
 
           <div className="input-container">
             <h1 className="product-input-title">Descrição:</h1>
-            <textarea
-              cols="30"
-              rows="5"
-              maxLength="200"
-              id="description"
-            />
+            <textarea cols="30" rows="5" maxLength="200" id="description" />
           </div>
 
           <div className="price-values">
@@ -282,7 +286,6 @@ export const InsertProductPage = () => {
       </div>
 
       <Footer />
-      
     </div>
   );
 };

@@ -13,12 +13,17 @@ import { ShoppingItem } from "../../components/ShoppingItem";
 import { Footer } from "../../components/Footer";
 import { SearchInput } from "../../components/SearchInput";
 import MenuBurguer from "../../components/MenuBurguer";
-import { listProducts } from "../../utils/fetchs/Costumer/products";
+import {
+  listProductNearToClient,
+  listProducts,
+  listProductsInSaleOff,
+} from "../../utils/fetchs/Costumer/products";
 import { getDetails } from "../../utils/fetchs/common/user";
 
 export const GeneralStartPage = () => {
   const [user, setUser] = useState("");
   const [listOfProducts, setListOfProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const carousel = useRef(null);
 
   const handleLeftClick = (e) => {
@@ -30,23 +35,22 @@ export const GeneralStartPage = () => {
   useEffect(() => {
     function checkUserData() {
       const details = localStorage.getItem("user-details");
-      const token = localStorage.getItem("user-logged-token")
-      
+      const token = localStorage.getItem("user-logged-token");
+
       if (details) {
-        setUser(JSON.parse(details));  
+        setUser(JSON.parse(details));
       }
       if (token && !details) {
         const fetch = async () => {
-          const details = await getDetails()
-          
-          localStorage.setItem("user-detais", JSON.stringify(details))
+          const details = await getDetails();
 
-          setUser(details)
-        }
+          localStorage.setItem("user-detais", JSON.stringify(details));
 
-        fetch().then()
+          setUser(details);
+        };
+
+        fetch().then();
       }
-      
     }
 
     checkUserData();
@@ -65,12 +69,33 @@ export const GeneralStartPage = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   };
 
+  const handleCategorySelect = async ({ target }) => {
+    const { id } = target;
+
+    console.log(id, selectedCategory);
+
+    if (selectedCategory === id) return;
+
+    if (id === "all") {
+      const newList = await listProducts();
+      setListOfProducts(newList);
+    } else if (id === "discount") {
+      const newList = await listProductsInSaleOff();
+      setListOfProducts(newList);
+    } else if (id === "close") {
+      const newList = await listProductNearToClient();
+      setListOfProducts(newList);
+    }
+
+    setSelectedCategory(id);
+  };
+
   return (
     <div className="general-start-page-container">
       <MenuBurguer />
       {user ? (
         <>
-          <Header imgUrl={user.picture_uri}></Header>
+          <Header user={user}></Header>
         </>
       ) : (
         <>
@@ -86,84 +111,22 @@ export const GeneralStartPage = () => {
             </div>
             <ProductCategory />
           </div>
-          <ProductCategorySelect />
+          <ProductCategorySelect onClick={handleCategorySelect} />
           <div className="products-carrossel">
             <PrevButton onClick={handleLeftClick} />
             <div className="carousel-items" ref={carousel}>
               {listOfProducts.map((product) => {
+                console.log(product);
                 return (
                   <ShoppingItem
-                    name = {product.name}
+                    name={product.name}
                     imgUrl={product.image_of_product.map((el) => el.image.uri)}
                     weight="100g"
-                    price="5,00"
-                    promo={true}
+                    price={product.price}
+                    key={product.id}
                   />
                 );
               })}
-              {/* <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              />
-              <ShoppingItem
-                name="Laranja 1"
-                imgUrl="http://chc.org.br/wp-content/uploads/2014/02/laranjas.jpg"
-                weight="100g"
-                price="5,00"
-                promo={true}
-              /> */}
             </div>
             <NextButton onClick={handleRightClick} />
           </div>

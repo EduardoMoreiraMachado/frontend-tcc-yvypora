@@ -26,10 +26,22 @@ export const listProducts = async () => {
   return res;
 };
 
-export const listProductsInSaleOff = async () => {
-  const res = await costumerAPI.get("product/inSaleOff");
+export const listByCategory = async (id) => {
+  const { data } = await costumerAPI.get(
+    `product/?category=${id}&score=0&lowerPrice=0&higherPrice=100000`
+  );
 
-  return res.data.data;
+  return data;
 };
 
-export const listProductNearToClient = async () => {};
+export const listProductsInSaleOff = async () => {
+  const { data } = await costumerAPI.get("product/inSaleOff");
+
+  return data.data;
+};
+
+export const listProductNearToClient = async () => {
+  const { data } = await costumerAPI.get("product/findNearest");
+
+  return data.data;
+};

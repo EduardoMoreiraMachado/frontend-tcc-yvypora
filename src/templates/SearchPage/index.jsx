@@ -5,17 +5,43 @@ import ProductsFilters from "../../components/ProductsFilters";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { SearchInput } from "../../components/SearchInput";
-export const SearchPage = ({ name }) => {
+import { useEffect, useState } from "react";
+import { listByCategory } from "../../utils/fetchs/Costumer/products";
+export const SearchPage = ({ search_key, category }) => {
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user-details"))
+  );
+
+  const [listOfProducts, setListOfProducts] = useState([]);
+
+  useEffect(() => {
+    if (!category) return;
+
+    const fetch = async () => {
+      const data = await listByCategory(category);
+      setListOfProducts(data);
+    };
+
+    fetch().then();
+  }, [category]);
+
+
+  useEffect(() => {
+    if (!search_key) return
+
+    // TODO 
+  })
+
   return (
     <>
-      <Header></Header>
+      <Header user={user}></Header>
       <div className="text-input-wrapper">
         <SearchInput />
       </div>
       <div className="all-container">
         <div className="main-content-container">
           <div className="result-search">
-            <p> Resultados de: {name}</p>
+            <p> Resultados de: {search_key}</p>
             <div className="cards-result">
               <ShoppingItem
                 name="Laranja 1"
