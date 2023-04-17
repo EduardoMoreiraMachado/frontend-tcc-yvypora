@@ -31,7 +31,7 @@ export const AddImage = ({text, subtext}) => {
                     <label for="file-selection" className="image-button"/>
                 </>
             }
-            <input id="file-selection" type="file" name='image' onChange={handleImageChange}/>                
+            <input id="file-selection" type="file" name='image' onChange={handleImageChange}/>
         </div>
     )
 }
