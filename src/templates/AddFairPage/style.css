@@ -7,7 +7,7 @@
   padding: 2vh 5vw 10vh 5vw;
 }
 
-.drop-box {
+/* .drop-box {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,38 @@
   border: solid 1px #538d22;
   border-radius: 10px;
   padding: 5px;
+} */
+
+.days-week-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.days-week-container h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #245501;
+  padding: 0px;
+}
+
+.days-week {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.day {
+  display: flex;
+  gap: 10px;
+}
+
+.day label {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #245501;
 }
 
 #fair-name {

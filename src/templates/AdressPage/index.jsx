@@ -11,9 +11,9 @@ export const AdressPage = () => {
     return (
         <div className="main-address">
             <MenuBurguer/>
-            <Header 
+            {/* <Header 
                 imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-            />
+            /> */}
             <Title text={'Endereços'} />
             <div className="main-card-address">
                 <NavBar />

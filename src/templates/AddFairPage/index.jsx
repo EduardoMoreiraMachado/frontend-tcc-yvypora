@@ -173,19 +173,38 @@ export const AddFairPage = () => {
           <DefaultInput name="Horário de abertura" type="time" />
           <DefaultInput name="Horário de encerramento" type="time" />
 
-          <div className="drop-box">
-            <label className="default-label" htmlFor="product-type">
-              Dia de Funcionamento
-            </label>
-            <select name="product-type" id="day-of-week">
-              {daysOfWeekFields.map((day) => {
-                return (
-                  <option value={day.name} id={day.id}>
-                    {day.name}
-                  </option>
-                );
-              })}
-            </select>
+          <div className="days-week-container">
+            <h1>Dias de funcionamento</h1>
+            <div className="days-week">
+              <div className="day">
+                <input type="checkbox" id="mon" name="scales"/>
+                <label for="mon">Segunda-feira</label>
+              </div>
+              <div className="day">
+                <input type="checkbox" id="tue" name="scales"/>
+                <label for="tue">Terça-feira</label>
+              </div>
+              <div className="day">
+                <input type="checkbox" id="wed" name="scales"/>
+                <label for="wed">Quarta-feira</label>
+              </div>
+              <div className="day">
+                <input type="checkbox" id="thu" name="scales"/>
+                <label for="thu">Quinta-feira</label>
+              </div>
+              <div className="day">
+                <input type="checkbox" id="fri" name="scales"/>
+                <label for="fri">Sexta-feira</label>
+              </div>
+              <div className="day">
+                <input type="checkbox" id="sat" name="scales"/>
+                <label for="sat">Sábado</label>
+              </div>
+              <div className="day">
+                <input type="checkbox" id="sun" name="scales"/>
+                <label for="sun">Domingo</label>
+              </div>
+            </div>
           </div>
         </div>
         <div className="button-add-image-container">
