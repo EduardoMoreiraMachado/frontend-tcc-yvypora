@@ -63,7 +63,7 @@ export const SearchPage = ({ context, category }) => {
           <div className="result-search">
             <p> Resultados de: {search_key ? search_key 
           : category ? category.name 
-          : ""}</p>
+          : ""ad}</p>
             <div className="cards-result">
               {listOfProducts.map((product) => {
                 console.log(product);
