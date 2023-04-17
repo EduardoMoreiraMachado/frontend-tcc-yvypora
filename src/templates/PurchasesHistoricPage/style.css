@@ -1,0 +1,81 @@
+.purchase-historic-content {
+    display: flex;
+}
+
+.historic {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 150px;
+}
+
+.purchase {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-purchase-info {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px;
+    cursor: pointer;
+}
+
+.main-purchase-info:hover {
+    background-color: #aad5761e;
+    border: 2px solid #538D22;
+    border-radius: 15px;
+}
+
+.main-purchase-info:active {
+    background-color: #aad57665;
+}
+
+.purchase-image {
+    width: 170px;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.purchase-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.purchase-info h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #538D22;
+}
+
+.purchase-info h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #538D22;
+}
+
+.purchase-info span {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #538D22;
+}
+
+@keyframes fade {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.purchase-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    animation-name: fade;
+    animation-duration: 0.5s;
+}

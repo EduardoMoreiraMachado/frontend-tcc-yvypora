@@ -1,0 +1,41 @@
+.address-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.main-address-card {
+    width: 170px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #143601;
+    border-radius: 0px 10px;
+    margin-right: 10px;
+}
+
+.main-address-card span {
+    font-size: 1rem;
+    color: #AAD576;
+}
+
+.address-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #73A942;
+    border-radius: 0px 10px;
+    color: white;
+    padding: 20px 50px 20px 50px;
+    gap: 50px;
+}
+
+.address-info h1 {
+    font-weight: 400;
+}
+
+.address-info p {
+    font-size: 1.3rem;
+}
+ 
