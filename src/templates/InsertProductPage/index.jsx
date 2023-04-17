@@ -34,6 +34,7 @@ export const InsertProductPage = () => {
   async function handleClick(e) {
     e.preventDefault();
     const image = document.getElementById("file-selection").files[0];
+    console.log(image);
 
     const inputs = document.querySelectorAll(".product-input");
 
@@ -69,6 +70,9 @@ export const InsertProductPage = () => {
       available_quantity: parseInt(availableQuantity, 10),
     };
 
+    console.log(data);
+
+    
     try {
       const { payload } = await createProduct(data);
       const { id } = payload.data;
