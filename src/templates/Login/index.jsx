@@ -5,13 +5,12 @@ import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
 import { GreenButton } from "../../components/GreenButton";
 import { Footer } from "../../components/Footer";
 import { Title } from "../../components/Title";
-import { commonsAPI } from "../../api/api";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 import { getDetails } from "../../utils/fetchs/common/user";
 import { useState } from "react";
-import { getLocation } from "../../utils/location";
+import { login } from "../../utils/fetchs/common/login";
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
@@ -25,15 +24,12 @@ export const Login = () => {
       const email = inputs[0].value;
       const password = inputs[1].value;
 
-      const { data } = await commonsAPI.post("/login/", {
-        email,
-        password,
-      });
-      
-      localStorage.setItem("user-logged-token", data.token);
+      const { token } = await login({ email, password });
+
+      localStorage.setItem("user-logged-token", token);
 
       const details = await getDetails();
-      localStorage.setItem("user-details", JSON.stringify(details))
+      localStorage.setItem("user-details", JSON.stringify(details));
 
       MySwal.fire({
         timer: 1500,
@@ -47,7 +43,7 @@ export const Login = () => {
       // navigate("/home") // path
     } catch (error) {
       console.log(error);
-      
+
       let message = error.response?.data.message;
       if (!message) message = "Error!";
       MySwal.fire({

@@ -39,7 +39,7 @@ export const UpdateFeiranteAccount = () => {
     specialInputs[0].value = user.cpf;
 
     if (user.phone) specialInputs[1].value = user.phone;
-    if (user.tentName) defaultsInputs[3].value = user.tentName;
+    if (user.tent_name) defaultsInputs[3].value = user.tent_name;
 
     let birthday = user.birthday.split("-");
     birthday = `${birthday[2]}/${birthday[1]}/${birthday[0]}`;
@@ -67,6 +67,7 @@ export const UpdateFeiranteAccount = () => {
     const cpf = specialInputs[0].value;
     const phone = specialInputs[1].value;
     const birthday = specialInputs[2].value;
+    const tent_name = defaultsInputs[3].value;
 
     const image = document.getElementById("file-selection").files[0];
     const formdata = new FormData();
@@ -83,6 +84,7 @@ export const UpdateFeiranteAccount = () => {
       email,
       birthday: newBirthday,
       id,
+      tent_name,
     };
 
     if (cpf) marketer.cpf = cpf;
@@ -110,7 +112,7 @@ export const UpdateFeiranteAccount = () => {
       console.log(updatedDetails);
 
       localStorage.setItem("user-details", JSON.stringify(updatedDetails));
-      
+
       setUser(updatedDetails);
 
       MySwal.fire({

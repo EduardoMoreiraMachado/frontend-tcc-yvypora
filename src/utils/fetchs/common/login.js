@@ -2,5 +2,6 @@ import { commonsAPI } from "../../../api/api";
 
 // TODO
 export const login = async ({ email, password }) => {
-    const { data } = await commonsAPI.post()
+  const { data } = await commonsAPI.post("/login/", { email, password });
+  return data;
 };
