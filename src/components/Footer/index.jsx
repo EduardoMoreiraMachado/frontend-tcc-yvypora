@@ -2,7 +2,7 @@ import './style.css'
 
 export const Footer = () => {
     return(
-        <footer>
+        <footer id='footer'>
             <div className="contacts-container">
                 <div className="contact-item">
                     <i className="fa-solid fa-phone"></i>

@@ -1,7 +1,26 @@
+.address-page-content {
+    display: flex;
+    align-items: center;
+}
+
+.address-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+}
+
+.address-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
 .address-card {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin-bottom: 4vh;
 }
 
 .main-address-card {
@@ -37,5 +56,10 @@
 
 .address-info p {
     font-size: 1.3rem;
+}
+
+.add-address-button {
+    display: flex;
+    justify-content: center;
 }
  

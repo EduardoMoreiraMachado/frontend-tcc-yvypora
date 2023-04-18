@@ -17,9 +17,7 @@ export const PurchasesHistoricPage = () => {
 
     return(
         <div className='purchases-historic-page-container'>
-            <Header 
-                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-            />
+
             <Title 
                 text='Histórico de compras'
             />
