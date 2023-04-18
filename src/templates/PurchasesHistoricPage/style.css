@@ -1,5 +1,6 @@
 .purchase-historic-content {
     display: flex;
+    align-items: center;
 }
 
 .historic {

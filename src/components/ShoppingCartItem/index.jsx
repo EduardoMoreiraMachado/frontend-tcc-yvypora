@@ -1,9 +1,17 @@
-import { useState } from 'react'
 import './style.css'
+
+import { useState } from 'react'
+
+function calculateResult(num1, num2) {
+    const result = num1 * num2
+    const updatedResult = result.toString().replace(/\./g, ',')
+    return updatedResult
+}
 
 export const ShoppingCartItem = ({name, imgUrl, unit, price}) => {
     const [itemCount, setItemCount] = useState(1);
-
+    const priceValue = {price}
+    const resultValue = calculateResult(priceValue, itemCount)
 
     return(
         <div className='shopping-cart-item-container'>
@@ -16,11 +24,11 @@ export const ShoppingCartItem = ({name, imgUrl, unit, price}) => {
                 <div className='item-count'>
                     <div className='total'>
                         <h1 className='unit'>{unit} unidade</h1>
-                        <span className='price-card'>R$ {price * itemCount}</span>
+                        <span className='price-card'>R$ {resultValue}</span>
                     </div>    
                     <div className='amount'>
                         <button className='sub-button' onClick={() => {itemCount > 0 && (setItemCount(itemCount - 1))}}/>
-                            <h1>{itemCount}</h1>
+                        <h1>{itemCount}</h1>
                         <button className='add-button' onClick={() => setItemCount(itemCount + 1)}/>
                     </div>
                 </div>

@@ -31,6 +31,48 @@
     width: fit-content;
 
 }
+
+.main-purchase-info {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px;
+}
+
+.purchase-image {
+    width: 170px;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.purchase-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.purchase-info h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #538D22;
+}
+
+.purchase-info h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #538D22;
+}
+
+.purchase-info span {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #538D22;
+}
+
 @media(max-width:1300px){
     .card-cart-container{
         width: 100%;
