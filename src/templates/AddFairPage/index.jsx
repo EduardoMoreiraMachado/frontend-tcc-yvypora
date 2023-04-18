@@ -21,6 +21,9 @@ import { Header } from "../../components/Header";
 const MySwal = withReactContent(Swal);
 
 export const AddFairPage = () => {
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user-details"))
+  );  
   const [values, setValues] = useState({});
   const [address, setAddress] = useState({});
   const [daysOfWeekFields, setDaysOfWeek] = useState([]);
@@ -66,6 +69,16 @@ export const AddFairPage = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    const daysSelected = []
+    const dayOfWeekOption = 0
+    
+    document.querySelectorAll(".day > input").forEach(day => {      
+      if(day.checked) daysSelected.push(day)
+    });
+
+    console.log(daysSelected);
+    
+
     const name = `Feira do ${address.bairro} - ${address.logradouro}`;
     const cep = document.querySelector('input[name="cep"]').value;
     const abertura = document.querySelector(
@@ -77,8 +90,8 @@ export const AddFairPage = () => {
 
     const dayOfWeekSelector = document.querySelector("#day-of-week");
 
-    const dayOfWeekOption =
-      dayOfWeekSelector.options[dayOfWeekSelector.selectedIndex];
+   
+    
 
     const data = {
       name,
@@ -92,16 +105,9 @@ export const AddFairPage = () => {
         uf: address.uf,
         neighborhood: address.bairro,
       },
-      dateAndHourOfWork: [
-        {
-          open: `${abertura}:00`,
-          close: `${fechamento}:00`,
-          dayOfWeek: {
-            id: dayOfWeekOption.id,
-            name: dayOfWeekOption.value,
-          },
-        },
-      ],
+      dateAndHourOfWork: daysSelected.map((day) => {
+        return { open: `${abertura}:00`, close: `${fechamento}:00`, dayOfWeek: { id: day.value, name: day.id } }
+      })
     };
 
     try {
@@ -150,9 +156,7 @@ export const AddFairPage = () => {
   return (
     <div className="add-fair-page-container">
       <Header
-        imgUrl={
-          "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
-        }
+        user={user}
       />
       <TitleSubtitle
         text={"Escolha o local"}
@@ -176,7 +180,15 @@ export const AddFairPage = () => {
           <div className="days-week-container">
             <h1>Dias de funcionamento</h1>
             <div className="days-week">
-              <div className="day">
+              {
+                daysOfWeekFields.map(({id, name}) => (
+                  <div className="day">
+                  <input type="checkbox" id={name} name="scales" value={id}/>
+                <label for={name}>{name}</label>
+                </div>
+                )) 
+              }
+              {/* <div className="day">
                 <input type="checkbox" id="mon" name="scales"/>
                 <label for="mon">Segunda-feira</label>
               </div>
@@ -203,7 +215,7 @@ export const AddFairPage = () => {
               <div className="day">
                 <input type="checkbox" id="sun" name="scales"/>
                 <label for="sun">Domingo</label>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

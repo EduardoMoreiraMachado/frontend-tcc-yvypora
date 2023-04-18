@@ -11,6 +11,10 @@ import { GreenButton } from '../../components/GreenButton'
 import { useState } from 'react'
 
 export const UpdateConsumidorAccount = () => {
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem("user-details"))
+      );
+      
     const [values, setValues] = useState({});
     function handleChange(event) {
         setValues({
@@ -22,7 +26,7 @@ export const UpdateConsumidorAccount = () => {
     return(
         <div className='update-consumidor-account-container'>
             <Header 
-                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+                user={user}
             />
             <div className='update-content'>
                 <div className='nav-bar'>

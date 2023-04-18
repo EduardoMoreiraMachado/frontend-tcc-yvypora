@@ -59,6 +59,8 @@ export const GeneralStartPage = () => {
   useEffect(() => {
     const fetch = async () => {
       const products = await listProducts();
+      console.log(products);
+      
       setListOfProducts(products);
     };
     fetch().then();

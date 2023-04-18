@@ -54,7 +54,6 @@ export const SearchPage = ({ context, category }) => {
       <div className="text-input-wrapper">
         <SearchInput onChange={onValueChange} value={
           search_key ? search_key 
-          : category ? category.name 
           : ""
           }  />
       </div>
@@ -63,7 +62,7 @@ export const SearchPage = ({ context, category }) => {
           <div className="result-search">
             <p> Resultados de: {search_key ? search_key 
           : category ? category.name 
-          : ""ad}</p>
+          : "" }</p>
             <div className="cards-result">
               {listOfProducts.map((product) => {
                 console.log(product);
