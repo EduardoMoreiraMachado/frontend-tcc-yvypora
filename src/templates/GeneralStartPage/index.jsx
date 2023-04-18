@@ -22,9 +22,24 @@ import { getDetails } from "../../utils/fetchs/common/user";
 
 export const GeneralStartPage = () => {
   const [user, setUser] = useState("");
+  const [inputFocused, setInputFocused] = useState(false);
   const [listOfProducts, setListOfProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const carousel = useRef(null);
+
+  const handleInputFocus = () => {
+    setInputFocused(true);
+  };
+
+  const handleInputBlur = () => {
+    setInputFocused(false);
+  };
+  
+
+  useEffect(() => {
+
+  }, [])
+
 
   const handleLeftClick = (e) => {
     e.preventDefault();
@@ -118,7 +133,6 @@ export const GeneralStartPage = () => {
             <PrevButton onClick={handleLeftClick} />
             <div className="carousel-items" ref={carousel}>
               {listOfProducts.map((product) => {
-                console.log(product);
                 return (
                   <ShoppingItem
                     name={product.name}
