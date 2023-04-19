@@ -25,6 +25,16 @@ export const GeneralStartPage = () => {
   const [listOfProducts, setListOfProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const carousel = useRef(null);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+
+  const handleInputFocus = () => {
+    setIsInputFocused(true);
+  };
+
+  const handleInputBlur = () => {
+    setIsInputFocused(false);
+  };
+
 
   const handleLeftClick = (e) => {
     e.preventDefault();
@@ -92,8 +102,17 @@ export const GeneralStartPage = () => {
     setSelectedCategory(id);
   };
 
+  useEffect(() => {
+    if (isInputFocused) {
+      document.querySelector(".text-input").style.zIndex = "4";
+    } else { 
+      document.querySelector(".text-input").style.zIndex = "1";
+    }
+  }, [isInputFocused])
+
   return (
     <div className="general-start-page-container">
+      <div className={isInputFocused ? 'background' : ''} />
       <MenuBurguer />
       {user ? (
         <>
@@ -109,7 +128,7 @@ export const GeneralStartPage = () => {
         <div className="products-container">
           <div className="search-category">
             <div className="general-search">
-              <SearchInput />
+              <SearchInput onFocus={handleInputFocus} onBlur={handleInputBlur}/>
             </div>
             <ProductCategory />
           </div>
