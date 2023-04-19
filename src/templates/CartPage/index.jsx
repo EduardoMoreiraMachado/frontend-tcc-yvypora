@@ -3,7 +3,6 @@ import { Header } from '../../components/Header';
 import { Title } from "../../components/Title"
 import { NavBar } from "../../components/NavBar";
 import { ShoppingCartItem } from "../../components/ShoppingCartItem";
-import { PaymentCard } from "../../components/PaymentCard";
 import { Footer } from "../../components/Footer";
 
 export const CartPage = () => {
@@ -50,8 +49,13 @@ export const CartPage = () => {
                             />
                         </div>
                     </div>
-                    <div className="payment-container">
-                        <PaymentCard price={591.99} />
+                    <div className="payment-card">
+                        <h1>Resumo do pedido</h1>
+                        <div className="total-payment">
+                            <span>TOTAL:</span>
+                            <h2>R$ 48,00</h2>
+                        </div>
+                        <button>Pagar</button>
                     </div>
                 </div>
             </div>
