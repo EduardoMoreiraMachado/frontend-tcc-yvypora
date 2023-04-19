@@ -5,3 +5,8 @@ export const singUpCostumer = async (costumer) => {
 
   return data;
 };
+
+export const updateCostumerAccount = async (newCostumer) => {
+  const { data } = await commonsAPI.put(`register/costumer/${newCostumer.id}`, newCostumer);
+  return data;
+};

@@ -8,6 +8,7 @@ import { SearchInput } from "../../components/SearchInput";
 import { useEffect, useState } from "react";
 import { listByCategory } from "../../utils/fetchs/Costumer/products";
 import { search, searchForProducts } from "../../utils/fetchs/Costumer/search";
+import { listCategories } from "../../utils/fetchs/common/category";
 
 export const SearchPage = ({ context, category }) => {
   const [user, setUser] = useState(
@@ -15,7 +16,17 @@ export const SearchPage = ({ context, category }) => {
   );
 
   const [listOfProducts, setListOfProducts] = useState([]);
-  const [search_key, setSearchKey] = useState(context)
+  const [search_key, setSearchKey] = useState(context);
+  const [categories, setCateories] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const categories = await listCategories();
+      setCateories(categories)
+    };
+
+    fetch().then();
+  }, []);
 
   useEffect(() => {
     if (!category) return;
@@ -43,29 +54,30 @@ export const SearchPage = ({ context, category }) => {
     fetch().then();
   }, [search_key]);
 
-  const onValueChange = (event) =>  {
-    const { value: newValue } = event.target  
-    setSearchKey(newValue)
-  }
+  const onValueChange = (event) => {
+    const { value: newValue } = event.target;
+    setSearchKey(newValue);
+  };
 
   return (
     <>
       <Header user={user}></Header>
       <div className="text-input-wrapper">
-        <SearchInput onChange={onValueChange} value={
-          search_key ? search_key 
-          : ""
-          }  />
+        <SearchInput
+          onChange={onValueChange}
+          value={search_key ? search_key : ""}
+        />
       </div>
       <div className="all-container">
         <div className="main-content-container">
           <div className="result-search">
-            <p> Resultados de: {search_key ? search_key 
-          : category ? category.name 
-          : "" }</p>
+            <p>
+              {" "}
+              Resultados de:{" "}
+              {search_key ? search_key : category ? category.name : ""}
+            </p>
             <div className="cards-result">
               {listOfProducts.map((product) => {
-                console.log(product);
                 return (
                   <ShoppingItem
                     name={product.name}
@@ -78,8 +90,7 @@ export const SearchPage = ({ context, category }) => {
               })}
             </div>
           </div>
-          {/* <FiltersSearch/> */}
-          <ProductsFilters />
+          <ProductsFilters categories={categories} setListOfProducts={setListOfProducts} />
         </div>
         <Footer />
       </div>

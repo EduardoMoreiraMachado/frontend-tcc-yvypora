@@ -30,6 +30,43 @@ export const listByCategory = async (id) => {
   const { data } = await costumerAPI.get(
     `product/?category=${id}&score=0&lowerPrice=0&higherPrice=100000`
   );
+  return data;
+};
+
+export const listWithFilters = async (category, score, lowerPrice) => {
+  const { data } = await costumerAPI.get(
+    `product/?category=${category}&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+  );
+
+  return data;
+};
+
+export const listAllProductsWithFilters = async (score, lowerPrice) => {
+  const { data: category1 } = await costumerAPI.get(
+    `product/?category=1&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+  );
+  const { data: category2 } = await costumerAPI.get(
+    `product/?category=2&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+  );
+  const { data: category3 } = await costumerAPI.get(
+    `product/?category=3&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+  );
+  const { data: category4 } = await costumerAPI.get(
+    `product/?category=4&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+  );
+  const { data: category5 } = await costumerAPI.get(
+    `product/?category=5&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+  );
+
+  const arrs = [
+    category1.data,
+    category2.data,
+    category3.data,
+    category4.data,
+    category5.data
+  ];
+
+  const data = arrs.flat();
 
   return data;
 };
