@@ -1,4 +1,4 @@
-import "./style.css"
+import "./profile-page-style.css"
 import UserCard from "../../components/UserCard"
 import NavBar from "../../components/NavBar"
 import Footer from "../../components/Footer"
