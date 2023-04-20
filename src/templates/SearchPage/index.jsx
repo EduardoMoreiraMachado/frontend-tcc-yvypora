@@ -1,4 +1,4 @@
-import styles from './style.module.css';
+import styles from './styles.module.css';
 
 import { ShoppingItem } from "../../components/ShoppingItem";
 import ProductsFilters from "../../components/ProductsFilters";

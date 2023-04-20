@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 
 export const Option = ({ imgUrl, text, link }) => {
   return (

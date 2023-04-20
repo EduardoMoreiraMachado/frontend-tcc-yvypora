@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 
 import ArrowIcon from "../../imgs/arrow_icon.svg";
 import ArrowIconDown from "../../imgs/arrow_icon_down.svg";

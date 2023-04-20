@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 
 export const GreenButton = ({ text, onClick, type }) => {
   return (

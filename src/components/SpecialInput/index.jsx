@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 import InputMask from "react-input-mask";
 
 // função que substitue todo caracter que não for de 0 a 9 por uma string vazia
