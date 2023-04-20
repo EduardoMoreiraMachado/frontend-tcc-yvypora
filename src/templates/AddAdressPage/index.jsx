@@ -22,9 +22,7 @@ export const AddAdressPage = () => {
   return (
     <div className={styles["add-adress-page-container"]}>
       <Header
-        imgUrl={
-          "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
-        }
+        user={JSON.parse(localStorage.getItem("user-details"))}
       />
       <div className={styles["add-adress-title"]}>
         <Title className={styles["title"]} text="Adicione um endereço" />
@@ -32,8 +30,8 @@ export const AddAdressPage = () => {
           Insira os dados do endereço onde seus produtos serão entregados.
         </h1>
       </div>
-      <div className={styles["inputs-container"]}>
-        <div className={styles["inputs"]}>
+      <div className={"inputs-container"}>
+        <div className={"inputs"}>
           <h1>Detalhes do endereço</h1>
           <DefaultInput name="Nome do endereço" type="text" />
           <SpecialInput
@@ -47,10 +45,10 @@ export const AddAdressPage = () => {
           <DefaultInput name="Bairro" type="text" />
         </div>
       </div>
-      <div className={styles["save-button"]}>
+      <div className={"save-button"}>
         <GreenButton text="Salvar" />
       </div>
-      <Footer />
+      <Footer useMargin={false}/>
     </div>
   );
 };

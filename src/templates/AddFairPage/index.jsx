@@ -163,7 +163,7 @@ export const AddFairPage = () => {
         subtitle="Insira as feiras onde seus produtos serão vendidos"
       />
       <div className={styles["input-container"]}>
-        <div className={styles["inputs"]}>
+        <div className={"inputs"}>
           <h1>Detalhes da feira</h1>
           <h2 id={styles["fair-name"]}>Nome da Feira: </h2>
           <SpecialInput
@@ -219,7 +219,7 @@ export const AddFairPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles["button-add-image-container"]}>
+        <div className={"button-add-image-container"}>
           <AddImage text="Adicione uma foto de perfil" />
           <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>

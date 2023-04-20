@@ -21,9 +21,7 @@ export const EditProfilePage = () => {
   return (
     <div className={styles["edit-profile"]}>
       <Header
-        imgUrl={
-          "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
-        }
+        user={JSON.parse(localStorage.getItem("user-details"))}
       />
       <Title text={"Editar Perfil"} />
       <div className={styles["main-edit-profile"]}>

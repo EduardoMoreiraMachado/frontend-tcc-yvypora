@@ -22,7 +22,7 @@ export const FeiranteStartPage = () => {
     return(
         <div className={styles['feirante-start-page-container']}>
             <Header 
-                imgUrl="https://wl-incrivel.cf.tsp.li/resize/728x/jpg/91b/430/964a9c5ac9933cc012d0bd80be.jpg"
+                user={JSON.parse(localStorage.getItem("user-details"))}
             />
             <div className={styles['page-content']}>
                 <NavBar />

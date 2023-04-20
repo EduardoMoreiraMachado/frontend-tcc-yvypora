@@ -14,10 +14,10 @@ import { ExitOption } from "../../components/ExitOption";
 
 export const ProfilePage = () => {
   return (
-    <div className={styles["profile-main"]}>
+    <div className={"profile-main"}>
       <BurgerMenu />
       {/* <Header 
-                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
+                
             /> */}
       <EmptyHeader />
       <div className={styles["user-info"]}>
@@ -31,7 +31,7 @@ export const ProfilePage = () => {
       </div>
       <div className={styles["profile-container"]}>
         <NavBar />
-        <div className={styles["options-container"]}>
+        <div className={"options-container"}>
           <Option imgUrl={iconUser} text={"Perfil"} link={"/profile/edit"} />
           <Option imgUrl={iconMap} text={"Endereço"} link="/profile/address" />
           <Option imgUrl={iconCard} text={"Formas de Pagamento"} link={""} />

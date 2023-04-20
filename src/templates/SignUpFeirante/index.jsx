@@ -162,7 +162,7 @@ export const SignUpFeirante = () => {
             ))}
           </div>
         </div>
-        <div className={styles["button-add-image-container"]}>
+        <div className={"button-add-image-container"}>
           <AddImage text="Adicione uma foto de perfil" />
           <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>

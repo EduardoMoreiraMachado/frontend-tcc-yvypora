@@ -59,7 +59,7 @@ export const Login = () => {
 
   return (
     <div className={styles["login-container"]}>
-      <header>
+      <header className="header-without-margins">
         <div className={styles["header-icon"]}>
           <img className={styles["icon-yvy"]} src={YvyporaTextIcon} alt="" />
         </div>
@@ -103,7 +103,7 @@ export const Login = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer useMargin={false}/>
     </div>
   );
 };

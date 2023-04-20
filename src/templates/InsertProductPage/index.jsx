@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 import { Header } from "../../components/Header";
 import { Title } from "../../components/Title";
@@ -50,7 +50,7 @@ export const InsertProductPage = () => {
     const priceTypeOptionSelected =
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
-    const description = document.getElementById("description").value;
+    const description = document.querySelector("#description").value;
 
     const name = inputs[0].value;
     let quantity = null;
@@ -60,7 +60,6 @@ export const InsertProductPage = () => {
     const saleOffValue = document.querySelectorAll(".input-active")[0]?.value;
 
     console.log(saleOffValue);
-
 
     if (priceTypeOptionSelected.value === "peso") {
       quantity = inputs[1].value;
@@ -166,7 +165,10 @@ export const InsertProductPage = () => {
       <div className={styles["data-containers"]}>
         <div className={styles["insert-product-data"]}>
           <div className={styles["drop-box"]}>
-            <label className={styles["product-input-title"]} htmlFor="product-type">
+            <label
+              className={styles["product-input-title"]}
+              htmlFor="product-type"
+            >
               Categoria:
             </label>
             <select name="product-type" id="type">
@@ -190,11 +192,20 @@ export const InsertProductPage = () => {
 
           <div className={styles["input-container"]}>
             <h1 className={styles["product-input-title"]}>Descrição:</h1>
-            <textarea cols="30" rows="5" maxLength="200" id={styles["description"]}/>
+            <textarea
+              cols="30"
+              rows="5"
+              maxLength="200"
+              id={styles["description"]}
+              id="description"
+            />
           </div>
 
           <div className={styles["price-values"]}>
-            <h1 className={styles["product-input-title"]} htmlFor="product-type">
+            <h1
+              className={styles["product-input-title"]}
+              htmlFor="product-type"
+            >
               Preço
             </h1>
             <div className={styles["drop-box"]} id={styles["options-weight"]}>
@@ -260,7 +271,9 @@ export const InsertProductPage = () => {
 
         <div className={styles["insert-image-data"]}>
           <div className={styles["product-quantity"]}>
-            <h1 className={styles["product-input-title"]}>Quant. disponível:</h1>
+            <h1 className={styles["product-input-title"]}>
+              Quant. disponível:
+            </h1>
             <input
               className={styles["product-input"]}
               id="available-quant"

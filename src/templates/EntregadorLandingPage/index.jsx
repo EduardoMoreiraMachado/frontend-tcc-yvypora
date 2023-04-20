@@ -52,7 +52,7 @@ export const EntregadorLandingPage = () => {
             </div>
             <div className={styles["info-content"]} id={styles['info']}>
                 <h1>Entregas</h1>
-                <div className={styles['options-container']}>
+                <div className={'options-container'}>
                     <MoreTextOption 
                         title='Como começar?'
                         text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.'

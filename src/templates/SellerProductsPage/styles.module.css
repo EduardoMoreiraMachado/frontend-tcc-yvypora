@@ -1,23 +1,35 @@
 .add-product-icon {
-    cursor: pointer;
-    padding: 10px;
-    transition: all 0.5s;
-    border-radius: 50%;
+  cursor: pointer;
+  padding: 50px;
+  transition: all 0.5s;
+  border-radius: 50%;
+}
+
+.float-button {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1%;
+  bottom: 50%;
 }
 
 .add-product-icon:hover {
-    background-color: #aad5767b;
-    transition: all 0.5s;
+  background-color: #aad5767b;
+  transition: all 0.5s;
 }
 
 .add-product-icon:active {
-    background-color: #2455017e;
-    transition: all 0s;
+  background-color: #2455017e;
+  transition: all 0s;
 }
 
 .registered-products {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 3vh 10vw 3vh 10vw;
-    justify-items: center;
+  display: grid;
+  height: calc(100vh - 554px);
+  grid-template-columns: 1fr 1fr;
+  padding: 3vh 10vw 3vh 10vw;
+  justify-items: center;
 }

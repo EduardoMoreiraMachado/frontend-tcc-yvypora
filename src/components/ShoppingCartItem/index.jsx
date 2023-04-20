@@ -31,7 +31,7 @@ export const ShoppingCartItem = ({ name, imgUrl, unit, price }) => {
               <h1 className={styles["unit"]}>{unit} unidade</h1>
               <span className={styles["price-card"]}>R$ {resultValue}</span>
             </div>
-            <div className={styles["amount"]}>
+            <div className="amount">
               <button
                 className={"sub-button"}
                 onClick={() => {

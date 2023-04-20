@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 
-export const Footer = () => {
+export const Footer = ({ useMargin }) => {
   return (
-    <footer id="footer">
+    <footer id="footer" className={ useMargin === false ? "footer-without-margins" : ""}>
       <div className={styles["contacts-container"]}>
         <div className={styles["contact-item"]}>
           <i className="fa-solid fa-phone"></i>

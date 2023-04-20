@@ -43,7 +43,7 @@ export const ToggleSwitch = () => {
           checked={isChecked}
           onChange={handleCheckboxChange}
         />
-        <span className={styles["slider round"]}></span>
+        <span className={styles["slider"] + " " + styles["round"]}></span>
       </label>
       <div
         className={

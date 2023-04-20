@@ -9,7 +9,7 @@ import { Footer } from '../../components/Footer'
 export const AddressPage = () => {
     return(
         <div className={styles['address-page-container']}>
-            
+            <Header  user={JSON.parse(localStorage.getItem("user-details"))}/>
             <Title
                 text='Endereços' 
             />

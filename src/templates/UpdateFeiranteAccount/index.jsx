@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
@@ -32,6 +32,8 @@ export const UpdateFeiranteAccount = () => {
   useEffect(() => {
     const defaultsInputs = document.querySelectorAll(".default-input");
     const specialInputs = document.querySelectorAll(".special-input");
+
+    if (defaultsInputs.length === 0) return;
 
     defaultsInputs[0].value = user.name;
     defaultsInputs[1].value = user.email;
@@ -88,7 +90,7 @@ export const UpdateFeiranteAccount = () => {
     if (cpf)
       marketer.cpf = cpf.replaceAll(".", "").replaceAll("-", "").toString();
     if (password) marketer.password = password;
-    
+
     try {
       const { newToken: token } = await updateMarketerAccount(marketer);
       localStorage.setItem("user-logged-token", token);
@@ -96,9 +98,7 @@ export const UpdateFeiranteAccount = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: (
-          <p>Erro! Confirme as informaçoes fornecidas</p>
-        ),
+        title: <p>Erro! Confirme as informaçoes fornecidas</p>,
         icon: "error",
         timerProgressBar: true,
       });
@@ -141,15 +141,13 @@ export const UpdateFeiranteAccount = () => {
         timerProgressBar: true,
       });
 
-      window.location.reload(true)
+      window.location.reload(true);
     } catch (err) {
       console.log(err);
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: (
-          <p>Erro! Confirme as informaçoes fornecidas</p>
-        ),
+        title: <p>Erro! Confirme as informaçoes fornecidas</p>,
         icon: "error",
         timerProgressBar: true,
       });

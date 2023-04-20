@@ -33,7 +33,7 @@ export const SellerProduct = ({
       <div className={styles["product-quantity"]}>
         <div className={styles["number-quantity"]}>
           <span className={styles["text"]}>Quantidade disponível</span>
-          <div className={styles["amount"]}>
+          <div className={"amount"}>
             <button
               className={styles["sub-button"]}
               onClick={() => {

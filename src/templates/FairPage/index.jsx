@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
@@ -11,14 +11,12 @@ import { useEffect, useState } from "react";
 
 export const FairPage = () => {
   const [fairs, setFairs] = useState([]);
-  
+
   useEffect(() => {}, []);
 
   return (
     <div className={styles["registered-fairs-page"]}>
-      <Header 
-          imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-      />
+      <Header user={JSON.parse(localStorage.getItem("user-details"))} />
       <div className={styles["fairs-content"]}>
         <NavBar />
         <div className={styles["fairs-list"]}>
