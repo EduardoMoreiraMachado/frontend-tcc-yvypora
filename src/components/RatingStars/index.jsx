@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './style.module.css'
 
 import { Rating } from 'react-simple-star-rating'
 import { useState } from 'react'

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./style.css"
+import styles from './styles.module.css'
 
 export const InfoBuy = ({imgURL,nameCostumer, nameFair, date, price, state}) => {
     

@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from './styles.module.css';
 
 import { Footer } from "../../components/Footer";
 import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";

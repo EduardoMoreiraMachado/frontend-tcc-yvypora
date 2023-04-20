@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './style.module.css'
 
 export const BoughtItem = ({name, imgUrl, unit, price, qnt}) => {
     return(

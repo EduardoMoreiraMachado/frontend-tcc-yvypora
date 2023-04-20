@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from './styles.module.css';
 
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";

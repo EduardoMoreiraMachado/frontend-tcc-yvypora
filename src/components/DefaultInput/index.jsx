@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './style.module.css'
 
 export const DefaultInput = ({name, type, onChange}) => {
     return(

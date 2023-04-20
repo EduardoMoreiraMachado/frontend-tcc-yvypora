@@ -1,4 +1,4 @@
-import './style.css';
+import styles from './style.module.css';
 
 import { Header } from '../../components/Header';
 import { NavBar } from '../../components/NavBar';

@@ -1,5 +1,5 @@
 import { Chart } from 'react-charts'
-import './style.css'
+import styles from './style.module.css'
 
 export const GainsCard = ({title,data}) =>{
 

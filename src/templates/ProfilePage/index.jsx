@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import "./profile-page-style.css"
+=======
+import styles from './styles.module.css'
+>>>>>>> c93e2c87212e926bcc371bf2a6f44ff100bfecff
 import UserCard from "../../components/UserCard"
 import NavBar from "../../components/NavBar"
 import Footer from "../../components/Footer"

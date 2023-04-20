@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from './styles.module.css';
 
 import { slide as Menu } from "react-burger-menu";
 // import { useEffect, useState } from "react";

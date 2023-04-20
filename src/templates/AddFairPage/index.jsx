@@ -12,7 +12,7 @@ import {
   addFairToMarketer,
 } from "../../utils/fetchs/Marketer/fairsFetch";
 
-import "./style.css";
+import styles from './styles.module.css';
 import { consumeCep } from "../../utils/fetchs/common/cepFetch";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
