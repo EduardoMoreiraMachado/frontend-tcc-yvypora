@@ -20,16 +20,16 @@ export const AddAdressPage = () => {
     }
 
     return(
-        <div className='add-adress-page-container'>
+        <div className={styles['add-adress-page-container']}>
             <Header 
                 imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
             />
-            <div className='add-adress-title'>
-                <Title className='title' text='Adicione um endereço'/>
-                <h1 className='add-adress-subtitle'>Insira os dados do endereço onde seus produtos serão entregados.</h1>
+            <div className={styles['add-adress-title']}>
+                <Title className={styles['title']} text='Adicione um endereço'/>
+                <h1 className={styles['add-adress-subtitle']}>Insira os dados do endereço onde seus produtos serão entregados.</h1>
             </div>
-            <div className='inputs-container'>
-                <div className='inputs'>
+            <div className={styles['inputs-container']}>
+                <div className={styles['inputs']}>
                     <h1>Detalhes do endereço</h1>
                     <DefaultInput 
                         name="Nome do endereço"
@@ -52,7 +52,7 @@ export const AddAdressPage = () => {
                     />
                 </div>
             </div>
-            <div className='save-button'>
+            <div className={styles['save-button']}>
                 <GreenButton text="Salvar"/>
             </div>
             <Footer />

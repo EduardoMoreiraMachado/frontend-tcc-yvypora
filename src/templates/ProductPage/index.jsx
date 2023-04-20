@@ -21,34 +21,34 @@ export const ProductPage = () => {
     const result = calculateResult(price, itemCount)
 
     return(
-        <div className="product-page-container">
+        <div className={styles["product-page-container"]}>
             <SignHeader />
-            <div className="product-containers">
+            <div className={styles["product-containers"]}>
                 <NavBar />
-                <div className="product-info">
-                    <div className="product-main">
-                        <div className="image-container" style={{backgroundImage: `url('https://images2.alphacoders.com/554/thumb-1920-554950.jpg')`}}>
+                <div className={styles["product-info"]}>
+                    <div className={styles["product-main"]}>
+                        <div className={styles["image-container"]} style={{backgroundImage: `url('https://images2.alphacoders.com/554/thumb-1920-554950.jpg')`}}>
                         </div>
-                        <div className="texts">
-                            <h1 className="title">Beterraba</h1>
-                            <div className="review">
-                                <img className="stars" src={StarsIconTest} alt=""/>
-                                <h2 className="grade">4.2</h2>
-                                <div className="grade-info">
-                                    <h2 className="review-count">41 avaliações</h2>
-                                    <h2 className="order-count">68 pedidos</h2>
+                        <div className={styles["texts"]}>
+                            <h1 className={styles["title"]}>Beterraba</h1>
+                            <div className={styles["review"]}>
+                                <img className={styles["stars"]} src={StarsIconTest} alt=""/>
+                                <h2 className={styles["grade"]}>4.2</h2>
+                                <div className={styles["grade-info"]}>
+                                    <h2 className={styles["review-count"]}>41 avaliações</h2>
+                                    <h2 className={styles["order-count"]}>68 pedidos</h2>
                                 </div>
                             </div>
-                            <span className="user-name">ZédoAlfácil</span>
+                            <span className={styles["user-name"]}>ZédoAlfácil</span>
                             
-                            <div className="price-result">
-                                <h2 className="unit">1kg</h2>
-                                <div className="price-amount">
-                                    <h1 className="price">R$ {result}</h1>
-                                    <div className='amount'>
-                                        <button className='sub-button' onClick={() => {itemCount > 0 && (setItemCount(itemCount - 1))}}/>
-                                        <h1 className='number'>{itemCount}</h1>
-                                        <button className='add-button' onClick={() => setItemCount(itemCount + 1)}/>
+                            <div className={styles["price-result"]}>
+                                <h2 className={styles["unit"]}>1kg</h2>
+                                <div className={styles["price-amount"]}>
+                                    <h1 className={styles["price"]}>R$ {result}</h1>
+                                    <div className={styles['amount']}>
+                                        <button className={styles['sub-button']} onClick={() => {itemCount > 0 && (setItemCount(itemCount - 1))}}/>
+                                        <h1 className={styles['number']}>{itemCount}</h1>
+                                        <button className={styles['add-button']} onClick={() => setItemCount(itemCount + 1)}/>
                                     </div>
                                 </div>
                             </div>
@@ -56,12 +56,12 @@ export const ProductPage = () => {
 
                         </div>
                     </div>
-                    <div className="product-footer">
-                        <div className="description">
-                            <h1 className="description-title">Descrição</h1>
-                            <h2 className="description-text">A beterraba é uma planta herbácea da família das Quenopodiáceas, por Cronquist, ou das Amarantáceas, pela APG. Nome derivado do substantivo francês betterave. O colo tuberizado serve, para além dos fins culinários, produção de açúcar.</h2>
+                    <div className={styles["product-footer"]}>
+                        <div className={styles["description"]}>
+                            <h1 className={styles["description-title"]}>Descrição</h1>
+                            <h2 className={styles["description-text"]}>A beterraba é uma planta herbácea da família das Quenopodiáceas, por Cronquist, ou das Amarantáceas, pela APG. Nome derivado do substantivo francês betterave. O colo tuberizado serve, para além dos fins culinários, produção de açúcar.</h2>
                         </div>
-                        <button className='add-cart-button'>
+                        <button className={styles['add-cart-button']}>
                             <img src={AddCartIcon} alt=""/>
                             <span>Adicionar ao carrinho</span>
                         </button>

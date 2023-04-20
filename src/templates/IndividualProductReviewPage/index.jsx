@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import styles from '/style.css'
-=======
 import styles from './style.module.css'
->>>>>>> c93e2c87212e926bcc371bf2a6f44ff100bfecff
 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'

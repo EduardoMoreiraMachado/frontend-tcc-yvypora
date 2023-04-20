@@ -20,15 +20,15 @@ export const EditProfilePage = () => {
         });
     }
     return (
-        <div className="edit-profile">
+        <div className={styles["edit-profile"]}>
             <Header 
                 imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
             />
             <Title text={'Editar Perfil'} />
-            <div className="main-edit-profile">
+            <div className={styles["main-edit-profile"]}>
                 <NavBar />
-                <div className="inputs-button-container">
-                    <div className="inputs-edit-profile">
+                <div className={styles["inputs-button-container"]}>
+                    <div className={styles["inputs-edit-profile"]}>
                         <DefaultInput name={'Nome'} type={'text'} />
                         <DefaultInput name={'Email'} type={'email'} />
                         <DefaultInput name={'Senha'} type={'password'} />

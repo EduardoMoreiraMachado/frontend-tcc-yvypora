@@ -62,21 +62,21 @@ export const SearchPage = ({ context, category }) => {
   return (
     <>
       <Header user={user}></Header>
-      <div className="text-input-wrapper">
+      <div className={styles["text-input-wrapper"]}>
         <SearchInput
           onChange={onValueChange}
           value={search_key ? search_key : ""}
         />
       </div>
-      <div className="all-container">
-        <div className="main-content-container">
-          <div className="result-search">
+      <div className={styles["all-container"]}>
+        <div className={styles["main-content-container"]}>
+          <div className={styles["result-search"]}>
             <p>
               {" "}
               Resultados de:{" "}
               {search_key ? search_key : category ? category.name : ""}
             </p>
-            <div className="cards-result">
+            <div className={styles["cards-result"]}>
               {listOfProducts.map((product) => {
                 return (
                   <ShoppingItem

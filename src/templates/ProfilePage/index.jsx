@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-import "./profile-page-style.css"
-=======
 import styles from './styles.module.css'
->>>>>>> c93e2c87212e926bcc371bf2a6f44ff100bfecff
+
 import UserCard from "../../components/UserCard"
 import NavBar from "../../components/NavBar"
 import Footer from "../../components/Footer"
@@ -19,21 +16,21 @@ import { ExitOption } from "../../components/ExitOption"
 
 export const ProfilePage = () => {
     return (
-        <div className="profile-main">
+        <div className={styles["profile-main"]}>
             <BurgerMenu />
             {/* <Header 
                 imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
             /> */}
             <EmptyHeader />
-            <div className="user-info">
+            <div className={styles["user-info"]}>
                 <UserCard
                     name={'Carlos Arcanjo'}
                     imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
                     email={"carlaoprof@gmail.com"} />
             </div>
-            <div className="profile-container">
+            <div className={styles["profile-container"]}>
                 <NavBar/>
-                <div className="options-container">
+                <div className={styles["options-container"]}>
                     <Option imgUrl={iconUser} text={'Perfil'} link={'/profile/edit'}/>
                     <Option imgUrl={iconMap} text={'Endereço'} link="/profile/address"/>
                     <Option imgUrl={iconCard} text={'Formas de Pagamento'} link={""}/>

@@ -7,12 +7,12 @@ import { EmptyHeader } from '../../components/EmptyHeader'
 
 export const SignToContinue = () => {
     return(
-        <div className='sign-to-continue-container'>
+        <div className={styles['sign-to-continue-container']}>
             <EmptyHeader />
-            <div className='sign-to-continue-content'>
-                <div className='message-box'>
+            <div className={styles['sign-to-continue-content']}>
+                <div className={styles['message-box']}>
                     <h1>Para comprar esse produto, por favor acesse sua conta!</h1>
-                    <div className='message-buttons'>
+                    <div className={styles['message-buttons']}>
                         <GreenButton
                             text="Login"
                         />

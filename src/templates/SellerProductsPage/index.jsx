@@ -20,13 +20,13 @@ export const SellerProductsPage = () => {
   }, []);
 
   return (
-    <div className="seller-products-page-container">
+    <div className={styles["seller-products-page-container"]}>
       <header>
-        <img className="text-icon" src={YvyporaTextIcon} alt="" />
+        <img className={styles["text-icon"]} src={YvyporaTextIcon} alt="" />
         <Title text="Meus produtos" />
-        <img className="add-product-icon" src={AddProductIcon} alt="" />
+        <img className={styles["add-product-icon"]} src={AddProductIcon} alt="" />
       </header>
-      <div className="registered-products">
+      <div className={styles["registered-products"]}>
         {listOfProducts.map((product) => {
           console.log(product);
           return (

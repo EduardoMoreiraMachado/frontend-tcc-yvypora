@@ -120,15 +120,15 @@ export const SignUpFeirante = () => {
   };
 
   return (
-    <div className="main-cadastro">
+    <div className={styles["main-cadastro"]}>
       <header>
-        <div className="header-icon">
-          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
+        <div className={styles["header-icon"]}>
+          <img className={styles["icon-yvy"]} src={YvyporaTextIcon} alt="" />
         </div>
       </header>
       <Title text="Cadastre-se" />
-      <div className="input-container">
-        <div className="inputs">
+      <div className={styles["input-container"]}>
+        <div className={styles["inputs"]}>
           <DefaultInput name="Nome" type="text" />
           <DefaultInput name="Email" type="email" />
           <DefaultInput name="Senha" type="password" />
@@ -162,7 +162,7 @@ export const SignUpFeirante = () => {
             ))}
           </div>
         </div>
-        <div className="button-add-image-container">
+        <div className={styles["button-add-image-container"]}>
           <AddImage text="Adicione uma foto de perfil" />
           <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>

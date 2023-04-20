@@ -111,8 +111,8 @@ export const GeneralStartPage = () => {
   }, [isInputFocused])
 
   return (
-    <div className="general-start-page-container">
-      <div className={isInputFocused ? 'background' : ''} />
+    <div className={styles["general-start-page-container"]}>
+      <div className={isInputFocused ? styles['background'] : ''} />
       <MenuBurguer />
       {user ? (
         <>
@@ -123,19 +123,19 @@ export const GeneralStartPage = () => {
           <SignHeader></SignHeader>
         </>
       )}
-      <div className="page-content">
+      <div className={styles["page-content"]}>
         <NavBar />
-        <div className="products-container">
-          <div className="search-category">
-            <div className="general-search">
+        <div className={styles["products-container"]}>
+          <div className={styles["search-category"]}>
+            <div className={styles["general-search"]}>
               <SearchInput onFocus={handleInputFocus} onBlur={handleInputBlur}/>
             </div>
             <ProductCategory />
           </div>
           <ProductCategorySelect onClick={handleCategorySelect} />
-          <div className="products-carrossel">
+          <div className={styles["products-carrossel"]}>
             <PrevButton onClick={handleLeftClick} />
-            <div className="carousel-items" ref={carousel}>
+            <div className={styles["carousel-items"]} ref={carousel}>
               {listOfProducts.map((product) => {
                 console.log(product);
                 return (

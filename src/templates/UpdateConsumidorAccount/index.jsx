@@ -94,13 +94,13 @@ export const UpdateConsumidorAccount = () => {
   };
 
   return (
-    <div className="update-consumidor-account-container">
+    <div className={styles["update-consumidor-account-container"]}>
       <Header user={user} />
-      <div className="update-content">
-        <div className="nav-bar">
+      <div className={styles["update-content"]}>
+        <div className={styles["nav-bar"]}>
           <NavBar />
         </div>
-        <form className="update-inputs">
+        <form className={styles["update-inputs"]}>
           <Title text="Editar conta" />
           <DefaultInput name="Nome" type="text" onChange={handleChangeFields} />
           <DefaultInput
@@ -126,7 +126,7 @@ export const UpdateConsumidorAccount = () => {
             onChange={handleChangeFields}
           />
         </form>
-        <div className="green-button">
+        <div className={styles["green-button"]}>
           <AddImage />
           <GreenButton onClick={handleClick} text="Salvar" />
         </div>

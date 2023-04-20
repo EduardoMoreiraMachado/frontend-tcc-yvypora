@@ -9,18 +9,17 @@ import { MyComponent } from '../../components/Maps'
 
 export const FairNear = () => {
     return (
-
-        <div className='all-content-container' id=''>
+        <div className={styles['all-content-container']}>
             <MenuBurguer />
             <Header
                 imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
             />
             <Title text={'Feiras Próximas'} />
-            <div className="nav-card-container">
+            <div className={styles["nav-card-container"]}>
                 <NavBar />
-                <div className="map-container">
+                <div className={styles["map-container"]}>
                     <MyComponent/>
-                    <div className="cards">
+                    <div className={styles["cards"]}>
                         <FairNearCard
                             title={'Feira Livre da Rua Oscar Freire'}
                             img={'https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg'}
@@ -73,8 +72,6 @@ export const FairNear = () => {
                 </div>
             </div>
             <Footer />
-
-
         </div>
     )
 }

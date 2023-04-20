@@ -157,13 +157,13 @@ export const UpdateFeiranteAccount = () => {
   };
 
   return (
-    <div className="update-feirante-account-container">
+    <div className={styles["update-feirante-account-container"]}>
       <Header user={user} />
-      <div className="update-content">
-        <div className="nav-bar">
+      <div className={styles["update-content"]}>
+        <div className={styles["nav-bar"]}>
           <NavBar />
         </div>
-        <div className="update-inputs">
+        <div className={styles["update-inputs"]}>
           <Title text="Editar conta" />
           <DefaultInput name="Nome" type="text" />
           <DefaultInput name="Email" type="email" />
@@ -193,7 +193,7 @@ export const UpdateFeiranteAccount = () => {
           />
         </div>
 
-        <div className="green-button">
+        <div className={styles["green-button"]}>
           <AddImage />
           <GreenButton text="Salvar" onClick={handleClick} />
         </div>
