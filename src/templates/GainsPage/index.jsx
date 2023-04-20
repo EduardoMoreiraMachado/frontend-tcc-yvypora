@@ -3,7 +3,7 @@ import Chart from '../../components/Chart'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import GainsCard from '../../components/GainsCard'
-import styles from './style.module.css'
+import styles from './styles.module.css'
 
 export const GainsPage = () => {
     return (

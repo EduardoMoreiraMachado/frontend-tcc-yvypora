@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 import UserCard from "../../components/UserCard";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";

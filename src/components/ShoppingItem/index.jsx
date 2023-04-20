@@ -1,6 +1,6 @@
 import PromoImg from "../../imgs/promotion1.svg";
 
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 
 import { useEffect, useState } from "react";
 

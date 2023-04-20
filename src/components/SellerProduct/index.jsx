@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 
 import DeleteImage from "../../imgs/delete_icon.svg";
 import UpdateImage from "../../imgs/update_icon.svg";

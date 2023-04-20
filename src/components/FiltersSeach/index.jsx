@@ -1,6 +1,6 @@
 import { WhiteButton } from "../WhiteButton"
 // import IconStar from '../../imgs/icon_star.svg'
-import styles from './style.module.css'
+import styles from './styles.module.css'
 import { useState } from "react"
 
 

@@ -1,4 +1,4 @@
-import styles from './style.module.css'
+import styles from './styles.module.css'
 
 import { Footer } from '../../components/Footer'
 import { MoreTextOption } from '../../components/MoreTextOption'
