@@ -1,6 +1,6 @@
 
 import { ButtonCart } from "../ButtonCart";
-import './style.css'
+import styles from './style.module.css'
 
 import HomeImg from '../../imgs/home.svg'
 

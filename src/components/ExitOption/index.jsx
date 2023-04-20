@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './style.module.css'
 
 import iconLogoff from "../../imgs/exportsquare.svg"
 import ArrowIcon from '../../imgs/arrow_icon.svg'

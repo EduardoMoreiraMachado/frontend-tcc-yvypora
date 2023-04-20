@@ -1,4 +1,4 @@
-import "./style.css"
+import styles from './styles.module.css'
 import { PrevButton } from "../../components/PrevButton"
 import { GreenButton } from "../../components/GreenButton"
 import { Title } from "../../components/Title"

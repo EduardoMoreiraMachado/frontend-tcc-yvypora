@@ -1,4 +1,4 @@
-import "./style.css"
+import styles from './styles.module.css'
 
 export const LittleOption = ({imgUrl, text, link}) => {
     return (

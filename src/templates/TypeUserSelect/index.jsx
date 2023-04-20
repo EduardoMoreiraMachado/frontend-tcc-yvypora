@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './style.module.css'
 
 import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
 

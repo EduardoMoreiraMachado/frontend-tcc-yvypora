@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './style.module.css'
 import IconStar from '../../imgs/icon_star.svg'
 import IconWork from '../../imgs/clock.svg'
 import IconCalendar from '../../imgs/calendartick.svg'

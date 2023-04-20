@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from './styles.module.css';
 
 import FruitsCategoryIcon from "../../imgs/fruits_category_icon.png";
 import VegetablesCategoryIcon from "../../imgs/vegetables_category_icon.png";

@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './style.module.css'
 // import CartImg from '../../imgs/shopping_cart_icon.svg'
 
 export const ButtonCart = () => {
