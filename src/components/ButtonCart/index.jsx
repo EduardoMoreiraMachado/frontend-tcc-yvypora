@@ -4,8 +4,8 @@ import styles from './style.module.css'
 export const ButtonCart = () => {
     return (
         <>
-            <div className="main-circle">
-                <a className='inner-circle' href="/cart">
+            <div className={styles["main-circle"]}>
+                <a className={styles['inner-circle']} href="/cart">
                     {/* <img src={CartImg} alt="" className="icon-cart" /> */}
                 </a>
             </div>

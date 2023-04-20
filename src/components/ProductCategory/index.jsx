@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 import FruitsCategoryIcon from "../../imgs/fruits_category_icon.png";
 import VegetablesCategoryIcon from "../../imgs/vegetables_category_icon.png";
@@ -23,14 +23,18 @@ export const ProductCategory = () => {
   }, []);
 
   return (
-    <div className="product-category-container">
+    <div className={styles["product-category-container"]}>
       {categories.map((category) => {
         return (
-          <div className="category-item" key={category.id}>
-            <div className="category-image">
-              <img className="image" src={category.image.uri} alt="" />
+          <div className={styles["category-item"]} key={category.id}>
+            <div className={styles["category-image"]}>
+              <img
+                className={styles["image"]}
+                src={category.image.uri}
+                alt=""
+              />
             </div>
-            <h1 className="category-name">{category.name}</h1>
+            <h1 className={styles["category-name"]}>{category.name}</h1>
           </div>
         );
       })}

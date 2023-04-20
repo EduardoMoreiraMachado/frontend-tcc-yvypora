@@ -18,17 +18,17 @@ export const AddImage = ({text, subtext}) => {
     }
 
     return(
-        <div className="add-image-container">
-            <h1 className="text">{text}</h1>
-            <h2 className='subtext'>{subtext}</h2>
+        <div className={styles["add-image-container"]}>
+            <h1 className={styles["text"]}>{text}</h1>
+            <h2 className={styles['subtext']}>{subtext}</h2>
             {image ? 
                 <>
-                    <div className='image-preview' style={{backgroundImage: `url('${image}')`}}></div>
-                    <label for="file-selection" className="modify-image">Alterar imagem</label>
+                    <div className={styles['image-preview']} style={{backgroundImage: `url('${image}')`}}></div>
+                    <label for="file-selection" className={styles["modify-image"]}>Alterar imagem</label>
                 </>
                 :    
                 <>
-                    <label for="file-selection" className="image-button"/>
+                    <label for="file-selection" className={styles["image-button"]} />
                 </>
             }
             <input id="file-selection" type="file" name='image' onChange={handleImageChange}/>

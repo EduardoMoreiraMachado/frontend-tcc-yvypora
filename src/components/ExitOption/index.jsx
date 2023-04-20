@@ -18,17 +18,17 @@ export const ExitOption = () => {
     }
 
     return(
-        <div className='exit-option-container'>
-            <button onClick={handleClick} className='exit-content' style={click ? {backgroundImage: `url(${ArrowIconDown})`} : {backgroundImage: `url(${ArrowIcon})`}}>
-                <img className='exit-option-image' src={iconLogoff}/>
-                <a href='#' className='exit-option-text'>Sair</a>
+        <div className={styles['exit-option-container']}>
+            <button onClick={handleClick} className={styles['exit-content']} style={click ? {backgroundImage: `url(${ArrowIconDown})`} : {backgroundImage: `url(${ArrowIcon})`}}>
+                <img className={styles['exit-option-image']} src={iconLogoff}/>
+                <a href='#' className={styles['exit-option-text']}>Sair</a>
             </button>
             {click && (
-                <div className='exit-confirm-options'>
+                <div className={styles['exit-confirm-options']}>
                     <h1>Tem certeza que deseja sair?</h1>
-                    <div className='options-buttons'>
-                        <button id='yes'>SIM</button>
-                        <button onClick={handleCancelClick} id='no'>NÃO</button>
+                    <div className={styles['options-buttons']}>
+                        <button id={styles['yes']}>SIM</button>
+                        <button onClick={handleCancelClick} id={styles['no']}>NÃO</button>
                     </div>
                 </div>
             )}

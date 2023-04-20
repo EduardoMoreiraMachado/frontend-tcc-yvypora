@@ -4,10 +4,10 @@ import styles from './style.module.css'
 export const GainsCard = ({title,data}) =>{
 
 return(
-   <div class Name="card-gain-container">
-        <div className={title!=='Mensal' ? 'card-gain' : ""}>
-            <p className='title-gain-card'>{title}</p>
-            <p className='data-gain-card'>{data}</p>
+   <div className={styles["card-gain-container"]}>
+        <div className={title!=='Mensal' ? styles['card-gain'] : ""}>
+            <p className={styles['title-gain-card']}>{title}</p>
+            <p className={styles['data-gain-card']}>{data}</p>
             
             {/* {percent > 1.10 &&
 
