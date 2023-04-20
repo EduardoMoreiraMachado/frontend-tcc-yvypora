@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from './style.module.css';
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -139,15 +139,15 @@ export const SignUpConsumidor = () => {
   };
 
   return (
-    <div className="main-cadastro">
+    <div className={styles["main-cadastro"]}>
       <header>
-        <div className='header-icon'>
-          <img className='icon-yvy' src={YvyporaTextIcon} alt='' />
+        <div className={styles['header-icon']}>
+          <img className={styles['icon-yvy']} src={YvyporaTextIcon} alt='' />
         </div>
       </header>
       <Title text="Cadastre-se" />
-      <div className="input-container">
-        <div className="inputs">
+      <div className={styles["input-container"]}>
+        <div className={styles["inputs"]}>
           <DefaultInput name="Nome" type="text" />
           <DefaultInput name="Email" type="email" />
           <DefaultInput name="Senha" type="password" />
@@ -166,7 +166,7 @@ export const SignUpConsumidor = () => {
             onChange={handleChange}
           />
           <DefaultInput name="Data de nascimento" type="date" />
-          <div className="genders">
+          <div className={styles["genders"]}>
             {
               genders.map(({ name, id }) => (
                 <label className="label cursor-pointer">
@@ -176,7 +176,7 @@ export const SignUpConsumidor = () => {
               ))
             }
           </div>
-          <div className="typesOfAddresses">
+          <div className={styles["typesOfAddresses"]}>
             {
               addressTypes.map(({ name, id }) => (
                 <label className="label cursor-pointer">
@@ -188,7 +188,7 @@ export const SignUpConsumidor = () => {
           </div>
         </div>
 
-        <div className="button-add-image-container">
+        <div className={styles["button-add-image-container"]}>
           <AddImage text="Adicione uma foto de perfil" />
           <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>

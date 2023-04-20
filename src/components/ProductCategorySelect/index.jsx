@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./style.module.css";
 
 export const ProductCategorySelect = ({ onClick }) => {
   return (

@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from "./style.module.css";
 
 import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
 
@@ -58,41 +58,47 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={styles["login-container"]}>
       <header>
-        <div className="header-icon">
-          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
+        <div className={styles["header-icon"]}>
+          <img className={styles["icon-yvy"]} src={YvyporaTextIcon} alt="" />
         </div>
       </header>
-      <div className="login-content">
+      <div className={styles["login-content"]}>
         <Title text="Login" />
-        <div className="input-container">
-          <div className="input">
-            <div className="default-input-container">
-              <label className="default-label" htmlFor="input-default">
+        <div className={styles["input-container"]}>
+          <div className={styles["input"]}>
+            <div className={styles["default-input-container"]}>
+              <label
+                className={styles["default-label"]}
+                htmlFor="input-default"
+              >
                 E-mail
               </label>
               <input
-                className="default-input"
+                className={styles["default-input"]}
                 type="text"
                 id="input-default"
                 name="e-mail"
               />
             </div>
 
-            <div className="default-input-container">
-              <label className="default-label" htmlFor="input-default">
+            <div className={styles["default-input-container"]}>
+              <label
+                className={styles["default-label"]}
+                htmlFor="input-default"
+              >
                 Senha
               </label>
               <input
-                className="default-input"
+                className={styles["default-input"]}
                 type="password"
                 id="input-default"
                 name="senha"
               />
             </div>
           </div>
-          <div className="button-container">
+          <div className={styles["button-container"]}>
             <GreenButton text="Entrar" onClick={handleClick} type="submit" />
           </div>
         </div>

@@ -12,7 +12,7 @@ import {
   addFairToMarketer,
 } from "../../utils/fetchs/Marketer/fairsFetch";
 
-import styles from './styles.module.css';
+import styles from './style.module.css';
 import { consumeCep } from "../../utils/fetchs/common/cepFetch";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -154,7 +154,7 @@ export const AddFairPage = () => {
   };
 
   return (
-    <div className="add-fair-page-container">
+    <div className={styles["add-fair-page-container"]}>
       <Header
         user={user}
       />
@@ -162,10 +162,10 @@ export const AddFairPage = () => {
         text={"Escolha o local"}
         subtitle="Insira as feiras onde seus produtos serão vendidos"
       />
-      <div className="input-container">
-        <div className="inputs">
+      <div className={styles["input-container"]}>
+        <div className={styles["inputs"]}>
           <h1>Detalhes da feira</h1>
-          <h2 id="fair-name">Nome da Feira: </h2>
+          <h2 id={styles["fair-name"]}>Nome da Feira: </h2>
           <SpecialInput
             name="cep"
             label="CEP do local da feira"
@@ -177,49 +177,49 @@ export const AddFairPage = () => {
           <DefaultInput name="Horário de abertura" type="time" />
           <DefaultInput name="Horário de encerramento" type="time" />
 
-          <div className="days-week-container">
+          <div className={styles["days-week-container"]}>
             <h1>Dias de funcionamento</h1>
-            <div className="days-week">
+            <div className={styles["days-week"]}>
               {
                 daysOfWeekFields.map(({id, name}) => (
-                  <div className="day">
+                  <div className={styles["day"]}>
                   <input type="checkbox" id={name} name="scales" value={id}/>
                 <label for={name}>{name}</label>
                 </div>
                 )) 
               }
-              {/* <div className="day">
+              {/* <div className={styles["day">
                 <input type="checkbox" id="mon" name="scales"/>
                 <label for="mon">Segunda-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="tue" name="scales"/>
                 <label for="tue">Terça-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="wed" name="scales"/>
                 <label for="wed">Quarta-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="thu" name="scales"/>
                 <label for="thu">Quinta-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="fri" name="scales"/>
                 <label for="fri">Sexta-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="sat" name="scales"/>
                 <label for="sat">Sábado</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="sun" name="scales"/>
                 <label for="sun">Domingo</label>
               </div> */}
             </div>
           </div>
         </div>
-        <div className="button-add-image-container">
+        <div className={styles["button-add-image-container"]}>
           <AddImage text="Adicione uma foto de perfil" />
           <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>

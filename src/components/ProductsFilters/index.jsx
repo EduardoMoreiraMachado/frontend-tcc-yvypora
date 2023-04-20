@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./style.module.css";
 
 import StarIcon from "../../imgs/star_icon.png";
 import { useState } from "react";
