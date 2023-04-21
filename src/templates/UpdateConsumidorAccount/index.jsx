@@ -10,7 +10,7 @@ import { DefaultInput } from "../../components/DefaultInput";
 import { SpecialInput } from "../../components/SpecialInput";
 import { GreenButton } from "../../components/GreenButton";
 import { appendPictureToUser } from "../../utils/fetchs/common/picture";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import AddImage from "../../components/AddImage";
 import { updateCostumerAccount } from "../../utils/fetchs/Costumer/costumer";
 import { getDetails } from "../../utils/fetchs/common/user";
@@ -22,6 +22,9 @@ export const UpdateConsumidorAccount = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user-details"))
   );
+
+  const inputCpf = useRef(null)
+  const inputImage = useRef(null)
 
   const [formData, setFormData] = useState({
     Nome: "",
@@ -49,8 +52,7 @@ export const UpdateConsumidorAccount = () => {
   const handleClick = async (event) => {
     event.preventDefault();
 
-    const cpf = document
-      .querySelector('input[name="cpf"]')
+    const cpf = inputCpf.current
       .value.replaceAll(".", "")
       .replaceAll("-", "");
 
@@ -65,7 +67,7 @@ export const UpdateConsumidorAccount = () => {
     if (formData.Email) data.email = formData.Email;
     if (formData.Senha) data.password = formData.Senha;
 
-    const image = document.getElementById("file-selection").files[0];
+    const image = inputImage.current.files[0];
     const formdata = new FormData();
     formdata.append("picture", image);
 
@@ -119,6 +121,7 @@ export const UpdateConsumidorAccount = () => {
             mask="999.999.999-99"
             value={values.cpf}
             onChange={handleChange}
+            inputRef={inputCpf}
           />
           <DefaultInput
             name="Data de nascimento"
@@ -127,7 +130,7 @@ export const UpdateConsumidorAccount = () => {
           />
         </form>
         <div className={styles["green-button"]}>
-          <AddImage />
+          <AddImage inputRef={inputImage}/>
           <GreenButton onClick={handleClick} text="Salvar" />
         </div>
       </div>
