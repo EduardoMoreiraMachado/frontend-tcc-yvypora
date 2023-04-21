@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './styles.module.css'
 
 
-export const AddImage = ({text, subtext}) => {
+export const AddImage = ({text, subtext, inputRef}) => {
     const [image, setImage] = useState(null)
 
     const handleImageChange = (event) => {
@@ -31,7 +31,7 @@ export const AddImage = ({text, subtext}) => {
                     <label for="file-selection" className={styles["image-button"]} />
                 </>
             }
-            <input id="file-selection" type="file" name='image' onChange={handleImageChange}/>
+            <input id="file-selection" type="file" name='image' onChange={handleImageChange} ref={inputRef}/>
         </div>
     )
 }

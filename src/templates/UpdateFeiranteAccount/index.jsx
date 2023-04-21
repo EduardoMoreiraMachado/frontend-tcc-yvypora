@@ -8,8 +8,7 @@ import { DefaultInput } from "../../components/DefaultInput";
 import { SpecialInput } from "../../components/SpecialInput";
 import { GreenButton } from "../../components/GreenButton";
 import { AddImage } from "../../components/AddImage";
-import { login } from "../../utils/fetchs/common/login";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 
 import { getDetails } from "../../utils/fetchs/common/user";
@@ -27,27 +26,33 @@ export const UpdateFeiranteAccount = () => {
     JSON.parse(localStorage.getItem("user-details"))
   );
 
+  const nameInput = useRef(null);
+  const emailInput = useRef(null);
+  const passwordInput = useRef(null);
+  const cpfInput = useRef(null);
+  const phoneInput = useRef(null);
+  const birthdayInput = useRef(null);
+  const tentNameInput = useRef(null);
+  const imageInput = useRef(null);
+
   const [values, setValues] = useState({});
 
   useEffect(() => {
-    const defaultsInputs = document.querySelectorAll(".default-input");
-    const specialInputs = document.querySelectorAll(".special-input");
+    console.log(user);
 
-    if (defaultsInputs.length === 0) return;
+    nameInput.current.value = user.name;
+    emailInput.current.value = user.email;
 
-    defaultsInputs[0].value = user.name;
-    defaultsInputs[1].value = user.email;
+    if (user.cpf) cpfInput.current.value = user.cpf;
 
-    specialInputs[0].value = user.cpf;
-
-    if (user.phone) specialInputs[1].value = user.phone;
-    if (user.tent_name) defaultsInputs[3].value = user.tent_name;
+    if (user.phone) phoneInput.current.value = user.phone;
+    if (user.tent_name) tentNameInput.current.value = user.tent_name;
 
     let birthday = user.birthday.split("-");
     birthday = `${birthday[2]}/${birthday[1]}/${birthday[0]}`;
 
-    specialInputs[2].value = birthday;
-  }, []);
+    birthdayInput.current.value = birthday;
+  }, [user]);
 
   function handleChange(event) {
     setValues({
@@ -60,18 +65,15 @@ export const UpdateFeiranteAccount = () => {
     e.preventDefault();
     const { id } = JSON.parse(localStorage.getItem("user-details"));
 
-    const defaultsInputs = document.querySelectorAll(".default-input");
-    const specialInputs = document.querySelectorAll(".special-input");
+    const name = nameInput.current.value;
+    const email = emailInput.current.value;
+    const password = passwordInput.current.value;
+    const cpf = cpfInput.current.value;
+    const phone = phoneInput.current.value;
+    const birthday = birthdayInput.current.value;
+    const tent_name = tentNameInput.current.value;
 
-    const name = defaultsInputs[0].value;
-    const email = defaultsInputs[1].value;
-    const password = defaultsInputs[2].value;
-    const cpf = specialInputs[0].value;
-    const phone = specialInputs[1].value;
-    const birthday = specialInputs[2].value;
-    const tent_name = defaultsInputs[3].value;
-
-    const image = document.getElementById("file-selection").files[0];
+    const image = imageInput.current.files[0];
     const formdata = new FormData();
     formdata.append("picture", image);
 
@@ -163,10 +165,11 @@ export const UpdateFeiranteAccount = () => {
         </div>
         <div className={styles["update-inputs"]}>
           <Title text="Editar conta" />
-          <DefaultInput name="Nome" type="text" />
-          <DefaultInput name="Email" type="email" />
-          <DefaultInput name="Senha" type="password" />
+          <DefaultInput name="Nome" type="text" inputRef={nameInput} />
+          <DefaultInput name="Email" type="email" inputRef={emailInput} />
+          <DefaultInput name="Senha" type="password" inputRef={passwordInput} />
           <SpecialInput
+            inputRef={cpfInput}
             name="cpf"
             label="CPF"
             mask="999.999.999-99"
@@ -174,14 +177,20 @@ export const UpdateFeiranteAccount = () => {
             onChange={handleChange}
           />
           <SpecialInput
+            inputRef={phoneInput}
             name="phone"
             label="Telefone"
             mask="(999) 9 9999-9999"
             value={values.phone}
             onChange={handleChange}
           />
-          <DefaultInput name="Nome do estabelecimento" type="text" />
+          <DefaultInput
+            inputRef={tentNameInput}
+            name="Nome do estabelecimento"
+            type="text"
+          />
           <SpecialInput
+            inputRef={birthdayInput}
             name="date"
             type="date"
             label="Data de nascimento"
@@ -192,7 +201,7 @@ export const UpdateFeiranteAccount = () => {
         </div>
 
         <div className={styles["green-button"]}>
-          <AddImage />
+          <AddImage inputRef={imageInput} />
           <GreenButton text="Salvar" onClick={handleClick} />
         </div>
       </div>
