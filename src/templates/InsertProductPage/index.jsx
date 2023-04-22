@@ -25,6 +25,16 @@ export const InsertProductPage = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user-details"))
   );
+  const [formData, setFormData] = useState({});
+
+  const handleChangeFields = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
   const [selectedValue, setSelectedValue] = useState("");
   const [value, setValue] = useState(0);
   const [price, setPrice] = useState(0);
@@ -36,8 +46,8 @@ export const InsertProductPage = () => {
 
   async function handleClick(e) {
     e.preventDefault();
+    console.log(formData);
     const image = document.getElementById("file-selection").files[0];
-    console.log(image);
 
     const inputs = document.querySelectorAll(".product-input");
 
@@ -50,16 +60,14 @@ export const InsertProductPage = () => {
     const priceTypeOptionSelected =
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
-    const description = document.querySelector("#description").value;
+    const description = formData.description;
 
-    const name = inputs[0].value;
+    const name = formData.name;
     let quantity = null;
-    let price = inputs[1].value;
+    let price = formData.price;
 
-    const availableQuantity = document.getElementById("available-quant").value;
+    const availableQuantity = formData.available;
     const saleOffValue = document.querySelectorAll(".input-active")[0]?.value;
-
-    console.log(saleOffValue);
 
     if (priceTypeOptionSelected.value === "peso") {
       quantity = inputs[1].value;
@@ -81,8 +89,6 @@ export const InsertProductPage = () => {
       },
       available_quantity: parseInt(availableQuantity, 10),
     };
-
-    console.log(data);
 
     try {
       const { payload } = await createProduct(data);
@@ -141,14 +147,17 @@ export const InsertProductPage = () => {
 
   const handleWeightChange = (event) => {
     setValue(event.target.value);
+    handleChangeFields(event);
   };
 
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
+    handleChangeFields(event);
   };
 
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
+    handleChangeFields(event);
   };
 
   const handleKeyDown = (event) => {
@@ -187,7 +196,12 @@ export const InsertProductPage = () => {
 
           <div className={styles["input-container"]}>
             <h1 className={styles["product-input-title"]}>Nome:</h1>
-            <input className={styles["product-input"]} type="text" />
+            <input
+              name="name"
+              className={styles["product-input"]}
+              type="text"
+              onChange={handleChangeFields}
+            />
           </div>
 
           <div className={styles["input-container"]}>
@@ -198,6 +212,8 @@ export const InsertProductPage = () => {
               maxLength="200"
               id={styles["description"]}
               id="description"
+              name="description"
+              onChange={handleChangeFields}
             />
           </div>
 
@@ -255,6 +271,7 @@ export const InsertProductPage = () => {
                   min="0"
                   max="100"
                   step=".01"
+                  name="price"
                   onChange={handlePriceChange}
                   onKeyDown={handleKeyDown}
                   value={price}
@@ -278,6 +295,7 @@ export const InsertProductPage = () => {
               className={styles["product-input"]}
               id="available-quant"
               type="number"
+              name="available"
               min="0"
               max="100"
               step="1"

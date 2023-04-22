@@ -1,9 +1,9 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
+import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
 
 import { Footer } from "../../components/Footer";
 import { DefaultInput } from "../../components/DefaultInput";
@@ -18,20 +18,37 @@ import { cepAPI } from "../../api/api";
 import { fetchCostumerFormFields } from "../../utils/fetchs/common/formFieldsFetch";
 import { appendPictureToUser } from "../../utils/fetchs/common/picture";
 
-
 const MySwal = withReactContent(Swal);
-
 
 export const SignUpConsumidor = () => {
   const [values, setValues] = useState({});
   const [genders, setGenders] = useState([]);
   const [addressTypes, setAddressType] = useState([]);
+  
+  const [formData, setFormData] = useState({
+    Nome: "",
+    Email: "",
+    Senha: "",
+    "Data de nascimento": "",
+    "Nome do estabelecimento": "",
+    cpf: '',
+    cep: ''
+  });
 
-  function handleChange(event) {
+  const handleChangeFields = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const  handleChange = (event) => {
     setValues({
       ...values,
       [event.target.name]: event.target.value,
     });
+    handleChangeFields(event)
   }
 
   useEffect(() => {
@@ -45,6 +62,7 @@ export const SignUpConsumidor = () => {
   }, []);
 
   const handleClick = async (e) => {
+    console.log(formData);
     e.preventDefault();
     const costumer = {
       name: String,
@@ -64,24 +82,24 @@ export const SignUpConsumidor = () => {
       birthday: String,
       gender: String,
     };
-    const { cep, cpf } = values;
-    const inputs = document.querySelectorAll("input");
-    const valuesOfInputs = [];
 
-    const gender = document.querySelector('input[name="radio-20"]:checked').value;
-    const typeOfAddress = document.querySelector('input[name="typeAddress"]:checked').value
-
-    inputs.forEach((input) => {
-      valuesOfInputs.push(input.value);
-    });
-
-    costumer.name = valuesOfInputs[0];
-    costumer.email = valuesOfInputs[1];
-    costumer.password = valuesOfInputs[2];
+    const { cep, cpf, Email, Nome, Senha } = formData;
+    const birthday = formData['Data de nascimento']
+    
+    const gender = document.querySelector(
+      'input[name="radio-20"]:checked'
+    ).value;
+    const typeOfAddress = document.querySelector(
+      'input[name="typeAddress"]:checked'
+    ).value;
+    
+    costumer.name = Nome;
+    costumer.email = Email;
+    costumer.password = Senha;
     costumer.cpf = cpf;
     costumer.cep = cep;
     costumer.gender = gender[0].toUpperCase(); // add to input
-    costumer.birthday = valuesOfInputs[5];
+    costumer.birthday = birthday;
 
     const { data } = await cepAPI.get(`${cep}/json/`);
 
@@ -104,7 +122,6 @@ export const SignUpConsumidor = () => {
 
       localStorage.setItem("user-logged-token", data.token);
 
-
       // append image
       const image = document.getElementById("file-selection").files[0];
       const formdata = new FormData();
@@ -121,7 +138,6 @@ export const SignUpConsumidor = () => {
         buttonsStyling: false,
         timerProgressBar: true,
       });
-
     } catch (e) {
       console.log(e);
 
@@ -133,24 +149,22 @@ export const SignUpConsumidor = () => {
         buttonsStyling: false,
         timerProgressBar: true,
       });
-
     }
-
   };
 
   return (
     <div className={styles["main-cadastro"]}>
       <header>
-        <div className={styles['header-icon']}>
-          <img className={styles['icon-yvy']} src={YvyporaTextIcon} alt='' />
+        <div className={styles["header-icon"]}>
+          <img className={styles["icon-yvy"]} src={YvyporaTextIcon} alt="" />
         </div>
       </header>
       <Title text="Cadastre-se" />
       <div className={styles["input-container"]}>
         <div className={styles["inputs"]}>
-          <DefaultInput name="Nome" type="text" />
-          <DefaultInput name="Email" type="email" />
-          <DefaultInput name="Senha" type="password" />
+          <DefaultInput name="Nome" type="text" onChange={handleChangeFields} />
+          <DefaultInput name="Email" type="email" onChange={handleChangeFields} />
+          <DefaultInput name="Senha" type="password" onChange={handleChangeFields} />
           <SpecialInput
             name="cpf"
             label="CPF"
@@ -165,26 +179,32 @@ export const SignUpConsumidor = () => {
             value={values.cep}
             onChange={handleChange}
           />
-          <DefaultInput name="Data de nascimento" type="date" />
+          <DefaultInput name="Data de nascimento" type="date" onChange={handleChangeFields} />
           <div className={styles["genders"]}>
-            {
-              genders.map(({ name, id }) => (
-                <label className="label cursor-pointer">
-                  <span className="label-text">{name}</span>
-                  <input value={name} type="radio" name="radio-20" className="radio checked:bg-green-900" />
-                </label>
-              ))
-            }
+            {genders.map(({ name, id }) => (
+              <label className="label cursor-pointer">
+                <span className="label-text">{name}</span>
+                <input
+                  value={name}
+                  type="radio"
+                  name="radio-20"
+                  className="radio checked:bg-green-900"
+                />
+              </label>
+            ))}
           </div>
           <div className={styles["typesOfAddresses"]}>
-            {
-              addressTypes.map(({ name, id }) => (
-                <label className="label cursor-pointer">
-                  <span className="label-text">{name}</span>
-                  <input value={id} type="radio" name="typeAddress" className="radio checked:bg-green-900" />
-                </label>
-              ))
-            }
+            {addressTypes.map(({ name, id }) => (
+              <label className="label cursor-pointer">
+                <span className="label-text">{name}</span>
+                <input
+                  value={id}
+                  type="radio"
+                  name="typeAddress"
+                  className="radio checked:bg-green-900"
+                />
+              </label>
+            ))}
           </div>
         </div>
 
