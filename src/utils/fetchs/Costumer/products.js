@@ -63,7 +63,7 @@ export const listAllProductsWithFilters = async (score, lowerPrice) => {
     category2.data,
     category3.data,
     category4.data,
-    category5.data
+    category5.data,
   ];
 
   const data = arrs.flat();
@@ -81,4 +81,10 @@ export const listProductNearToClient = async () => {
   const { data } = await costumerAPI.get("product/findNearest");
 
   return data.data;
+};
+
+export const getProduct = async (id) => {
+  const { data } = await costumerAPI.get(`product/${id}`);
+
+  return data;
 };
