@@ -6,6 +6,7 @@ import HomeImg from "../../imgs/home.svg";
 import VideoImg from "../../imgs/video.svg";
 import FairImg from "../../imgs/fair.svg";
 import ProfileImg from "../../imgs/profile.svg";
+
 export const NavBar = () => {
   return (
     <div className={styles["nav-bar-container"]}>
@@ -32,4 +33,5 @@ export const NavBar = () => {
     </div>
   );
 };
+
 export default NavBar;

@@ -4,7 +4,6 @@ import { Header } from "../../components/Header";
 import Title from "../../components/Title";
 import FairNearCard from "../../components/FairNearCard";
 import { Footer } from "../../components/Footer";
-import MenuBurguer from "../../components/MenuBurguer";
 import { MyComponent } from "../../components/Maps";
 import { BurgerMenu } from "../../components/BurgerMenu";
 
@@ -17,7 +16,6 @@ export const FairNear = () => {
       <div className={styles["nav-card-container"]}>
         <NavBar />
         <div className={styles["map-container"]}>
-          <MyComponent />
           <div className={styles["cards"]}>
             <FairNearCard
               title={"Feira Livre da Rua Oscar Freire"}
@@ -80,6 +78,7 @@ export const FairNear = () => {
               fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
             />
           </div>
+          <MyComponent />
         </div>
       </div>
       <Footer />
