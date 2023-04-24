@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { GoogleMap, Marker, MarkerClusterer, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -60,6 +60,10 @@ export function MyComponent() {
   function createKey(location) {
     return location.lat + location.lng
   }
+
+  useEffect(() => {
+    console.log(isLoaded)
+  }, [])
   
 
   return isLoaded ? (

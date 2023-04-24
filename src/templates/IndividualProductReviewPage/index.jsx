@@ -10,14 +10,12 @@ import { GreenButton } from '../../components/GreenButton'
 const IndividualProductReviewPage = () => {
     return(
         <div className={styles["individual-product-review-page-container"]}>
-            {/* <Header 
-                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-            /> */}
+            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+            <TitleSubtitle
+                text='Compra #30495'
+                subtitle='Nota dos produtos'
+            />
             <div className={styles["individual-product-review-content"]}>
-                <TitleSubtitle
-                    text='Compra #30495'
-                    subtitle='Nota dos produtos'
-                />
                 <div className={styles["individual-review-containers"]}>
                     <div className={styles["individual-item"]}>
                         <BoughtItem 

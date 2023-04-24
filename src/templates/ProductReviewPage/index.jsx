@@ -9,9 +9,7 @@ import { GreenButton } from '../../components/GreenButton'
 const ProductReviewPage = () => {
     return(
         <div className={styles['product-review-page-container']}>
-            {/* <Header 
-                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-            /> */}
+            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
             <Title 
                 text='Compra #30495'
             />
