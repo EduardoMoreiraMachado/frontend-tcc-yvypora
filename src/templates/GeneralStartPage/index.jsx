@@ -25,6 +25,7 @@ export const GeneralStartPage = () => {
   const [listOfProducts, setListOfProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const carousel = useRef(null);
+  const searchInputRef = useRef(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
 
   const handleInputFocus = () => {
@@ -102,11 +103,10 @@ export const GeneralStartPage = () => {
   };
 
   useEffect(() => {
-    const input = document.querySelector(".text-input");
     if (isInputFocused) {
-      if (input) input.style.zIndex = "4";
+      if (searchInputRef.current) searchInputRef.current.style.zIndex = "100";
     } else {
-      if (input) input.style.zIndex = "1";
+      if(searchInputRef.current) searchInputRef.current.style.zIndex = "-1";
     }
   }, [isInputFocused]);
 
@@ -129,6 +129,7 @@ export const GeneralStartPage = () => {
           <div className={styles["search-category"]}>
             <div className={styles["general-search"]}>
               <SearchInput
+                ref={searchInputRef}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
               />

@@ -11,10 +11,11 @@ import withReactContent from "sweetalert2-react-content";
 import { getDetails } from "../../utils/fetchs/common/user";
 import { useState } from "react";
 import { login } from "../../utils/fetchs/common/login";
+import { useNavigate } from "react-router-dom";
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
-  // const navigate = useNavigate(); // hook
+  const navigate = useNavigate(); // hook
   const [location, setLocation] = useState({});
   const handleClick = async (e) => {
     e.preventDefault();
@@ -31,7 +32,7 @@ export const Login = () => {
       const details = await getDetails();
       localStorage.setItem("user-details", JSON.stringify(details));
 
-      MySwal.fire({
+      await MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
         title: <p>Bem Vindo de volta {details.name}</p>,
@@ -40,13 +41,13 @@ export const Login = () => {
         timerProgressBar: true,
       });
 
-      // navigate("/home") // path
+      navigate("/") // path
     } catch (error) {
       console.log(error);
 
       let message = error.response?.data.message;
       if (!message) message = "Error!";
-      MySwal.fire({
+      await MySwal.fire({
         timer: 4500,
         showConfirmButton: false,
         title: <p>Erro! Verifique o email ou a senha</p>,

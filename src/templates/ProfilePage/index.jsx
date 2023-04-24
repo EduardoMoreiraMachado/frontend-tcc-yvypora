@@ -10,9 +10,12 @@ import iconBag from "../../imgs/bag.svg";
 import { BurgerMenu } from "../../components/BurgerMenu";
 import { EmptyHeader } from "../../components/EmptyHeader";
 import { ExitOption } from "../../components/ExitOption";
+import { useState } from "react";
 // import { Header } from "../../components/Header"
 
 export const ProfilePage = () => {
+  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")));
+  
   return (
     <div className={"profile-main"}>
       <BurgerMenu />
@@ -22,11 +25,11 @@ export const ProfilePage = () => {
       <EmptyHeader />
       <div className={styles["user-info"]}>
         <UserCard
-          name={"Carlos Arcanjo"}
+          name={user.name}
           imgUrl={
-            "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png"
+            user.picture_uri
           }
-          email={"carlaoprof@gmail.com"}
+          email={user.email}
         />
       </div>
       <div className={styles["profile-container"]}>

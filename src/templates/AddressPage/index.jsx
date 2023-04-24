@@ -1,124 +1,54 @@
-import styles from './styles.module.css'
+import styles from "./styles.module.css";
 
-import { Header } from '../../components/Header'
-import { Title } from '../../components/Title'
-import { NavBar } from '../../components/NavBar'
-import { GreenButton } from '../../components/GreenButton'
-import { Footer } from '../../components/Footer'
+import { Header } from "../../components/Header";
+import { Title } from "../../components/Title";
+import { NavBar } from "../../components/NavBar";
+import { GreenButton } from "../../components/GreenButton";
+import { Footer } from "../../components/Footer";
+import { useState } from "react";
+import { useEffect } from "react";
+import { listAddresses } from "../../utils/fetchs/Costumer/costumer";
 
 export const AddressPage = () => {
-    return(
-        <div className={styles['address-page-container']}>
-            <Header  user={JSON.parse(localStorage.getItem("user-details"))}/>
-            <Title
-                text='Endereços' 
-            />
-            <div className={styles['address-page-content']}>
-                <NavBar />
-                <div className={styles['address-content']}>
-                    <div className={styles['address-list']}>
+  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")));
+  const [addresses, setAddresses] = useState([])
 
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
+  useEffect(() => {
+    listAddresses().then((res) => {
+      setAddresses(res)
+    })
+  }, [])
 
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                        <div className={styles["address-card"]}>
-                            <div className={styles["main-address-card"]}>
-                                <span>Endereço principal</span>
-                            </div>
-                            <div className={styles["address-info"]}>
-                                <h1>Casa</h1>
-                                <p>Avenida Paulista nº1473, São Paulo, São Paulo, Brasil</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className={styles['add-address-button']}>
-                        <GreenButton 
-                            text='Adicionar'
-                        />
-                    </div>
-                </div>
+  return (
+    <div className={styles["address-page-container"]}>
+      <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+      <Title text="Endereços" />
+      <div className={styles["address-page-content"]}>
+        <NavBar />
+        <div className={styles["address-content"]}>
+          <div className={styles["address-list"]}>
+          {addresses.map(({ address }) => {
+            return (
+            <div className={styles["address-card"]}>
+            <div className={styles["main-address-card"]}>
+              <span>Endereço principal</span>
             </div>
-            <Footer />
+            <div className={styles["address-info"]}>
+              <h1>{address.type.name}</h1>
+              
+              <p>{address.logradouro} nº{address.number}, {address.uf.name}, {address.city.name}, Brasil</p>
+            </div>
+          </div> )
+        })}
+          </div>
+          <div className={styles["add-address-button"]}>
+            <GreenButton text="Adicionar" />
+          </div>
         </div>
-    )
-}
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
-export default AddressPage
+export default AddressPage;

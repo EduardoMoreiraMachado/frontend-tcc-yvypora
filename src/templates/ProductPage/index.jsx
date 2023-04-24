@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { getProduct } from "../../utils/fetchs/Costumer/products";
+import { addProduct } from "../../utils/cart";
 
 function calculateResult(num1, num2) {
   const result = (num1 * num2).toFixed(2);
@@ -20,7 +21,7 @@ function calculateResult(num1, num2) {
 }
 
 export const ProductPage = () => {
-  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")))
+  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")));
   const { id } = useParams();
   const [data, setData] = useState(null);
 
@@ -30,6 +31,7 @@ export const ProductPage = () => {
   useEffect(() => {
     getProduct(id).then(({ data }) => {
       setData(data);
+      console.log(data);
     });
   }, [id]);
 
@@ -86,10 +88,25 @@ export const ProductPage = () => {
           <div className={styles["product-footer"]}>
             <div className={styles["description"]}>
               <h1 className={styles["description-title"]}>Descrição</h1>
-              <h2 className={styles["description-text"]}>{data.description}
-              </h2>
+              <h2 className={styles["description-text"]}>{data.description}</h2>
             </div>
-            <button className={styles["add-cart-button"]}>
+            <button
+              className={styles["add-cart-button"]}
+              onClick={() =>
+                addProduct({
+                  id: data.id,
+                  name: data.name,
+                  picture: data.image_of_product[0].image.uri,
+                  price: result,
+                  selectedQuantity: itemCount,
+                  quantity: data.available_quantity,
+                  fairName: data.marketer.tent_name,
+                  fairPicture: data.marketer.picture_uri,
+                  marketerId: data.marketer.id,
+                  marketerName: data.marketer.name,
+                })
+              }
+            >
               <img src={AddCartIcon} alt="" />
               <span>Adicionar ao carrinho</span>
             </button>
