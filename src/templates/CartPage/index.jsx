@@ -7,15 +7,32 @@ import { Footer } from "../../components/Footer";
 import { useState } from "react";
 import { useEffect } from "react";
 import { groupByMarketer } from "../../utils/groupBy";
+import { createPurchase } from "../../utils/fetchs/Costumer/purchase";
 
 export const CartPage = () => {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
   const [displayCart, setDisplayCart] = useState([]);
 
+  const [total, setTotal] = useState(cart.total);
+
   useEffect(() => {
     const aggroupedData = groupByMarketer(cart.products);
     setDisplayCart(aggroupedData);
   }, [cart]);
+
+  const handleClickToPayment = async (event) => {
+    setCart(JSON.parse(localStorage.getItem("cart")));
+
+    const purchase = {
+      costumer_address_id: 1,
+      products: cart.products.map(({ id, selectedQuantity }) => {
+        return { id, amount: selectedQuantity };
+      }),
+      freight: 19.99,
+    };
+    const stripePaymentLink = await createPurchase(purchase);
+    console.log(stripePaymentLink);
+  };
 
   return (
     <div className={styles["cartpage-container"]}>
@@ -27,6 +44,7 @@ export const CartPage = () => {
             <div className={styles["card-cart"]}>
               <div className={styles["main-purchase-info"]}>
                 {Object.entries(displayCart).map(([name, purchase]) => {
+                  const date = new Date();
                   return (
                     <>
                       <div
@@ -38,53 +56,38 @@ export const CartPage = () => {
                       <div className={styles["purchase-info"]}>
                         <h1>{name}</h1>
                         <h2>{purchase[0].fairName}</h2>
-                        {<span>Data: 41/13/2027</span>}
+                        {
+                          <span>
+                            Data: {date.getDate()}/{date.getMonth()}/{date.getFullYear()}
+                          </span>
+                        }
                       </div>
                     </>
                   );
                 })}
               </div>
-              <ShoppingCartItem
-                name={"Abobora"}
-                imgUrl={
-                  "https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover"
-                }
-                unit={8591}
-                price={2.5}
-              />
-              <ShoppingCartItem
-                name={"Abobora"}
-                imgUrl={
-                  "https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover"
-                }
-                unit={8591}
-                price={2}
-              />
-              <ShoppingCartItem
-                name={"Abobora"}
-                imgUrl={
-                  "https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover"
-                }
-                unit={8591}
-                price={9.09}
-              />
-              <ShoppingCartItem
-                name={"Abobora"}
-                imgUrl={
-                  "https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover"
-                }
-                unit={8591}
-                price={9.09}
-              />
+              {Object.entries(displayCart).map(([name, purchase]) =>
+                purchase.map((product) => (
+                  <ShoppingCartItem
+                    id={product.id}
+                    name={product.name}
+                    imgUrl={product.picture}
+                    unit={product.quantity}
+                    price={product.price}
+                    itemCountProp={product.selectedQuantity}
+                    setCartTotal={setTotal}
+                  />
+                ))
+              )}
             </div>
           </div>
           <div className={styles["payment-card"]}>
             <h1>Resumo do pedido</h1>
             <div className={styles["total-payment"]}>
               <span>TOTAL:</span>
-              <h2>R$ 48,00</h2>
+              <h2>R$ {total}</h2>
             </div>
-            <button>Pagar</button>
+            <button onClick={handleClickToPayment}>Pagar</button>
           </div>
         </div>
       </div>

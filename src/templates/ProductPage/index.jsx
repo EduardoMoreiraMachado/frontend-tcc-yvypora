@@ -21,17 +21,17 @@ function calculateResult(num1, num2) {
 }
 
 export const ProductPage = () => {
-  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")));
+  const [user, _setUser] = useState(JSON.parse(localStorage.getItem("user-details")));
+  const [cart, _setCart] = useState(JSON.parse(localStorage.getItem("cart")));
+
   const { id } = useParams();
   const [data, setData] = useState(null);
-
   const [itemCount, setItemCount] = useState(1);
   const result = calculateResult(data?.price, itemCount);
 
   useEffect(() => {
     getProduct(id).then(({ data }) => {
       setData(data);
-      console.log(data);
     });
   }, [id]);
 
@@ -97,7 +97,7 @@ export const ProductPage = () => {
                   id: data.id,
                   name: data.name,
                   picture: data.image_of_product[0].image.uri,
-                  price: result,
+                  price: data.price,
                   selectedQuantity: itemCount,
                   quantity: data.available_quantity,
                   fairName: data.marketer.tent_name,

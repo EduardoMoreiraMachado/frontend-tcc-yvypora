@@ -1,5 +1,6 @@
 import axios from "axios";
 import { io } from "socket.io-client";
+import { notify } from "../utils/notify";
 
 // API'S
 export const cepAPI = axios.create({
@@ -35,3 +36,7 @@ export const socket = io("http://localhost:3337", {
   },
 });
 
+socket.on("travel_accepted", async (data) => {
+  localStorage.setItem("current_travel", JSON.stringify(data));
+  await notify("success", "Entregador Encontrado!");
+});

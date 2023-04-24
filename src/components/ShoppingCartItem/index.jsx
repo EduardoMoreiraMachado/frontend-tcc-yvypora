@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import styles from "./styles.module.css";
 
 import { useState } from "react";
+import { addProduct, updateItemCount } from "../../utils/cart";
 
 function calculateResult(num1, num2) {
   const result = num1 * num2;
@@ -8,11 +10,29 @@ function calculateResult(num1, num2) {
   return updatedResult;
 }
 
-export const ShoppingCartItem = ({ name, imgUrl, unit, price }) => {
-  const [itemCount, setItemCount] = useState(1);
+export const ShoppingCartItem = ({
+  id,
+  name,
+  imgUrl,
+  unit,
+  price,
+  itemCountProp,
+  setCartTotal,
+}) => {
+  const [itemCount, setItemCount] = useState(itemCountProp);
   const [deleteProduct, setDeleteProduct] = useState(false);
 
   const resultValue = calculateResult(price, itemCount);
+
+  useEffect(() => {
+    updateItemCount({
+      id,
+      itemCount,
+    });
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    setCartTotal(cart.total);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [itemCount, id]);
 
   if (deleteProduct === false) {
     return (
