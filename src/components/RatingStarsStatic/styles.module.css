@@ -1,0 +1,20 @@
+.rating-stars-container-static {
+    height: 150px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media(max-width: 1140px) {
+    .star-rate-icon {
+        width: 60px;
+    }
+}
+
+@media(max-width: 768px) {
+    .star-rate-icon {
+        width: 50px;
+    }
+}
