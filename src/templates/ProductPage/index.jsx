@@ -117,7 +117,7 @@ export const ProductPage = () => {
     </div>
   );
 
-  return <>{data ? <MainPage /> : <Loading />}</>;
+  return <>{data ? <MainPage /> : <div className="center-center" style={{width: '100vw', height: '100vh'}}><Loading /></div>}</>;
 };
 
 export default ProductPage;

@@ -1,3 +1,6 @@
+.my-order-data-container {
+    height: calc(100vh - 450px);
+}
 .delivery-man-card {
     display: flex;
     flex-direction: column;
