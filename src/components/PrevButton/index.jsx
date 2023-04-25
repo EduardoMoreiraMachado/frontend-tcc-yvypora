@@ -1,7 +1,10 @@
-import './style.css'
+import styles from "./styles.module.css";
 
-export const PrevButton = ({onClick}) => {
-    return (
-        <button className="prev-button-container" onClick={onClick}></button>
-    )
-}
+export const PrevButton = ({ onClick }) => {
+  return (
+    <button
+      className={styles["prev-button-container"]}
+      onClick={onClick}
+    ></button>
+  );
+};

@@ -12,18 +12,21 @@ import {
   addFairToMarketer,
 } from "../../utils/fetchs/Marketer/fairsFetch";
 
-import "./style.css";
+import styles from "./styles.module.css";
 import { consumeCep } from "../../utils/fetchs/common/cepFetch";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { Header } from "../../components/Header";
+import { useRef } from "react";
 
 const MySwal = withReactContent(Swal);
 
 export const AddFairPage = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user-details"))
-  );  
+  );
+  const cepInput = useRef(null);
+  const nameTitle = useRef(null);
   const [values, setValues] = useState({});
   const [address, setAddress] = useState({});
   const [daysOfWeekFields, setDaysOfWeek] = useState([]);
@@ -46,41 +49,38 @@ export const AddFairPage = () => {
       ...values,
       [event.target.name]: event.target.value,
     });
-    const { cep } = values;
-    if (cep.length === 8) {
-      const data = await consumeCep(cep);
-      if (!data) {
-        MySwal.fire({
-          timer: 1500,
-          showConfirmButton: false,
-          title: <p>Cep Errado!</p>,
-          icon: "error",
-          buttonsStyling: false,
-          timerProgressBar: true,
-        });
-        document.querySelector('input[name="cep"]').value = "";
-      } else {
-        setAddress(data);
-        const name = document.querySelector("#fair-name");
-        name.textContent = `Feira do ${data.bairro} - ${data.logradouro}`;
-      }
-    }
   }
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const daysSelected = []
-    const dayOfWeekOption = 0
-    
-    document.querySelectorAll(".day > input").forEach(day => {      
-      if(day.checked) daysSelected.push(day)
+    const dataCEP = await consumeCep(cepInput.current.value);
+    if (!dataCEP) {
+      MySwal.fire({
+        timer: 1500,
+        showConfirmButton: false,
+        title: <p>Cep Errado!</p>,
+        icon: "error",
+        buttonsStyling: false,
+        timerProgressBar: true,
+      });
+      document.querySelector('input[name="cep"]').value = "";
+    } else {
+      setAddress(dataCEP);
+      const name = nameTitle.current;
+      name.textContent = `Feira do ${dataCEP.bairro} - ${dataCEP.logradouro}`;
+    }
+
+    const daysSelected = [];
+    const dayOfWeekOption = 0;
+
+    document.querySelectorAll("#day > input").forEach((day) => {
+      if (day.checked) daysSelected.push(day);
     });
 
     console.log(daysSelected);
-    
 
     const name = `Feira do ${address.bairro} - ${address.logradouro}`;
-    const cep = document.querySelector('input[name="cep"]').value;
+    const cep = cepInput.current.value;
     const abertura = document.querySelector(
       'input[name="Horário de abertura"]'
     ).value;
@@ -90,9 +90,7 @@ export const AddFairPage = () => {
 
     const dayOfWeekSelector = document.querySelector("#day-of-week");
 
-   
-    
-
+    console.log(address);
     const data = {
       name,
       address: {
@@ -106,9 +104,15 @@ export const AddFairPage = () => {
         neighborhood: address.bairro,
       },
       dateAndHourOfWork: daysSelected.map((day) => {
-        return { open: `${abertura}:00`, close: `${fechamento}:00`, dayOfWeek: { id: day.value, name: day.id } }
-      })
+        return {
+          open: `${abertura}:00`,
+          close: `${fechamento}:00`,
+          dayOfWeek: { id: day.value, name: day.id },
+        };
+      }),
     };
+
+    console.log(data);
 
     try {
       const { payload } = await createFair(data);
@@ -154,20 +158,21 @@ export const AddFairPage = () => {
   };
 
   return (
-    <div className="add-fair-page-container">
-      <Header
-        user={user}
-      />
+    <div className={styles["add-fair-page-container"]}>
+      <Header user={user} />
       <TitleSubtitle
         text={"Escolha o local"}
         subtitle="Insira as feiras onde seus produtos serão vendidos"
       />
-      <div className="input-container">
-        <div className="inputs">
+      <div className={styles["input-container"]}>
+        <div className={"inputs"}>
           <h1>Detalhes da feira</h1>
-          <h2 id="fair-name">Nome da Feira: </h2>
+          <h2 id={styles["fair-name"]} ref={nameTitle}>
+            Nome da Feira:{" "}
+          </h2>
           <SpecialInput
             name="cep"
+            inputRef={cepInput}
             label="CEP do local da feira"
             mask="99999-999"
             value={values.cep}
@@ -177,49 +182,49 @@ export const AddFairPage = () => {
           <DefaultInput name="Horário de abertura" type="time" />
           <DefaultInput name="Horário de encerramento" type="time" />
 
-          <div className="days-week-container">
+          <div className={styles["days-week-container"]}>
             <h1>Dias de funcionamento</h1>
-            <div className="days-week">
-              {
-                daysOfWeekFields.map(({id, name}) => (
-                  <div className="day">
-                  <input type="checkbox" id={name} name="scales" value={id}/>
-                <label for={name}>{name}</label>
-                </div>
-                )) 
-              }
-              {/* <div className="day">
+            <div className={styles["days-week"]}>
+              {daysOfWeekFields.map(({ id, name }) => {
+                return (
+                  <div className={styles["day"]} id="day">
+                    <input type="checkbox" id={name} name="scales" value={id} />
+                    <label for={name}>{name}</label>
+                  </div>
+                );
+              })}
+              {/* <div className={styles["day">
                 <input type="checkbox" id="mon" name="scales"/>
                 <label for="mon">Segunda-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="tue" name="scales"/>
                 <label for="tue">Terça-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="wed" name="scales"/>
                 <label for="wed">Quarta-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="thu" name="scales"/>
                 <label for="thu">Quinta-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="fri" name="scales"/>
                 <label for="fri">Sexta-feira</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="sat" name="scales"/>
                 <label for="sat">Sábado</label>
               </div>
-              <div className="day">
+              <div className={styles["day">
                 <input type="checkbox" id="sun" name="scales"/>
                 <label for="sun">Domingo</label>
               </div> */}
             </div>
           </div>
         </div>
-        <div className="button-add-image-container">
+        <div className={"button-add-image-container"}>
           <AddImage text="Adicione uma foto de perfil" />
           <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>

@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from './styles.module.css';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -11,7 +11,7 @@ import { GreenButton } from "../../components/GreenButton";
 import { Footer } from "../../components/Footer";
 import { SpecialInput } from "../../components/SpecialInput";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { fetchMarketerFormFields } from "../../utils/fetchs/common/formFieldsFetch";
 import { getLocation } from "../../utils/location";
@@ -35,6 +35,27 @@ export const SignUpFeirante = () => {
     };
     fetch().then();
   }, []);
+
+  const [formData, setFormData] = useState({
+    Nome: "",
+    Email: "",
+    Senha: "",
+    "Data de nascimento": "",
+    "Nome do estabelecimento": "",
+  });
+
+  const inputCpf = useRef(null)
+  const phoneInput = useRef(null)
+  const imageInput = useRef(null)
+
+
+  const handleChangeFields = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   function handleChange(event) {
     setValues({
@@ -74,23 +95,22 @@ export const SignUpFeirante = () => {
       'input[name="radio-20"]:checked'
     ).value;
 
-    const defaultInputs = document.querySelectorAll(".default-input");
-    const specialInputs = document.querySelectorAll(".special-input");
-
     marketer.gender = gender.toUpperCase();
-    marketer.name = defaultInputs[0].value;
-    marketer.email = defaultInputs[1].value;
-    marketer.password = defaultInputs[2].value;
-    marketer.cpf = specialInputs[0].value;
-    marketer.phone = specialInputs[1].value.replace(/\D/g, "");
-    marketer.tent_name = defaultInputs[3].value;
-    marketer.birthday = defaultInputs[4].value;
+    marketer.name = formData.Nome;
+    marketer.email = formData.Email;
+    marketer.password = formData.Senha;
+    marketer.cpf = inputCpf.current.value;
+    marketer.phone = phoneInput.current.value.replace(/\D/g, "");
+    marketer.tent_name = formData['Nome do estabelecimento'];
+    // add regex here 
+    marketer.birthday = formData['Data de nascimento'];
 
     marketer.location.latitude = location.latitude;
     marketer.location.longitude = location.longitude;
 
-    const image = document.getElementById("file-selection").files[0];
+    const image = imageInput.current.files[0];
     const formdata = new FormData();
+    console.log(formData)
 
     formdata.append("picture", image);
 
@@ -120,24 +140,25 @@ export const SignUpFeirante = () => {
   };
 
   return (
-    <div className="main-cadastro">
+    <div className={styles["main-cadastro"]}>
       <header>
-        <div className="header-icon">
-          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
+        <div className={styles["header-icon"]}>
+          <img className={styles["icon-yvy"]} src={YvyporaTextIcon} alt="" />
         </div>
       </header>
       <Title text="Cadastre-se" />
-      <div className="input-container">
-        <div className="inputs">
-          <DefaultInput name="Nome" type="text" />
-          <DefaultInput name="Email" type="email" />
-          <DefaultInput name="Senha" type="password" />
+      <div className={styles["input-container"]}>
+        <div className={styles["inputs"]}>
+          <DefaultInput name="Nome" type="text" onChange={handleChangeFields} />
+          <DefaultInput name="Email" type="email" onChange={handleChangeFields} />
+          <DefaultInput name="Senha" type="password" onChange={handleChangeFields} />
           <SpecialInput
             name="cpf"
             label="CPF"
             mask="999.999.999-99"
             value={values.cpf}
             onChange={handleChange}
+            inputRef={inputCpf}
           />
           <SpecialInput
             name="phone"
@@ -145,9 +166,10 @@ export const SignUpFeirante = () => {
             mask="(999) 9 9999-9999"
             value={values.phone}
             onChange={handleChange}
+            inputRef={phoneInput}
           />
-          <DefaultInput name="Nome do estabelecimento" type="text" />
-          <DefaultInput name="Data de nascimento" type="date" />
+          <DefaultInput name="Nome do estabelecimento" type="text" onChange={handleChangeFields} />
+          <DefaultInput name="Data de nascimento" type="date"  onChange={handleChangeFields}/>
           <div className="genders">
             {genders.map(({ name, id }) => (
               <label className="label cursor-pointer">
@@ -162,8 +184,8 @@ export const SignUpFeirante = () => {
             ))}
           </div>
         </div>
-        <div className="button-add-image-container">
-          <AddImage text="Adicione uma foto de perfil" />
+        <div className={"button-add-image-container"}>
+          <AddImage text="Adicione uma foto de perfil" inputRef={imageInput}/>
           <GreenButton text="Cadastrar" onClick={handleClick} />
         </div>
       </div>

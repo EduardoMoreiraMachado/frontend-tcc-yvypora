@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from "./styles.module.css";
 
 import { Footer } from "../../components/Footer";
 import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
@@ -7,9 +7,12 @@ import { Title } from "../../components/Title";
 import { SellerProduct } from "../../components/SellerProduct";
 import { useEffect, useState } from "react";
 import { indexProducts } from "../../utils/fetchs/Marketer/productFetch";
+import Header from "../../components/Header";
 
 export const SellerProductsPage = () => {
+  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")));
   const [listOfProducts, setListOfProducts] = useState([]);
+  const [onHoverBtn, setOnHoverBtn] = useState(false);
 
   useEffect(() => {
     const fetch = async () => {
@@ -21,12 +24,19 @@ export const SellerProductsPage = () => {
 
   return (
     <div className="seller-products-page-container">
-      <header>
-        <img className="text-icon" src={YvyporaTextIcon} alt="" />
-        <Title text="Meus produtos" />
-        <img className="add-product-icon" src={AddProductIcon} alt="" />
-      </header>
-      <div className="registered-products">
+      <Header user={user}></Header>
+      <div className={styles["float-button"]}>
+        {onHoverBtn && (<h2 className={styles["text-hidden"]}>Adicionar Produto</h2>)}
+        <img
+          className={styles["add-product-icon"]}
+          src={AddProductIcon}
+          alt=""
+          onMouseEnter={() => setOnHoverBtn(true)}
+          onMouseOut={() => setOnHoverBtn(false)}
+        />
+      </div>
+
+      <div className={styles["registered-products"]}>
         {listOfProducts.map((product) => {
           console.log(product);
           return (

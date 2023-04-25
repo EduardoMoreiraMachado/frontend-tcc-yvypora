@@ -1,63 +1,99 @@
-import "./style.css"
-import { Header } from '../../components/Header';
-import { Title } from "../../components/Title"
+import styles from "./styles.module.css";
+import { Header } from "../../components/Header";
+import { Title } from "../../components/Title";
 import { NavBar } from "../../components/NavBar";
 import { ShoppingCartItem } from "../../components/ShoppingCartItem";
-import { PaymentCard } from "../../components/PaymentCard";
 import { Footer } from "../../components/Footer";
+import { useState } from "react";
+import { useEffect } from "react";
+import { groupByMarketer } from "../../utils/groupBy";
+import { createPurchase } from "../../utils/fetchs/Costumer/purchase";
 
 export const CartPage = () => {
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
+  const [displayCart, setDisplayCart] = useState([]);
 
-    return (
-        <div className="cartpage-container">
-            <Title text={'Meu Carrinho'} />
-            <div className="main-container-cart">
-                <NavBar />
-                <div className="card-payment-container">
-                    <div className="card-cart-container">
-                        <div className="card-cart">
-                            <div className='main-purchase-info'>
-                                <div className='purchase-image' style={{backgroundImage: `url('https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg')`}}></div>
-                                <div className='purchase-info'>
-                                    <h1>Barraca do Seu Zé</h1>
-                                    <h2>Feira de São Domingos</h2>
-                                    <span>Data: 41/13/2027</span>
-                                </div>
-                            </div>
-                            <ShoppingCartItem
-                                name={'Abobora'}
-                                imgUrl={'https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover'}
-                                unit={8591}
-                                price={2.50}
-                            />
-                            <ShoppingCartItem
-                                name={'Abobora'}
-                                imgUrl={'https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover'}
-                                unit={8591}
-                                price={2}
-                            />
-                            <ShoppingCartItem
-                                name={'Abobora'}
-                                imgUrl={'https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover'}
-                                unit={8591}
-                                price={9.09}
-                            />
-                            <ShoppingCartItem
-                                name={'Abobora'}
-                                imgUrl={'https://naturaldaterra.com.br/media/catalog/product/1/0/100408---2005260000003---mini-abobora-moranga.jpg?auto=webp&format=pjpg&width=640&height=800&fit=cover'}
-                                unit={8591}
-                                price={9.09}
-                            />
-                        </div>
-                    </div>
-                    <div className="payment-container">
-                        <PaymentCard price={591.99} />
-                    </div>
-                </div>
+  const [total, setTotal] = useState(cart.total);
+
+  useEffect(() => {
+    const aggroupedData = groupByMarketer(cart.products);
+    setDisplayCart(aggroupedData);
+  }, [cart]);
+
+  const handleClickToPayment = async (event) => {
+    setCart(JSON.parse(localStorage.getItem("cart")));
+
+    const purchase = {
+      costumer_address_id: 1,
+      products: cart.products.map(({ id, selectedQuantity }) => {
+        return { id, amount: selectedQuantity };
+      }),
+      freight: 19.99,
+    };
+    const stripePaymentLink = await createPurchase(purchase);
+    console.log(stripePaymentLink);
+  };
+
+  return (
+    <div className={styles["cartpage-container"]}>
+      <Title text={"Meu Carrinho"} />
+      <div className={styles["main-container-cart"]}>
+        <NavBar />
+        <div className={styles["card-payment-container"]}>
+          <div className={styles["card-cart-container"]}>
+            <div className={styles["card-cart"]}>
+              <div className={styles["main-purchase-info"]}>
+                {Object.entries(displayCart).map(([name, purchase]) => {
+                  const date = new Date();
+                  return (
+                    <>
+                      <div
+                        className={styles["purchase-image"]}
+                        style={{
+                          backgroundImage: `url('${purchase[0].fairPicture}')`,
+                        }}
+                      ></div>
+                      <div className={styles["purchase-info"]}>
+                        <h1>{name}</h1>
+                        <h2>{purchase[0].fairName}</h2>
+                        {
+                          <span>
+                            Data: {date.getDate()}/{date.getMonth()}/{date.getFullYear()}
+                          </span>
+                        }
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+              {Object.entries(displayCart).map(([name, purchase]) =>
+                purchase.map((product) => (
+                  <ShoppingCartItem
+                    id={product.id}
+                    name={product.name}
+                    imgUrl={product.picture}
+                    unit={product.quantity}
+                    price={product.price}
+                    itemCountProp={product.selectedQuantity}
+                    setCartTotal={setTotal}
+                  />
+                ))
+              )}
             </div>
-            <Footer />
+          </div>
+          <div className={styles["payment-card"]}>
+            <h1>Resumo do pedido</h1>
+            <div className={styles["total-payment"]}>
+              <span>TOTAL:</span>
+              <h2>R$ {total}</h2>
+            </div>
+            <button onClick={handleClickToPayment}>Pagar</button>
+          </div>
         </div>
-    )
-}
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
-export default CartPage
+export default CartPage;

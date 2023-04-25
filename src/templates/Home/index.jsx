@@ -1,4 +1,4 @@
-import './style.css';
+import styles from './styles.module.css';
 import { useCallback, useEffect, useState } from 'react';
 import { loadPosts } from '../../utils/load-posts';
 import { Posts } from '../../components/Posts';

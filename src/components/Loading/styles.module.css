@@ -1,0 +1,40 @@
+.loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  background-image: url(../../imgs/apple-icon.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+ 
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #538D22;
+  border-radius: 50%;
+  animation: spinner-anim 1s linear infinite;
+}
+
+@keyframes fruit-anim {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-anim {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

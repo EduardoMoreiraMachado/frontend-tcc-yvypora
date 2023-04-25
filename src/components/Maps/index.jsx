@@ -1,9 +1,14 @@
-import React from 'react'
-import { GoogleMap, Marker, MarkerClusterer, useJsApiLoader } from '@react-google-maps/api';
+import React, { useState, useEffect } from "react";
+import {
+  GoogleMap,
+  Marker,
+  MarkerClusterer,
+  useJsApiLoader,
+} from "@react-google-maps/api";
 
 const containerStyle = {
-  width: '80%',
-  height: '60%'
+  width: "80%",
+  height: "400px",
 };
 
 const locations = [
@@ -30,37 +35,39 @@ const locations = [
   { lat: -42.734358, lng: 147.501315 },
   { lat: -42.735258, lng: 147.438 },
   { lat: -43.999792, lng: 170.463352 },
-]
-
+];
 
 const center = {
   lat: -23.5489,
-  lng: -46.6388
+  lng: -46.6388,
 };
 
 export function MyComponent() {
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAxm5uYXu6Sm0SZGo8T5nHqATZtO90wZ1A  "
-  })
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyCQfb1qbVCwR8biTe469v_uBuVWaO9JxtY",
+  });
 
-  const [map, setMap] = React.useState(null)
+  const [map, setMap] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
 
-    setMap(map)
-  }, [])
+    setMap(map);
+  }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
+    setMap(null);
+  }, []);
 
   function createKey(location) {
-    return location.lat + location.lng
+    return location.lat + location.lng;
   }
-  
+
+  useEffect(() => {
+    console.log(isLoaded);
+  }, [isLoaded]);
 
   return isLoaded ? (
     <GoogleMap
@@ -75,23 +82,27 @@ export function MyComponent() {
          <MarkerClusterer options={imgs}>  
       */}
       <MarkerClusterer>
-          {(clusterer) =>
-            locations.map((location) => (
-              <Marker key={createKey(location)} position={location} clusterer={clusterer} />
-            ))
-          }
-        </MarkerClusterer>
+        {(clusterer) =>
+          locations.map((location) => {
+            return (
+              <Marker
+                key={createKey(location)}
+                position={location}
+                clusterer={clusterer}
+              />
+            );
+          })
+        }
+      </MarkerClusterer>
 
-      { /* Child components, such as markers, info windows, etc. */}
-      <>
-
-
-      </>
+      {/* Child components, such as markers, info windows, etc. */}
+      <></>
     </GoogleMap>
-  ) : <></>
-
-
+  ) : (
+    <>
+      <p>Teste</p>
+    </>
+  );
 }
 
-
-export default React.memo(MyComponent)
+export default React.memo(MyComponent);

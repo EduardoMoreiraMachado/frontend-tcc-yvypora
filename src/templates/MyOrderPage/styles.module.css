@@ -1,0 +1,108 @@
+.my-order-data-container {
+    height: calc(100vh - 450px);
+}
+.delivery-man-card {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    background-color: #AAD576;
+    gap: 50px;
+    padding: 20px;
+    border-radius: 0px 15px;
+}
+
+.delivery-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.photo {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.review h1 {
+    font-weight: 400;
+    color: #143601;
+}
+
+.delivery-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-text h2,
+.info-text span {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #143601;
+}
+
+.delivery-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.delivery-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px 10px 20px;
+}
+
+.delivery-buttons button img {
+    width: 30px;
+}
+
+.delivery-buttons button span {
+    font-size: 1.2rem;
+}
+
+#message {
+    border: 1.7px solid #73A942;
+    border-radius: 15px 0px;
+}
+
+#message:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+#message:active {
+    background-color: transparent;
+}
+
+#call {
+    background-color: #538D22;
+    border-radius: 0px 15px;
+    color: white;
+}
+
+#call:hover {
+    background-color: #345916;
+}
+
+#call:active {
+    background-color: #68b52a;
+}

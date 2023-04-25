@@ -8,7 +8,11 @@
   outline: 0;
   font-family: "Space Grotesk", sans-serif;
 }
-
+.center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -28,16 +32,23 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 header {
+  margin-bottom: 5vh;
   background-color: #aad5764a;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 3vh 5vw 3vh 5vw;
-  margin-bottom: 5vh;
+}
+.header-without-margins {
+  margin-bottom: 0;
+}
+.footer-without-margins {
+  margin-top: 0;
 }
 
 footer {
@@ -59,7 +70,7 @@ select {
   background-color: transparent;
 }
 
-.button-add-image-container{
+.button-add-image-container {
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -138,7 +149,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #AAD576;
+  background-color: #aad576;
   padding: 50px;
   border-radius: 10px 0px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -186,13 +197,13 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   background-image: url(../imgs/sub_icon.svg);
   background-repeat: no-repeat;
   background-position: center;
   font-size: 3rem;
   border-radius: 5px;
-} 
+}
 
 .sub-button:hover {
   background-color: #b0b0b0;
@@ -217,21 +228,21 @@ select {
 .add-button {
   min-width: 60px;
   min-height: 60px;
-  background-color: #538D22;
+  background-color: #538d22;
   background-image: url(../imgs/add_icon.svg);
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #538D22;
+  background-color: #538d22;
   font-size: 3rem;
   font-weight: lighter;
   color: #fff;
   border-radius: 5px;
 }
 
-.options-container{
+.options-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -280,11 +291,10 @@ select {
   }
 
   .amount {
-    width:10vw;
+    width: 10vw;
   }
 
   .inputs {
     padding: 50px 20px 50px 20px;
   }
-  
 }

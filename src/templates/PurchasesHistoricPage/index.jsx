@@ -1,4 +1,4 @@
-import './style.css'
+import styles from './styles.module.css'
 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
@@ -16,25 +16,25 @@ export const PurchasesHistoricPage = () => {
     }
 
     return(
-        <div className='purchases-historic-page-container'>
-
+        <div className={styles['purchases-historic-page-container']}>
+            <Header user={JSON.parse(localStorage.getItem("user-details"))}/>
             <Title 
                 text='Histórico de compras'
             />
-            <div className='purchase-historic-content'>
+            <div className={styles['purchase-historic-content']}>
                 <NavBar />
-                <div className='historic'>
-                    <div className='purchase'>
-                        <div className='main-purchase-info' onClick={handleClick}>
-                            <div className='purchase-image' style={{backgroundImage: `url('https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg')`}}></div>
-                            <div className='purchase-info'>
+                <div className={styles['historic']}>
+                    <div className={styles['purchase']}>
+                        <div className={styles['main-purchase-info']} onClick={handleClick}>
+                            <div className={styles['purchase-image']} style={{backgroundImage: `url('https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg')`}}></div>
+                            <div className={styles['purchase-info']}>
                                 <h1>Barraca do Seu Zé</h1>
                                 <h2>Feira de São Domingos</h2>
                                 <span>Data: 41/13/2027</span>
                             </div>
                         </div>
                         {click &&
-                            <div className='purchase-products'>
+                            <div className={styles['purchase-products']}>
                                 <BoughtItem 
                                     name='Abóbora'
                                     imgUrl='https://img.freepik.com/free-photo/close-up-shot-fresh-pumpkins-different-shapes-sizes-perfect_181624-31370.jpg?w=2000&t=st=1681383871~exp=1681384471~hmac=3925907f5157d0f6192b61c3c1ca599433a696bddb2599bf8c69ce954fd2a457'

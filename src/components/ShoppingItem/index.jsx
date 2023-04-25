@@ -1,38 +1,43 @@
-import PromoImg from '../../imgs/promotion1.svg'
- 
-import './style.css'
+import PromoImg from "../../imgs/promotion1.svg";
 
-import { useEffect, useState } from 'react'
+import styles from "./styles.module.css";
 
-export const ShoppingItem = ({name, imgUrl, weight, price, promo}) => {
-    const [ promoExists, setPromoExists ] = useState(0)
+import { useEffect, useState } from "react";
 
-    useEffect(() => {
-        if(promo) {
-            setPromoExists(100)
-        }
-    }, [])
+export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
+  const [promoExists, setPromoExists] = useState(0);
 
-    return(
-        <div className='shopping-item-container'>
-            <div className='item-visual'> 
-            <div className='header-card'>  
-                <h1 className='name'>{name}</h1>
-                <img className = 'promotion-img 'src={PromoImg} alt="" style={{opacity: promoExists}}/>
-            </div>
-                <div className='item-image'>
-                    <img className='image' src={imgUrl} alt=''/>
-                </div>
-            </div>
-            <div className='item-numbers'>
-                <div className='numbers'>
-                    <h1 className='weight'>{weight}</h1>
-                    <span className='price-general'>R$ {price}</span>
-                </div>
-                <div className='cart-icon-box'>
-                    <button className='cart-icon'/>
-                </div>
-            </div>
+  useEffect(() => {
+    if (promo) {
+      setPromoExists(100);
+    }
+  }, []);
+
+  return (
+    <div className={styles["shopping-item-container"]}>
+      <div className={styles["item-visual"]}>
+        <div className={styles["header-card"]}>
+          <h1 className={styles["name"]}>{name}</h1>
+          <img
+            className={styles["promotion-img "]}
+            src={PromoImg}
+            alt=""
+            style={{ opacity: promoExists }}
+          />
         </div>
-    )
-}
+        <div className={styles["item-image"]}>
+          <img className={styles["image"]} src={imgUrl} alt="" />
+        </div>
+      </div>
+      <div className={styles["item-numbers"]}>
+        <div className={styles["numbers"]}>
+          <h1 className={styles["weight"]}>{weight}</h1>
+          <span className={styles["price-general"]}>R$ {price}</span>
+        </div>
+        <div className={styles["cart-icon-box"]}>
+          <button className={styles["cart-icon"]} />
+        </div>
+      </div>
+    </div>
+  );
+};

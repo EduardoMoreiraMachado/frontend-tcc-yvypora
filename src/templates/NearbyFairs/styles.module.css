@@ -1,0 +1,14 @@
+.nearby-fairs-content {
+    display: flex;
+    align-items: center;
+}
+
+.fairs {
+    width: 100%;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+}

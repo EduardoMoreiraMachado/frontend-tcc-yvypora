@@ -1,9 +1,11 @@
-import "./style.css";
+/* DISABLED COMPONENT */
+
+import styles from "./styles.module.css";
 
 import { slide as Menu } from "react-burger-menu";
 // import { useEffect, useState } from "react";
 
-var styles = {
+var stylesToComponent = {
   bmItem: {
     display: "flex",
     flexDirection: "column",
@@ -12,7 +14,7 @@ var styles = {
     width: "100%",
     height: "100%",
     textDecoration: "none",
-    listStyle: "none"
+    listStyle: "none",
   },
 };
 
@@ -33,9 +35,9 @@ export const MenuBurguer = (width) => {
   // if(windowWidth < 769 ){
 
   return (
-    <div href="#" className="menu-burger-container">
-      <i className="menu-burger">
-        <Menu itemListClassName={"my-class"} styles={styles}>
+    <div href="#" className={styles["menu-burger-container"]}>
+      <i className={styles["menu-burger"]}>
+        <Menu itemListClassName={"my-class"} styles={stylesToComponent}>
           <nav>
             <li>
               <a href="#">Home</a>

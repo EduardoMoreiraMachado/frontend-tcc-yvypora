@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from "./styles.module.css";
 
 import { useRef, useState, useEffect } from "react";
 
@@ -26,14 +26,17 @@ export const GeneralStartPage = () => {
   const [listOfProducts, setListOfProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const carousel = useRef(null);
+  const searchInputRef = useRef(null);
+  const [isInputFocused, setIsInputFocused] = useState(false);
 
   const handleInputFocus = () => {
-    setInputFocused(true);
+    setIsInputFocused(true);
   };
 
   const handleInputBlur = () => {
-    setInputFocused(false);
+    setIsInputFocused(false);
   };
+
   
 
   useEffect(() => {
@@ -75,7 +78,7 @@ export const GeneralStartPage = () => {
     const fetch = async () => {
       const products = await listProducts();
       console.log(products);
-      
+
       setListOfProducts(products);
     };
     fetch().then();
@@ -107,8 +110,17 @@ export const GeneralStartPage = () => {
     setSelectedCategory(id);
   };
 
+  useEffect(() => {
+    if (isInputFocused) {
+      if (searchInputRef.current) searchInputRef.current.style.zIndex = "100";
+    } else {
+      if(searchInputRef.current) searchInputRef.current.style.zIndex = "-1";
+    }
+  }, [isInputFocused]);
+
   return (
-    <div className="general-start-page-container">
+    <div className={styles["general-start-page-container"]}>
+      <div className={isInputFocused ? styles["background"] : ""} />
       <MenuBurguer />
       {user ? (
         <>
@@ -119,19 +131,23 @@ export const GeneralStartPage = () => {
           <SignHeader></SignHeader>
         </>
       )}
-      <div className="page-content">
+      <div className={styles["page-content"]}>
         <NavBar />
-        <div className="products-container">
-          <div className="search-category">
-            <div className="general-search">
-              <SearchInput />
+        <div className={styles["products-container"]}>
+          <div className={styles["search-category"]}>
+            <div className={styles["general-search"]}>
+              <SearchInput
+                ref={searchInputRef}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
+              />
             </div>
             <ProductCategory />
           </div>
           <ProductCategorySelect onClick={handleCategorySelect} />
-          <div className="products-carrossel">
+          <div className={styles["products-carrossel"]}>
             <PrevButton onClick={handleLeftClick} />
-            <div className="carousel-items" ref={carousel}>
+            <div className={styles["carousel-items"]} ref={carousel}>
               {listOfProducts.map((product) => {
                 return (
                   <ShoppingItem

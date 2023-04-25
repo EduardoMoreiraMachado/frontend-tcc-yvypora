@@ -1,105 +1,82 @@
-header {
+/* header {
     margin-bottom: 0vh;
 }
 
 footer {
     margin-top: 0vh;
-}
+} */
 
-.type-user-select-container {
+.login-content {
+    height: 78vh;
     display: flex;
     flex-direction: column;
-}
-
-.welcome-container {
-    min-height: 78vh;
-    display: flex;
     justify-content: center;
-    align-items: center;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='5120' height='2880' preserveAspectRatio='none' viewBox='0 0 5120 2880'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1003%26quot%3b)' fill='none'%3e%3crect width='5120' height='2880' x='0' y='0' fill='rgba(170%2c 213%2c 118%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c1189.171C305.797%2c1217.04%2c593.803%2c1476.8%2c883.311%2c1374.459C1176.852%2c1270.692%2c1401.337%2c974.481%2c1467.777%2c670.311C1531.74%2c377.478%2c1331.086%2c103.462%2c1221.908%2c-175.684C1137.055%2c-392.635%2c1007.755%2c-573.473%2c900.443%2c-780.238C753.445%2c-1063.469%2c772.797%2c-1502.619%2c474.456%2c-1615.847C183.08%2c-1726.431%2c-71.758%2c-1350.597%2c-370.759%2c-1262.691C-669.607%2c-1174.83%2c-1049.093%2c-1319.75%2c-1272.17%2c-1102.342C-1494.258%2c-885.898%2c-1453.678%2c-518.897%2c-1452.145%2c-208.787C-1450.785%2c66.183%2c-1379.963%2c327.926%2c-1263.866%2c577.188C-1148.498%2c824.885%2c-1031.499%2c1103.282%2c-785.567%2c1222.366C-544.801%2c1338.949%2c-266.403%2c1164.892%2c0%2c1189.171' fill='%2371a533'%3e%3c/path%3e%3cpath d='M5120 5029.7919999999995C5514.9619999999995 4989.1810000000005 5689.898 4498.518 6040.945 4313.019 6442.442 4100.862 7096.285 4281.3060000000005 7302.3099999999995 3876.628 7505.357 3477.799 6991.835 3062.148 6900.865 2623.95 6817.9169999999995 2224.393 7083.941 1716.664 6794.237 1429.266 6499.617 1136.991 5982.405 1414.824 5579.951 1313.55 5201.338 1218.276 4916.88 859.2080000000001 4526.464 858.6020000000001 4084.426 857.9159999999999 3615.987 992.7929999999999 3308.149 1310.022 2995.458 1632.253 2938.891 2112.7870000000003 2877.753 2557.614 2816.939 3000.086 2724.49 3486.406 2956.577 3868.002 3184.1220000000003 4242.13 3682.946 4308.638 4068.7290000000003 4515.809 4419.48 4704.1669999999995 4723.961 5070.514 5120 5029.7919999999995' fill='%23e1f0cf'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1003'%3e%3crect width='5120' height='2880' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");    background-size: cover;
-    gap: 10vw;
 }
 
-.welcome-message {
-    width: 20vw;
+.input-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.input {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.welcome-text {
-    width: 100%;
-    font-weight: 400;
-    font-size: 3rem;
-}
-
-.welcome-image {
-    width: 30vw;
-    height: 40vh;
-    background-image: url(../../imgs/fruits_greenery.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.strong-welcome-text {
-    font-weight: bold;
-    color: white;
-}
-
-.user-select {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     gap: 5vh;
 }
 
-.user-select-text {
-    max-width: 24vw;
-    font-weight: 400;
-    color: #245501;
+.button-container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.default-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-bottom: 2vh;
+}
+
+.default-label {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.default-input {
+    width: 35vw;
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 3px solid white;
+    background-color: transparent;
+    color: white;
 }
 
 @media (max-width: 768px) {
-    .header-icon {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    .input-container {
+        flex-direction: column;
     }
 
-    .welcome-container {
-        display: flex;
-        flex-direction: column;
-        padding-top: 10vh;
-        padding-bottom: 10vh;
+    .button-container {
+        height: fit-content;
+    }
+
+    .default-input-container {
+        margin-bottom: 30px;
+    }
+
+    .default-label {
+        font-size: 1.3rem;
     }
     
-    .welcome-message {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .welcome-text {
-        width: 70vw;
-        font-size: 2rem;
-    }
-    
-    .welcome-image {
-        width: 100vw;
-    }
-    
-    .user-select {
+    .default-input {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5vh;
-    }
-    
-    .user-select-text {
-        min-width: 70%;
-        font-size: 1.7rem;
-        color: #245501;
+        font-size: 1.5rem;
+        border-bottom: 3px solid white;
+        background-color: transparent;
     }
 }

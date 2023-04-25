@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from "./styles.module.css";
 
 import { Header } from "../../components/Header";
 import { Title } from "../../components/Title";
@@ -25,6 +25,16 @@ export const InsertProductPage = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user-details"))
   );
+  const [formData, setFormData] = useState({});
+
+  const handleChangeFields = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
   const [selectedValue, setSelectedValue] = useState("");
   const [value, setValue] = useState(0);
   const [price, setPrice] = useState(0);
@@ -36,8 +46,8 @@ export const InsertProductPage = () => {
 
   async function handleClick(e) {
     e.preventDefault();
+    console.log(formData);
     const image = document.getElementById("file-selection").files[0];
-    console.log(image);
 
     const inputs = document.querySelectorAll(".product-input");
 
@@ -50,17 +60,14 @@ export const InsertProductPage = () => {
     const priceTypeOptionSelected =
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
-    const description = document.getElementById("description").value;
+    const description = formData.description;
 
-    const name = inputs[0].value;
+    const name = formData.name;
     let quantity = null;
-    let price = inputs[1].value;
+    let price = formData.price;
 
-    const availableQuantity = document.getElementById("available-quant").value;
+    const availableQuantity = formData.available;
     const saleOffValue = document.querySelectorAll(".input-active")[0]?.value;
-
-    console.log(saleOffValue);
-
 
     if (priceTypeOptionSelected.value === "peso") {
       quantity = inputs[1].value;
@@ -82,8 +89,6 @@ export const InsertProductPage = () => {
       },
       available_quantity: parseInt(availableQuantity, 10),
     };
-
-    console.log(data);
 
     try {
       const { payload } = await createProduct(data);
@@ -142,14 +147,17 @@ export const InsertProductPage = () => {
 
   const handleWeightChange = (event) => {
     setValue(event.target.value);
+    handleChangeFields(event);
   };
 
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
+    handleChangeFields(event);
   };
 
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
+    handleChangeFields(event);
   };
 
   const handleKeyDown = (event) => {
@@ -159,14 +167,17 @@ export const InsertProductPage = () => {
   };
 
   return (
-    <div className="insert-product-page">
+    <div className={styles["insert-product-page"]}>
       <Header user={user} />
       <Title text="Inserir um novo produto" />
 
-      <div className="data-containers">
-        <div className="insert-product-data">
-          <div className="drop-box">
-            <label className="product-input-title" htmlFor="product-type">
+      <div className={styles["data-containers"]}>
+        <div className={styles["insert-product-data"]}>
+          <div className={styles["drop-box"]}>
+            <label
+              className={styles["product-input-title"]}
+              htmlFor="product-type"
+            >
               Categoria:
             </label>
             <select name="product-type" id="type">
@@ -183,22 +194,38 @@ export const InsertProductPage = () => {
             </select>
           </div>
 
-          <div className="input-container">
-            <h1 className="product-input-title">Nome:</h1>
-            <input className="product-input" type="text" />
+          <div className={styles["input-container"]}>
+            <h1 className={styles["product-input-title"]}>Nome:</h1>
+            <input
+              name="name"
+              className={styles["product-input"]}
+              type="text"
+              onChange={handleChangeFields}
+            />
           </div>
 
-          <div className="input-container">
-            <h1 className="product-input-title">Descrição:</h1>
-            <textarea cols="30" rows="5" maxLength="200" id="description" />
+          <div className={styles["input-container"]}>
+            <h1 className={styles["product-input-title"]}>Descrição:</h1>
+            <textarea
+              cols="30"
+              rows="5"
+              maxLength="200"
+              id={styles["description"]}
+              id="description"
+              name="description"
+              onChange={handleChangeFields}
+            />
           </div>
 
-          <div className="price-values">
-            <h1 className="product-input-title" htmlFor="product-type">
+          <div className={styles["price-values"]}>
+            <h1
+              className={styles["product-input-title"]}
+              htmlFor="product-type"
+            >
               Preço
             </h1>
-            <div className="drop-box" id="options-weight">
-              <div className="options-weight">
+            <div className={styles["drop-box"]} id={styles["options-weight"]}>
+              <div className={styles["options-weight"]}>
                 <select
                   value={selectedValue}
                   onChange={handleChange}
@@ -217,13 +244,13 @@ export const InsertProductPage = () => {
                 </select>
 
                 {selectedValue === "peso" && (
-                  <div className="product-weight">
-                    <select name="product-unit" id="unit">
+                  <div className={styles["product-weight"]}>
+                    <select name="product-unit" id={styles["unit"]}>
                       <option value="kg">kg</option>
                       <option value="g">g</option>
                     </select>
                     <input
-                      className="product-input"
+                      className={styles["product-input"]}
                       type="number"
                       min="0"
                       max="100"
@@ -236,14 +263,15 @@ export const InsertProductPage = () => {
                 )}
               </div>
 
-              <div className="product-price">
-                <h1 className="product-price-coin">R$</h1>
+              <div className={styles["product-price"]}>
+                <h1 className={styles["product-price-coin"]}>R$</h1>
                 <input
-                  className="product-input"
+                  className={styles["product-input"]}
                   type="number"
                   min="0"
                   max="100"
                   step=".01"
+                  name="price"
                   onChange={handlePriceChange}
                   onKeyDown={handleKeyDown}
                   value={price}
@@ -252,19 +280,22 @@ export const InsertProductPage = () => {
             </div>
           </div>
 
-          <div className="promotion">
-            <h1 className="product-input-title">Desconto:</h1>
+          <div className={styles["promotion"]}>
+            <h1 className={styles["product-input-title"]}>Desconto:</h1>
             <ToggleSwitch />
           </div>
         </div>
 
-        <div className="insert-image-data">
-          <div className="product-quantity">
-            <h1 className="product-input-title">Quant. disponível:</h1>
+        <div className={styles["insert-image-data"]}>
+          <div className={styles["product-quantity"]}>
+            <h1 className={styles["product-input-title"]}>
+              Quant. disponível:
+            </h1>
             <input
-              className="product-input"
+              className={styles["product-input"]}
               id="available-quant"
               type="number"
+              name="available"
               min="0"
               max="100"
               step="1"
@@ -279,7 +310,7 @@ export const InsertProductPage = () => {
             subtext="Anexe uma imagem do produto que ficará visível ao cliente"
           />
 
-          <div className="register-button">
+          <div className={styles["register-button"]}>
             <GreenButton text="Cadastrar" onClick={handleClick} />
           </div>
         </div>
