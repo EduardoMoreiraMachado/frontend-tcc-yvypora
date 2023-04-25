@@ -3,9 +3,10 @@
     display: flex;
     justify-content: space-between;
     border: 2px solid #538D22;
-    border-radius: 15px;
-    padding: 30px;
+    border-radius: 10px;
+    padding: 20px;
     gap: 50px;
+    flex: none;
 }
 
 .bought-item-visual {

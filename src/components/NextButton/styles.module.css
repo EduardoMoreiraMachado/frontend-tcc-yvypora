@@ -11,6 +11,7 @@
     transition: all 1s;
     cursor: pointer;
     flex: none;
+    border: 1px solid #538D22;
 }
 
 .next-button-container:active {
