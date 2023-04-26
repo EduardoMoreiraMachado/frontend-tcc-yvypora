@@ -15,7 +15,7 @@ export const EntregadorLandingPage = () => {
         <div className={styles["entregador-landing-page-container"]}>
             <header id={styles['header-entregador']}>
                 <div className={styles['header-icon']} id={styles['default-header-icon']}>
-                    <img className={styles['text-icon']} src={YvyporaTextIcon} alt=''/>
+                    <img className='text-icon' src={YvyporaTextIcon} alt=''/>
                 </div>
                 <div className={styles["header-links"]}>
                     <a href='#benefits'>Vantagens</a>

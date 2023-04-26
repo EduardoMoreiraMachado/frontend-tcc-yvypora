@@ -10,7 +10,7 @@ import { Footer } from '../../components/Footer'
 export const NearbyFairs = () => {
     return(
         <div className={styles['nearby-fairs-container']}>
-            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+            <Header user={{picture_uri:""}}/>
             <Title text='Feiras próximas'/>
             <div className={styles['nearby-fairs-content']}>
                 <NavBar />

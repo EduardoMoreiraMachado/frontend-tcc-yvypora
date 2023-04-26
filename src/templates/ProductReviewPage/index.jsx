@@ -9,7 +9,7 @@ import { GreenButton } from '../../components/GreenButton'
 const ProductReviewPage = () => {
     return(
         <div className={styles['product-review-page-container']}>
-            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+            <Header user={{picture_uri:""}}/>
             <Title 
                 text='Compra #30495'
             />

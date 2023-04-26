@@ -36,6 +36,7 @@ export const CartPage = () => {
 
   return (
     <div className={styles["cartpage-container"]}>
+      <Header user={{picture_uri:""}}/>
       <Title text={"Meu Carrinho"} />
       <div className={styles["main-container-cart"]}>
         <NavBar />

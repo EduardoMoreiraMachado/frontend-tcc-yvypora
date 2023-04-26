@@ -97,7 +97,7 @@ export const UpdateConsumidorAccount = () => {
 
   return (
     <div className={styles["update-consumidor-account-container"]}>
-      <Header user={user} />
+      <Header user={{picture_uri:""}}/>
       <div className={styles["update-content"]}>
         <div className={styles["nav-bar"]}>
           <NavBar />

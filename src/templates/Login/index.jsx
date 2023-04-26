@@ -61,8 +61,8 @@ export const Login = () => {
   return (
     <div className={styles["login-container"]}>
       <header className="header-without-margins">
-        <div className={styles["header-icon"]}>
-          <img className={styles["icon-yvy"]} src={YvyporaTextIcon} alt="" />
+        <div className="header-icon">
+          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
         </div>
       </header>
       <div className={styles["login-content"]}>

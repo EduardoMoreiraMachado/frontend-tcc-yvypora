@@ -20,9 +20,7 @@ export const EditProfilePage = () => {
   }
   return (
     <div className={styles["edit-profile"]}>
-      <Header
-        user={JSON.parse(localStorage.getItem("user-details"))}
-      />
+      <Header user={{picture_uri:""}}/>
       <Title text={"Editar Perfil"} />
       <div className={styles["main-edit-profile"]}>
         <NavBar />

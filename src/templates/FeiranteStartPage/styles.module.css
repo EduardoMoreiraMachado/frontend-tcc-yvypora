@@ -13,6 +13,7 @@ header img {
 }
 
 .page-content {
+    min-height: 74vh;
     display: flex;
     justify-content: space-between;
 }

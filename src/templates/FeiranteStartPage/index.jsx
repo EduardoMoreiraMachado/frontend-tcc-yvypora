@@ -21,9 +21,7 @@ export const FeiranteStartPage = () => {
 
     return(
         <div className={styles['feirante-start-page-container']}>
-            <Header 
-                user={JSON.parse(localStorage.getItem("user-details"))}
-            />
+            <Header user={{picture_uri:""}}/>
             <div className={styles['page-content']}>
                 <NavBar />
                 <div className={styles['info-boxes']}>

@@ -1,4 +1,5 @@
 .address-page-content {
+    min-height: 74vh;
     display: flex;
     align-items: center;
 }

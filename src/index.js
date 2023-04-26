@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import '../src/styles/global-styles.css'
-import Page from '../src/templates/NearbyFairs'
+import Page from '../src/templates/ProfilePage'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

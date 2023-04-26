@@ -17,7 +17,7 @@ export const PurchasesHistoricPage = () => {
 
     return(
         <div className={styles['purchases-historic-page-container']}>
-            <Header user={JSON.parse(localStorage.getItem("user-details"))}/>
+            <Header user={{picture_uri:""}}/>
             <Title 
                 text='Histórico de compras'
             />

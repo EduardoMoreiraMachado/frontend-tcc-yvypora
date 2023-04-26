@@ -245,7 +245,7 @@ const containerStyle = {
     
     return(
         <div className={styles['my-order-page-container']}>
-            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+            <Header user={{picture_uri:""}}/>
             <div className={styles['my-order-data-container']}>
             <Title text='Meu pedido' />
             <div className={styles['my-order-content']}>   

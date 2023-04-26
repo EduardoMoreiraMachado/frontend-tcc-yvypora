@@ -168,7 +168,7 @@ export const InsertProductPage = () => {
 
   return (
     <div className={styles["insert-product-page"]}>
-      <Header user={user} />
+      <Header user={{picture_uri:""}}/>
       <Title text="Inserir um novo produto" />
 
       <div className={styles["data-containers"]}>
@@ -211,7 +211,6 @@ export const InsertProductPage = () => {
               rows="5"
               maxLength="200"
               id={styles["description"]}
-              id="description"
               name="description"
               onChange={handleChangeFields}
             />

@@ -19,9 +19,6 @@ export const ProfilePage = () => {
   return (
     <div className={"profile-main"}>
       <BurgerMenu />
-      {/* <Header 
-                
-            /> */}
       <EmptyHeader />
       <div className={styles["user-info"]}>
         <UserCard
@@ -38,11 +35,13 @@ export const ProfilePage = () => {
           <Option imgUrl={iconUser} text={"Perfil"} link={"/profile/edit"} />
           <Option imgUrl={iconMap} text={"Endereço"} link="/profile/address" />
           <Option imgUrl={iconCard} text={"Formas de Pagamento"} link={""} />
-          <Option
-            imgUrl={iconBag}
-            text={"Histórico de compra"}
-            link={"/profile/buy-history"}
-          />
+          <div id={styles['sign-out']}>
+            <Option
+              imgUrl={iconBag}
+              text={"Histórico de compra"}
+              link={"/profile/buy-history"}
+            />
+          </div>
           <ExitOption />
         </div>
       </div>
