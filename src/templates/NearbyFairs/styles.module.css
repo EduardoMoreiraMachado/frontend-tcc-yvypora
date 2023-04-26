@@ -30,3 +30,12 @@
     border-radius: 30px;
     background-color: aqua;
 }
+
+@media(max-width: 768px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

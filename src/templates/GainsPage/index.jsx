@@ -1,34 +1,55 @@
-import Title from '../../components/Title'
-import Chart from '../../components/Chart'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
-import GainsCard from '../../components/GainsCard'
 import styles from './styles.module.css'
 
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { Title } from '../../components/Title'
+import { Chart } from '../../components/Chart'
+
 export const GainsPage = () => {
-    return (
-        <div className={styles["gains-main-container"]}>
-             <Header 
-                imgUrl={'https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png'}
-            />
-            <Title text={'Relatório de ganhos/vendas'} />
-            <div className={styles["cards-gain"]}>
-                <div className={styles["daily-mensal-sales"]}>
-                    <GainsCard title="Hoje" data={"R$120.85"} />
-                    <GainsCard title="Semanal" data={"R$850.85"} />
-                </div>
-                <div className={styles["card-chart"]}>
-                    <GainsCard title="Mensal" data={"R$3120.85"} />
-                    <Chart/>
-                </div>
+    return(
+        <div className={styles['gains-page-container']}>
+            <Header user={{picture_uri:""}} />
+            <Title text="Relatório de ganhos e vendas"/>
+            <div className={styles['gains-content']}>
 
-                <div className={styles["sales-container"]}>
-                    <p className={styles['sales-container-title']}>Vendas</p>
-                    <div className={styles["sales-card"]}>
-                        <GainsCard title="Hoje" data={30} />
-                        <GainsCard title="Semanal" data={130} />
+                <div className={styles['gains']}>
+                    <h1>Ganhos</h1>
+                    <div className={styles['today']}>
+                        <h1>Hoje</h1>
+                        <div className={styles['value']}>
+                            <h2>R$ 120,00</h2>
+                            <span>+10% vs ontem</span>
+                        </div>
                     </div>
+                    <div className={styles['weekly']}>
+                        <h1>Semanal</h1>
+                        <div className={styles['value']}>
+                            <h2>R$ 850,60</h2>
+                            <span>+5% vs semana passada</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div className={styles['monthly']}>
+                    <h1>Mensal</h1>
+                    <Chart />
+                    <h2>Total</h2>
+                    <div className={styles['value']}>
+                        <h2>R$ 3050,60</h2>
+                        <span>+9% vs último mês</span>
+                    </div>
+                </div>
+
+                <div className={styles['sales']}>
+                    <h1>Vendas</h1>
+                    <div className={styles['today']}>
+                        <h1>Hoje</h1>
+                        <h2>30</h2>
+                    </div>
+                    <div className={styles['weekly']}>
+                        <h1>Semanal</h1>
+                        <h2>123</h2>
+                    </div>
                 </div>
 
             </div>
@@ -36,4 +57,5 @@ export const GainsPage = () => {
         </div>
     )
 }
+
 export default GainsPage

@@ -46,7 +46,7 @@ const data = [
   },
 ];
 
-export default function Chart() {
+export const Chart = () => {
   return (
     <div>
       <ResponsiveContainer width={600} height={500}>

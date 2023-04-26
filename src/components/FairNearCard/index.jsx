@@ -11,12 +11,12 @@ export const FairNearCard = ({
   note,
   dayWorkText,
   hourWorkText,
-  fairmanText,
+  fairmanText
 }) => {
   return (
     <div className={styles["main-card"]}>
       <div className={styles["card-container"]}>
-        <img src={img} alt="" className={styles["img-card"]} />
+        <div className={styles['img-card']} style={{backgroundImage: `url(${img})`}}></div>
         <div className={styles["content-container"]}>
           <div className={styles["header-card"]}>
             <h2>{title}</h2>
@@ -42,4 +42,5 @@ export const FairNearCard = ({
     </div>
   );
 };
+
 export default FairNearCard;
