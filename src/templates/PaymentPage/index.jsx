@@ -26,6 +26,7 @@ export const PaymentPage = () => {
 
     return(
         <div className={styles['payment-page-container']}>
+            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
             <div className={styles['payment-content']}>
 
                 <div className={styles['itens-info']}>

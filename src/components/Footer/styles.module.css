@@ -1,11 +1,13 @@
 footer {
+    position: absolute;
+    width: 100vw;
+    height: 13vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10vh;
+    padding: 0px 100px 0px 100px;
     background-color: #538D22;
     color: #fff;
-
 }
 
 .contacts-container {
