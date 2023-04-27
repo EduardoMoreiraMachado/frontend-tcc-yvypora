@@ -17,12 +17,6 @@
     align-items: center;
 }
 
-@media(max-width: 1190px) {
-    .profile-container {
-        min-height: 60vh;
-    }
-}
-
 @media (max-width: 768px) {
     #empty-header {
         display: flex;

@@ -107,9 +107,3 @@
 #call:active {
     background-color: #68b52a;
 }
-
-@media(max-width: 1190px) {
-    .my-order-data-container {
-        min-height: 60vh;
-    }
-}

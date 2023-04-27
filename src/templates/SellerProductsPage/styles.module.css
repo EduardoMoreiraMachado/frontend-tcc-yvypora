@@ -33,9 +33,3 @@
   padding: 3vh 10vw 3vh 10vw;
   justify-items: center;
 }
-
-@media(max-width: 1190px) {
-  .registered-products {
-    min-height: 60vh;
-  }
-}

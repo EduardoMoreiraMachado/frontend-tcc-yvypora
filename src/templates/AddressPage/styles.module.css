@@ -63,10 +63,4 @@
     display: flex;
     justify-content: center;
 }
-
-@media(max-width: 1190px) {
-    .address-page-content {
-        min-height: 60vh;
-    }
-}
  

@@ -173,12 +173,6 @@
     gap: 4vh;
 }
 
-@media(max-width: 1190px) {
-    .payment-content {
-        min-height: 60vh;
-    }
-}
-
 @media(max-width: 1100px) {
     .payment-content {
         flex-direction: column;

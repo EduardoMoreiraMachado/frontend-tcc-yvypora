@@ -72,14 +72,6 @@ footer {
 }
 
 @media(max-width: 1190px) {
-    footer {
-        height: 27vh;
-    }
-
-    .social-container {
-        flex-direction: column;
-    }
-
     .social-text {
         font-size: 15px;
         font-weight: 300;
@@ -99,7 +91,7 @@ footer {
     }
 }
 
-@media (max-width: 775px) {
+@media (max-width: 980px) {
     footer {
         height: auto;
         flex-direction: column;

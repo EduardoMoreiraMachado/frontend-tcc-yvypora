@@ -57,12 +57,6 @@
   display: none;
 }
 
-@media(max-width: 1190px) {
-  .page-content {
-    min-height: 60vh;
-  }
-}
-
 @media (max-width: 768px) {
   .prev-button-container,
   .next-button-container {

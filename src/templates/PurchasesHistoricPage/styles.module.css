@@ -85,9 +85,3 @@
     animation-name: fade;
     animation-duration: 0.5s;
 }
-
-@media(max-width: 1190px) {
-    .purchase-historic-content {
-        min-height: 60vh;
-    }
-}

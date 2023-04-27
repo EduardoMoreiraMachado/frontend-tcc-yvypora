@@ -56,12 +56,6 @@ footer {
     color: white;
 }
 
-@media(max-width: 1190px) {
-    .login-content {
-        min-height: 60vh;
-    }
-}
-
 @media (max-width: 768px) {
     .input-container {
         flex-direction: column;

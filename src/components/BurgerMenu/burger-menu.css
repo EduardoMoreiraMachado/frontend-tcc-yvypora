@@ -117,7 +117,7 @@
     width: 0px;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 980px) {
     .burger-menu-container {
         display: flex;
         position: absolute;
