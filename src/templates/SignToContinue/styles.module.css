@@ -41,3 +41,9 @@
     flex-direction: column;
     gap: 2vh;
 }
+
+@media(max-width: 1190px) {
+    .sign-to-continue-content {
+        min-height: 60vh;
+    }
+}

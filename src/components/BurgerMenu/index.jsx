@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import './burger-menu.css'
 
 import { useState } from "react";
 
@@ -10,20 +10,16 @@ export const BurgerMenu = () => {
   };
 
   return (
-    <div className={styles["burger-menu-container"]}>
+    <div className="burger-menu-container">
       <div
-        className={active ? styles["icon icon-active"] : styles["icon"]}
+        className={active ? "icon icon-active" : "icon"}
         onClick={toggleMode}
       >
-        <div className={styles["burger burger-icon"]}></div>
+        <div className="burger burger-icon"></div>
       </div>
-      <div
-        className={
-          active ? styles["menu menu-open"] : styles["menu menu-close"]
-        }
-      >
-        <div className={styles["list"]}>
-          <ul className={styles["list-items"]}>
+      <div className={active ? "menu menu-open" : "menu menu-close"}>
+        <div className="list">
+          <ul className="list-items">
             <li>Home</li>
             <li>Transmissões ao vivo</li>
             <li>Feiras próximas</li>

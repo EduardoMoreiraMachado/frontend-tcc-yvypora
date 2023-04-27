@@ -60,6 +60,12 @@ footer {
     color: #245501;
 }
 
+@media(max-width: 1190px) {
+    .welcome-container {
+        min-height: 60vh;
+    }
+}
+
 @media (max-width: 768px) {
     .header-icon {
         width: 100%;

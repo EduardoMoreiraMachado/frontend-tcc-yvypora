@@ -35,6 +35,8 @@ footer {
     font-size: 22px;
     font-weight: 300;
     text-align: center;
+    margin: 0px 50px;
+    white-space: nowrap;
 }
 
 .social-container {
@@ -69,14 +71,39 @@ footer {
     color: #fff
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1190px) {
+    footer {
+        height: 27vh;
+    }
+
+    .social-container {
+        flex-direction: column;
+    }
+
+    .social-text {
+        font-size: 15px;
+        font-weight: 300;
+    }
+    
+    .social-item {
+        width: 40px;
+        height: 40px;
+    }
+
+    .copyright-text {
+        font-size: 20px;
+    }
+
+    #social-icon {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 775px) {
     footer {
         height: auto;
         flex-direction: column;
-        padding-top: 100px;
-        padding-bottom: 100px;
-        padding-right: 90px;
-        padding-left: 90px;
+        padding: 40px 0px;
         gap: 50px;
     }
     
@@ -87,6 +114,10 @@ footer {
     
     .contact-item {
         gap: 24px;
+    }
+
+    .social-container {
+        flex-direction: row;
     }
     
     .social-text {

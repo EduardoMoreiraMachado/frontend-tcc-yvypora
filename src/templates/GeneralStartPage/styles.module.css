@@ -25,7 +25,7 @@
 
 .page-content {
   display: flex;
-  height: 78vh;
+  min-height: 74vh;
 }
 
 .products-container {
@@ -57,11 +57,13 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1190px) {
   .page-content {
-    height: 60vh;
+    min-height: 60vh;
   }
+}
 
+@media (max-width: 768px) {
   .prev-button-container,
   .next-button-container {
     display: none;
