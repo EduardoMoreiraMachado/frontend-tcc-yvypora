@@ -23,9 +23,16 @@
     transition: all 0s;
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1400px) {
     .green_button {
-        width: 50vw;
-        height: 10vh;
+        width: 170px;
+        height: 90px;
+    }    
+}
+
+@media(max-width: 768px) {
+    .green_button {
+        width: 150px;
+        height: 70px;
     }
 }

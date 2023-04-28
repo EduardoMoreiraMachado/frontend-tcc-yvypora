@@ -73,7 +73,15 @@ input[type='file'] {
     transition: all 0s;
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1400px) {
+    .image-button {
+        width: 150px;
+        height: 150px;
+        background-size: 80px;
+    }
+}
+
+@media(max-width: 768px) {
     .add-image-container {
         margin-top: 3vh;
     }

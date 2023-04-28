@@ -11,6 +11,8 @@
     align-items: center;
     padding-top: 5vh;
     padding-bottom: 5vh;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .insert-product-data {
@@ -114,7 +116,7 @@
     justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
     .data-containers {
         flex-direction: column;
     }

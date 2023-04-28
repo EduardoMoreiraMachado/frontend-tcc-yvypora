@@ -31,7 +31,7 @@
     background-color: aqua;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1850px) {
     .cards {
         display: flex;
         flex-direction: column;

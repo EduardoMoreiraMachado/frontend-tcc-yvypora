@@ -159,50 +159,51 @@ export const UpdateFeiranteAccount = () => {
   return (
     <div className={styles["update-feirante-account-container"]}>
       <Header user={{picture_uri:""}}/>
+      <Title text="Editar conta" />
       <div className={styles["update-content"]}>
         <div className={styles["nav-bar"]}>
           <NavBar />
         </div>
-        <div className={styles["update-inputs"]}>
-          <Title text="Editar conta" />
-          <DefaultInput name="Nome" type="text" inputRef={nameInput} />
-          <DefaultInput name="Email" type="email" inputRef={emailInput} />
-          <DefaultInput name="Senha" type="password" inputRef={passwordInput} />
-          <SpecialInput
-            inputRef={cpfInput}
-            name="cpf"
-            label="CPF"
-            mask="999.999.999-99"
-            value={values.cpf}
-            onChange={handleChange}
-          />
-          <SpecialInput
-            inputRef={phoneInput}
-            name="phone"
-            label="Telefone"
-            mask="(999) 9 9999-9999"
-            value={values.phone}
-            onChange={handleChange}
-          />
-          <DefaultInput
-            inputRef={tentNameInput}
-            name="Nome do estabelecimento"
-            type="text"
-          />
-          <SpecialInput
-            inputRef={birthdayInput}
-            name="date"
-            type="date"
-            label="Data de nascimento"
-            mask="99/99/9999"
-            value={values.date}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className={styles["green-button"]}>
-          <AddImage inputRef={imageInput} />
-          <GreenButton text="Salvar" onClick={handleClick} />
+        <div className={styles['info-inputs']}>
+          <div className={styles["update-inputs"]}>
+            <DefaultInput name="Nome" type="text" inputRef={nameInput} />
+            <DefaultInput name="Email" type="email" inputRef={emailInput} />
+            <DefaultInput name="Senha" type="password" inputRef={passwordInput} />
+            <SpecialInput
+              inputRef={cpfInput}
+              name="cpf"
+              label="CPF"
+              mask="999.999.999-99"
+              value={values.cpf}
+              onChange={handleChange}
+            />
+            <SpecialInput
+              inputRef={phoneInput}
+              name="phone"
+              label="Telefone"
+              mask="(999) 9 9999-9999"
+              value={values.phone}
+              onChange={handleChange}
+            />
+            <DefaultInput
+              inputRef={tentNameInput}
+              name="Nome do estabelecimento"
+              type="text"
+            />
+            <SpecialInput
+              inputRef={birthdayInput}
+              name="date"
+              type="date"
+              label="Data de nascimento"
+              mask="99/99/9999"
+              value={values.date}
+              onChange={handleChange}
+            />
+          </div>
+          <div className={styles["green-button"]}>
+            <AddImage inputRef={imageInput} />
+            <GreenButton text="Salvar" onClick={handleClick} />
+          </div>
         </div>
       </div>
       <Footer />

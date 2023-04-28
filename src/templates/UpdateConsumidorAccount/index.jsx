@@ -98,40 +98,42 @@ export const UpdateConsumidorAccount = () => {
   return (
     <div className={styles["update-consumidor-account-container"]}>
       <Header user={{picture_uri:""}}/>
+      <Title text="Editar conta" />
       <div className={styles["update-content"]}>
         <div className={styles["nav-bar"]}>
           <NavBar />
         </div>
-        <form className={styles["update-inputs"]}>
-          <Title text="Editar conta" />
-          <DefaultInput name="Nome" type="text" onChange={handleChangeFields} />
-          <DefaultInput
-            name="Email"
-            type="email"
-            onChange={handleChangeFields}
-          />
-          <DefaultInput
-            name="Senha"
-            type="password"
-            onChange={handleChangeFields}
-          />
-          <SpecialInput
-            name="cpf"
-            label="CPF"
-            mask="999.999.999-99"
-            value={values.cpf}
-            onChange={handleChange}
-            inputRef={inputCpf}
-          />
-          <DefaultInput
-            name="Data de nascimento"
-            type="date"
-            onChange={handleChangeFields}
-          />
-        </form>
-        <div className={styles["green-button"]}>
-          <AddImage inputRef={inputImage}/>
-          <GreenButton onClick={handleClick} text="Salvar" />
+        <div className={styles['info-inputs']}>
+          <form className={styles["update-inputs"]}>
+            <DefaultInput name="Nome" type="text" onChange={handleChangeFields} />
+            <DefaultInput
+              name="Email"
+              type="email"
+              onChange={handleChangeFields}
+            />
+            <DefaultInput
+              name="Senha"
+              type="password"
+              onChange={handleChangeFields}
+            />
+            <SpecialInput
+              name="cpf"
+              label="CPF"
+              mask="999.999.999-99"
+              value={values.cpf}
+              onChange={handleChange}
+              inputRef={inputCpf}
+            />
+            <DefaultInput
+              name="Data de nascimento"
+              type="date"
+              onChange={handleChangeFields}
+            />
+          </form>
+          <div className={styles["green-button"]}>
+            <AddImage inputRef={inputImage} />
+            <GreenButton onClick={handleClick} text="Salvar" />
+          </div>
         </div>
       </div>
       <Footer />

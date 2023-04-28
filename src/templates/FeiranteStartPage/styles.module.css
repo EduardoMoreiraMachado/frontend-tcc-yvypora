@@ -13,17 +13,20 @@ header img {
 }
 
 .page-content {
-    min-height: 74vh;
+    min-height: 64vh;
     display: flex;
     justify-content: space-between;
+}
+
+.nav-bar {
+    width: 25%;
 }
 
 .info-boxes {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10vw;
+    padding-right: 50px;
 }
 
 .add-products-or-fairs {
@@ -170,7 +173,7 @@ header img {
     cursor: pointer;
 }
 
-@media (max-width: 1420px) {
+@media(max-width: 1420px) {
     .info-boxes {
         flex-direction: column;
         gap: 4vh;
@@ -188,7 +191,13 @@ header img {
 
 }
 
-@media (max-width: 768px) {
+@media(max-width: 980px) {
+    .nav-bar {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
     .add-products-or-fairs {
         box-shadow: none;
         padding: 0px;
