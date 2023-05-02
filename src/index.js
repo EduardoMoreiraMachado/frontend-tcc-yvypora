@@ -62,7 +62,6 @@ root.render(
      <Route path='/product/marketer' element={<SellerProductPage/>}/>
      <Route path='/delivery' element={<EntregadorLandingPage/>}/>
      <Route path='/order/track' element={<MyOrderPage />} />
-     
    </Routes>
    </BrowserRouter>   
  </React.StrictMode>
