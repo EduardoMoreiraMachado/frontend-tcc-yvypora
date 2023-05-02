@@ -1,5 +1,5 @@
 .special-input-container {
-    width: fit-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
     color: #245501;

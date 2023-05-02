@@ -1,18 +1,10 @@
-/* header {
-    margin-bottom: 0vh;
-}
-
-footer {
-    margin-top: 0vh;
-} */
-
 .type-user-select-container {
     display: flex;
     flex-direction: column;
 }
 
 .welcome-container {
-    min-height: 78vh;
+    min-height: 74vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +40,7 @@ footer {
 }
 
 .user-select {
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,12 +48,23 @@ footer {
 }
 
 .user-select-text {
-    max-width: 24vw;
+    width: 100%;
     font-weight: 400;
+    text-align: end;
     color: #245501;
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1775px) {
+    .welcome-message {
+        width: 30vw;
+    }
+
+    .welcome-image {
+        width: 35vw;
+    }
+}
+
+@media(max-width: 1190px) {
     .header-icon {
         width: 100%;
         display: flex;
@@ -82,11 +86,11 @@ footer {
     
     .welcome-text {
         width: 70vw;
-        font-size: 2rem;
+        font-size: 3rem;
     }
     
     .welcome-image {
-        width: 100vw;
+        width: 50vw;
     }
     
     .user-select {
@@ -98,8 +102,19 @@ footer {
     }
     
     .user-select-text {
-        min-width: 70%;
-        font-size: 1.7rem;
+        width: fit-content;
+        font-size: 2.3rem;
         color: #245501;
+    }
+}
+
+@media(max-width: 768px) {
+    .welcome-image {
+        width: 100vw;
+        height: 50vh;
+    }
+
+    .user-select-text {
+        text-align: center;
     }
 }

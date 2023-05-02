@@ -1,4 +1,7 @@
 .nav-bar-container {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
     background-color:#538D22;
     border-radius:  0px 25px 25px 0px;
     display: flex;
@@ -8,17 +11,16 @@
     width: 150px;
     justify-content: space-evenly;
 }
-.menu-burguer-container{
+
+.menu-burguer-container {
     display: none;
 }
 
-.nav{
-    background-color: tomato;
+.nav {
     height: fit-content;
-
 }
 
-.upper-nav{
+.upper-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +28,7 @@
     height: 100%;
 }
 
-.lower-nav{
+.lower-nav {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -55,12 +57,12 @@
     transition: all 0s;
 }
 
-.page-icon{
+.page-icon {
     width: 30px;
     height: 30px;
 }
 
-.button-container{
+.button-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -69,7 +71,7 @@
     height: 50%;
 }
 
-@media (max-width:768px) {
+@media (max-width: 980px) {
     .nav-bar-container{
         display: none;
     }

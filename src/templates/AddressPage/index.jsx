@@ -21,7 +21,7 @@ export const AddressPage = () => {
 
   return (
     <div className={styles["address-page-container"]}>
-      <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+      <Header user={{picture_uri:""}}/>
       <Title text="Endereços" />
       <div className={styles["address-page-content"]}>
         <NavBar />

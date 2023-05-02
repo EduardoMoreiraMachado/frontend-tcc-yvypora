@@ -61,7 +61,7 @@ export const SearchPage = ({ context, category }) => {
 
   return (
     <>
-      <Header user={user}></Header>
+      <Header user={{picture_uri:""}}/>
       <div className={styles["text-input-wrapper"]}>
         <SearchInput
           onChange={onValueChange}

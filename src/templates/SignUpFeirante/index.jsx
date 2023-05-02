@@ -142,8 +142,8 @@ export const SignUpFeirante = () => {
   return (
     <div className={styles["main-cadastro"]}>
       <header>
-        <div className={styles["header-icon"]}>
-          <img className={styles["icon-yvy"]} src={YvyporaTextIcon} alt="" />
+        <div className="header-icon">
+          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
         </div>
       </header>
       <Title text="Cadastre-se" />

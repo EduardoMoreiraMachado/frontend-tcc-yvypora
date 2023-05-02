@@ -37,7 +37,7 @@ export const ProductPage = () => {
 
   const MainPage = () => (
     <div className={styles["product-page-container"]}>
-      {user ? <Header user={user} /> : <SignHeader />}
+      {user ? <Header user={{picture_uri:""}}/> : <SignHeader />}
       <div className={styles["product-containers"]}>
         <NavBar />
         <div className={styles["product-info"]}>

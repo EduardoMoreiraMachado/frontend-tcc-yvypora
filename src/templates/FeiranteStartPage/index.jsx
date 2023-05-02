@@ -21,11 +21,11 @@ export const FeiranteStartPage = () => {
 
     return(
         <div className={styles['feirante-start-page-container']}>
-            <Header 
-                user={JSON.parse(localStorage.getItem("user-details"))}
-            />
+            <Header user={{picture_uri:""}}/>
             <div className={styles['page-content']}>
-                <NavBar />
+                <div className={styles['nav-bar']}>
+                    <NavBar />
+                </div>
                 <div className={styles['info-boxes']}>
                     <div className={styles['add-products-or-fairs']}>
                         <h1>COMECE A FATURAR COM A YVYPORÃ HOJE!</h1>

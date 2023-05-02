@@ -1,23 +1,279 @@
-.options-payment-container{
-    background-color: antiquewhite;
+.payment-content {
+    min-height: 74vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 100px 0px 100px;    
+}
+
+.itens-info {
+    width: 50%;
     display: flex;
     flex-direction: column;
+    gap: 5vh;
+}
+
+.address-card {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-header h1 {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: #143601;
+    padding-bottom: 10px;
+}
+
+.card-header a {
+    font-size: 1.1rem;
+    text-decoration: underline;
+    color: #245501;
+    padding-right: 15px;
+}
+
+.card-header a:active {
+    color: #AAD576;
+}
+
+.card-main {
+    background-color: #AAD576;
+    color: #245501;
+    padding: 20px;
+    border-radius: 0px 15px;
+}
+
+.card-main h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.card-main p {
+    font-size: 1rem;
+    width: 300px;
+}
+
+.historic {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.purchase {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-purchase-info {
+    width: fit-content;
+    display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    height: 70vh;
+    gap: 20px; 
+    padding: 20px;
+}
+
+.purchase-image {
+    width: 170px;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.purchase-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.purchase-info h1 {
     font-size: 2rem;
-    color: #143601;    
+    font-weight: 400;
+    color: #538D22;
 }
-.credit-card-container{
+
+.purchase-info h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #538D22;
+}
+
+.purchase-info span {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #538D22;
+}
+
+.purchase-products {
+    width: 50vw;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1vw;
+}
+
+.purchase-products::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 10px;
+}
+
+.payment-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: space-between;
-    height:25vh;
+    align-items: center;
 }
-.others-container{
+
+.payment-texts {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    border: 2px solid #538D22;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.payment-texts span {
+    font-size: 2rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.payment-texts p {
+    display: flex;
+    font-size: 2.5rem;
+    font-weight: 700;
+    gap: 20px;
+    padding-top: 4vh;
+    white-space: nowrap;
+}
+
+.payment-texts h1 {
+    font-size: 2.5rem;
+    color: #538D22;
+    white-space: nowrap;
+}
+
+.confirm-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+@media(max-width: 1100px) {
+    .payment-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 20px 0px 20px;
+        gap: 10vh;
+    }
+
+    .itens-info {
+        width: 100%;
+    }
+
+    .address-card {
+        width: fit-content;
+    }
+
+    .card-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-header a {
+        font-size: 1rem;
+    }
+
+    .card-main h1 {
+        font-size: 1.3rem;
+    }
+
+    .card-main p {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+
+
+
+
+    .main-purchase-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+
+
+
+    .purchase-products {
+        width: 80vw;
+    }
+
+    .payment-info {
+        justify-content: center;
+        gap: 4vh;
+    }
+
+    .payment-texts {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #538D22;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .payment-texts span {
+        font-size: 2rem;
+        
+    }
+
+    .payment-texts p {
+        font-size: 3rem;
+    }
+
+    .payment-texts h1 {
+        font-size: 3rem;
+    }
+}
+
+@media(max-width: 400px) {
+    .address-card {
+        width: 100%;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .payment-info {
+        justify-content: center;
+        gap: 4vh;
+    }
+
+    .payment-texts span {
+        font-size: 1.3rem;
+        
+    }
+
+    .payment-texts p {
+        font-size: 2rem;
+    }
+
+    .payment-texts h1 {
+        font-size: 2rem;
+    }
 }

@@ -37,16 +37,19 @@ code {
 }
 
 header {
+  height: 13vh;
   margin-bottom: 5vh;
   background-color: #aad5764a;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3vh 5vw 3vh 5vw;
+  padding: 0px 100px 0px 100px;
 }
+
 .header-without-margins {
   margin-bottom: 0;
 }
+
 .footer-without-margins {
   margin-top: 0;
 }

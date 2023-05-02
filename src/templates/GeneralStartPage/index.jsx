@@ -124,11 +124,11 @@ export const GeneralStartPage = () => {
       <MenuBurguer />
       {user ? (
         <>
-          <Header user={user}></Header>
+          <Header user={{picture_uri:""}}/>
         </>
       ) : (
         <>
-          <SignHeader></SignHeader>
+          <SignHeader />
         </>
       )}
       <div className={styles["page-content"]}>

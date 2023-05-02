@@ -1,0 +1,23 @@
+.options-payment-container{
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70vh;
+    font-size: 2rem;
+    color: #143601;    
+}
+.credit-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height:25vh;
+}
+.others-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}

@@ -24,7 +24,7 @@ export const SellerProductsPage = () => {
 
   return (
     <div className="seller-products-page-container">
-      <Header user={user}></Header>
+      <Header user={{picture_uri:""}}/>
       <div className={styles["float-button"]}>
         {onHoverBtn && (<h2 className={styles["text-hidden"]}>Adicionar Produto</h2>)}
         <img

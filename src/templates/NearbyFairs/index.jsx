@@ -4,13 +4,13 @@ import { Header } from '../../components/Header'
 import { Title } from '../../components/Title'
 import { NavBar } from '../../components/NavBar'
 import { FairNearCard } from '../../components/FairNearCard'
-import { MyComponent } from '../../components/Maps'
+import { Maps } from '../../components/Maps'
 import { Footer } from '../../components/Footer'
 
 export const NearbyFairs = () => {
     return(
         <div className={styles['nearby-fairs-container']}>
-            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+            <Header user={{picture_uri:""}}/>
             <Title text='Feiras próximas'/>
             <div className={styles['nearby-fairs-content']}>
                 <NavBar />
@@ -77,7 +77,9 @@ export const NearbyFairs = () => {
                             fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
                         />
                     </div>
-                    <MyComponent />
+                    <div className={styles['map-container']}>
+                        <Maps />
+                    </div>
                 </div>
             </div>
             <Footer />

@@ -6,11 +6,6 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 
-const containerStyle = {
-  width: "80%",
-  height: "400px",
-};
-
 const locations = [
   { lat: -31.56391, lng: 147.154312 },
   { lat: -33.718234, lng: 150.363181 },
@@ -42,7 +37,13 @@ const center = {
   lng: -46.6388,
 };
 
-export function MyComponent() {
+export function Maps() {
+
+  const containerStyle = {
+    width: '50vw',
+    height: '50vh'
+  };
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyCQfb1qbVCwR8biTe469v_uBuVWaO9JxtY",
@@ -105,4 +106,4 @@ export function MyComponent() {
   );
 }
 
-export default React.memo(MyComponent);
+export default React.memo(Maps);

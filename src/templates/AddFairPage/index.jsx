@@ -159,7 +159,7 @@ export const AddFairPage = () => {
 
   return (
     <div className={styles["add-fair-page-container"]}>
-      <Header user={user} />
+      <Header user={{picture_uri:""}}/>
       <TitleSubtitle
         text={"Escolha o local"}
         subtitle="Insira as feiras onde seus produtos serão vendidos"

@@ -16,7 +16,7 @@ export const FairPage = () => {
 
   return (
     <div className={styles["registered-fairs-page"]}>
-      <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+      <Header user={{picture_uri:""}}/>
       <div className={styles["fairs-content"]}>
         <NavBar />
         <div className={styles["fairs-list"]}>

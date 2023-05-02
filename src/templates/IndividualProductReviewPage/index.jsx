@@ -10,7 +10,7 @@ import { GreenButton } from '../../components/GreenButton'
 const IndividualProductReviewPage = () => {
     return(
         <div className={styles["individual-product-review-page-container"]}>
-            <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+            <Header user={{picture_uri:""}}/>
             <TitleSubtitle
                 text='Compra #30495'
                 subtitle='Nota dos produtos'

@@ -7,7 +7,7 @@
 }
 
 .sign-to-continue-content {
-    height: 78vh;
+    height: 74vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,4 +40,10 @@
     display: flex;
     flex-direction: column;
     gap: 2vh;
+}
+
+@media(max-width: 920px) {
+    .message-box h1 {
+        width: 50vw;
+    }
 }

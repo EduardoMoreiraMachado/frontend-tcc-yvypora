@@ -11,10 +11,10 @@ export const NavBar = () => {
   return (
     <div className={styles["nav-bar-container"]}>
       <div className={styles["upper-nav"]}>
-        <a className={styles["bar-image menu-item"]} href="/">
+        <a className={styles["bar-image"]} href="/">
           <img src={HomeImg} alt="" className={styles["page-icon"]} />
         </a>
-        <a className={styles["bar-image menu-item"]} href="#">
+        <a className={styles["bar-image"]} href="#">
           <img src={VideoImg} alt="" className={styles["page-icon"]} />
         </a>
       </div>
@@ -23,10 +23,10 @@ export const NavBar = () => {
       </div>
 
       <div className={styles["lower-nav"]}>
-        <a className={styles["bar-image menu-item"]} href="/fair-near">
+        <a className={styles["bar-image"]} href="/fair-near">
           <img src={FairImg} alt="" className={styles["page-icon"]} />
         </a>
-        <a className={styles["bar-image menu-item"]} href="/profile">
+        <a className={styles["bar-image"]} href="/profile">
           <img src={ProfileImg} alt="" className={styles["page-icon"]} />
         </a>
       </div>

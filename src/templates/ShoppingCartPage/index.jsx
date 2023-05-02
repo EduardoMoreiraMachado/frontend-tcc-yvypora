@@ -8,7 +8,7 @@ import { ShoppingCartItem } from "../../components/ShoppingCartItem";
 export const ShoppingCartPage = () => {
   return (
     <div className={styles["shopping-cart-page-container"]}>
-      <Header user={JSON.parse(localStorage.getItem("user-details"))} />
+      <Header user={{picture_uri:""}}/>
       <div className={styles["cart-page-content"]}>
         <NavBar />
         <div className={styles["selected-products"]}>

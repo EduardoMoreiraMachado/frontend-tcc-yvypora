@@ -1,67 +1,129 @@
-.gains-main-container{
-    /* width: fit-content; */
+.gains-content {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.cards-gain{
-    display: flex; 
-    justify-content: space-evenly;
-    align-items: center; 
-    width:100%;
-    height: 80vh;
-}
-.cards-gain-disabled{
-    display: flex; 
-    justify-content: space-evenly;
-    align-items: center; 
-    width: 100%;
-    height: 80vh;
-}
-.daily-mensal-sales{
+.gains,
+.sales {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
+    justify-content: space-between;
 }
-.sales-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-.sales-container-title{
+
+#container-title {
     font-weight: 400;
-    font-size: 3rem;
     color: #3D6139;
 }
-.sales-card{
+
+.monthly {
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.monthly h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+#total {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #7D7D7D;
+}
+
+.value {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.value h2 {
+    font-size: 2.3rem;
+    font-weight: 400;
+    color: #245501;
+}
+
+.value span {
+    display: flex;
+    flex-direction: column;
+    color: #7D7D7D;
+}
+
+.today,
+.weekly {
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    height: 91%;
+    gap: 20px;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
 }
 
-@media(max-width:1264px){
-    .cards-gain{
-        display: flex;
+.today h1,
+.weekly h1 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.today h2,
+.weekly h2 {
+    font-size: 3rem;
+    color: #245501;
+}
+
+@media(max-width: 1230px) {
+    .gains-content {
         flex-direction: column;
         align-items: center;
+        gap: 10vh;
+    }
+
+    .gains,
+    .monthly,
+    .sales {
+        gap: 4vh;
+    }
+}
+
+@media(max-width: 768px) {
+    .monthly {
+        padding: 20px 10px;
+    }
+
+    .monthly h1 {
+        font-size: 2rem;
+    }
+
+    #total {
+        font-size: 1rem;
+    }
+
+    .value h2 {
+        font-size: 2rem;
+    }
+
+    .value span {
+        font-size: 0.8rem;
+    }
+
+    .today,
+    .weekly {
         width: 100%;
-        height: fit-content;
-        gap: 30px;        
+        gap: 20px;
+        padding: 10px 20px;
     }
-    .daily-mensal-sales{
-        height: 50vh;
+
+    .today h1,
+    .weekly h1 {
+        font-size: 1.7rem;
     }
-    .sales-container{
-        height:50vh;
-        justify-content: space-evenly;
+
+    .today h2,
+    .weekly h2 {
+        font-size: 2.7rem;
     }
-    .sales-card{
-        display: flex;
-        height: 100%;
-        justify-content: space-evenly;
-    }
-    
-}   
+}

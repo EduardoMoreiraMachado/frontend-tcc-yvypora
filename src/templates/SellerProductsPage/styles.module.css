@@ -28,7 +28,7 @@
 
 .registered-products {
   display: grid;
-  height: calc(100vh - 554px);
+  min-height: 74vh;
   grid-template-columns: 1fr 1fr;
   padding: 3vh 10vw 3vh 10vw;
   justify-items: center;

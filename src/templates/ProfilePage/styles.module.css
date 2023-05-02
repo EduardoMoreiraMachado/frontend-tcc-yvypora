@@ -2,7 +2,7 @@
     display: none;
 }
 
-.user-info{
+.user-info {
     width: 100%;
     position: absolute;
     display: flex;
@@ -11,10 +11,10 @@
     justify-content: center;
 }
 
-.profile-container{
+.profile-container {
+    min-height: 74vh;
     display: flex;
     align-items: center;
-    
 }
 
 @media (max-width: 768px) {
