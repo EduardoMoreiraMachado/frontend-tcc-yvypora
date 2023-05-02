@@ -16,6 +16,25 @@ export const SellerProduct = ({
 }) => {
   const [itemCount, setItemCount] = useState(available_quantity);
 
+  const pauseProduct = async () => {
+
+  }
+  const startProduct = async () => {
+    
+  }
+
+  const update = async () => {
+
+  }
+
+  const delete = async () => {
+
+  }
+
+  useEffect(() => {
+    // TODO update each time the item count changes
+  }, [itemCount])
+
   return (
     <div className={styles["seller-product-container"]}>
       <div className={styles["product-data"]}>

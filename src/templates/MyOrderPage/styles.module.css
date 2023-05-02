@@ -1,8 +1,15 @@
 .my-order-data-container {
     height: 74vh;
 }
-
+.my-order-content {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
 .delivery-man-card {
+    position: relative;
+    top: 10;
+    right: 10;
     display: flex;
     flex-direction: column;
     width: fit-content;

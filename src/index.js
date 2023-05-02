@@ -1,8 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import '../src/styles/global-styles.css'
-import Page from '../src/templates/PurchasesHistoricPage'
+import './styles/global-styles.css';
+import { InsertProductPage } from './templates/InsertProductPage'
+import { ProductPage } from './templates/ProductPage'
+import { AddAdressPage } from './templates/AddAddressPage'
+import { AddFairPage } from './templates/AddFairPage'
+import { FairPage } from './templates/FairPage'
+import GeneralStartPage from './templates/GeneralStartPage'
+import FeiranteStartPage from './templates/FeiranteStartPage'
+import Login from './templates/Login'
+import FairNear from './templates/NearbyFairs'
+import SearchPage from './templates/SearchPage';
+import ProfilePage from './templates/ProfilePage';
+import BuyHistory from './templates/PurchasesHistoricPage';
+import TypeUserSelect from './templates/TypeUserSelect';
+import CartPage from './templates/CartPage';
+import EntregadorLandingPage from './templates/EntregadorLandingPage';
+import GainsPage from './templates/GainsPage';
+import ShoppingCartPage from './templates/ShoppingCartPage';
+import AddressPage from './templates/AddressPage';
+import SellerProductPage from './templates/SellerProductsPage';
+import EditProfilePage from './templates/EditProfilePage';
+import SignToContinue from './templates/SignToContinue'
+import SignUpConsumidor from './templates/SignUpConsumidor'
+import SignUpFeirante from './templates/SignUpFeirante'
+import UpdateFeiranteAccount from './templates/UpdateFeiranteAccount'
+import UpdateConsumidorAccount from './templates/UpdateConsumidorAccount'
+import MyOrderPage from './templates/MyOrderPage'
+
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -36,6 +62,7 @@ root.render(
      <Route path='/product/marketer' element={<SellerProductPage/>}/>
      <Route path='/delivery' element={<EntregadorLandingPage/>}/>
      <Route path='/order/track' element={<MyOrderPage />} />
+     
    </Routes>
    </BrowserRouter>   
  </React.StrictMode>

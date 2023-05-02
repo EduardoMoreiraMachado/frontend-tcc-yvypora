@@ -37,8 +37,7 @@ export const SellerProductsPage = () => {
       </div>
 
       <div className={styles["registered-products"]}>
-        {listOfProducts.map((product) => {
-          console.log(product);
+        {listOfProducts.map((product) => {;
           return (
             <SellerProduct
               name={product.name}
