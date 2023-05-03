@@ -37,12 +37,9 @@ export const socket = io("http://localhost:3337", {
 });
 
 
-<<<<<<< HEAD
-=======
 console.log(socket);
 
 socket.on("travel_accepted", async (data) => {
   localStorage.setItem("current_travel", JSON.stringify(data));
   await notify("success", "Entregador Encontrado!");
 });
->>>>>>> f7f04c5 (add)

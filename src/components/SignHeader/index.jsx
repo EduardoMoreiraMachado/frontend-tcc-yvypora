@@ -2,7 +2,7 @@ import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg'
 
 export const SignHeader = () => {
     return (
-        <header>
+        <header id='sign-header'>
             <div className='header-icon'>
                 <img className='text-icon' src={YvyporaTextIcon} alt=''/>
             </div>
