@@ -1,7 +1,6 @@
 import styles from './styles.module.css'
 
 import { Header } from '../../components/Header'
-import { BurgerMenu } from '../../components/BurgerMenuTest'
 import { Footer } from '../../components/Footer'
 import { Title } from '../../components/Title'
 import { NavBar } from '../../components/NavBar'
@@ -12,7 +11,6 @@ export const PurchasesHistoricPage = () => {
     return(
         <div className={styles['purchases-historic-page-container']}>
             <Header user={{picture_uri:"https://upload.wikimedia.org/wikipedia/en/0/03/Walter_White_S5B.png"}}/>
-            <BurgerMenu />
             <Title 
                 text='Histórico de compras'
             />

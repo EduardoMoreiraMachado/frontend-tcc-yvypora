@@ -10,7 +10,7 @@
 }
 
 .fair-image {
-    width: 200px;
+    width: 250px;
     height: 200px;
 }
 
@@ -24,7 +24,7 @@
 .fair-info {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 15px;
 }
 
 .name {

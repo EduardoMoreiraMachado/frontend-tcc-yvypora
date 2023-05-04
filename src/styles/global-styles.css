@@ -73,6 +73,10 @@ select {
   background-color: transparent;
 }
 
+#burger-menu-container {
+  display: none;
+}
+
 .button-add-image-container {
   height: 100%;
   display: flex;
@@ -272,26 +276,18 @@ select {
 }
 
 @media (max-width: 980px) {
+  #burger-menu-container {
+    display: flex;
+  }
+
   header {
+    position: relative;
     padding: 0px 50px 0px 50px;
-    justify-content: center;
-  }
-  
-  .header-icon {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
   }
 
-  .header-user-image {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
 
-  .sign-container {
-    width: 100%;
-    justify-content: flex-end;
+  #sign-header .text-icon {
+    display: none;
   }
 }
 
@@ -329,9 +325,5 @@ select {
 @media(max-width: 600px) {
   #sign-header {
     padding: 0px 20px 0px 20px;
-  }
-
-  #sign-header .text-icon {
-    width: 40px;
   }
 }

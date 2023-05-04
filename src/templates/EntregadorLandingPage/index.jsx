@@ -29,7 +29,7 @@ export const EntregadorLandingPage = () => {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.</p>
                 </div>
             </div>
-            <div className={styles["benefits-content"]} id={styles['benefits']}>
+            <div className={styles["benefits-content"]} id='benefits'>
                 <h1>Vantagens</h1>
                 <div className={styles['benefits']}>
                     <div className={styles['benefit']}>
@@ -50,7 +50,7 @@ export const EntregadorLandingPage = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles["info-content"]} id={styles['info']}>
+            <div className={styles["info-content"]} id='info'>
                 <h1>Entregas</h1>
                 <div className={'options-container'}>
                     <MoreTextOption 
@@ -75,7 +75,7 @@ export const EntregadorLandingPage = () => {
                     />
                 </div>
             </div>
-            <div className={styles["about-content"]} id={styles['about']}>
+            <div className={styles["about-content"]} id='about'>
                 <h1>Sobre a plataforma</h1>
                 <div className={styles['about-texts']}>
                     <div className={styles['about-text']}>

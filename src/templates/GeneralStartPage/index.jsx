@@ -12,7 +12,7 @@ import { PrevButton } from "../../components/PrevButton";
 import { ShoppingItem } from "../../components/ShoppingItem";
 import { Footer } from "../../components/Footer";
 import { SearchInput } from "../../components/SearchInput";
-import MenuBurguer from "../../components/MenuBurguer";
+
 import {
   listProductNearToClient,
   listProducts,
@@ -121,7 +121,6 @@ export const GeneralStartPage = () => {
   return (
     <div className={styles["general-start-page-container"]}>
       <div className={isInputFocused ? styles["background"] : ""} />
-      <MenuBurguer />
       {user ? (
         <>
           <Header user={{picture_uri:""}}/>

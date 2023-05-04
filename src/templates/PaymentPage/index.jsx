@@ -114,8 +114,8 @@ export const PaymentPage = () => {
 
                 <div className={styles['payment-info']}>
                     <div className={styles['payment-texts']}>
-                        <span>Subtotal: R$ 48,00</span>
-                        <span>Taxa de entrega: R$ 8,32</span>
+                        <span>Subtotal: <h2>R$ 48,00</h2></span>
+                        <span>Taxa de entrega: <h2>R$ 8,32</h2></span>
                         <p>Total: <h1>R$ 56,32</h1></p>
                     </div>  
                     <div className={styles['confirm-buttons']}>

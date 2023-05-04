@@ -2,7 +2,6 @@ import { ButtonCart } from "../ButtonCart";
 import styles from "./styles.module.css";
 
 import HomeImg from "../../imgs/home.svg";
-
 import VideoImg from "../../imgs/video.svg";
 import FairImg from "../../imgs/fair.svg";
 import ProfileImg from "../../imgs/profile.svg";

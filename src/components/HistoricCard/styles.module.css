@@ -104,5 +104,20 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    
+    .purchase-image {
+        width: 150px;
+        height: 100px;
+    }
+
+    .purchase-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .purchase-info h2 {
+        font-size: 1rem;
+    }
+
+    .purchase-info span {
+        font-size: 1rem;
+    }
 }

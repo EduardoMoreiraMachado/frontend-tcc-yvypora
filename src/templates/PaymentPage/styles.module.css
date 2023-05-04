@@ -147,9 +147,15 @@
 }
 
 .payment-texts span {
+    display: flex;
+    font-size: 2rem;
+    white-space: nowrap;
+    gap: 20px;
+}
+
+.payment-texts span h2 {
     font-size: 2rem;
     font-weight: 700;
-    white-space: nowrap;
 }
 
 .payment-texts p {

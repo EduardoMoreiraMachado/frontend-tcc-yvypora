@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import Page from '../src/templates/PurchasesHistoricPage'
+import Page from '../src/templates/UpdateFeiranteAccount'
 import '../src/styles/global-styles.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
