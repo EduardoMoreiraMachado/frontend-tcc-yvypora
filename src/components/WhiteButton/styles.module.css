@@ -14,12 +14,12 @@
 }
 
 .white_button:hover {
-    background-color: #e3ffca;
+    background-color: #eeeeee;
     transition: all 0.3s;  
 }
 
 .white_button:active {
-    background-color: #c9ff8c;
+    background-color: #d2d2d2;
     transition: all 0s;
 }
 

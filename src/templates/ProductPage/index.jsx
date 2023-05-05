@@ -14,11 +14,7 @@ import Loading from "../../components/Loading";
 import { getProduct } from "../../utils/fetchs/Costumer/products";
 import { addProduct } from "../../utils/cart";
 
-function calculateResult(num1, num2) {
-  const result = (num1 * num2).toFixed(2);
-  const updatedResult = result.toString().replace(/\./g, ",");
-  return updatedResult;
-}
+import { calculateResult } from '../../utils/calcFunctions'
 
 export const ProductPage = () => {
   const [user, _setUser] = useState(JSON.parse(localStorage.getItem("user-details")));
@@ -34,7 +30,7 @@ export const ProductPage = () => {
       setData(data);
     });
   }, [id]);
-
+  
   const MainPage = () => (
     <div className={styles["product-page-container"]}>
       {user ? <Header user={{picture_uri:""}}/> : <SignHeader />}

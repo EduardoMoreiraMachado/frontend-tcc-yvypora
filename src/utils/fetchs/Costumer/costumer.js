@@ -19,7 +19,6 @@ export const addAddressToCostumer = async (address, id) => {
   const { data } = await commonsAPI.put(`register/costumer/address/${id}`, {
     address,
   });
-
   return data;
 };
 
@@ -29,6 +28,7 @@ export const listAddresses = async () => {
       Authorization: `Bearer ${localStorage.getItem("user-logged-token")}`,
     },
   });
-
   return data;
 };
+
+

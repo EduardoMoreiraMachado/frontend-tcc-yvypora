@@ -135,7 +135,7 @@ header img {
     height: fit-content;
     padding-bottom: 0vh;
     border-radius: 10px;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .money-visibility button {
@@ -147,7 +147,7 @@ header img {
     background-repeat: no-repeat;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .money-visibility button:active {

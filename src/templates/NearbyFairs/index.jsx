@@ -1,17 +1,18 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
-import { Header } from "../../components/Header";
-import { Title } from "../../components/Title";
-import { NavBar } from "../../components/NavBar";
-import { FairNearCard } from "../../components/FairNearCard";
-import { Maps } from "../../components/Maps";
-import { Footer } from "../../components/Footer";
-import { useEffect, useState } from "react";
-import { listByCloseFairs } from "../../utils/fetchs/Costumer/fairs";
+import { Header } from '../../components/Header';
+import { Title } from '../../components/Title';
+import { NavBar } from '../../components/NavBar';
+import { FairNearCard } from '../../components/FairNearCard';
+import { Maps } from '../../components/Maps';
+import { Footer } from '../../components/Footer';
+import { useEffect, useState } from 'react';
+import { listByCloseFairs } from '../../utils/fetchs/Costumer/fairs';
 
 export const NearbyFairs = () => {
   const [fairs, setFairs] = useState([]);
   const [location, setLocation] = useState(null);
+  const [mapLocations, setMapLocations] = useState([]);
 
   useEffect(() => {
     if (!location) {
@@ -21,86 +22,63 @@ export const NearbyFairs = () => {
           longitude: position.coords.longitude,
         });
       });
-      localStorage.setItem("location", JSON.stringify(location));
+      localStorage.setItem('location', JSON.stringify(location));
     }
   }, [location]);
 
   useEffect(() => {
-    if (location && !fairs) listByCloseFairs(location).then((data) => setFairs(data));
-    console.info(fairs);
+    console.log(location, fairs);
+    if (location && fairs.length === 0)
+      listByCloseFairs(location)
+        .then((data) => {
+          setFairs(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }, [location, fairs]);
 
+  const mapsMarkersLocations = fairs.map(({ latitude, longitude }) => {
+    return { lat: latitude, lng: longitude };
+  });
+
   return (
-    <div className={styles["nearby-fairs-container"]}>
-      <Header user={JSON.parse(localStorage.getItem("user-details"))} />
-      <Title text="Feiras próximas" />
-      <div className={styles["nearby-fairs-content"]}>
+    <div className={styles['nearby-fairs-container']}>
+      <Header user={JSON.parse(localStorage.getItem('user-details'))} />
+      <Title text='Feiras próximas' />
+      <div className={styles['nearby-fairs-content']}>
         <NavBar />
-        <div className={styles["fairs"]}>
-          <div className={styles["cards"]}>
-            <FairNearCard
-              title={"Feira Livre da Rua Oscar Freire"}
-              img={
-                "https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg"
-              }
-              note={3.5}
-              dayWorkText={"Domingo"}
-              hourWorkText={"08:00 - 16:00"}
-              fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
-            />
-            <FairNearCard
-              title={"Feira Livre da Rua Oscar Freire"}
-              img={
-                "https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg"
-              }
-              note={3.5}
-              dayWorkText={"Domingo"}
-              hourWorkText={"08:00 - 16:00"}
-              fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
-            />
-            <FairNearCard
-              title={"Feira Livre da Rua Oscar Freire"}
-              img={
-                "https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg"
-              }
-              note={3.5}
-              dayWorkText={"Domingo"}
-              hourWorkText={"08:00 - 16:00"}
-              fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
-            />
-            <FairNearCard
-              title={"Feira Livre da Rua Oscar Freire"}
-              img={
-                "https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg"
-              }
-              note={3.5}
-              dayWorkText={"Domingo"}
-              hourWorkText={"08:00 - 16:00"}
-              fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
-            />
-            <FairNearCard
-              title={"Feira Livre da Rua Oscar Freire"}
-              img={
-                "https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg"
-              }
-              note={3.5}
-              dayWorkText={"Domingo"}
-              hourWorkText={"08:00 - 16:00"}
-              fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
-            />
-            <FairNearCard
-              title={"Feira Livre da Rua Oscar Freire"}
-              img={
-                "https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg"
-              }
-              note={3.5}
-              dayWorkText={"Domingo"}
-              hourWorkText={"08:00 - 16:00"}
-              fairmanText={"Aprox 4 feirantes cadastrados no yvy"}
-            />
+        <div className={styles['fairs']}>
+          <div className={styles['cards']}>
+            {fairs.map((fair) => {
+              console.log(fair);
+              const open = new Date(
+                fair.fair_date_hour_of_work[0].dates.open_datetime
+              ).toISOString();
+              const close = new Date(
+                fair.fair_date_hour_of_work[0].dates.close_datetime
+              ).toISOString();
+
+              const openTime = open.match(/\d\d:\d\d/);
+              const closeTime = close.match(/\d\d:\d\d/);
+              return (
+                <FairNearCard
+                  title={fair.name}
+                  img={
+                    'https://osasco.sp.gov.br/wp-content/uploads/2019/12/feira-livre.jpeg'
+                  }
+                  note={fair.review}
+                  dayWorkText={fair.fair_date_hour_of_work.map(
+                    ({ dates }) => dates.day_of_week.name + '/'
+                  )}
+                  hourWorkText={openTime + ' - ' + closeTime}
+                  fairmanText={`Aprox ${fair.marketer_count} feirantes cadastrados no yvy`}
+                />
+              );
+            })}
           </div>
-          <div className={styles["map-container"]}>
-            <Maps />
+          <div className={styles['map-container']}>
+            <Maps locations={mapsMarkersLocations} />
           </div>
         </div>
       </div>

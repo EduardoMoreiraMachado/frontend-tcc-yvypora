@@ -5,6 +5,7 @@ html {
 #header-entregador {
     position: fixed;
     width: 100vw;
+    height: 8vh;
     margin-bottom: 0vh;
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -23,6 +24,14 @@ html {
 
 .header-links a {
     color: #1A4301;
+}
+
+.header-links a:hover {
+    text-decoration: underline;
+}
+
+.header-links a:active {
+    color: #538D22;
 }
 
 .welcome-message-content {

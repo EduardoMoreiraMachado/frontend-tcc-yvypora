@@ -39,3 +39,10 @@ export const disableProduct = async ({ id }) => {
 
   return res.data;
 };
+
+
+export const enableProduct = async ({ id }) => {
+  const res = await marketerAPI.put(`enabled/${id}`)
+  return res.data;
+}
+

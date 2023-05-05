@@ -73,6 +73,10 @@ select {
   background-color: transparent;
 }
 
+#burger-menu-container {
+  display: none;
+}
+
 .button-add-image-container {
   height: 100%;
   display: flex;
@@ -271,14 +275,30 @@ select {
   color: #245501;
 }
 
+@media (max-width: 980px) {
+  #burger-menu-container {
+    display: flex;
+  }
+
+  header {
+    position: relative;
+    padding: 0px 50px 0px 50px;
+  }
+
+
+  #sign-header .text-icon {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   header {
-    padding: 2vh 7vw 2vh 7vw;
+    height: 8vh;
   }
 
   .text-icon,
   .icon-yvy {
-    width: 50px;
+    width: 60px;
   }
 
   .prev-page-icon {
@@ -299,5 +319,11 @@ select {
 
   .inputs {
     padding: 50px 20px 50px 20px;
+  }
+}
+
+@media(max-width: 600px) {
+  #sign-header {
+    padding: 0px 20px 0px 20px;
   }
 }

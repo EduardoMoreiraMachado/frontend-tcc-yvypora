@@ -23,7 +23,7 @@
 
 .image {
     width: 200px;
-    height: 100px;
+    height: 150px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -54,5 +54,27 @@
 @media(max-width: 768px) {
     .bought-item-container {
         flex-direction: column;
+        gap: 10px;
+    }
+
+    .bought-item-visual h1 {
+        font-size: 1.5rem;
+    }
+
+    .image {
+        width: 150px;
+        height: 100px;
+    }
+
+    .bought-item-numbers span {
+        font-size: 0.8rem;
+    }
+
+    .bought-item-numbers h1 {
+        font-size: 1.7rem;
+    }
+
+    .bought-item-numbers h2 {
+        font-size: 1rem;
     }
 }
