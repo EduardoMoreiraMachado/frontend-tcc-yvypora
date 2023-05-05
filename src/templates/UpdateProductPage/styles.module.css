@@ -1,5 +1,5 @@
 .insert-product-page {
-    height: 100vh;
+    min-height: 74vh;
     display: flex;
     flex-direction: column;
 }

@@ -40,7 +40,18 @@
     transition: all 0.5s;
 }
 
-@media (max-width: 1000px) {
+@media(max-width: 1380px) {
+    .category-image {
+        width: 100px;
+        height: 80px;
+    }
+}
+
+@media(max-width: 1220px) {
+    .product-category-container {
+        gap: 3vw;
+    }
+
     .category-image {
         width: 80px;
         height: 65px;
@@ -51,7 +62,18 @@
     }
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1000px) {
+    .category-image {
+        width: 80px;
+        height: 65px;
+    }
+
+    .category-name {
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width: 768px) {
     .category-item {
         gap: 0vh;
     }

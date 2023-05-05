@@ -11,11 +11,11 @@ import withReactContent from "sweetalert2-react-content";
 import { getDetails } from "../../utils/fetchs/common/user";
 import { useState } from "react";
 import { login } from "../../utils/fetchs/common/login";
-import { useNavigate } from "react-router-dom";
+
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
-  const navigate = useNavigate(); // hook
+  
   const [location, setLocation] = useState({});
   const handleClick = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ export const Login = () => {
         timerProgressBar: true,
       });
 
-      navigate("/") // path
+      window.location.href = '/'
     } catch (error) {
       console.log(error);
 

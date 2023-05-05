@@ -37,7 +37,7 @@
     margin-top: 5vh;
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1600px) {
     .fairs {
         display: flex;
         flex-direction: column;

@@ -7,18 +7,15 @@ import iconUser from "../../imgs/user.svg";
 import iconMap from "../../imgs/map.svg";
 import iconCard from "../../imgs/card.svg";
 import iconBag from "../../imgs/bag.svg";
-import { BurgerMenu } from "../../components/BurgerMenu";
 import { EmptyHeader } from "../../components/EmptyHeader";
 import { ExitOption } from "../../components/ExitOption";
 import { useState } from "react";
-// import { Header } from "../../components/Header"
 
 export const ProfilePage = () => {
   const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")));
   
   return (
     <div className={"profile-main"}>
-      <BurgerMenu />
       <EmptyHeader />
       <div className={styles["user-info"]}>
         <UserCard

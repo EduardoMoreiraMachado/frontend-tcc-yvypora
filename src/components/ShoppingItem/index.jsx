@@ -17,7 +17,7 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
     <div className={styles["shopping-item-container"]}>
       <div className={styles["item-visual"]}>
         <div className={styles["header-card"]}>
-          <h1 className={styles["name"]}>{name}</h1>
+          <h1 className={styles["name"]} style={promo ? {position: 'unset'} : {position: 'absolute'}}>{name}</h1>
           <img
             className={styles["promotion-img "]}
             src={PromoImg}
@@ -25,9 +25,7 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
             style={{ opacity: promoExists }}
           />
         </div>
-        <div className={styles["item-image"]}>
-          <img className={styles["image"]} src={imgUrl} alt="" />
-        </div>
+        <div className={styles["image"]} style={{backgroundImage: `url(${imgUrl})`}} alt=""> </div>
       </div>
       <div className={styles["item-numbers"]}>
         <div className={styles["numbers"]}>

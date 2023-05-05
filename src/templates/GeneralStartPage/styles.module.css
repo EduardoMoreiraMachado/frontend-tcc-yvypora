@@ -57,7 +57,13 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1380px) {
+  .products-carrossel {
+    width: 60vw;
+  }
+}
+
+@media(max-width: 768px) {
   .prev-button-container,
   .next-button-container {
     display: none;

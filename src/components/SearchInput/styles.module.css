@@ -12,6 +12,12 @@
   color: white;
 }
 
+@media(max-width: 1380px) {
+    .text-input {
+        width: 70%;
+    }
+}
+
 /* @media (max-width: 930px) {
     .text-input {
         width: 70%;

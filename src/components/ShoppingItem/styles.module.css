@@ -1,10 +1,12 @@
 .shopping-item-container {
+    width: 300px;
     display: flex;
     flex-direction: column;
     padding: 20px;
     gap: 2vh;
     border: 1px solid #538D22;
     border-radius: 10px;
+    flex: none;
 }
 
 .shopping-item-container-noPromo {
@@ -17,13 +19,14 @@
     border-radius: 10px;
 }
 
-.header-card{
+.header-card {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
+    width: 100%;
 }
 
 .item-visual {
@@ -36,23 +39,26 @@
 .name {
     color: #245501;
     font-size: 1.6rem;
-}
-
-.item-image {
-    width: 110px;
-    height: 110px;
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
+    text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
+    max-width: 200px; /* Define a largura máxima do elemento */
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .image {
     width: 100%;
-    height: 100%;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .item-numbers {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 2vw
 }
 
 .numbers {
@@ -91,7 +97,22 @@
     height: 70px;
 }
 
-@media (max-width: 768px) {
+@media(max-width: 1470px) {
+    .shopping-item-container {
+        width: 250px;
+    }
+
+    .name {
+        font-size: 1.4rem;
+        max-width: 150px;
+    }
+
+    .image {
+        height: 100px;
+    }
+}
+
+@media(max-width: 768px) {
     .shopping-item-container {
         justify-content: center;
         padding: 10px;

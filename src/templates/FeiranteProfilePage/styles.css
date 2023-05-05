@@ -1,0 +1,32 @@
+#default-header {
+    display: none;
+}
+
+.user-info {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container {
+    min-height: 74vh;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    #empty-header {
+        display: flex;
+    }
+
+    #default-header {
+        display: flex;
+    }
+
+    .user-info {
+        display: none;
+    }
+}
