@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./styles.module.css";
 
@@ -27,7 +27,7 @@ export const SellerProduct = ({
 
   }
 
-  const delete = async () => {
+  const _delete = async () => {
 
   }
 

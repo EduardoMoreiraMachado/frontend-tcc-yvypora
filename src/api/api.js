@@ -8,11 +8,11 @@ export const cepAPI = axios.create({
 });
 
 export const commonsAPI = axios.create({
-  baseURL: "http://localhost:3333/commons",
+  baseURL: "http://localhost:8080/commons",
 });
 
 export const marketerAPI = axios.create({
-  baseURL: "http://localhost:3333/fair",
+  baseURL: "http://localhost:8080/fair",
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem("user-logged-token")}`,
@@ -21,7 +21,7 @@ export const marketerAPI = axios.create({
 });
 
 export const costumerAPI = axios.create({
-  baseURL: "http://localhost:3333/costumer/",
+  baseURL: "http://localhost:8080/costumer/",
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem("user-logged-token")}`,
@@ -37,12 +37,7 @@ export const socket = io("http://localhost:3337", {
 });
 
 
-<<<<<<< HEAD
-=======
-console.log(socket);
-
 socket.on("travel_accepted", async (data) => {
   localStorage.setItem("current_travel", JSON.stringify(data));
   await notify("success", "Entregador Encontrado!");
 });
->>>>>>> f7f04c5 (add)
