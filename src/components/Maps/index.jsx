@@ -6,14 +6,12 @@ import {
   useJsApiLoader,
 } from '@react-google-maps/api';
 
-
-
 export function Maps({ locations }) {
   const center = {
     lat: -23.5107426,
     lng: -46.7845045,
   };
-  
+
   const containerStyle = {
     width: '50vw',
     height: '50vh',
@@ -44,14 +42,14 @@ export function Maps({ locations }) {
   }
 
   useEffect(() => {
-    console.log(isLoaded);
-  }, [isLoaded]);
+    console.log(isLoaded, locations);
+  }, [isLoaded, locations]);
 
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={5}
+      zoom={10}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
@@ -59,7 +57,7 @@ export function Maps({ locations }) {
           Dá pra mudar a imagem do clusterer, na hora de realmente colocar no yvy
          <MarkerClusterer options={imgs}>  
       */}
-      <MarkerClusterer>
+      {/* <MarkerClusterer>
         {(clusterer) =>
           locations.map((location) => {
             return (
@@ -71,8 +69,8 @@ export function Maps({ locations }) {
             );
           })
         }
-      </MarkerClusterer>
-
+      </MarkerClusterer> */}
+      <Marker position={locations[0]}></Marker>
       {/* Child components, such as markers, info windows, etc. */}
       <></>
     </GoogleMap>

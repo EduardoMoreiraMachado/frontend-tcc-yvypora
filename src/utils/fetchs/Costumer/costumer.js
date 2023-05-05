@@ -1,7 +1,7 @@
-import { commonsAPI } from "../../../api/api";
+import { commonsAPI } from '../../../api/api';
 
 export const singUpCostumer = async (costumer) => {
-  const { data } = await commonsAPI.post("register/costumer", costumer);
+  const { data } = await commonsAPI.post('register/costumer', costumer);
 
   return data;
 };
@@ -23,12 +23,10 @@ export const addAddressToCostumer = async (address, id) => {
 };
 
 export const listAddresses = async () => {
-  const { data } = await commonsAPI.get("user/address", {
+  const { data } = await commonsAPI.get('user/address', {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("user-logged-token")}`,
+      Authorization: `Bearer ${localStorage.getItem('user-logged-token')}`,
     },
   });
   return data;
 };
-
-
