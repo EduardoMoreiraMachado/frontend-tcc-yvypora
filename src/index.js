@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/global-styles.css';
+import './api/api';
 import { InsertProductPage } from './templates/InsertProductPage';
 import { ProductPage } from './templates/ProductPage';
 import { AddAdressPage } from './templates/AddAddressPage';
@@ -12,6 +13,7 @@ import Login from './templates/Login';
 import FairNear from './templates/NearbyFairs';
 import SearchPage from './templates/SearchPage';
 import ProfilePage from './templates/ProfilePage';
+import OrderPage from './templates/MyOrderPage';
 import BuyHistory from './templates/PurchasesHistoricPage';
 import TypeUserSelect from './templates/TypeUserSelect';
 import CartPage from './templates/CartPage';
@@ -20,7 +22,6 @@ import GainsPage from './templates/GainsPage';
 import ShoppingCartPage from './templates/ShoppingCartPage';
 import AdressPage from './templates/AddressPage';
 import SellerProductPage from './templates/SellerProductsPage';
-import EditProfilePage from './templates/EditProfilePage';
 import SignToContinue from './templates/SignToContinue';
 import SignUpConsumidor from './templates/SignUpConsumidor';
 import SignUpFeirante from './templates/SignUpFeirante';
@@ -48,6 +49,7 @@ root.render(
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<TypeUserSelect />} />
         <Route path='/fair-near' element={<FairNear />} />
+        <Route path='/order/track' element={<OrderPage />} />
         <Route path='/profile/address/add' element={<AddAdressPage />} />
         <Route path='/fair/add-fair' element={<AddFairPage />} />
         <Route path='/fair/fairs' element={<FairPage />} />

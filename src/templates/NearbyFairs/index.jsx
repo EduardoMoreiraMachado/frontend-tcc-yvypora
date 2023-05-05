@@ -12,8 +12,7 @@ import { listByCloseFairs } from '../../utils/fetchs/Costumer/fairs';
 export const NearbyFairs = () => {
   const [fairs, setFairs] = useState([]);
   const [location, setLocation] = useState(null);
-  const [mapLocations, setMapLocations] = useState([]);
-
+  
   useEffect(() => {
     if (!location) {
       navigator.geolocation.getCurrentPosition((position) => {
