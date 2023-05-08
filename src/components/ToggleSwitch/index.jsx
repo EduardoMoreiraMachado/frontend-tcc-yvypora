@@ -2,10 +2,10 @@ import styles from "./styles.module.css";
 
 import { useState } from "react";
 
-export const ToggleSwitch = () => {
-  const [isChecked, setIsChecked] = useState(false);
+export const ToggleSwitch = ({ defaultCheckedValue  }) => {
+  const [isChecked, setIsChecked] = useState(defaultCheckedValue);
   // const [value, setValue] = useState('');
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(null);
 
   // verificar se o checkbox está ativado
   const handleCheckboxChange = (event) => {

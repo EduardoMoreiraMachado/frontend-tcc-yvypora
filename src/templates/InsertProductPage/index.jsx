@@ -1,30 +1,53 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
-import { Header } from "../../components/Header";
-import { Title } from "../../components/Title";
+import { Header } from '../../components/Header';
+import { Title } from '../../components/Title';
 
-import { Footer } from "../../components/Footer";
-import { AddImage } from "../../components/AddImage";
-import { ToggleSwitch } from "../../components/ToggleSwitch";
-import { GreenButton } from "../../components/GreenButton";
+import { Footer } from '../../components/Footer';
+import { AddImage } from '../../components/AddImage';
+import { ToggleSwitch } from '../../components/ToggleSwitch';
+import { GreenButton } from '../../components/GreenButton';
 
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 import {
   addPictureToProduct,
   addSaleOff,
   createProduct,
-} from "../../utils/fetchs/Marketer/productFetch";
+  removePictureToProduct,
+  removeSaleOff,
+  updateProduct,
+} from '../../utils/fetchs/Marketer/productFetch';
+
+import { useLocation } from 'react-router-dom';
+import { getProduct } from '../../utils/fetchs/Costumer/products';
 
 const MySwal = withReactContent(Swal);
 
 export const InsertProductPage = () => {
+  const [selectedValue, setSelectedValue] = useState('');
+  const [value, setValue] = useState(0);
+  const [amount, setAmount] = useState(0);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [previousProduct, setPreviousProduct] = useState(null);
+  const location = useLocation();
+
+  const [price, setPrice] = useState(0);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user-details"))
+    JSON.parse(localStorage.getItem('user-details'))
   );
+
+  const descriptionInput = useRef(null);
+  const nameInput = useRef(null);
+  const priceInput = useRef(null);
+  const availableInput = useRef(null);
+
   const [formData, setFormData] = useState({});
 
   const handleChangeFields = (event) => {
@@ -35,25 +58,49 @@ export const InsertProductPage = () => {
     }));
   };
 
-  const [selectedValue, setSelectedValue] = useState("");
-  const [value, setValue] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [amount, setAmount] = useState(0);
+  useEffect(() => {
+    const { state } = location;
+    if (state.product) {
+      setIsUpdate(true);
+      getProduct(state.product)
+        .then(({ data }) => {
+          console.log(data);
+          setPreviousProduct(data);
+          setDescription(data.description);
+          setName(data.name);
+          setPrice(data.price);
+          setAmount(data.available_quantity);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   function handleChange(event) {
     setSelectedValue(event.target.value);
   }
 
-  async function handleClick(e) {
-    e.preventDefault();
-    console.log(formData);
-    const image = document.getElementById("file-selection").files[0];
+  const getData = async () => {
+    if (
+      !formData.name ||
+      !formData.description ||
+      !formData.price ||
+      !formData.available
+    ) {
+      formData['description'] = descriptionInput.current.value;
+      formData['name'] = nameInput.current.value;
+      formData['price'] = priceInput.current.value;
+      formData['available'] = availableInput.current.value;
+    }
 
-    const inputs = document.querySelectorAll(".product-input");
+    const image = document.getElementById('file-selection').files[0];
 
-    const categorySelector = document.getElementById("type");
+    const inputs = document.querySelectorAll('.product-input');
 
-    const priceTypeSelector = document.getElementById("price-type");
+    const categorySelector = document.getElementById('type');
+
+    const priceTypeSelector = document.getElementById('price-type');
 
     const categoryOptionSelected =
       categorySelector.options[categorySelector.selectedIndex];
@@ -67,9 +114,9 @@ export const InsertProductPage = () => {
     let price = formData.price;
 
     const availableQuantity = formData.available;
-    const saleOffValue = document.querySelectorAll(".input-active")[0]?.value;
+    const saleOffValue = document.querySelectorAll('.input-active')[0]?.value;
 
-    if (priceTypeOptionSelected.value === "peso") {
+    if (priceTypeOptionSelected.value === 'peso') {
       quantity = inputs[1].value;
       price = inputs[2].value;
     }
@@ -90,15 +137,26 @@ export const InsertProductPage = () => {
       available_quantity: parseInt(availableQuantity, 10),
     };
 
+    return data;
+  };
+
+  const create = async (event) => {
+    event.preventDefault();
+    const image = document.getElementById('file-selection').files[0];
+
+    const saleOffValue = document.querySelectorAll('.input-active')[0]?.value;
+
+    const data = await getData();
+
     try {
       const { payload } = await createProduct(data);
       const { id } = payload.data;
 
       const formdata = new FormData();
 
-      formdata.append("picture", image);
+      formdata.append('picture', image);
 
-      console.log("formdata", formdata);
+      console.log('formdata', formdata);
 
       await addPictureToProduct({ id: id, formData: formdata }); // is required
 
@@ -109,7 +167,7 @@ export const InsertProductPage = () => {
             timer: 1500,
             showConfirmButton: false,
             title: <p>Produto Cadastrado Com Sucesso!</p>,
-            icon: "success",
+            icon: 'success',
             buttonsStyling: false,
             timerProgressBar: true,
           });
@@ -118,7 +176,7 @@ export const InsertProductPage = () => {
             timer: 1500,
             showConfirmButton: false,
             title: <p>Falha Ao Cadastrar!</p>,
-            icon: "error",
+            icon: 'error',
             buttonsStyling: false,
             timerProgressBar: true,
           });
@@ -128,7 +186,7 @@ export const InsertProductPage = () => {
           timer: 1500,
           showConfirmButton: false,
           title: <p>Produto Cadastrado Com Sucesso!</p>,
-          icon: "success",
+          icon: 'success',
           buttonsStyling: false,
           timerProgressBar: true,
         });
@@ -138,12 +196,51 @@ export const InsertProductPage = () => {
         timer: 1500,
         showConfirmButton: false,
         title: <p>Falha Ao Cadastrar!</p>,
-        icon: "error",
+        icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,
       });
     }
-  }
+  };
+
+  const update = async (event) => {
+    event.preventDefault();
+    const image = document.getElementById('file-selection').files[0];
+
+    const saleOffValue = document.querySelectorAll('.input-active')[0]?.value;
+
+    const data = await getData();
+
+    try {
+      await updateProduct(previousProduct.id, data);
+
+      const lastSaleOffValue = previousProduct.sale_off.map(
+        ({ value }) => value
+      )[0];
+
+      if (lastSaleOffValue && lastSaleOffValue !== saleOffValue) {
+        await removeSaleOff(previousProduct.id);
+        await addSaleOff({ id: previousProduct.id, value: saleOffValue });
+      }
+
+      if (image) {
+        const pictureFormData = new FormData();
+        pictureFormData.append('picture', image);
+        await removePictureToProduct({
+          productId: previousProduct.id,
+          pictureId: previousProduct.image_of_product.map(
+            ({ imageId }) => imageId
+          )[0],
+        });
+        await addPictureToProduct({
+          id: previousProduct.id,
+          formData: pictureFormData,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleWeightChange = (event) => {
     setValue(event.target.value);
@@ -160,100 +257,123 @@ export const InsertProductPage = () => {
     handleChangeFields(event);
   };
 
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+    handleChangeFields(event);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+
+    handleChangeFields(event);
+  };
+
   const handleKeyDown = (event) => {
-    if (event.key === "-" || event.key === "+" || event.key === "e") {
+    if (event.key === '-' || event.key === '+' || event.key === 'e') {
       event.preventDefault();
     }
   };
 
   return (
-    <div className={styles["insert-product-page"]}>
-      <Header user={{picture_uri:""}}/>
-      <Title text="Inserir um novo produto" />
+    <div className={styles['insert-product-page']}>
+      <Header user={{ picture_uri: '' }} />
+      <Title text='Inserir um novo produto' />
 
-      <div className={styles["data-containers"]}>
-        <div className={styles["insert-product-data"]}>
-          <div className={styles["drop-box"]}>
+      <div className={styles['data-containers']}>
+        <div className={styles['insert-product-data']}>
+          <div className={styles['drop-box']}>
             <label
-              className={styles["product-input-title"]}
-              htmlFor="product-type"
+              className={styles['product-input-title']}
+              htmlFor='product-type'
             >
               Categoria:
             </label>
-            <select name="product-type" id="type">
-              <option value="fruta" id="1">
+            <select
+              name='product-type'
+              id='type'
+              defaultValue={
+                previousProduct
+                  ? previousProduct.category_of_product.name.toLowerCase()
+                  : ''
+              }
+            >
+              <option value='frutas' id='1'>
                 Fruta
               </option>
-              <option value="verdura" id="2">
+              <option value='verduras' id='2'>
                 Verdura
               </option>
-              <option value="especiaria" id="3">
+              <option value='especiarias' id='3'>
                 Especiaria
               </option>
-              <option value="outro">Outro</option>
+              <option value='outros'>Outro</option>
             </select>
           </div>
 
-          <div className={styles["input-container"]}>
-            <h1 className={styles["product-input-title"]}>Nome:</h1>
+          <div className={styles['input-container']}>
+            <h1 className={styles['product-input-title']}>Nome:</h1>
             <input
-              name="name"
-              className={styles["product-input"]}
-              type="text"
-              onChange={handleChangeFields}
+              value={name}
+              name='name'
+              className={styles['product-input']}
+              type='text'
+              ref={nameInput}
+              onChange={handleNameChange}
             />
           </div>
 
-          <div className={styles["input-container"]}>
-            <h1 className={styles["product-input-title"]}>Descrição:</h1>
+          <div className={styles['input-container']}>
+            <h1 className={styles['product-input-title']}>Descrição:</h1>
             <textarea
-              cols="30"
-              rows="5"
-              maxLength="200"
-              id={styles["description"]}
-              name="description"
-              onChange={handleChangeFields}
+              value={description}
+              cols='30'
+              rows='5'
+              ref={descriptionInput}
+              maxLength='200'
+              id={styles['description']}
+              name='description'
+              onChange={handleDescriptionChange}
             />
           </div>
 
-          <div className={styles["price-values"]}>
+          <div className={styles['price-values']}>
             <h1
-              className={styles["product-input-title"]}
-              htmlFor="product-type"
+              className={styles['product-input-title']}
+              htmlFor='product-type'
             >
               Preço
             </h1>
-            <div className={styles["drop-box"]} id={styles["options-weight"]}>
-              <div className={styles["options-weight"]}>
+            <div className={styles['drop-box']} id={styles['options-weight']}>
+              <div className={styles['options-weight']}>
                 <select
                   value={selectedValue}
                   onChange={handleChange}
-                  name="product-type"
-                  id="price-type"
+                  name='product-type'
+                  id='price-type'
                 >
-                  <option value="duzia" id="3">
+                  <option value='duzia' id='3'>
                     Dúzia
                   </option>
-                  <option value="peso" id="1">
+                  <option value='peso' id='1'>
                     Peso
                   </option>
-                  <option value="unitario" id="2">
+                  <option value='unitario' id='2'>
                     Unitário
                   </option>
                 </select>
 
-                {selectedValue === "peso" && (
-                  <div className={styles["product-weight"]}>
-                    <select name="product-unit" id={styles["unit"]}>
-                      <option value="kg">kg</option>
-                      <option value="g">g</option>
+                {selectedValue === 'peso' && (
+                  <div className={styles['product-weight']}>
+                    <select name='product-unit' id={styles['unit']}>
+                      <option value='kg'>kg</option>
+                      <option value='g'>g</option>
                     </select>
                     <input
-                      className={styles["product-input"]}
-                      type="number"
-                      min="0"
-                      max="100"
-                      step=".01"
+                      className={styles['product-input']}
+                      type='number'
+                      min='0'
+                      max='100'
+                      step='.01'
                       onChange={handleWeightChange}
                       onKeyDown={handleKeyDown}
                       value={value}
@@ -262,42 +382,48 @@ export const InsertProductPage = () => {
                 )}
               </div>
 
-              <div className={styles["product-price"]}>
-                <h1 className={styles["product-price-coin"]}>R$</h1>
+              <div className={styles['product-price']}>
+                <h1 className={styles['product-price-coin']}>R$</h1>
                 <input
-                  className={styles["product-input"]}
-                  type="number"
-                  min="0"
-                  max="100"
-                  step=".01"
-                  name="price"
+                  className={styles['product-input']}
+                  type='number'
+                  min='0'
+                  max='100'
+                  step='.01'
+                  name='price'
                   onChange={handlePriceChange}
                   onKeyDown={handleKeyDown}
                   value={price}
+                  ref={priceInput}
                 />
               </div>
             </div>
           </div>
 
-          <div className={styles["promotion"]}>
-            <h1 className={styles["product-input-title"]}>Desconto:</h1>
-            <ToggleSwitch />
+          <div className={styles['promotion']}>
+            <h1 className={styles['product-input-title']}>Desconto:</h1>
+            <ToggleSwitch
+              defaultCheckedValue={
+                previousProduct?.sale_off.length > 0 ? true : false
+              }
+            />
           </div>
         </div>
 
-        <div className={styles["insert-image-data"]}>
-          <div className={styles["product-quantity"]}>
-            <h1 className={styles["product-input-title"]}>
+        <div className={styles['insert-image-data']}>
+          <div className={styles['product-quantity']}>
+            <h1 className={styles['product-input-title']}>
               Quant. disponível:
             </h1>
             <input
-              className={styles["product-input"]}
-              id="available-quant"
-              type="number"
-              name="available"
-              min="0"
-              max="100"
-              step="1"
+              className={styles['product-input']}
+              id='available-quant'
+              type='number'
+              name='available'
+              min='0'
+              max='100'
+              ref={availableInput}
+              step='1'
               onChange={handleAmountChange}
               onKeyDown={handleKeyDown}
               value={amount}
@@ -305,12 +431,21 @@ export const InsertProductPage = () => {
           </div>
 
           <AddImage
-            text="Imagem do produto"
-            subtext="Anexe uma imagem do produto que ficará visível ao cliente"
+            previewImage={
+              previousProduct?.image_of_product.map(({ image }) => image.uri)[0]
+            }
+            text='Imagem do produto'
+            subtext='Anexe uma imagem do produto que ficará visível ao cliente'
           />
 
-          <div className={styles["register-button"]}>
-            <GreenButton text="Cadastrar" onClick={handleClick} />
+          <div className={styles['register-button']}>
+            <GreenButton
+              text={isUpdate ? 'Atualizar' : 'Cadastrar'}
+              onClick={async (event) => {
+                if (!isUpdate) await create(event);
+                else await update(event);
+              }}
+            />
           </div>
         </div>
       </div>

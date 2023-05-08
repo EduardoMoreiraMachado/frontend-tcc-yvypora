@@ -52,6 +52,7 @@ export const MyOrderPage = () => {
       socket.off('travel_accepted');
     };
   }, []);
+  // TODO add others socket notifications 
 
   return (
     <div className={styles['my-order-page-container']}>
@@ -76,7 +77,7 @@ export const MyOrderPage = () => {
                       <div
                         className={styles['photo']}
                         style={{
-                          backgroundImage: `url('https://img.freepik.com/fotos-premium/entregador-de-retrato-de-perfil-no-rosto-segurando-caixas-de-papelao-e-uma-casa-de-papel_416530-558.jpg')`,
+                          backgroundImage: `url('${deliveryman.picture_uri}')`,
                         }}
                       ></div>
                       <div className={styles['review']}>

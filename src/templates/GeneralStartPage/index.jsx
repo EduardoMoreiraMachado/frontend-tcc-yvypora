@@ -1,48 +1,49 @@
-import styles from "./styles.module.css";
-
-import { useRef, useState, useEffect } from "react";
-
-import { NavBar } from "../../components/NavBar";
-import { SignHeader } from "../../components/SignHeader";
-import { Header } from "../../components/Header";
-import { ProductCategory } from "../../components/ProductCategory";
-import { ProductCategorySelect } from "../../components/ProductCategorySelect";
-import { NextButton } from "../../components/NextButton";
-import { PrevButton } from "../../components/PrevButton";
-import { ShoppingItem } from "../../components/ShoppingItem";
-import { Footer } from "../../components/Footer";
-import { SearchInput } from "../../components/SearchInput";
+import styles from './styles.module.css';
+import { useRef, useState, useEffect } from 'react';
+import { NavBar } from '../../components/NavBar';
+import { SignHeader } from '../../components/SignHeader';
+import { Header } from '../../components/Header';
+import { ProductCategory } from '../../components/ProductCategory';
+import { ProductCategorySelect } from '../../components/ProductCategorySelect';
+import { NextButton } from '../../components/NextButton';
+import { PrevButton } from '../../components/PrevButton';
+import { ShoppingItem } from '../../components/ShoppingItem';
+import { Footer } from '../../components/Footer';
+import { SearchInput } from '../../components/SearchInput';
 
 import {
   listProductNearToClient,
   listProducts,
   listProductsInSaleOff,
-} from "../../utils/fetchs/Costumer/products";
-import { getDetails } from "../../utils/fetchs/common/user";
+} from '../../utils/fetchs/Costumer/products';
+import { getDetails } from '../../utils/fetchs/common/user';
+import { useNavigate } from 'react-router-dom';
 
 export const GeneralStartPage = () => {
-  const [user, setUser] = useState("");
+  const navigate = useNavigate();
+  const [user, setUser] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
-  const [listOfProducts, setListOfProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [genericList, setListOfProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const carousel = useRef(null);
   const searchInputRef = useRef(null);
-  const [isInputFocused, setIsInputFocused] = useState(false);
 
   const handleInputFocus = () => {
-    setIsInputFocused(true);
+    setInputFocused(true);
   };
 
   const handleInputBlur = () => {
-    setIsInputFocused(false);
+    setInputFocused(false);
   };
 
-  
-
-  useEffect(() => {
-
-  }, [])
-
+  const onKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      const { target } = event;
+      const { value } = target;
+      setListOfProducts([]);
+      navigate('/search', { state: { context: value } });
+    }
+  };
 
   const handleLeftClick = (e) => {
     e.preventDefault();
@@ -52,8 +53,8 @@ export const GeneralStartPage = () => {
 
   useEffect(() => {
     function checkUserData() {
-      const details = localStorage.getItem("user-details");
-      const token = localStorage.getItem("user-logged-token");
+      const details = localStorage.getItem('user-details');
+      const token = localStorage.getItem('user-logged-token');
 
       if (details) {
         setUser(JSON.parse(details));
@@ -62,7 +63,7 @@ export const GeneralStartPage = () => {
         const fetch = async () => {
           const details = await getDetails();
 
-          localStorage.setItem("user-detais", JSON.stringify(details));
+          localStorage.setItem('user-detais', JSON.stringify(details));
 
           setUser(details);
         };
@@ -96,13 +97,13 @@ export const GeneralStartPage = () => {
 
     if (selectedCategory === id) return;
 
-    if (id === "all") {
+    if (id === 'all') {
       const newList = await listProducts();
       setListOfProducts(newList);
-    } else if (id === "discount") {
+    } else if (id === 'discount') {
       const newList = await listProductsInSaleOff();
       setListOfProducts(newList);
-    } else if (id === "close") {
+    } else if (id === 'close') {
       const newList = await listProductNearToClient();
       setListOfProducts(newList);
     }
@@ -111,48 +112,50 @@ export const GeneralStartPage = () => {
   };
 
   useEffect(() => {
-    if (isInputFocused) {
-      if (searchInputRef.current) searchInputRef.current.style.zIndex = "100";
+    if (inputFocused) {
+      console.log(inputFocused);
+      if (searchInputRef.current) searchInputRef.current.style.zIndex = '100';
     } else {
-      if(searchInputRef.current) searchInputRef.current.style.zIndex = "-1";
+      if (searchInputRef.current) searchInputRef.current.style.zIndex = '-1';
     }
-  }, [isInputFocused]);
+  }, [inputFocused]);
 
   return (
-    <div className={styles["general-start-page-container"]}>
-      <div className={isInputFocused ? styles["background"] : ""} />
+    <div className={styles['general-start-page-container']}>
+      <div className={inputFocused ? styles['background'] : ''} />
       {user ? (
         <>
-          <Header user={{picture_uri:""}}/>
+          <Header user={{ picture_uri: '' }} />
         </>
       ) : (
         <>
           <SignHeader />
         </>
       )}
-      <div className={styles["page-content"]}>
+      <div className={styles['page-content']}>
         <NavBar />
-        <div className={styles["products-container"]}>
-          <div className={styles["search-category"]}>
-            <div className={styles["general-search"]}>
+        <div className={styles['products-container']}>
+          <div className={styles['search-category']}>
+            <div className={styles['general-search']}>
               <SearchInput
                 ref={searchInputRef}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
+                onKeyDown={onKeyDown}
               />
             </div>
             <ProductCategory />
           </div>
           <ProductCategorySelect onClick={handleCategorySelect} />
-          <div className={styles["products-carrossel"]}>
+          <div className={styles['products-carrossel']}>
             <PrevButton onClick={handleLeftClick} />
-            <div className={styles["carousel-items"]} ref={carousel}>
-              {listOfProducts.map((product) => {
+            <div className={styles['carousel-items']} ref={carousel}>
+              {genericList.map((product) => {
                 return (
                   <ShoppingItem
                     name={product.name}
                     imgUrl={product.image_of_product.map((el) => el.image.uri)}
-                    weight="100g"
+                    weight='100g'
                     price={product.price}
                     key={product.id}
                   />

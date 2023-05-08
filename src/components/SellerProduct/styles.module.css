@@ -140,6 +140,7 @@
 .status-button {
     background-color: #fff;
     cursor: pointer;
+    font-size: 4rem
 }
 
 .status-image {
