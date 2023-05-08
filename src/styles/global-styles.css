@@ -147,6 +147,7 @@ select {
 .btn-success {
   background-color: #538d22;
 }
+
 .btn-error {
   background-color: rgb(221, 51, 51);
 }
@@ -255,6 +256,7 @@ select {
 }
 
 .options-container {
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;

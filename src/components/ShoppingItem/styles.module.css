@@ -75,7 +75,7 @@
 
 .price-general {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 2rem;
     white-space: nowrap;
     color: #245501;
 }
@@ -100,6 +100,7 @@
 @media(max-width: 1470px) {
     .shopping-item-container {
         width: 250px;
+        padding: 10px;
     }
 
     .name {
@@ -110,6 +111,11 @@
     .image {
         height: 100px;
     }
+
+    .item-numbers {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 @media(max-width: 768px) {
@@ -119,7 +125,7 @@
     }
 
     .name {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .price-general {

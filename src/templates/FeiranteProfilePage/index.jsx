@@ -17,7 +17,7 @@ export const ProfilePage = () => {
   return (
     <div className={"profile-main"}>
       <EmptyHeader />
-      <div className={styles["user-info"]}>
+      <div className={styles['user-info']}>
         <UserCard
           name={user.name}
           imgUrl={
@@ -46,4 +46,5 @@ export const ProfilePage = () => {
     </div>
   );
 };
+
 export default ProfilePage;

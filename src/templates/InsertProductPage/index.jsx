@@ -60,7 +60,9 @@ export const InsertProductPage = () => {
 
   useEffect(() => {
     const { state } = location;
-    if (state.product) {
+
+    
+    if (state) {
       setIsUpdate(true);
       getProduct(state.product)
         .then(({ data }) => {

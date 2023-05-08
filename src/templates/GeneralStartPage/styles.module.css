@@ -57,9 +57,26 @@
   display: none;
 }
 
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
 @media(max-width: 1380px) {
   .products-carrossel {
     width: 60vw;
+  }
+}
+
+@media(max-width: 980px) {
+  .products-carrossel {
+    width: 90vw;
   }
 }
 

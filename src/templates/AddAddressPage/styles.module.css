@@ -38,6 +38,11 @@
   gap: 10px;
 }
 
+.type label {
+    font-size: 1.3rem;
+    color: #245501;
+}
+
 @media (max-width: 768px) {
     .add-adress-title {
         display: flex;

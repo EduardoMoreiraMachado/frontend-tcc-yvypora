@@ -99,6 +99,10 @@
 }
 
 @media(max-width: 768px) {
+    .main-purchase-info {
+        padding: 10px;
+    }
+
     .purchase-products {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -119,5 +123,20 @@
 
     .purchase-info span {
         font-size: 1rem;
+    }
+}
+
+@media(max-width: 420px) {
+    .main-purchase-info {
+        flex-direction: column;
+    }
+
+    .purchase-image {
+        width: 100%;
+    }
+
+    .purchase-products {
+        display: flex;
+        flex-direction: column;
     }
 }

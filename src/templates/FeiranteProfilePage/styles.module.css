@@ -9,9 +9,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
+} 
 
 .profile-container {
+    height: auto;
     min-height: 74vh;
     display: flex;
     align-items: center;

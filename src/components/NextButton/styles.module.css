@@ -5,16 +5,28 @@
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 38%;
+    background-color: white;
     border: solid 1px rgba(0, 0, 0, 0.144);
-    border-radius: 5px;
+    border-radius: 50%;
     transform: rotate(180deg);
-    transition: all 1s;
+    transition: all 0.3s;
     cursor: pointer;
     flex: none;
-    border: 1px solid #538D22;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.next-button-container:hover {
+    background-color: #aad5763f;
+    transition: all 0.3s;
 }
 
 .next-button-container:active {
     background-color: #AAD576;
     transition: all 0s;
+}
+
+@media(max-width: 760px) {
+    .next-button-container {
+        display: none;
+    }
 }

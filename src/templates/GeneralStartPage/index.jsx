@@ -1,5 +1,7 @@
 import styles from './styles.module.css';
+
 import { useRef, useState, useEffect } from 'react';
+
 import { NavBar } from '../../components/NavBar';
 import { SignHeader } from '../../components/SignHeader';
 import { Header } from '../../components/Header';
@@ -10,6 +12,8 @@ import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
 import { SearchInput } from '../../components/SearchInput';
+
+
 
 import {
   listProductNearToClient,
@@ -163,7 +167,7 @@ export const GeneralStartPage = () => {
               })}
             </div>
             <NextButton onClick={handleRightClick} />
-          </div>
+          </div> 
         </div>
       </div>
       <Footer />

@@ -9,8 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -29,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 14vh;
+    gap: 6vh;
 }
 
 .drop-box {

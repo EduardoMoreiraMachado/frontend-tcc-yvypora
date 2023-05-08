@@ -12,7 +12,9 @@ import FeiranteStartPage from './templates/FeiranteStartPage';
 import Login from './templates/Login';
 import FairNear from './templates/NearbyFairs';
 import SearchPage from './templates/SearchPage';
-import ProfilePage from './templates/ProfilePage';
+import ProfilePageCostumer from './templates/ConsumidorProfilePage';
+import ProfilePageMarketer from './templates/FeiranteProfilePage';
+
 import OrderPage from './templates/MyOrderPage';
 import BuyHistory from './templates/PurchasesHistoricPage';
 import TypeUserSelect from './templates/TypeUserSelect';
@@ -54,7 +56,10 @@ root.render(
         <Route path='/fair/add-fair' element={<AddFairPage />} />
         <Route path='/fair/fairs' element={<FairPage />} />
         <Route path='/search' element={<SearchPage name={'Laranja'} />} />
-        <Route path='/profile' element={<ProfilePage />} />
+
+        <Route path='/profile/costumer' element={<ProfilePageCostumer />} />
+        <Route path='/profile/marketer' element={<ProfilePageMarketer />} />
+
         <Route path='/profile/purchase-history' element={<BuyHistory />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/gains' element={<GainsPage />} />
@@ -72,9 +77,9 @@ root.render(
         />
         {/* <Route path="/profile/edit" element={<EditProfilePage />} /> */}
         <Route path='/profile/address' element={<AdressPage />} />
-        <Route path='/product/add-product' element={<InsertProductPage />} />
+        <Route path='/product/edit' element={<InsertProductPage />} />
         <Route path='/product/:id' element={<ProductPage />} />
-        <Route path='/product/marketer' element={<SellerProductPage />} />
+        <Route path='/marketer/products' element={<SellerProductPage />} />
         <Route path='/delivery' element={<EntregadorLandingPage />} />
       </Routes>
     </BrowserRouter>

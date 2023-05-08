@@ -13,6 +13,14 @@
     background-color: #fff;
 }
 
+.category-select:hover {
+    color: #538D22;
+}
+
+.category-select:active {
+    color: #143601;
+}
+
 @media (max-width: 768px) {
     .category-select {
         font-size: 1rem;

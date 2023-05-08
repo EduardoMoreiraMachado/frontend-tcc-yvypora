@@ -182,7 +182,7 @@ html {
 }
 
 @media(max-width: 768px) {
-    header {
+    #header-entregador {
         position: relative;
         justify-content: center;
         box-shadow: none;

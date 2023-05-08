@@ -38,4 +38,21 @@
         align-items: center;
         justify-content: center;
     }
+
+    .map-container {
+        margin-left: 100px;
+    }
+}
+
+@media(max-width: 1300px) {
+    .map-container {
+        margin-left: 200px;
+        margin-right: 50px;
+    }
+}
+
+@media(max-width: 980px) {
+    .map-container {
+        margin: 0;
+    }
 }
