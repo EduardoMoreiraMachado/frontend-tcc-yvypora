@@ -25,7 +25,7 @@ export const ProductPage = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [itemCount, setItemCount] = useState(1);
-  const result = calculateResult(data?.price, itemCount);
+  const result = calculateResult(data?.discount ? data?.price - ((data?.discount / 100)) : data?.price, itemCount);
 
   useEffect(() => {
     getProduct(id).then(({ data }) => {
@@ -96,7 +96,7 @@ export const ProductPage = () => {
                   id: data.id,
                   name: data.name,
                   picture: data.image_of_product[0].image.uri,
-                  price: data.price,
+                  price: data.discount ? data.price - ((data.discount / 100)) : data.price,
                   selectedQuantity: itemCount,
                   quantity: data.available_quantity,
                   fairName: data.marketer.tent_name,

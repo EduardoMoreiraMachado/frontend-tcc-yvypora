@@ -46,7 +46,7 @@ export const FairPage = () => {
                   imgUrl='https://vidasimples.co/wp-content/uploads/2019/09/vida-simples-feira-vai-ter-feira-4.png'
                   name={fair.name}
                   days={fair.fair_date_hour_of_work.map(
-                    ({ dates }) => dates.day_of_week.name + '/'
+                    ({ dates }) => dates.day_of_week.abbr + ' '
                   )}
                   hours={`${openTime} até as ${closeTime}`}
                   key={fair.id}

@@ -103,12 +103,17 @@ export const GeneralStartPage = () => {
 
     if (id === 'all') {
       const newList = await listProducts();
+      setListOfProducts([])
       setListOfProducts(newList);
     } else if (id === 'discount') {
       const newList = await listProductsInSaleOff();
+      setListOfProducts([])
+
       setListOfProducts(newList);
     } else if (id === 'close') {
       const newList = await listProductNearToClient();
+      setListOfProducts([])
+
       setListOfProducts(newList);
     }
 

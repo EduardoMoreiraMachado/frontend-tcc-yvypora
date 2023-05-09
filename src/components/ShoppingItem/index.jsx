@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 
 export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
   const [promoExists, setPromoExists] = useState(0);
-
+  const [promoValue, setPromoValue] = useState(null);
   const priceProcessed = price.toString().replace(/\./g, ",");
 
   useEffect(() => {
     if (promo) {
+      const value = price - (price * (promo / 100))
+      setPromoValue(value)
       setPromoExists(100);
     }
   }, []);
@@ -32,7 +34,7 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
       <div className={styles["item-numbers"]}>
         <div className={styles["numbers"]}>
           <h1 className={styles["weight"]}>{weight}</h1>
-          <span className={styles["price-general"]}>R$ {priceProcessed}</span>
+          <span className={styles["price-general"]}>R$ {promoValue ? promoValue : priceProcessed}</span>
         </div>
         <div className={styles["cart-icon-box"]}>
           <button className={styles["cart-icon"]} />

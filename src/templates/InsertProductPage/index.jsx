@@ -34,6 +34,7 @@ export const InsertProductPage = () => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [previousProduct, setPreviousProduct] = useState(null);
   const location = useLocation();
+  const inputSaleOff = useRef(null);
 
   const [price, setPrice] = useState(0);
   const [name, setName] = useState('');
@@ -116,7 +117,7 @@ export const InsertProductPage = () => {
     let price = formData.price;
 
     const availableQuantity = formData.available;
-    const saleOffValue = document.querySelectorAll('.input-active')[0]?.value;
+    const saleOffValue = inputSaleOff.current.value;
 
     if (priceTypeOptionSelected.value === 'peso') {
       quantity = inputs[1].value;
@@ -146,7 +147,7 @@ export const InsertProductPage = () => {
     event.preventDefault();
     const image = document.getElementById('file-selection').files[0];
 
-    const saleOffValue = document.querySelectorAll('.input-active')[0]?.value;
+    const saleOffValue = inputSaleOff.current.value;
 
     const data = await getData();
 
@@ -209,21 +210,36 @@ export const InsertProductPage = () => {
     event.preventDefault();
     const image = document.getElementById('file-selection').files[0];
 
-    const saleOffValue = document.querySelectorAll('.input-active')[0]?.value;
+    const saleOffValue = inputSaleOff.current.value;
 
     const data = await getData();
 
     try {
       await updateProduct(previousProduct.id, data);
 
+      console.log(saleOffValue);
+      
+
       const lastSaleOffValue = previousProduct.sale_off.map(
         ({ value }) => value
       )[0];
 
-      if (lastSaleOffValue && lastSaleOffValue !== saleOffValue) {
-        await removeSaleOff(previousProduct.id);
+      const hasSaleOff = previousProduct?.sale_off.length > 0 ? true : false
+
+
+      if (hasSaleOff && !saleOffValue) {
+        await removeSaleOff({ id: previousProduct.id});
+      }
+      else if (lastSaleOffValue && lastSaleOffValue !== saleOffValue) {
+        await removeSaleOff({ id: previousProduct.id });
+        await addSaleOff({ id: previousProduct.id, value: saleOffValue });
+      } else if (saleOffValue) {
         await addSaleOff({ id: previousProduct.id, value: saleOffValue });
       }
+      
+      
+      
+
 
       if (image) {
         const pictureFormData = new FormData();
@@ -405,6 +421,7 @@ export const InsertProductPage = () => {
           <div className={styles['promotion']}>
             <h1 className={styles['product-input-title']}>Desconto:</h1>
             <ToggleSwitch
+              inputRef={inputSaleOff}
               defaultCheckedValue={
                 previousProduct?.sale_off.length > 0 ? true : false
               }
@@ -431,11 +448,9 @@ export const InsertProductPage = () => {
               value={amount}
             />
           </div>
-
+              {console.log(previousProduct?.image_of_product?.map(({ image }) => image.uri)[0])}
           <AddImage
-            previewImage={
-              previousProduct?.image_of_product.map(({ image }) => image.uri)[0]
-            }
+            previewImage={previousProduct?.image_of_product?.map(({ image }) => image.uri)[0]}
             text='Imagem do produto'
             subtext='Anexe uma imagem do produto que ficará visível ao cliente'
           />

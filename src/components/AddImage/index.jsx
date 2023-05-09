@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 export const AddImage = ({ text, subtext, inputRef, previewImage }) => {
   const [image, setImage] = useState(previewImage ? previewImage : null);
+
+
 
   const handleImageChange = (event) => {
     const selectedImage = event.target.files[0];
@@ -20,11 +22,11 @@ export const AddImage = ({ text, subtext, inputRef, previewImage }) => {
     <div className={styles['add-image-container']}>
       <h1 className={styles['text']}>{text}</h1>
       <h2 className={styles['subtext']}>{subtext}</h2>
-      {image ? (
+      {image | previewImage ? (
         <>
           <div
             className={styles['image-preview']}
-            style={{ backgroundImage: `url('${image}')` }}
+            style={{ backgroundImage: `url('${image ? image: previewImage}')` }}
           ></div>
           <label for='file-selection' className={styles['modify-image']}>
             Alterar imagem

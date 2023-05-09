@@ -43,7 +43,6 @@ export const removePictureToProduct = async ({ productId, pictureId }) => {
   return res.data;
 };
 
-// deletar produto
 export const disableProduct = async ({ id }) => {
   const res = await marketerAPI.delete(`product/disable/${id}`);
 
@@ -62,3 +61,9 @@ export const updateProduct = async (id, data) => {
 
   return res.data;
 };
+
+
+export const updateAvailableQuantity = async (id, newQuantity) => {
+  const res = await marketerAPI.put(`product/quantity/${id}/${newQuantity}`)
+  return res.data
+}
