@@ -129,6 +129,15 @@ html {
     padding-bottom: 4vh;
 }
 
+.entregador-options-container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+}
+
 .about-content {
     height: fit-content;
     display: flex;

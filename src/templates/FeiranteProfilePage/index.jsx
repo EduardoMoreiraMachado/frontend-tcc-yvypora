@@ -28,7 +28,7 @@ export const ProfilePage = () => {
       </div>
       <div className={styles["profile-container"]}>
         <NavBar />
-        <div className={"options-container"}>
+        <div className={styles["options-container"]}>
           <Option imgUrl={iconUser} text={"Editar conta"} link={"/profile/edit"} />
           <Option imgUrl={iconMap} text={"Feiras"} link="/profile/address" />
           <Option imgUrl={iconCard} text={"Formas de Pagamento"} link={""} />

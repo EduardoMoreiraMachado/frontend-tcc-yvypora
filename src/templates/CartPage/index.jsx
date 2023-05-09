@@ -15,6 +15,9 @@ export const CartPage = () => {
 
   const [total, setTotal] = useState(cart.total);
 
+  const processedTotal = total.toFixed(2)
+  const resultTotal = processedTotal.toString().replace(/\./g, ",")
+
   useEffect(() => {
     const aggroupedData = groupByMarketer(cart.products);
     setDisplayCart(aggroupedData);
@@ -90,7 +93,7 @@ export const CartPage = () => {
             <h1>Resumo do pedido</h1>
             <div className={styles['total-payment']}>
               <span>TOTAL:</span>
-              <h2>R$ {total}</h2>
+              <h2>R$ {resultTotal}</h2>
             </div>
             <button onClick={handleClickToPayment}>Pagar</button>
           </div>

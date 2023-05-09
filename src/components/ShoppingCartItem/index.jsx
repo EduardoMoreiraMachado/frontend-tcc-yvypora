@@ -6,7 +6,8 @@ import { addProduct, updateItemCount } from "../../utils/cart";
 
 function calculateResult(num1, num2) {
   const result = num1 * num2;
-  const updatedResult = result.toString().replace(/\./g, ",");
+  const processedResult = result.toFixed(2)
+  const updatedResult = processedResult.toString().replace(/\./g, ",");
   return updatedResult;
 }
 

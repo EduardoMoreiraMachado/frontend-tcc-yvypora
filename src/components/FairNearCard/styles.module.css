@@ -38,6 +38,13 @@
     margin-bottom: 10px;
 }
 
+.header-card h2 {
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
+    text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
+    max-width: 500px;
+}
+
 .note-container {
     display: flex;
     align-items: center;

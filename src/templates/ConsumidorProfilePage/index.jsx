@@ -28,7 +28,7 @@ export const ProfilePage = () => {
       </div>
       <div className={styles["profile-container"]}>
         <NavBar />
-        <div className={"options-container"}>
+        <div className={styles["options-container"]}>
           <Option imgUrl={iconUser} text={"Perfil"} link={"/profile/edit"} />
           <Option imgUrl={iconMap} text={"Endereço"} link="/profile/address" />
           <Option imgUrl={iconCard} text={"Formas de Pagamento"} link={""} />
@@ -46,4 +46,5 @@ export const ProfilePage = () => {
     </div>
   );
 };
+
 export default ProfilePage;

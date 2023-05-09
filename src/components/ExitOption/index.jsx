@@ -10,11 +10,7 @@ export const ExitOption = () => {
   const [click, setClick] = useState(false);
 
   function handleClick() {
-    setClick(true);
-  }
-
-  function handleCancelClick() {
-    setClick(false);
+    setClick(!click);
   }
 
   function exit() {
@@ -45,7 +41,7 @@ export const ExitOption = () => {
             <button id={styles["yes"]} onClick={exit}>
               SIM
             </button>
-            <button onClick={handleCancelClick} id={styles["no"]}>
+            <button onClick={handleClick} id={styles["no"]}>
               NÃO
             </button>
           </div>

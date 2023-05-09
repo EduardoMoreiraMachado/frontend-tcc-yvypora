@@ -71,7 +71,7 @@ export const NearbyFairs = () => {
                     ({ dates }) => dates.day_of_week.name + '/'
                   )}
                   hourWorkText={openTime + ' - ' + closeTime}
-                  fairmanText={`Aprox ${fair.marketer_count} feirantes cadastrados no yvy`}
+                  fairmanQnt={fair.marketer_count}
                 />
               );
             })}

@@ -4,18 +4,24 @@
 
 .user-info {
     width: 100%;
-    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4vh;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+.options-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-} 
-
-.profile-container {
-    height: auto;
-    min-height: 74vh;
-    display: flex;
-    align-items: center;
+    gap: 36px;
+    margin-bottom: 1.4vh;
 }
 
 @media (max-width: 768px) {
