@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 
 import { useState } from "react";
 
-export const ToggleSwitch = ({ defaultCheckedValue  }) => {
+export const ToggleSwitch = ({ defaultCheckedValue, inputRef  }) => {
   const [isChecked, setIsChecked] = useState(defaultCheckedValue);
   // const [value, setValue] = useState('');
   const [value, setValue] = useState(null);
@@ -53,6 +53,7 @@ export const ToggleSwitch = ({ defaultCheckedValue  }) => {
         }
       >
         <input
+        ref={inputRef}
           className={styles["input-active"]}
           type="number"
           value={value}

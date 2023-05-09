@@ -68,7 +68,7 @@ export const NearbyFairs = () => {
                   }
                   note={fair.review}
                   dayWorkText={fair.fair_date_hour_of_work.map(
-                    ({ dates }) => dates.day_of_week.name + '/'
+                    ({ dates }) => dates.day_of_week.abbr  + ' '
                   )}
                   hourWorkText={openTime + ' - ' + closeTime}
                   fairmanText={`Aprox ${fair.marketer_count} feirantes cadastrados no yvy`}

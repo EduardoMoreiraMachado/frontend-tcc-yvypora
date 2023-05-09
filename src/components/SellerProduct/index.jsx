@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   disableProduct,
   enableProduct,
+  updateAvailableQuantity,
 } from '../../utils/fetchs/Marketer/productFetch';
 
 export const SellerProduct = ({
@@ -40,12 +41,9 @@ export const SellerProduct = ({
     setIsEnable(true);
   };
 
-  const update = async () => {};
-
-  const _delete = async () => {};
-
+  
   useEffect(() => {
-    // TODO update each time the item count changes
+    updateAvailableQuantity(id, itemCount).then(() => {}).catch((err) => {console.log(err)})
   }, [itemCount]);
 
   return (
