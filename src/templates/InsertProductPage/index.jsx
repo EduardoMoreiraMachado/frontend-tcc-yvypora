@@ -450,7 +450,6 @@ export const InsertProductPage = () => {
           </div>
               {console.log(previousProduct?.image_of_product?.map(({ image }) => image.uri)[0])}
           <AddImage
-            previewImage={previousProduct?.image_of_product?.map(({ image }) => image.uri)[0]}
             text='Imagem do produto'
             subtext='Anexe uma imagem do produto que ficará visível ao cliente'
           />

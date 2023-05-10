@@ -159,7 +159,7 @@ export const GeneralStartPage = () => {
           <div className={styles['products-carrossel']}>
             <PrevButton onClick={handleLeftClick} />
             <div className={styles['carousel-items']} ref={carousel}>
-              {genericList.map((product) => {
+              {genericList.map((product) => {  
                 if(genericList.length == 0) {
                   return(
                     <h1>Que pena! Não há feiras ativas no momento.</h1>
@@ -169,7 +169,7 @@ export const GeneralStartPage = () => {
                     <ShoppingItem
                       name={product.name}
                       imgUrl={product.image_of_product.map((el) => el.image.uri)}
-                      weight='100g'
+                      weight={`${product.available_quantity} ${product.type_of_price.name}`}
                       price={product.price}
                       key={product.id}
                     />

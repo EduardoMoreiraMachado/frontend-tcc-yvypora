@@ -4,6 +4,7 @@ import { SignHeader } from '../../components/SignHeader';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { NavBar } from '../../components/NavBar';
+import { RatingStarsStatic } from '../../components/RatingStarsStatic';
 
 import StarsIconTest from '../../imgs/stars_icon_test.svg';
 import AddCartIcon from '../../imgs/add_cart_icon.svg';
@@ -33,6 +34,8 @@ export const ProductPage = () => {
     });
   }, [id]);
 
+  const reviewProcessed = data.review.toFixed(1)
+
   const MainPage = () => (
     <div className={styles['product-page-container']}>
       {user ? <Header user={{ picture_uri: '' }} /> : <SignHeader />}
@@ -50,8 +53,11 @@ export const ProductPage = () => {
             <div className={styles['texts']}>
               <h1 className={styles['title']}>{data.name}</h1>
               <div className={styles['review']}>
-                <img className={styles['stars']} src={StarsIconTest} alt='' />
-                <h2 className={styles['grade']}>{data.review}</h2>
+                {/* <img className={styles['stars']} src={StarsIconTest} alt='' /> */}
+                <RatingStarsStatic 
+                  reviewValue={data.review}
+                />
+                <h2 className={styles['grade']}>{reviewProcessed}</h2>
                 <div className={styles['grade-info']}>
                   {/* <h2 className={styles["review-count"]}>41 avaliações</h2> */}
                   <h2 className={styles['order-count']}>
