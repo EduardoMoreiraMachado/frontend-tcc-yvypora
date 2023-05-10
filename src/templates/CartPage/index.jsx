@@ -35,6 +35,8 @@ export const CartPage = () => {
       }),
       freight: 19.99,
     };
+
+    
     const stripePaymentLink = await createPurchase(purchase);
 
     window.location.href = stripePaymentLink;

@@ -14,7 +14,6 @@ import FairNear from './templates/NearbyFairs';
 import SearchPage from './templates/SearchPage';
 import ProfilePageCostumer from './templates/ConsumidorProfilePage';
 import ProfilePageMarketer from './templates/FeiranteProfilePage';
-
 import OrderPage from './templates/MyOrderPage';
 import BuyHistory from './templates/PurchasesHistoricPage';
 import TypeUserSelect from './templates/TypeUserSelect';
@@ -45,7 +44,7 @@ root.render(
           element={<IndividualProductReviewPage />}
         />
         <Route
-          path='/profile/purchase/review'
+          path='/purchase/review'
           element={<ProductReviewPage />}
         />
         <Route path='/login' element={<Login />} />
@@ -59,9 +58,9 @@ root.render(
 
         <Route path='/profile/costumer' element={<ProfilePageCostumer />} />
         <Route path='/profile/marketer' element={<ProfilePageMarketer />} />
-
         <Route path='/profile/purchase-history' element={<BuyHistory />} />
         <Route path='/cart' element={<CartPage />} />
+        {/* <Route path='/cart2' element={<ShoppingCartPage/>} /> */}
         <Route path='/gains' element={<GainsPage />} />
         {/* DISABLED <Route path="/shoppingcart" element={<ShoppingCartPage />} /> */}
         <Route path='/sign' element={<SignToContinue />} />

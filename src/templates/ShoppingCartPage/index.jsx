@@ -12,9 +12,7 @@ export const ShoppingCartPage = () => {
       <div className={styles["cart-page-content"]}>
         <NavBar />
         <div className={styles["selected-products"]}>
-          <ShoppingCartItem />
-          <ShoppingCartItem />
-          <ShoppingCartItem />
+          <ShoppingCartItem id={1} imgUrl={''}itemCountProp={1} name={123}price={1}setCartTotal={() => {}} unit={1} key={1}/>
         </div>
         <div className={styles["payment-method"]}></div>
       </div>
