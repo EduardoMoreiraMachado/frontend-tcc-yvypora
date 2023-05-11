@@ -12,7 +12,7 @@ import AddCartIcon from '../../imgs/add_cart_icon.svg';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
-import { getProduct } from '../../utils/fetchs/Costumer/products';
+import { getProduct } from '../../utils/fetchs/costumer/products';
 import { addProduct } from '../../utils/cart';
 
 import { calculateResult } from '../../utils/calcFunctions';
@@ -26,7 +26,10 @@ export const ProductPage = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [itemCount, setItemCount] = useState(1);
-  const result = calculateResult(data?.discount ? data?.price - ((data?.discount / 100)) : data?.price, itemCount);
+  const result = calculateResult(
+    data?.discount ? data?.price - data?.discount / 100 : data?.price,
+    itemCount
+  );
 
   useEffect(() => {
     getProduct(id).then(({ data }) => {
@@ -34,7 +37,7 @@ export const ProductPage = () => {
     });
   }, [id]);
 
-  const reviewProcessed = data.review.toFixed(1)
+  const reviewProcessed = data?.review.toFixed(1);
 
   const MainPage = () => (
     <div className={styles['product-page-container']}>
@@ -54,9 +57,7 @@ export const ProductPage = () => {
               <h1 className={styles['title']}>{data.name}</h1>
               <div className={styles['review']}>
                 {/* <img className={styles['stars']} src={StarsIconTest} alt='' /> */}
-                <RatingStarsStatic 
-                  reviewValue={data.review}
-                />
+                <RatingStarsStatic reviewValue={data.review} />
                 <h2 className={styles['grade']}>{reviewProcessed}</h2>
                 <div className={styles['grade-info']}>
                   {/* <h2 className={styles["review-count"]}>41 avaliações</h2> */}
@@ -102,7 +103,9 @@ export const ProductPage = () => {
                   id: data.id,
                   name: data.name,
                   picture: data.image_of_product[0].image.uri,
-                  price: data.discount ? data.price - ((data.discount / 100)) : data.price,
+                  price: data.discount
+                    ? data.price - data.discount / 100
+                    : data.price,
                   selectedQuantity: itemCount,
                   quantity: data.available_quantity,
                   fairName: data.marketer.tent_name,

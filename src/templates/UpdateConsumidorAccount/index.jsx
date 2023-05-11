@@ -1,36 +1,36 @@
 import styles from './styles.module.css';
 
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import { NavBar } from "../../components/NavBar";
-import { Title } from "../../components/Title";
-import { DefaultInput } from "../../components/DefaultInput";
-import { SpecialInput } from "../../components/SpecialInput";
-import { GreenButton } from "../../components/GreenButton";
-import { appendPictureToUser } from "../../utils/fetchs/common/picture";
-import { useRef, useState } from "react";
-import AddImage from "../../components/AddImage";
-import { updateCostumerAccount } from "../../utils/fetchs/Costumer/costumer";
-import { getDetails } from "../../utils/fetchs/common/user";
-import { notify } from "../../utils/notify";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+import { NavBar } from '../../components/NavBar';
+import { Title } from '../../components/Title';
+import { DefaultInput } from '../../components/DefaultInput';
+import { SpecialInput } from '../../components/SpecialInput';
+import { GreenButton } from '../../components/GreenButton';
+import { appendPictureToUser } from '../../utils/fetchs/common/picture';
+import { useRef, useState } from 'react';
+import AddImage from '../../components/AddImage';
+import CostumerFetch from '../../utils/fetchs/costumer/costumer';
+import { getDetails } from '../../utils/fetchs/common/user';
+import { notify } from '../../utils/notify';
 
 const MySwal = withReactContent(Swal);
 
 export const UpdateConsumidorAccount = () => {
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user-details"))
+    JSON.parse(localStorage.getItem('user-details'))
   );
 
-  const inputCpf = useRef(null)
-  const inputImage = useRef(null)
+  const inputCpf = useRef(null);
+  const inputImage = useRef(null);
 
   const [formData, setFormData] = useState({
-    Nome: "",
-    Email: "",
-    Senha: "",
-    "Data de nascimento": "",
+    Nome: '',
+    Email: '',
+    Senha: '',
+    'Data de nascimento': '',
   });
 
   const handleChangeFields = (event) => {
@@ -52,9 +52,7 @@ export const UpdateConsumidorAccount = () => {
   const handleClick = async (event) => {
     event.preventDefault();
 
-    const cpf = inputCpf.current
-      .value.replaceAll(".", "")
-      .replaceAll("-", "");
+    const cpf = inputCpf.current.value.replaceAll('.', '').replaceAll('-', '');
 
     const data = {};
 
@@ -62,18 +60,18 @@ export const UpdateConsumidorAccount = () => {
 
     if (cpf) data.cpf = formData.cpf;
     if (formData.Nome) data.name = formData.Nome;
-    if (formData["Data de nascimento"])
-      data.birthday = formData["Data de nascimento"];
+    if (formData['Data de nascimento'])
+      data.birthday = formData['Data de nascimento'];
     if (formData.Email) data.email = formData.Email;
     if (formData.Senha) data.password = formData.Senha;
 
     const image = inputImage.current.files[0];
     const formdata = new FormData();
-    formdata.append("picture", image);
+    formdata.append('picture', image);
 
     try {
-      const { newToken: token } = await updateCostumerAccount(data);
-      localStorage.setItem("user-logged-token", token);
+      const { newToken: token } = await CostumerFetch.update(data);
+      localStorage.setItem('user-logged-token', token);
     } catch (err) {
       console.log(err);
     }
@@ -84,11 +82,11 @@ export const UpdateConsumidorAccount = () => {
 
     const updatedDetails = await getDetails();
 
-    localStorage.setItem("user-details", JSON.stringify(updatedDetails));
+    localStorage.setItem('user-details', JSON.stringify(updatedDetails));
 
     setUser(updatedDetails);
 
-    await notify("success", "Conta atualizada com sucesso!");
+    await notify('success', 'Conta atualizada com sucesso!');
 
     window.location.reload(true);
 
@@ -96,43 +94,47 @@ export const UpdateConsumidorAccount = () => {
   };
 
   return (
-    <div className={styles["update-consumidor-account-container"]}>
-      <Header user={{picture_uri:""}}/>
-      <Title text="Editar conta" />
-      <div className={styles["update-content"]}>
-        <div className={styles["nav-bar"]}>
+    <div className={styles['update-consumidor-account-container']}>
+      <Header user={{ picture_uri: '' }} />
+      <Title text='Editar conta' />
+      <div className={styles['update-content']}>
+        <div className={styles['nav-bar']}>
           <NavBar />
         </div>
         <div className={styles['info-inputs']}>
-          <form className={styles["update-inputs"]}>
-            <DefaultInput name="Nome" type="text" onChange={handleChangeFields} />
+          <form className={styles['update-inputs']}>
             <DefaultInput
-              name="Email"
-              type="email"
+              name='Nome'
+              type='text'
               onChange={handleChangeFields}
             />
             <DefaultInput
-              name="Senha"
-              type="password"
+              name='Email'
+              type='email'
+              onChange={handleChangeFields}
+            />
+            <DefaultInput
+              name='Senha'
+              type='password'
               onChange={handleChangeFields}
             />
             <SpecialInput
-              name="cpf"
-              label="CPF"
-              mask="999.999.999-99"
+              name='cpf'
+              label='CPF'
+              mask='999.999.999-99'
               value={values.cpf}
               onChange={handleChange}
               inputRef={inputCpf}
             />
             <DefaultInput
-              name="Data de nascimento"
-              type="date"
+              name='Data de nascimento'
+              type='date'
               onChange={handleChangeFields}
             />
           </form>
-          <div className={styles["green-button"]}>
+          <div className={styles['green-button']}>
             <AddImage inputRef={inputImage} />
-            <GreenButton onClick={handleClick} text="Salvar" />
+            <GreenButton onClick={handleClick} text='Salvar' />
           </div>
         </div>
       </div>

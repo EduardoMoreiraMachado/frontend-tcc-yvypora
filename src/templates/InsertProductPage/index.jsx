@@ -20,10 +20,10 @@ import {
   removePictureToProduct,
   removeSaleOff,
   updateProduct,
-} from '../../utils/fetchs/Marketer/productFetch';
+} from '../../utils/fetchs/marketer/productFetch';
 
 import { useLocation } from 'react-router-dom';
-import { getProduct } from '../../utils/fetchs/Costumer/products';
+import { getProduct } from '../../utils/fetchs/costumer/products';
 
 const MySwal = withReactContent(Swal);
 

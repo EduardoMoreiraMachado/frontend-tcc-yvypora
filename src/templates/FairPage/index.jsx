@@ -7,7 +7,7 @@ import { NavBar } from '../../components/NavBar';
 import { Fair } from '../../components/Fair';
 import { GreenButton } from '../../components/GreenButton';
 import { useAsync } from 'react-use';
-import { getMarketerAssociatedFairs } from '../../utils/fetchs/Marketer/fairsFetch';
+import MarketerFairFetch from '../../utils/fetchs/marketer/fair';
 
 export const FairPage = () => {
   const {
@@ -15,8 +15,7 @@ export const FairPage = () => {
     error,
     value: fairs,
   } = useAsync(async () => {
-    const data = await getMarketerAssociatedFairs();
-    console.log(data);
+    const data = await MarketerFairFetch.index();
     return data;
   }, []);
 
@@ -40,9 +39,9 @@ export const FairPage = () => {
               const openTime = open.match(/\d\d:\d\d/);
               const closeTime = close.match(/\d\d:\d\d/);
 
-              console.log(openTime, closeTime);
               return (
                 <Fair
+                  id={fair.id}
                   imgUrl='https://vidasimples.co/wp-content/uploads/2019/09/vida-simples-feira-vai-ter-feira-4.png'
                   name={fair.name}
                   days={fair.fair_date_hour_of_work.map(

@@ -1,23 +1,23 @@
 import styles from './styles.module.css';
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
+import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg';
 
-import { Title } from "../../components/Title";
-import { DefaultInput } from "../../components/DefaultInput";
-import { AddImage } from "../../components/AddImage";
-import { GreenButton } from "../../components/GreenButton";
-import { Footer } from "../../components/Footer";
-import { SpecialInput } from "../../components/SpecialInput";
+import { Title } from '../../components/Title';
+import { DefaultInput } from '../../components/DefaultInput';
+import { AddImage } from '../../components/AddImage';
+import { GreenButton } from '../../components/GreenButton';
+import { Footer } from '../../components/Footer';
+import { SpecialInput } from '../../components/SpecialInput';
 
-import { useRef, useState } from "react";
-import { useEffect } from "react";
-import { fetchMarketerFormFields } from "../../utils/fetchs/common/formFieldsFetch";
-import { getLocation } from "../../utils/location";
-import { singUpMarketer } from "../../utils/fetchs/Marketer/marketer";
-import { appendPictureToUser } from "../../utils/fetchs/common/picture";
-import { commonsAPI } from "../../api/api";
+import { useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { fetchMarketerFormFields } from '../../utils/fetchs/common/form-fields';
+import { getLocation } from '../../utils/location';
+import { singUpMarketer } from '../../utils/fetchs/marketer/marketer';
+import { appendPictureToUser } from '../../utils/fetchs/common/picture';
+import { commonsAPI } from '../../api/api';
 
 const MySwal = withReactContent(Swal);
 
@@ -37,17 +37,16 @@ export const SignUpFeirante = () => {
   }, []);
 
   const [formData, setFormData] = useState({
-    Nome: "",
-    Email: "",
-    Senha: "",
-    "Data de nascimento": "",
-    "Nome do estabelecimento": "",
+    Nome: '',
+    Email: '',
+    Senha: '',
+    'Data de nascimento': '',
+    'Nome do estabelecimento': '',
   });
 
-  const inputCpf = useRef(null)
-  const phoneInput = useRef(null)
-  const imageInput = useRef(null)
-
+  const inputCpf = useRef(null);
+  const phoneInput = useRef(null);
+  const imageInput = useRef(null);
 
   const handleChangeFields = (event) => {
     const { name, value } = event.target;
@@ -71,7 +70,7 @@ export const SignUpFeirante = () => {
         longitude: position.coords.longitude,
       });
     });
-    localStorage.setItem("location", JSON.stringify(location));
+    localStorage.setItem('location', JSON.stringify(location));
   }, []);
 
   const handleClick = async (e) => {
@@ -100,9 +99,9 @@ export const SignUpFeirante = () => {
     marketer.email = formData.Email;
     marketer.password = formData.Senha;
     marketer.cpf = inputCpf.current.value;
-    marketer.phone = phoneInput.current.value.replace(/\D/g, "");
+    marketer.phone = phoneInput.current.value.replace(/\D/g, '');
     marketer.tent_name = formData['Nome do estabelecimento'];
-    // add regex here 
+    // add regex here
     marketer.birthday = formData['Data de nascimento'];
 
     marketer.location.latitude = location.latitude;
@@ -110,19 +109,19 @@ export const SignUpFeirante = () => {
 
     const image = imageInput.current.files[0];
     const formdata = new FormData();
-    console.log(formData)
+    console.log(formData);
 
-    formdata.append("picture", image);
+    formdata.append('picture', image);
 
     try {
       const res = await singUpMarketer(marketer);
 
-      const { data } = await commonsAPI.post("/login/", {
+      const { data } = await commonsAPI.post('/login/', {
         email: res.email,
         password: marketer.password,
       });
 
-      localStorage.setItem("user-logged-token", data.token);
+      localStorage.setItem('user-logged-token', data.token);
 
       await appendPictureToUser(formdata);
 
@@ -130,7 +129,7 @@ export const SignUpFeirante = () => {
         timer: 1500,
         showConfirmButton: false,
         title: <p>Seja Bem Vindo!</p>,
-        icon: "success",
+        icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
       });
@@ -140,53 +139,69 @@ export const SignUpFeirante = () => {
   };
 
   return (
-    <div className={styles["main-cadastro"]}>
+    <div className={styles['main-cadastro']}>
       <header>
-        <div className="header-icon">
-          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
+        <div className='header-icon'>
+          <img className='icon-yvy' src={YvyporaTextIcon} alt='' />
         </div>
       </header>
-      <Title text="Cadastre-se" />
-      <div className={styles["input-container"]}>
-        <div className={styles["inputs"]}>
-          <DefaultInput name="Nome" type="text" onChange={handleChangeFields} />
-          <DefaultInput name="Email" type="email" onChange={handleChangeFields} />
-          <DefaultInput name="Senha" type="password" onChange={handleChangeFields} />
+      <Title text='Cadastre-se' />
+      <div className={styles['input-container']}>
+        <div className={styles['inputs']}>
+          <DefaultInput name='Nome' type='text' onChange={handleChangeFields} />
+          <DefaultInput
+            name='Email'
+            type='email'
+            onChange={handleChangeFields}
+          />
+          <DefaultInput
+            name='Senha'
+            type='password'
+            onChange={handleChangeFields}
+          />
           <SpecialInput
-            name="cpf"
-            label="CPF"
-            mask="999.999.999-99"
+            name='cpf'
+            label='CPF'
+            mask='999.999.999-99'
             value={values.cpf}
             onChange={handleChange}
             inputRef={inputCpf}
           />
           <SpecialInput
-            name="phone"
-            label="Telefone"
-            mask="(999) 9 9999-9999"
+            name='phone'
+            label='Telefone'
+            mask='(999) 9 9999-9999'
             value={values.phone}
             onChange={handleChange}
             inputRef={phoneInput}
           />
-          <DefaultInput name="Nome do estabelecimento" type="text" onChange={handleChangeFields} />
-          <DefaultInput name="Data de nascimento" type="date"  onChange={handleChangeFields}/>
-          <div className="genders">
+          <DefaultInput
+            name='Nome do estabelecimento'
+            type='text'
+            onChange={handleChangeFields}
+          />
+          <DefaultInput
+            name='Data de nascimento'
+            type='date'
+            onChange={handleChangeFields}
+          />
+          <div className='genders'>
             {genders.map(({ name, id }) => (
-              <label className="label cursor-pointer">
-                <span className="label-text">{name}</span>
+              <label className='label cursor-pointer'>
+                <span className='label-text'>{name}</span>
                 <input
                   value={name}
-                  type="radio"
-                  name="radio-20"
-                  className="radio checked:bg-green-900"
+                  type='radio'
+                  name='radio-20'
+                  className='radio checked:bg-green-900'
                 />
               </label>
             ))}
           </div>
         </div>
-        <div className={"button-add-image-container"}>
-          <AddImage text="Adicione uma foto de perfil" inputRef={imageInput}/>
-          <GreenButton text="Cadastrar" onClick={handleClick} />
+        <div className={'button-add-image-container'}>
+          <AddImage text='Adicione uma foto de perfil' inputRef={imageInput} />
+          <GreenButton text='Cadastrar' onClick={handleClick} />
         </div>
       </div>
 

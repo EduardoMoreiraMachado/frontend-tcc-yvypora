@@ -7,9 +7,9 @@ import { RatingStars } from '../../components/RatingStars';
 import { GreenButton } from '../../components/GreenButton';
 import { useEffect, useState } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
-import { getPurchase } from '../../utils/fetchs/Costumer/purchase';
+import PurchaseFetch from '../../utils/fetchs/costumer/purchase';
 import { FaSpinner } from 'react-icons/fa';
-import ReviewFetch from '../../utils/fetchs/Costumer/review';
+import ReviewFetch from '../../utils/fetchs/costumer/review';
 
 const ProductReviewPage = () => {
   const [cart, setCart] = useState(null);
@@ -24,7 +24,7 @@ const ProductReviewPage = () => {
       localStorage.getItem('current_travel')
     );
     setOrder(currentTravelStoraged.order);
-    getPurchase(currentTravelStoraged.order.id).then((data) => {
+    PurchaseFetch.getPurchase(currentTravelStoraged.order.id).then((data) => {
       setCart(data);
     });
   }, []);

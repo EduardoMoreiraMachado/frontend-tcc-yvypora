@@ -7,7 +7,7 @@ import { Footer } from '../../components/Footer';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
-import { createPurchase } from '../../utils/fetchs/Costumer/purchase';
+import PurchaseFetch from '../../utils/fetchs/costumer/purchase';
 
 export const CartPage = () => {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
@@ -15,8 +15,8 @@ export const CartPage = () => {
 
   const [total, setTotal] = useState(cart.total);
 
-  const processedTotal = total.toFixed(2)
-  const resultTotal = processedTotal.toString().replace(/\./g, ",")
+  const processedTotal = total.toFixed(2);
+  const resultTotal = processedTotal.toString().replace(/\./g, ',');
 
   useEffect(() => {
     const aggroupedData = groupByMarketer(cart.products);
@@ -36,8 +36,7 @@ export const CartPage = () => {
       freight: 19.99,
     };
 
-    
-    const stripePaymentLink = await createPurchase(purchase);
+    const stripePaymentLink = await PurchaseFetch.createPurchase(purchase);
 
     window.location.href = stripePaymentLink;
   };

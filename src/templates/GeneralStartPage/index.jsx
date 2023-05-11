@@ -13,13 +13,11 @@ import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
 import { SearchInput } from '../../components/SearchInput';
 
-
-
 import {
   listProductNearToClient,
   listProducts,
   listProductsInSaleOff,
-} from '../../utils/fetchs/Costumer/products';
+} from '../../utils/fetchs/costumer/products';
 import { getDetails } from '../../utils/fetchs/common/user';
 import { useNavigate } from 'react-router-dom';
 
@@ -105,16 +103,16 @@ export const GeneralStartPage = () => {
 
     if (id === 'all') {
       const newList = await listProducts();
-      setListOfProducts([])
+      setListOfProducts([]);
       setListOfProducts(newList);
     } else if (id === 'discount') {
       const newList = await listProductsInSaleOff();
-      setListOfProducts([])
+      setListOfProducts([]);
 
       setListOfProducts(newList);
     } else if (id === 'close') {
       const newList = await listProductNearToClient();
-      setListOfProducts([])
+      setListOfProducts([]);
 
       setListOfProducts(newList);
     }
@@ -181,7 +179,7 @@ export const GeneralStartPage = () => {
                     <h1>Que pena! Não há feiras ativas no momento.</h1>
                   )
                 } else {
-                  return(
+                  return (
                     <ShoppingItem
                       name={product.name}
                       imgUrl={product.image_of_product.map((el) => el.image.uri)}
@@ -194,7 +192,7 @@ export const GeneralStartPage = () => {
               })}
             </div>
             <NextButton onClick={handleRightClick} />
-          </div> 
+          </div>
         </div>
       </div>
       <Footer />

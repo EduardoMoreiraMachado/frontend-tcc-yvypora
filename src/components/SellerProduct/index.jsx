@@ -13,7 +13,8 @@ import {
   disableProduct,
   enableProduct,
   updateAvailableQuantity,
-} from '../../utils/fetchs/Marketer/productFetch';
+} from '../../utils/fetchs/marketer/productFetch';
+import { ToggleSwitchWithoutInput } from '../ToggleSwitchWithoutInput';
 
 export const SellerProduct = ({
   id,
@@ -37,14 +38,19 @@ export const SellerProduct = ({
     setIsEnable(false);
   };
 
-  const enable = async (event) => {
-    event.preventDefault();
+  const enable = async () => {
+    console.log('enabled');
     await enableProduct({ id });
     setIsEnable(true);
   };
-  
+
+
   useEffect(() => {
-    updateAvailableQuantity(id, itemCount).then(() => {}).catch((err) => {console.log(err)})
+    updateAvailableQuantity(id, itemCount)
+      .then(() => {})
+      .catch((err) => {
+        console.log(err);
+      });
   }, [itemCount]);
 
   return (
@@ -104,15 +110,15 @@ export const SellerProduct = ({
           <button
             className={styles['status-button']}
             onClick={async (event) => {
-              if (isEnable) await disable(event);
-              else await enable(event);
+              event.preventDefault();
+              if (isEnable) await disable();
+              else await enable();
             }}
           >
-            {isEnable ? (
-              <VscDebugStart className={styles['status-image']} />
-            ) : (
-              <VscDebugPause className={styles['status-image']} />
-            )}
+            <ToggleSwitchWithoutInput
+              checkedValue={isEnable}
+              setState={setIsEnable}
+            />
           </button>
         </div>
       </div>

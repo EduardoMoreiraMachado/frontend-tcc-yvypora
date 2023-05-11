@@ -7,12 +7,12 @@ import { FairNearCard } from '../../components/FairNearCard';
 import { Maps } from '../../components/Maps';
 import { Footer } from '../../components/Footer';
 import { useEffect, useState } from 'react';
-import { listByCloseFairs } from '../../utils/fetchs/Costumer/fairs';
+import { listByCloseFairs } from '../../utils/fetchs/costumer/fairs';
 
 export const NearbyFairs = () => {
   const [fairs, setFairs] = useState([]);
   const [location, setLocation] = useState(null);
-  
+
   useEffect(() => {
     if (!location) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -68,7 +68,7 @@ export const NearbyFairs = () => {
                   }
                   note={fair.review}
                   dayWorkText={fair.fair_date_hour_of_work.map(
-                    ({ dates }) => dates.day_of_week.abbr  + ' '
+                    ({ dates }) => dates.day_of_week.abbr + ' '
                   )}
                   hourWorkText={openTime + ' - ' + closeTime}
                   fairmanQnt={fair.marketer_count}

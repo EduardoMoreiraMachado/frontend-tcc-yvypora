@@ -52,7 +52,7 @@ export const MyOrderPage = () => {
       socket.off('travel_accepted');
     };
   }, []);
-  // TODO add others socket notifications 
+  // TODO add others socket notifications
 
   return (
     <div className={styles['my-order-page-container']}>
@@ -82,7 +82,11 @@ export const MyOrderPage = () => {
                       ></div>
                       <div className={styles['review']}>
                         <h1>{deliveryman.name}</h1>
-                        <RatingStarsStatic reviewValue={0.5} />
+                        <RatingStarsStatic
+                          reviewValue={
+                            deliveryman.review / deliveryman.avaliations
+                          }
+                        />
                       </div>
                     </div>
 

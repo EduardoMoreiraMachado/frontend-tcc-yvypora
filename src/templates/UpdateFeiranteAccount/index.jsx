@@ -1,29 +1,29 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import { NavBar } from "../../components/NavBar";
-import { Title } from "../../components/Title";
-import { DefaultInput } from "../../components/DefaultInput";
-import { SpecialInput } from "../../components/SpecialInput";
-import { GreenButton } from "../../components/GreenButton";
-import { AddImage } from "../../components/AddImage";
-import { useRef, useState } from "react";
-import { useEffect } from "react";
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+import { NavBar } from '../../components/NavBar';
+import { Title } from '../../components/Title';
+import { DefaultInput } from '../../components/DefaultInput';
+import { SpecialInput } from '../../components/SpecialInput';
+import { GreenButton } from '../../components/GreenButton';
+import { AddImage } from '../../components/AddImage';
+import { useRef, useState } from 'react';
+import { useEffect } from 'react';
 
-import { getDetails } from "../../utils/fetchs/common/user";
+import { getDetails } from '../../utils/fetchs/common/user';
 
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-import { updateMarketerAccount } from "../../utils/fetchs/Marketer/marketer";
-import { appendPictureToUser } from "../../utils/fetchs/common/picture";
+import { updateMarketerAccount } from '../../utils/fetchs/marketer/marketer';
+import { appendPictureToUser } from '../../utils/fetchs/common/picture';
 
 const MySwal = withReactContent(Swal);
 
 export const UpdateFeiranteAccount = () => {
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user-details"))
+    JSON.parse(localStorage.getItem('user-details'))
   );
 
   const nameInput = useRef(null);
@@ -48,7 +48,7 @@ export const UpdateFeiranteAccount = () => {
     if (user.phone) phoneInput.current.value = user.phone;
     if (user.tent_name) tentNameInput.current.value = user.tent_name;
 
-    let birthday = user.birthday.split("-");
+    let birthday = user.birthday.split('-');
     birthday = `${birthday[2]}/${birthday[1]}/${birthday[0]}`;
 
     birthdayInput.current.value = birthday;
@@ -63,7 +63,7 @@ export const UpdateFeiranteAccount = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const { id } = JSON.parse(localStorage.getItem("user-details"));
+    const { id } = JSON.parse(localStorage.getItem('user-details'));
 
     const name = nameInput.current.value;
     const email = emailInput.current.value;
@@ -75,11 +75,11 @@ export const UpdateFeiranteAccount = () => {
 
     const image = imageInput.current.files[0];
     const formdata = new FormData();
-    formdata.append("picture", image);
+    formdata.append('picture', image);
 
-    let newBirthday = user.birthday.split("-");
+    let newBirthday = user.birthday.split('-');
     newBirthday = `${newBirthday[0]}/${newBirthday[1]}/${newBirthday[2]}`;
-    newBirthday = newBirthday.replaceAll("/", "-");
+    newBirthday = newBirthday.replaceAll('/', '-');
 
     const marketer = {
       name,
@@ -90,18 +90,18 @@ export const UpdateFeiranteAccount = () => {
     };
 
     if (cpf)
-      marketer.cpf = cpf.replaceAll(".", "").replaceAll("-", "").toString();
+      marketer.cpf = cpf.replaceAll('.', '').replaceAll('-', '').toString();
     if (password) marketer.password = password;
 
     try {
       const { newToken: token } = await updateMarketerAccount(marketer);
-      localStorage.setItem("user-logged-token", token);
+      localStorage.setItem('user-logged-token', token);
     } catch (e) {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
         title: <p>Erro! Confirme as informaçoes fornecidas</p>,
-        icon: "error",
+        icon: 'error',
         timerProgressBar: true,
       });
     }
@@ -111,14 +111,14 @@ export const UpdateFeiranteAccount = () => {
         timer: 1500,
         showConfirmButton: false,
         title: <p>Perfil Atualizado</p>,
-        icon: "success",
+        icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
       });
 
       const updatedDetails = await getDetails();
 
-      localStorage.setItem("user-details", JSON.stringify(updatedDetails));
+      localStorage.setItem('user-details', JSON.stringify(updatedDetails));
 
       setUser(updatedDetails);
 
@@ -130,7 +130,7 @@ export const UpdateFeiranteAccount = () => {
 
       const updatedDetails = await getDetails();
 
-      localStorage.setItem("user-details", JSON.stringify(updatedDetails));
+      localStorage.setItem('user-details', JSON.stringify(updatedDetails));
 
       setUser(updatedDetails);
 
@@ -138,7 +138,7 @@ export const UpdateFeiranteAccount = () => {
         timer: 1500,
         showConfirmButton: false,
         title: <p>Perfil Atualizado</p>,
-        icon: "success",
+        icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
       });
@@ -150,59 +150,63 @@ export const UpdateFeiranteAccount = () => {
         timer: 1500,
         showConfirmButton: false,
         title: <p>Erro! Confirme as informaçoes fornecidas</p>,
-        icon: "error",
+        icon: 'error',
         timerProgressBar: true,
       });
     }
   };
 
   return (
-    <div className={styles["update-feirante-account-container"]}>
-      <Header user={{picture_uri:""}}/>
-      <Title text="Editar conta" />
-      <div className={styles["update-content"]}>
-        <div className={styles["nav-bar"]}>
+    <div className={styles['update-feirante-account-container']}>
+      <Header user={{ picture_uri: '' }} />
+      <Title text='Editar conta' />
+      <div className={styles['update-content']}>
+        <div className={styles['nav-bar']}>
           <NavBar />
         </div>
         <div className={styles['info-inputs']}>
-          <div className={styles["update-inputs"]}>
-            <DefaultInput name="Nome" type="text" inputRef={nameInput} />
-            <DefaultInput name="Email" type="email" inputRef={emailInput} />
-            <DefaultInput name="Senha" type="password" inputRef={passwordInput} />
+          <div className={styles['update-inputs']}>
+            <DefaultInput name='Nome' type='text' inputRef={nameInput} />
+            <DefaultInput name='Email' type='email' inputRef={emailInput} />
+            <DefaultInput
+              name='Senha'
+              type='password'
+              inputRef={passwordInput}
+            />
             <SpecialInput
               inputRef={cpfInput}
-              name="cpf"
-              label="CPF"
-              mask="999.999.999-99"
+              name='cpf'
+              label='CPF'
+              mask='999.999.999-99'
               value={values.cpf}
               onChange={handleChange}
             />
             <SpecialInput
               inputRef={phoneInput}
-              name="phone"
-              label="Telefone"
-              mask="(999) 9 9999-9999"
+              name='phone'
+              label='Telefone'
+              mask='(999) 9 9999-9999'
               value={values.phone}
               onChange={handleChange}
             />
             <DefaultInput
               inputRef={tentNameInput}
-              name="Nome do estabelecimento"
-              type="text"
+              name='Nome do estabelecimento'
+              type='text'
             />
             <SpecialInput
               inputRef={birthdayInput}
-              name="date"
-              type="date"
-              label="Data de nascimento"
-              mask="99/99/9999"
+              name='date'
+              type='date'
+              label='Data de nascimento'
+              mask='99/99/9999'
               value={values.date}
               onChange={handleChange}
             />
           </div>
-          <div className={styles["green-button"]}>
+          <div className={styles['green-button']}>
             <AddImage inputRef={imageInput} />
-            <GreenButton text="Salvar" onClick={handleClick} />
+            <GreenButton text='Salvar' onClick={handleClick} />
           </div>
         </div>
       </div>

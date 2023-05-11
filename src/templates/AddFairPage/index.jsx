@@ -1,29 +1,25 @@
-import { SpecialInput } from "../../components/SpecialInput";
-import { TitleSubtitle } from "../../components/TitleSubtitle";
-import { useState, useEffect } from "react";
-import { DefaultInput } from "../../components/DefaultInput";
-import { AddImage } from "../../components/AddImage";
-import { GreenButton } from "../../components/GreenButton";
-import { Footer } from "../../components/Footer";
-import { fetchFairFormFields } from "../../utils/fetchs/common/formFieldsFetch";
-import {
-  createFair,
-  addImageInFair,
-  addFairToMarketer,
-} from "../../utils/fetchs/Marketer/fairsFetch";
+import { SpecialInput } from '../../components/SpecialInput';
+import { TitleSubtitle } from '../../components/TitleSubtitle';
+import { useState, useEffect } from 'react';
+import { DefaultInput } from '../../components/DefaultInput';
+import { AddImage } from '../../components/AddImage';
+import { GreenButton } from '../../components/GreenButton';
+import { Footer } from '../../components/Footer';
+import { fetchFairFormFields } from '../../utils/fetchs/common/form-fields';
+import MarketerFairFetch from '../../utils/fetchs/marketer/fair';
 
-import styles from "./styles.module.css";
-import { consumeCep } from "../../utils/fetchs/common/cepFetch";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import { Header } from "../../components/Header";
-import { useRef } from "react";
+import styles from './styles.module.css';
+import { consumeCep } from '../../utils/fetchs/common/cep';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { Header } from '../../components/Header';
+import { useRef } from 'react';
 
 const MySwal = withReactContent(Swal);
 
 export const AddFairPage = () => {
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user-details"))
+    JSON.parse(localStorage.getItem('user-details'))
   );
   const cepInput = useRef(null);
   const nameTitle = useRef(null);
@@ -59,11 +55,11 @@ export const AddFairPage = () => {
         timer: 1500,
         showConfirmButton: false,
         title: <p>Cep Errado!</p>,
-        icon: "error",
+        icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,
       });
-      document.querySelector('input[name="cep"]').value = "";
+      document.querySelector('input[name="cep"]').value = '';
     } else {
       setAddress(dataCEP);
       const name = nameTitle.current;
@@ -73,7 +69,7 @@ export const AddFairPage = () => {
     const daysSelected = [];
     const dayOfWeekOption = 0;
 
-    document.querySelectorAll("#day > input").forEach((day) => {
+    document.querySelectorAll('#day > input').forEach((day) => {
       if (day.checked) daysSelected.push(day);
     });
 
@@ -88,7 +84,7 @@ export const AddFairPage = () => {
       'input[name="Horário de encerramento"]'
     ).value;
 
-    const dayOfWeekSelector = document.querySelector("#day-of-week");
+    const dayOfWeekSelector = document.querySelector('#day-of-week');
 
     console.log(address);
     const data = {
@@ -96,7 +92,7 @@ export const AddFairPage = () => {
       address: {
         cep,
         number: 0,
-        complemento: "",
+        complemento: '',
         addressTypeId: 3,
         city: address.localidade,
         logradouro: address.logradouro,
@@ -115,29 +111,29 @@ export const AddFairPage = () => {
     console.log(data);
 
     try {
-      const { payload } = await createFair(data);
+      const { payload } = await MarketerFairFetch.create(data);
       console.log(payload);
       const { id } = payload;
 
-      const file = document.querySelector("#file-selection").files[0];
+      const file = document.querySelector('#file-selection').files[0];
       const formdata = new FormData();
 
-      formdata.append("picture", file);
+      formdata.append('picture', file);
 
       try {
-        await addImageInFair(id, formdata);
+        await MarketerFairFetch.addImage(id, formdata);
       } catch (e) {
         console.log(e);
       }
 
-      await addFairToMarketer(id);
+      await MarketerFairFetch.associate(id);
 
       MySwal.fire({
         timer: 3000,
         showConfirmButton: false,
         title: <p>Nova Feira</p>,
         html: <p>Successo! Nova Feira Cadastrada</p>,
-        icon: "success",
+        icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
       });
@@ -150,7 +146,7 @@ export const AddFairPage = () => {
         showConfirmButton: false,
         title: <p>Falha ao Cadastrar Feira</p>,
         html: <p>{message}</p>,
-        icon: "error",
+        icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,
       });
@@ -158,37 +154,37 @@ export const AddFairPage = () => {
   };
 
   return (
-    <div className={styles["add-fair-page-container"]}>
-      <Header user={{picture_uri:""}}/>
+    <div className={styles['add-fair-page-container']}>
+      <Header user={{ picture_uri: '' }} />
       <TitleSubtitle
-        text={"Escolha o local"}
-        subtitle="Insira as feiras onde seus produtos serão vendidos"
+        text={'Escolha o local'}
+        subtitle='Insira as feiras onde seus produtos serão vendidos'
       />
-      <div className={styles["input-container"]}>
-        <div className={"inputs"}>
+      <div className={styles['input-container']}>
+        <div className={'inputs'}>
           <h1>Detalhes da feira</h1>
-          <h2 id={styles["fair-name"]} ref={nameTitle}>
-            Nome da Feira:{" "}
+          <h2 id={styles['fair-name']} ref={nameTitle}>
+            Nome da Feira:{' '}
           </h2>
           <SpecialInput
-            name="cep"
+            name='cep'
             inputRef={cepInput}
-            label="CEP do local da feira"
-            mask="99999-999"
+            label='CEP do local da feira'
+            mask='99999-999'
             value={values.cep}
             onChange={handleChange}
           />
 
-          <DefaultInput name="Horário de abertura" type="time" />
-          <DefaultInput name="Horário de encerramento" type="time" />
+          <DefaultInput name='Horário de abertura' type='time' />
+          <DefaultInput name='Horário de encerramento' type='time' />
 
-          <div className={styles["days-week-container"]}>
-            <h1 className={styles["days-week-title"]}>Dias de funcionamento</h1>
-            <div className={styles["days-week"]}>
+          <div className={styles['days-week-container']}>
+            <h1 className={styles['days-week-title']}>Dias de funcionamento</h1>
+            <div className={styles['days-week']}>
               {daysOfWeekFields.map(({ id, name }) => {
                 return (
-                  <div className={styles["day"]} id="day">
-                    <input type="checkbox" id={name} name="scales" value={id} />
+                  <div className={styles['day']} id='day'>
+                    <input type='checkbox' id={name} name='scales' value={id} />
                     <label for={name}>{name}</label>
                   </div>
                 );
@@ -224,9 +220,9 @@ export const AddFairPage = () => {
             </div>
           </div>
         </div>
-        <div className={"button-add-image-container"}>
-          <AddImage text="Adicione uma foto de perfil" />
-          <GreenButton text="Cadastrar" onClick={handleClick} />
+        <div className={'button-add-image-container'}>
+          <AddImage text='Adicione uma foto de perfil' />
+          <GreenButton text='Cadastrar' onClick={handleClick} />
         </div>
       </div>
 

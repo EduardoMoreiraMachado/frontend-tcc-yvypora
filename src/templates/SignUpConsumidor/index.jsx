@@ -13,9 +13,9 @@ import { Title } from '../../components/Title';
 import { AddImage } from '../../components/AddImage';
 import { commonsAPI } from '../../api/api';
 import { useEffect, useState } from 'react';
-import { singUpCostumer } from '../../utils/fetchs/Costumer/costumer';
+import CostumerFetch from '../../utils/fetchs/costumer/costumer';
 import { cepAPI } from '../../api/api';
-import { fetchCostumerFormFields } from '../../utils/fetchs/common/formFieldsFetch';
+import { fetchCostumerFormFields } from '../../utils/fetchs/common/form-fields';
 import { appendPictureToUser } from '../../utils/fetchs/common/picture';
 
 const MySwal = withReactContent(Swal);
@@ -59,7 +59,7 @@ export const SignUpConsumidor = () => {
       setAddressType(fields.typesOfAddress);
     };
 
-    fetch().catch();
+    fetch().catch((err) => console.log(err));
   }, []);
 
   const handleClick = async (e) => {
@@ -86,8 +86,7 @@ export const SignUpConsumidor = () => {
 
     const { cep, cpf, Email, Nome, Senha } = formData;
 
-    console.log(formData
-);
+    console.log(formData);
     const birthday = formData['Data de nascimento'];
 
     const gender = document.querySelector(
@@ -119,7 +118,7 @@ export const SignUpConsumidor = () => {
     costumer.address.addressTypeId = typeOfAddress; // add to input
 
     try {
-      const res = await singUpCostumer(costumer);
+      const res = await CostumerFetch.create(costumer);
 
       const { data } = await commonsAPI.post('/login/', {
         email: res.email,
