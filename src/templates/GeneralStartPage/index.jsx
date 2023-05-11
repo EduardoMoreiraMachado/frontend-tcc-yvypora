@@ -32,6 +32,8 @@ export const GeneralStartPage = () => {
   const carousel = useRef(null);
   const searchInputRef = useRef(null);
 
+  const [weightName, setWeightName] = useState('')
+
   const handleInputFocus = () => {
     setInputFocused(true);
   };
@@ -160,7 +162,21 @@ export const GeneralStartPage = () => {
             <PrevButton onClick={handleLeftClick} />
             <div className={styles['carousel-items']} ref={carousel}>
               {genericList.map((product) => {  
-                if(genericList.length == 0) {
+
+                if(product.type_of_price.name === 'Duzia') {
+                  setWeightName('dúzia')
+                } else if(product.type_of_price.name === 'Unitario' && product.available_quantity < 10) {
+                  setWeightName('unidade')
+                } else if(product.type_of_price.name === 'Unitario' && product.available_quantity >= 10) {
+                  setWeightName('unidades')
+                }
+
+                console.log(weightName)
+                // else if(product.type_of_price.name === '') {
+                  
+                // }
+
+                if(genericList.length === 0) {
                   return(
                     <h1>Que pena! Não há feiras ativas no momento.</h1>
                   )
@@ -169,7 +185,7 @@ export const GeneralStartPage = () => {
                     <ShoppingItem
                       name={product.name}
                       imgUrl={product.image_of_product.map((el) => el.image.uri)}
-                      weight={`${product.available_quantity} ${product.type_of_price.name}`}
+                      weight={`${product.available_quantity} ${product.type_of_price.name}`} 
                       price={product.price}
                       key={product.id}
                     />

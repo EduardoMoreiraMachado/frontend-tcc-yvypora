@@ -29,6 +29,8 @@ export const SellerProduct = ({
   const [itemCount, setItemCount] = useState(available_quantity);
   const [isEnable, setIsEnable] = useState(status);
 
+  const priceProcessed = price.toString().replace(/\./g, ",");
+
   const disable = async (event) => {
     event.preventDefault();
     await disableProduct({ id });
@@ -40,7 +42,6 @@ export const SellerProduct = ({
     await enableProduct({ id });
     setIsEnable(true);
   };
-
   
   useEffect(() => {
     updateAvailableQuantity(id, itemCount).then(() => {}).catch((err) => {console.log(err)})
@@ -49,21 +50,28 @@ export const SellerProduct = ({
   return (
     <div className={styles['seller-product-container']}>
       <div className={styles['product-data']}>
-        <div className={styles['product-visual']}>
-          <h1 className={styles['name']}>{name}</h1>
-          <img className={styles['image']} src={imgUrl} alt='' />
+
+
+        <h1 className={styles['name']}>{name}</h1>
+
+        <div className={styles['data-containers']}>
+          <div className={styles['product-visual']}>
+            <div className={styles['image']} style={{backgroundImage: `url(${imgUrl})`}} alt=''></div>
+          </div>
+
+          <div className={styles['product-price']}>
+            <h1 className={styles['unit']}>
+              {unit} {type_of_price}
+            </h1>
+            <span className={styles['price']}>R$ {priceProcessed}</span>
+          </div>
         </div>
-        <div className={styles['product-price']}>
-          <h1 className={styles['unit']}>
-            {unit} {type_of_price}
-          </h1>
-          <span className={styles['price']}>R$ {price}</span>
-        </div>
+
       </div>
       <div className={styles['product-quantity']}>
         <div className={styles['number-quantity']}>
-          <span className={styles['text']}>Quantidade disponível</span>
-          <div className={'amount'}>
+          <span className={styles['text']}>Quant. disponível</span>
+          <div className={styles['amount']}>
             <button
               className={styles['sub-button']}
               onClick={() => {

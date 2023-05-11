@@ -1,5 +1,6 @@
 .toggle-switch-container {
     display: flex;
+    align-items: center;
     gap: 2vw;
 }
 
@@ -99,5 +100,12 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 768px) {
+    .input-active {
+        width: 60px;
+        font-size: 1.3rem;
+    }
 
+    .percentage-symbol::after {
+        font-size: 1rem;
+    }
 }

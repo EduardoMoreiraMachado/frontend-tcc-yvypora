@@ -1,19 +1,25 @@
+.float-button {
+  position: fixed;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  top: 80%;
+  right: 1%;
+  bottom: 50%;
+  gap: 10px;
+  background-color: aqua;
+}
+
 .add-product-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
   cursor: pointer;
   padding: 50px;
   transition: all 0.5s;
   border-radius: 50%;
-}
-
-.float-button {
-  display: flex;
-  width: 300px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 1%;
-  bottom: 50%;
 }
 
 .add-product-icon:hover {
@@ -26,10 +32,29 @@
   transition: all 0s;
 }
 
+.text-hidden {
+  font-weight: 400;
+}
+
+.seller-products-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .registered-products {
   display: grid;
   min-height: 74vh;
   grid-template-columns: 1fr 1fr;
-  padding: 3vh 10vw 3vh 10vw;
   justify-items: center;
+  place-items: center;
+  gap: 50px;
+  margin-bottom: 4vh;
+}
+
+@media(max-width: 1140px) {
+  .registered-products {
+    display: flex;
+    flex-direction: column;
+  }
 }

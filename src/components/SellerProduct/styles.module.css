@@ -2,27 +2,40 @@
     width: fit-content;
     display: flex;
     flex-direction: column;
-    padding-bottom: 5vh;
 }
 
 .product-data {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5vw;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
     border: 2px solid #538D22;
     border-radius: 5px;
-    padding: 50px;
+    padding: 30px;
 }
 
 .name {
     font-weight: bolder;
     color: #245501;
-    font-size: 2.2rem;
+    font-size: 1.7rem;
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
+    text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
+    max-width: 400px; /* Define a largura máxima do elemento */
+}
+
+.data-containers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .image {
-    width: 10vw;
+    width: 200px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .unit {
@@ -36,13 +49,13 @@
 .price {
     font-weight: bolder;
     color: #245501;
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 3rem, 3.5rem);
+    white-space: nowrap;
 }
 
 .product-quantity {
     display: flex;
     justify-content: space-between;
-    padding: 1vh 1vw 1vh 1vw;
     gap: 5vw;
 }
 
@@ -53,14 +66,16 @@
 }
 
 .text {
-    max-width: 6.6vw;
+    width: 100px;
     font-weight: bolder;
     color: #245501;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .amount{
     width: 100%;
+    display: flex;
+    gap: 30px;
 }
 
 .sub-button {
@@ -72,8 +87,8 @@
     background-image: url(../../imgs/sub_icon.svg);
     background-repeat: no-repeat;
     background-position: center;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 3rem;
     border-radius: 5px;
 } 
@@ -100,8 +115,8 @@
 
 .add-button {
     cursor: pointer;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background-color: #538D22;
     background-image: url(../../imgs/add_icon.svg);
     background-repeat: no-repeat;
@@ -144,6 +159,30 @@
 }
 
 .status-image {
-    min-width: 1.7vw;
-    height: 5vh;
+    width: 40px;
+    height: 40px;
+}
+
+@media(max-width: 768px) {
+    .data-containers {
+        flex-direction: column;
+    }
+
+    .product-quantity {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .number-quantity {
+        flex-direction: column;
+    }
+
+    .text {
+        width: auto;
+    }
+
+    .amount {
+        width: fit-content;
+        gap: 40px;
+    }
 }
