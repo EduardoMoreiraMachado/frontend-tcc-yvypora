@@ -9,7 +9,7 @@ const Route = ({
   setPreviewTime
 }) => {
   // Set up your Google Maps API key and center coordinates here
-  const mapContainerStyle = { width: '100%', height: '100%' };
+  const mapContainerStyle = { width: '60vw', height: '50vh' };
 
   const center = { lat: destination[0], lng: destination[1] };
 

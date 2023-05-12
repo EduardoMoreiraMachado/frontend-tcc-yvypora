@@ -1,5 +1,6 @@
 .shopping-item-container {
     width: 300px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -67,10 +68,16 @@
     flex-direction: column;
 }
 
+.old-price {
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: #7D7D7D;
+}
+
 .weight {
     width: 100%;
     font-size: 1rem;
-    color: #7D7D7D;
+    color: #000;
 }
 
 .price-general {

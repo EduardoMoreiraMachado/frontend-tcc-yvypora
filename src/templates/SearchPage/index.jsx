@@ -92,6 +92,7 @@ export const SearchPage = ({ context, category }) => {
               {listOfProducts.map((product) => {
                 return (
                   <ShoppingItem
+                    promo={product.discount}
                     name={product.name}
                     imgUrl={product.image_of_product.map((el) => el.image.uri)}
                     weight='100g'

@@ -16,12 +16,15 @@ export const FairNearCard = ({
   fairmanQnt,
 }) => {
   const [qnt, setQnt] = useState('');
+  const [registered, setRegistered] = useState('');
 
   useEffect(() => {
     if (fairmanQnt >= 10) {
       setQnt('feirantes');
+      setRegistered('cadastrados')
     } else {
       setQnt('feirante');
+      setRegistered('cadastrado')
     }
   }, []);
 
@@ -51,7 +54,7 @@ export const FairNearCard = ({
           <div className={styles['containers']}>
             <img src={IconFairmen} alt='' />
             <p>
-              Aprox. {fairmanQnt} {qnt} cadastrados no yvy
+              Aprox. {fairmanQnt} {qnt} {registered} no yvy
             </p>
           </div>
         </div>
