@@ -32,14 +32,12 @@ export const SellerProduct = ({
 
   const priceProcessed = price.toString().replace(/\./g, ',');
 
-  const disable = async (event) => {
-    event.preventDefault();
+  const disable = async () => {
     await disableProduct({ id });
     setIsEnable(false);
   };
 
   const enable = async () => {
-    console.log('enabled');
     await enableProduct({ id });
     setIsEnable(true);
   };

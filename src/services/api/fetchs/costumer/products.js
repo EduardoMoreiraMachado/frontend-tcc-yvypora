@@ -2,7 +2,7 @@ import { costumerAPI } from '../../index';
 
 export const listProducts = async () => {
   const firstRes = await costumerAPI.get(
-    `product/?category=0&score=0&lowerPrice=0&higherPrice=100000`
+    `product/?category=0&score=0&lowerPrice=0&higherPrice=10000`
   );
   const secondRes = await costumerAPI.get(
     `product/?category=1&score=0&lowerPrice=0&higherPrice=100000`

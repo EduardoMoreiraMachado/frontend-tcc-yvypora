@@ -26,7 +26,6 @@ export const NearbyFairs = () => {
   }, [location]);
 
   useEffect(() => {
-    console.log(location, fairs);
     if (location && fairs.length === 0)
       listByCloseFairs(location)
         .then((data) => {
