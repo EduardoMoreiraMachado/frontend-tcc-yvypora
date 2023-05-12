@@ -8,6 +8,7 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
   const [promoExists, setPromoExists] = useState(0);
   const [promoValue, setPromoValue] = useState(null);
   const priceProcessed = price.toString().replace(/\./g, ",");
+  const oldPrice = price.toFixed(2).toString(2).replace(/\./g, ",")
 
   useEffect(() => {
     if (promo) {
@@ -35,6 +36,9 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
       </div>
       <div className={styles["item-numbers"]}>
         <div className={styles["numbers"]}>
+          {promo &&
+            <h2 className={styles['old-price']}>R$ {oldPrice}</h2>
+          }
           <h1 className={styles["weight"]}>{weight}</h1>
           <span className={styles["price-general"]}>R$ {promoValue ? promoValue : priceProcessed}</span>
         </div>

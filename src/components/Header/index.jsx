@@ -2,9 +2,9 @@ import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
 import UserImage from "../UserImage";
 import { BurgerMenu } from "../BurgerMenu";
 
-export const Header = ({ user }) => {
+export const Header = ({ user, useMargin }) => {
   return (
-    <header id="default-header">
+    <header id="default-header" className={useMargin === false ? "header-without-margins" : ""}>
       <div id='burger-menu-container'>
         <BurgerMenu />
       </div>

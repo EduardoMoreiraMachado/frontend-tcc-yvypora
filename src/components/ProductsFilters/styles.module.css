@@ -1,19 +1,17 @@
 .products-filters-container {
-    width: fit-content;
+    width: 25%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 4vh;
     padding: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width: 25%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
 .up-container {
-    
     display: flex;
     justify-content: space-between;
     gap: 2vw;
-
 }
 
 .category-filter,
