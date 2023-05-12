@@ -8,7 +8,7 @@ import { LoadScript } from '@react-google-maps/api';
 
 import Loading from '../../components/Loading';
 import Route from '../../components/RouteTester';
-import { socket } from '../../api/api';
+import { socket } from '../../services/api/index';
 import { notify } from '../../utils/notify';
 import MessageIcon from '../../imgs/message_icon.png';
 import CallIcon from '../../imgs/call_icon.png';

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/global-styles.css';
-import './api/api';
+import './services/api/index';
 import { InsertProductPage } from './templates/InsertProductPage';
 import { ProductPage } from './templates/ProductPage';
 import { AddAdressPage } from './templates/AddAddressPage';
@@ -43,10 +43,7 @@ root.render(
           path='/product/review'
           element={<IndividualProductReviewPage />}
         />
-        <Route
-          path='/purchase/review'
-          element={<ProductReviewPage />}
-        />
+        <Route path='/purchase/review' element={<ProductReviewPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<TypeUserSelect />} />
         <Route path='/fair-near' element={<FairNear />} />

@@ -7,7 +7,7 @@ import { FairNearCard } from '../../components/FairNearCard';
 import { Maps } from '../../components/Maps';
 import { Footer } from '../../components/Footer';
 import { useEffect, useState } from 'react';
-import { listByCloseFairs } from '../../utils/fetchs/costumer/fairs';
+import { listByCloseFairs } from '../../services/api/fetchs/costumer/fairs';
 
 export const NearbyFairs = () => {
   const [fairs, setFairs] = useState([]);

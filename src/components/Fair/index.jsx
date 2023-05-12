@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ToggleSwitchWithoutInput } from '../ToggleSwitchWithoutInput';
-import MarketerFairFetch from '../../utils/fetchs/marketer/fair';
+import MarketerFairFetch from '../../services/api/fetchs/marketer/fair';
 import styles from './styles.module.css';
 
 export const Fair = ({ id, imgUrl, name, days, hours }) => {

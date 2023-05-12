@@ -1,4 +1,4 @@
-import { cepAPI } from "../../../api/api";
+import { cepAPI } from "../../index";
 
 export async function consumeCep(cep) {
   try {

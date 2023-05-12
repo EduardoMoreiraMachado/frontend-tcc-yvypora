@@ -6,7 +6,7 @@ import { Title } from '../../components/Title';
 import { NavBar } from '../../components/NavBar';
 import { HistoricCard } from '../../components/HistoricCard';
 import { useEffect, useState } from 'react';
-import PurchaseFetch from '../../utils/fetchs/costumer/purchase';
+import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 import Loading from '../../components/Loading';
 export const PurchasesHistoricPage = () => {
   const [historic, setHistoric] = useState(null);
@@ -20,7 +20,7 @@ export const PurchasesHistoricPage = () => {
 
   return (
     <>
-      {historic ? (
+      {!historic ? (
         <div style={{ width: '100vw', height: '100vh' }}>
           <Loading />
         </div>

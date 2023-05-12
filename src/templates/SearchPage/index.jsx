@@ -6,9 +6,12 @@ import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { SearchInput } from '../../components/SearchInput';
 import { useEffect, useState } from 'react';
-import { listByCategory } from '../../utils/fetchs/costumer/products';
-import { search, searchForProducts } from '../../utils/fetchs/costumer/search';
-import { listCategories } from '../../utils/fetchs/common/category';
+import { listByCategory } from '../../services/api/fetchs/costumer/products';
+import {
+  search,
+  searchForProducts,
+} from '../../services/api/fetchs/costumer/search';
+import { listCategories } from '../../services/api/fetchs/common/category';
 import { useLocation } from 'react-router-dom';
 
 export const SearchPage = ({ context, category }) => {

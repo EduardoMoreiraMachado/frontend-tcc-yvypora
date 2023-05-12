@@ -1,57 +1,56 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
-import YvyporaTextIcon from "../../imgs/yvypora_text_icon.svg";
+import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg';
 
-import { GreenButton } from "../../components/GreenButton";
-import { Footer } from "../../components/Footer";
-import { Title } from "../../components/Title";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import { GreenButton } from '../../components/GreenButton';
+import { Footer } from '../../components/Footer';
+import { Title } from '../../components/Title';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-import { getDetails } from "../../utils/fetchs/common/user";
-import { useState } from "react";
-import { login } from "../../utils/fetchs/common/login";
+import { getDetails } from '../../services/api/fetchs/common/user';
+import { useState } from 'react';
+import { login } from '../../services/api/fetchs/common/login';
 
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
-  
   const [location, setLocation] = useState({});
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const inputs = document.querySelectorAll("input");
+      const inputs = document.querySelectorAll('input');
 
       const email = inputs[0].value;
       const password = inputs[1].value;
 
       const { token } = await login({ email, password });
 
-      localStorage.setItem("user-logged-token", token);
+      localStorage.setItem('user-logged-token', token);
 
       const details = await getDetails();
-      localStorage.setItem("user-details", JSON.stringify(details));
+      localStorage.setItem('user-details', JSON.stringify(details));
 
       await MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
         title: <p>Bem Vindo de volta {details.name}</p>,
-        icon: "success",
+        icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
       });
 
-      window.location.href = '/'
+      window.location.href = '/';
     } catch (error) {
       console.log(error);
 
       let message = error.response?.data.message;
-      if (!message) message = "Error!";
+      if (!message) message = 'Error!';
       await MySwal.fire({
         timer: 4500,
         showConfirmButton: false,
         title: <p>Erro! Verifique o email ou a senha</p>,
-        icon: "error",
+        icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,
       });
@@ -59,52 +58,52 @@ export const Login = () => {
   };
 
   return (
-    <div className={styles["login-container"]}>
-      <header className="header-without-margins">
-        <div className="header-icon">
-          <img className="icon-yvy" src={YvyporaTextIcon} alt="" />
+    <div className={styles['login-container']}>
+      <header className='header-without-margins'>
+        <div className='header-icon'>
+          <img className='icon-yvy' src={YvyporaTextIcon} alt='' />
         </div>
       </header>
-      <div className={styles["login-content"]}>
-        <Title text="Login" />
-        <div className={styles["input-container"]}>
-          <div className={styles["input"]}>
-            <div className={styles["default-input-container"]}>
+      <div className={styles['login-content']}>
+        <Title text='Login' />
+        <div className={styles['input-container']}>
+          <div className={styles['input']}>
+            <div className={styles['default-input-container']}>
               <label
-                className={styles["default-label"]}
-                htmlFor="input-default"
+                className={styles['default-label']}
+                htmlFor='input-default'
               >
                 E-mail
               </label>
               <input
-                className={styles["default-input"]}
-                type="text"
-                id="input-default"
-                name="e-mail"
+                className={styles['default-input']}
+                type='text'
+                id='input-default'
+                name='e-mail'
               />
             </div>
 
-            <div className={styles["default-input-container"]}>
+            <div className={styles['default-input-container']}>
               <label
-                className={styles["default-label"]}
-                htmlFor="input-default"
+                className={styles['default-label']}
+                htmlFor='input-default'
               >
                 Senha
               </label>
               <input
-                className={styles["default-input"]}
-                type="password"
-                id="input-default"
-                name="senha"
+                className={styles['default-input']}
+                type='password'
+                id='input-default'
+                name='senha'
               />
             </div>
           </div>
-          <div className={styles["button-container"]}>
-            <GreenButton text="Entrar" onClick={handleClick} type="submit" />
+          <div className={styles['button-container']}>
+            <GreenButton text='Entrar' onClick={handleClick} type='submit' />
           </div>
         </div>
       </div>
-      <Footer useMargin={false}/>
+      <Footer useMargin={false} />
     </div>
   );
 };

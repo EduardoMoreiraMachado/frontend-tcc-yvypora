@@ -11,13 +11,13 @@ import { AddImage } from '../../components/AddImage';
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 
-import { getDetails } from '../../utils/fetchs/common/user';
+import { getDetails } from '../../services/api/fetchs/common/user';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-import { updateMarketerAccount } from '../../utils/fetchs/marketer/marketer';
-import { appendPictureToUser } from '../../utils/fetchs/common/picture';
+import { updateMarketerAccount } from '../../services/api/fetchs/marketer/marketer';
+import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
 
 const MySwal = withReactContent(Swal);
 

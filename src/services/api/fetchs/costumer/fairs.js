@@ -1,4 +1,4 @@
-import { commonsAPI } from '../../../api/api';
+import { commonsAPI } from '../../index';
 
 export const listByCloseFairs = async ({ latitude, longitude }) => {
   const { data } = await commonsAPI.get(

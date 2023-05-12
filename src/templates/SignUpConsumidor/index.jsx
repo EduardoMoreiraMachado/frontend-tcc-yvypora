@@ -11,12 +11,11 @@ import { GreenButton } from '../../components/GreenButton';
 import { SpecialInput } from '../../components/SpecialInput';
 import { Title } from '../../components/Title';
 import { AddImage } from '../../components/AddImage';
-import { commonsAPI } from '../../api/api';
 import { useEffect, useState } from 'react';
-import CostumerFetch from '../../utils/fetchs/costumer/costumer';
-import { cepAPI } from '../../api/api';
-import { fetchCostumerFormFields } from '../../utils/fetchs/common/form-fields';
-import { appendPictureToUser } from '../../utils/fetchs/common/picture';
+import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
+import { cepAPI, commonsAPI } from '../../services/api/index';
+import { fetchCostumerFormFields } from '../../services/api/fetchs/common/form-fields';
+import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
 
 const MySwal = withReactContent(Swal);
 

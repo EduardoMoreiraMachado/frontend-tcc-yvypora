@@ -7,7 +7,7 @@ import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import CostumerFetch from '../../utils/fetchs/costumer/costumer';
+import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
 
 export const AddressPage = () => {
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));

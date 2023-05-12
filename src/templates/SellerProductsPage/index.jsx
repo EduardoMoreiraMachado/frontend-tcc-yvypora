@@ -8,7 +8,7 @@ import { SellerProduct } from '../../components/SellerProduct';
 import { Header } from '../../components/Header';
 import { GreenButton } from '../../components/GreenButton';
 
-import { indexProducts } from '../../utils/fetchs/Marketer/productFetch';
+import { indexProducts } from '../../services/api/fetchs/marketer/productFetch';
 import { useEffect, useState } from 'react';
 
 export const SellerProductsPage = () => {
@@ -27,9 +27,7 @@ export const SellerProductsPage = () => {
   return (
     <div className='seller-products-page-container'>
       <Header user={{ picture_uri: '' }} />
-      <Title 
-        text='Produtos cadastrados'
-      />
+      <Title text='Produtos cadastrados' />
       {/* <div className={styles['float-button']}>
         {onHoverBtn && (
           <h2 className={styles['text-hidden']}>Adicionar produto</h2>
@@ -60,9 +58,7 @@ export const SellerProductsPage = () => {
             );
           })}
         </div>
-        <GreenButton 
-          text='Adicionar produto'
-        />
+        <GreenButton text='Adicionar produto' />
       </div>
 
       <div className={styles['registered-products']}>

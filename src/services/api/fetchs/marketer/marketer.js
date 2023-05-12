@@ -1,7 +1,7 @@
-import { commonsAPI } from "../../../api/api";
+import { commonsAPI } from '../../index';
 
 export const singUpMarketer = async (marketer) => {
-  const { data } = await commonsAPI.post("register/marketer", marketer);
+  const { data } = await commonsAPI.post('register/marketer', marketer);
 
   return data;
 };

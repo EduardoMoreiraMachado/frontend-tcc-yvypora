@@ -1,4 +1,4 @@
-import { costumerAPI } from '../../../api/api';
+import { costumerAPI } from '../../index';
 
 class ReviewFetch {
   constructor() {

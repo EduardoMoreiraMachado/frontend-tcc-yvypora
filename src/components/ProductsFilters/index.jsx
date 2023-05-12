@@ -7,7 +7,7 @@ import {
   listAllProductsWithFilters,
   listProducts,
   listWithFilters,
-} from '../../utils/fetchs/costumer/products';
+} from '../../services/api/fetchs/costumer/products';
 
 export const ProductsFilters = ({ categories, setListOfProducts }) => {
   const [minPrice, setMinPrice] = useState(0.0);

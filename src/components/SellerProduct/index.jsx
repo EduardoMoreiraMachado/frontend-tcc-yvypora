@@ -13,7 +13,7 @@ import {
   disableProduct,
   enableProduct,
   updateAvailableQuantity,
-} from '../../utils/fetchs/marketer/productFetch';
+} from '../../services/api/fetchs/marketer/productFetch';
 import { ToggleSwitchWithoutInput } from '../ToggleSwitchWithoutInput';
 
 export const SellerProduct = ({
@@ -30,7 +30,7 @@ export const SellerProduct = ({
   const [itemCount, setItemCount] = useState(available_quantity);
   const [isEnable, setIsEnable] = useState(status);
 
-  const priceProcessed = price.toString().replace(/\./g, ",");
+  const priceProcessed = price.toString().replace(/\./g, ',');
 
   const disable = async (event) => {
     event.preventDefault();
@@ -44,7 +44,6 @@ export const SellerProduct = ({
     setIsEnable(true);
   };
 
-
   useEffect(() => {
     updateAvailableQuantity(id, itemCount)
       .then(() => {})
@@ -56,13 +55,15 @@ export const SellerProduct = ({
   return (
     <div className={styles['seller-product-container']}>
       <div className={styles['product-data']}>
-
-
         <h1 className={styles['name']}>{name}</h1>
 
         <div className={styles['data-containers']}>
           <div className={styles['product-visual']}>
-            <div className={styles['image']} style={{backgroundImage: `url(${imgUrl})`}} alt=''></div>
+            <div
+              className={styles['image']}
+              style={{ backgroundImage: `url(${imgUrl})` }}
+              alt=''
+            ></div>
           </div>
 
           <div className={styles['product-price']}>
@@ -72,7 +73,6 @@ export const SellerProduct = ({
             <span className={styles['price']}>R$ {priceProcessed}</span>
           </div>
         </div>
-
       </div>
       <div className={styles['product-quantity']}>
         <div className={styles['number-quantity']}>

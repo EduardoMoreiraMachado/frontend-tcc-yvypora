@@ -12,7 +12,7 @@ import AddCartIcon from '../../imgs/add_cart_icon.svg';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
-import { getProduct } from '../../utils/fetchs/costumer/products';
+import { getProduct } from '../../services/api/fetchs/costumer/products';
 import { addProduct } from '../../utils/cart';
 
 import { calculateResult } from '../../utils/calcFunctions';

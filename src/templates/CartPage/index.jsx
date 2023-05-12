@@ -7,7 +7,7 @@ import { Footer } from '../../components/Footer';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
-import PurchaseFetch from '../../utils/fetchs/costumer/purchase';
+import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 
 export const CartPage = () => {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));

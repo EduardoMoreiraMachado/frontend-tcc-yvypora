@@ -9,11 +9,11 @@ import { Title } from '../../components/Title';
 import { DefaultInput } from '../../components/DefaultInput';
 import { SpecialInput } from '../../components/SpecialInput';
 import { GreenButton } from '../../components/GreenButton';
-import { appendPictureToUser } from '../../utils/fetchs/common/picture';
+import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
 import { useRef, useState } from 'react';
 import AddImage from '../../components/AddImage';
-import CostumerFetch from '../../utils/fetchs/costumer/costumer';
-import { getDetails } from '../../utils/fetchs/common/user';
+import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
+import { getDetails } from '../../services/api/fetchs/common/user';
 import { notify } from '../../utils/notify';
 
 const MySwal = withReactContent(Swal);

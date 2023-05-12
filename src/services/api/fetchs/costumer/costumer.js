@@ -1,4 +1,4 @@
-import { commonsAPI } from '../../../api/api';
+import { commonsAPI } from '../../index';
 
 class CostumerFetch {
   constructor() {

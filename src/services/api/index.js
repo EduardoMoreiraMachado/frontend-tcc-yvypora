@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { io } from 'socket.io-client';
-import { notify } from '../utils/notify';
+import { notify } from '../../utils/notify';
 
 // API'S
 export const cepAPI = axios.create({
@@ -35,7 +35,6 @@ export const socket = io('http://localhost:3337', {
     token: localStorage.getItem('user-logged-token'),
   },
 });
-
 
 socket.on('travel_accepted', async (data) => {
   localStorage.setItem('current_travel', JSON.stringify(data));

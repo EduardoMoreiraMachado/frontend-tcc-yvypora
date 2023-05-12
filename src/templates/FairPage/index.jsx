@@ -7,7 +7,7 @@ import { NavBar } from '../../components/NavBar';
 import { Fair } from '../../components/Fair';
 import { GreenButton } from '../../components/GreenButton';
 import { useAsync } from 'react-use';
-import MarketerFairFetch from '../../utils/fetchs/marketer/fair';
+import MarketerFairFetch from '../../services/api/fetchs/marketer/fair';
 
 export const FairPage = () => {
   const {

@@ -1,4 +1,4 @@
-import { marketerAPI } from '../../../api/api';
+import { marketerAPI } from '../../index';
 
 class MarketerFairFetch {
   constructor() {
@@ -38,8 +38,6 @@ class MarketerFairFetch {
     return data.payload;
   }
 }
-
-
 
 const instance = new MarketerFairFetch();
 

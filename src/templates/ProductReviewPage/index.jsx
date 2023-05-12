@@ -7,9 +7,9 @@ import { RatingStars } from '../../components/RatingStars';
 import { GreenButton } from '../../components/GreenButton';
 import { useEffect, useState } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
-import PurchaseFetch from '../../utils/fetchs/costumer/purchase';
+import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 import { FaSpinner } from 'react-icons/fa';
-import ReviewFetch from '../../utils/fetchs/costumer/review';
+import ReviewFetch from '../../services/api/fetchs/costumer/review';
 
 const ProductReviewPage = () => {
   const [cart, setCart] = useState(null);

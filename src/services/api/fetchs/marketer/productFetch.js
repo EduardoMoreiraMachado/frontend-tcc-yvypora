@@ -1,4 +1,4 @@
-import { marketerAPI } from '../../../api/api';
+import { marketerAPI } from '../../index';
 
 export const indexProducts = async () => {
   const res = await marketerAPI.get('product/');
@@ -39,7 +39,9 @@ export const addPictureToProduct = async ({ id, formData }) => {
 };
 
 export const removePictureToProduct = async ({ productId, pictureId }) => {
-  const res = await marketerAPI.delete(`product/picture/${productId}/${pictureId}`);
+  const res = await marketerAPI.delete(
+    `product/picture/${productId}/${pictureId}`
+  );
   return res.data;
 };
 
@@ -62,8 +64,7 @@ export const updateProduct = async (id, data) => {
   return res.data;
 };
 
-
 export const updateAvailableQuantity = async (id, newQuantity) => {
-  const res = await marketerAPI.put(`product/quantity/${id}/${newQuantity}`)
-  return res.data
-}
+  const res = await marketerAPI.put(`product/quantity/${id}/${newQuantity}`);
+  return res.data;
+};

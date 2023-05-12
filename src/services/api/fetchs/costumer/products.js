@@ -1,4 +1,4 @@
-import { costumerAPI } from "../../../api/api";
+import { costumerAPI } from '../../index';
 
 export const listProducts = async () => {
   const firstRes = await costumerAPI.get(
@@ -72,13 +72,13 @@ export const listAllProductsWithFilters = async (score, lowerPrice) => {
 };
 
 export const listProductsInSaleOff = async () => {
-  const { data } = await costumerAPI.get("product/inSaleOff");
+  const { data } = await costumerAPI.get('product/inSaleOff');
 
   return data.data;
 };
 
 export const listProductNearToClient = async () => {
-  const { data } = await costumerAPI.get("product/findNearest");
+  const { data } = await costumerAPI.get('product/findNearest');
 
   return data.data;
 };

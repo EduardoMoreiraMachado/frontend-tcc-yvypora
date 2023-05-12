@@ -20,10 +20,10 @@ import {
   removePictureToProduct,
   removeSaleOff,
   updateProduct,
-} from '../../utils/fetchs/marketer/productFetch';
+} from '../../services/api/fetchs/marketer/productFetch';
 
 import { useLocation } from 'react-router-dom';
-import { getProduct } from '../../utils/fetchs/costumer/products';
+import { getProduct } from '../../services/api/fetchs/costumer/products';
 
 const MySwal = withReactContent(Swal);
 
@@ -62,7 +62,6 @@ export const InsertProductPage = () => {
   useEffect(() => {
     const { state } = location;
 
-    
     if (state) {
       setIsUpdate(true);
       getProduct(state.product)
@@ -218,28 +217,21 @@ export const InsertProductPage = () => {
       await updateProduct(previousProduct.id, data);
 
       console.log(saleOffValue);
-      
 
       const lastSaleOffValue = previousProduct.sale_off.map(
         ({ value }) => value
       )[0];
 
-      const hasSaleOff = previousProduct?.sale_off.length > 0 ? true : false
-
+      const hasSaleOff = previousProduct?.sale_off.length > 0 ? true : false;
 
       if (hasSaleOff && !saleOffValue) {
-        await removeSaleOff({ id: previousProduct.id});
-      }
-      else if (lastSaleOffValue && lastSaleOffValue !== saleOffValue) {
+        await removeSaleOff({ id: previousProduct.id });
+      } else if (lastSaleOffValue && lastSaleOffValue !== saleOffValue) {
         await removeSaleOff({ id: previousProduct.id });
         await addSaleOff({ id: previousProduct.id, value: saleOffValue });
       } else if (saleOffValue) {
         await addSaleOff({ id: previousProduct.id, value: saleOffValue });
       }
-      
-      
-      
-
 
       if (image) {
         const pictureFormData = new FormData();
@@ -448,7 +440,9 @@ export const InsertProductPage = () => {
               value={amount}
             />
           </div>
-              {console.log(previousProduct?.image_of_product?.map(({ image }) => image.uri)[0])}
+          {console.log(
+            previousProduct?.image_of_product?.map(({ image }) => image.uri)[0]
+          )}
           <AddImage
             text='Imagem do produto'
             subtext='Anexe uma imagem do produto que ficará visível ao cliente'

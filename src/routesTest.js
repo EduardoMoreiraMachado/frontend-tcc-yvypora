@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/global-styles.css';
-import './api/api';
+import './api';
 import { InsertProductPage } from './templates/InsertProductPage';
 import { ProductPage } from './templates/ProductPage';
 import { AddAdressPage } from './templates/AddAddressPage';

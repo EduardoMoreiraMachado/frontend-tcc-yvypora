@@ -9,12 +9,12 @@ import { Header } from '../../components/Header';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { consumeCep } from '../../utils/fetchs/common/cep';
+import { consumeCep } from '../../services/api/fetchs/common/cep';
 import { useRef } from 'react';
-import CostumerFetch from '../../utils/fetchs/costumer/costumer';
-import { fetchCostumerFormFields } from '../../utils/fetchs/common/form-fields';
+import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
+import { fetchCostumerFormFields } from '../../services/api/fetchs/common/form-fields';
 import { notify } from '../../utils/notify';
-import { getDetails } from '../../utils/fetchs/common/user';
+import { getDetails } from '../../services/api/fetchs/common/user';
 
 export const AddAdressPage = () => {
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));

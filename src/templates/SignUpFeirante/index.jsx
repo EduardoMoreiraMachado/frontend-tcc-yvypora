@@ -13,11 +13,11 @@ import { SpecialInput } from '../../components/SpecialInput';
 
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
-import { fetchMarketerFormFields } from '../../utils/fetchs/common/form-fields';
+import { fetchMarketerFormFields } from '../../services/api/fetchs/common/form-fields';
 import { getLocation } from '../../utils/location';
-import { singUpMarketer } from '../../utils/fetchs/marketer/marketer';
-import { appendPictureToUser } from '../../utils/fetchs/common/picture';
-import { commonsAPI } from '../../api/api';
+import { singUpMarketer } from '../../services/api/fetchs/marketer/marketer';
+import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
+import { commonsAPI } from '../../services/api/index';
 
 const MySwal = withReactContent(Swal);
 
