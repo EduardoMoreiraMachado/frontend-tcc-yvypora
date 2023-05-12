@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 
 import { useState } from "react";
 
-export const ToggleSwitch = ({ defaultCheckedValue, inputRef  }) => {
+export const ToggleSwitch = ({ defaultCheckedValue, inputRef, secondInputRef }) => {
   const [isChecked, setIsChecked] = useState(defaultCheckedValue);
   // const [value, setValue] = useState('');
   const [value, setValue] = useState(null);

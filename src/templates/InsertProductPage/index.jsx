@@ -35,6 +35,7 @@ export const InsertProductPage = () => {
   const [previousProduct, setPreviousProduct] = useState(null);
   const location = useLocation();
   const inputSaleOff = useRef(null);
+  const inputWeight = useRef(null);
 
   const [price, setPrice] = useState(0);
   const [name, setName] = useState('');
@@ -109,6 +110,8 @@ export const InsertProductPage = () => {
     const priceTypeOptionSelected =
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
+    console.log(priceTypeOptionSelected, categoryOptionSelected);
+
     const description = formData.description;
 
     const name = formData.name;
@@ -119,8 +122,7 @@ export const InsertProductPage = () => {
     const saleOffValue = inputSaleOff.current.value;
 
     if (priceTypeOptionSelected.value === 'peso') {
-      quantity = inputs[1].value;
-      price = inputs[2].value;
+      quantity = inputWeight.current.value;
     }
 
     const data = {
@@ -380,6 +382,7 @@ export const InsertProductPage = () => {
                     </select>
                     <input
                       className={styles['product-input']}
+                      ref={inputWeight}
                       type='number'
                       min='0'
                       max='100'

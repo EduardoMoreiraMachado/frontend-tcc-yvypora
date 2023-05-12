@@ -11,7 +11,9 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
 
   useEffect(() => {
     if (promo) {
-      const value = price - (price * (promo / 100))
+      // Calc price with discount
+      const value = (price - (price * (promo / 100))).toFixed(2).toString().replace(/\./g, ",")
+      
       setPromoValue(value)
       setPromoExists(100);
     }

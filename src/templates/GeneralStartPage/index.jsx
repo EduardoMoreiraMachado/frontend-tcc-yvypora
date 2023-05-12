@@ -160,21 +160,21 @@ export const GeneralStartPage = () => {
             <PrevButton onClick={handleLeftClick} />
             <div className={styles['carousel-items']} ref={carousel}>
               {genericList.map((product) => {
-                if (product.type_of_price.name === 'Duzia') {
-                  setWeightName('dúzia');
-                } else if (
-                  product.type_of_price.name === 'Unitario' &&
-                  product.available_quantity < 10
-                ) {
-                  setWeightName('unidade');
-                } else if (
-                  product.type_of_price.name === 'Unitario' &&
-                  product.available_quantity >= 10
-                ) {
-                  setWeightName('unidades');
-                }
+                // if (product.type_of_price.name === 'Duzia') {
+                //   setWeightName('dúzia');
+                // } else if (
+                //   product.type_of_price.name === 'Unitario' &&
+                //   product.available_quantity < 10
+                // ) {
+                //   setWeightName('unidade');
+                // } else if (
+                //   product.type_of_price.name === 'Unitario' &&
+                //   product.available_quantity >= 10
+                // ) {
+                //   setWeightName('unidades');
+                // } 
 
-                console.log(weightName);
+                // console.log(weightName);
                 // else if(product.type_of_price.name === '') {
 
                 // }
@@ -182,8 +182,10 @@ export const GeneralStartPage = () => {
                 if (genericList.length === 0) {
                   return <h1>Que pena! Não há feiras ativas no momento.</h1>;
                 } else {
+                  console.log(product.discount);
                   return (
                     <ShoppingItem
+                      promo={product.discount}
                       name={product.name}
                       imgUrl={product.image_of_product.map(
                         (el) => el.image.uri
