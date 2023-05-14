@@ -5,12 +5,10 @@ export const SearchInput = ({
   onChange,
   onFocus,
   onBlur,
-  ref,
   onKeyDown,
 }) => {
   return (
     <input
-      ref={ref}
       onKeyDown={onKeyDown}
       className={styles['text-input']}
       type='search'

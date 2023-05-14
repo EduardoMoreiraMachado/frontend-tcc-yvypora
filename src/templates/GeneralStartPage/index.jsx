@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, forwardRef } from 'react';
 
 import { NavBar } from '../../components/NavBar';
 import { SignHeader } from '../../components/SignHeader';
@@ -147,7 +147,6 @@ export const GeneralStartPage = () => {
           <div className={styles['search-category']}>
             <div className={styles['general-search']}>
               <SearchInput
-                ref={searchInputRef}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
                 onKeyDown={onKeyDown}
@@ -172,7 +171,7 @@ export const GeneralStartPage = () => {
                 //   product.available_quantity >= 10
                 // ) {
                 //   setWeightName('unidades');
-                // } 
+                // }
 
                 // console.log(weightName);
                 // else if(product.type_of_price.name === '') {

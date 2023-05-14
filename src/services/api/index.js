@@ -8,11 +8,11 @@ export const cepAPI = axios.create({
 });
 
 export const commonsAPI = axios.create({
-  baseURL: 'http://localhost:8080/commons/',
+  baseURL: 'http://costumer-api.westus3.cloudapp.azure.com/api/commons/',
 });
 
 export const marketerAPI = axios.create({
-  baseURL: 'http://localhost:8080/fair',
+  baseURL: 'http://costumer-api.westus3.cloudapp.azure.com/api/fair',
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem('user-logged-token')}`,
@@ -21,7 +21,7 @@ export const marketerAPI = axios.create({
 });
 
 export const costumerAPI = axios.create({
-  baseURL: 'http://localhost:8080/costumer/',
+  baseURL: 'http://costumer-api.westus3.cloudapp.azure.com/api/costumer/',
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem('user-logged-token')}`,
@@ -30,7 +30,7 @@ export const costumerAPI = axios.create({
 });
 
 // Websocket
-export const socket = io('http://localhost:3337', {
+export const socket = io('http://costumer-api.westus3.cloudapp.azure.com', {
   query: {
     token: localStorage.getItem('user-logged-token'),
   },
