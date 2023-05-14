@@ -11,7 +11,7 @@ import {
 
 export const ProductsFilters = ({ categories, setListOfProducts }) => {
   const [minPrice, setMinPrice] = useState(0.0);
-  const [selectedCategory, setSelectedCategory] = useState('all'); // default is all
+  const [selectedCategory, setSelectedCategory] = useState(''); // default is all
   const [stars, setStars] = useState(0);
 
   useEffect(() => {}, [selectedCategory]);
