@@ -26,7 +26,6 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
     width: 100%;
 }
 
@@ -43,7 +42,7 @@
     white-space: nowrap; /* Evita quebra de linha */
     overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
     text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
-    max-width: 200px; /* Define a largura máxima do elemento */
+    max-width: 300px; /* Define a largura máxima do elemento */
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -100,8 +99,11 @@
 }
 
 .promotion-img {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 @media(max-width: 1470px) {

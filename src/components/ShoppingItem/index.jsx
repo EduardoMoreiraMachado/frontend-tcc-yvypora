@@ -25,12 +25,7 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
       <div className={styles["item-visual"]}>
         <div className={styles["header-card"]}>
           <h1 className={styles["name"]}>{name}</h1>
-          <img
-            className={styles["promotion-img "]}
-            src={PromoImg}
-            alt=""
-            style={{ opacity: promoExists }}
-          />
+          <div className={styles["promotion-img"]} style={{backgroundImage: `url(${PromoImg})`, opacity: promoExists}}></div>
         </div>
         <div className={styles["image"]} style={{backgroundImage: `url(${imgUrl})`}} alt=""> </div>
       </div>

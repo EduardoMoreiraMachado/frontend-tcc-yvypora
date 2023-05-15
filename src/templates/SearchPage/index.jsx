@@ -95,7 +95,7 @@ export const SearchPage = ({ context, category }) => {
                     promo={product.discount}
                     name={product.name}
                     imgUrl={product.image_of_product.map((el) => el.image.uri)}
-                    weight='100g'
+                    weight={`${product.available_quantity} ${product.type_of_price.name}`}
                     price={product.price}
                     key={product.id}
                   />

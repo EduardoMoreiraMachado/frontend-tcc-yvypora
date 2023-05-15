@@ -1,11 +1,50 @@
+.filters-icon {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 70px;
+    height: 70px;
+    background-color: #73A942;
+    background-position-x: center;
+    background-position-y: 60%;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    margin-right: 50px;
+    border-radius: 15px;
+}
+
+.filters-icon:hover {
+    background-color: #538D22;
+}
+
+.filters-icon:active {
+    background-color: #4e6138;
+}
+
+@keyframes slide-in {
+    0% {
+      right: -100%;
+    }
+    100% {
+      right: 0;
+    }
+}
+
 .products-filters-container {
-    width: 25%;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
     height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 4vh;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    margin-right: 150px;
+    animation: slide-in 0.5s forwards;
 }
 
 .up-container {
@@ -28,11 +67,12 @@
 
 .rating-filter button {
     display: flex;
-    gap: 0.5vw;
+    gap: 10px;
 }
 
-.rating-filter button img {
-    width: 1vw;
+.star-icon {
+    width: 20px;
+    padding-bottom: 3px;
 }
 
 .category-filter button,
@@ -50,13 +90,20 @@
 .category-filter button:hover,
 .rating-filter button:hover {
     background-color: #73A942;
-    transition: all 0.3s; 
     color: white;
+    transition: all 0.3s; 
 }
 
 .category-filter button:active,
 .rating-filter button:active {
     background-color: #4e6138;
+    transition: all 0s;
+}
+
+.category-filter button:focus,
+.rating-filter button:focus {
+    background-color: #73A942;
+    color: white;
     transition: all 0s;
 }
 
@@ -101,4 +148,35 @@
 .high {
     width: 100%;
     accent-color: #143601;
+}
+
+@media(max-width: 550px) {
+    .filters-icon {
+        top: 10%;
+        transform: translateY(-15%);
+        right: 0;
+        width: 50px;
+        height: 50px;
+        margin-right: 65px;
+    }
+
+    @keyframes fade {
+        0%   {opacity: 0;}
+        100% {opacity: 1;}
+    }
+
+    .products-filters-container {
+        top: 53%;
+        left: 50%;
+        width: 400px;
+        transform: translate(-50%, -50%);
+        animation-name: fade;
+        animation-duration: 0.3s;
+    }
+}
+
+@media(max-width: 430px) {
+    .products-filters-container {
+        width: 350px;
+    }
 }
