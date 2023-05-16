@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/global-styles.css';
-import './services/api/index';
+import './services/api/websocket.js';
+import { initCart } from './utils/cart.js'
 import { InsertProductPage } from './templates/InsertProductPage';
 import { ProductPage } from './templates/ProductPage';
 import { AddAdressPage } from './templates/AddAddressPage';
@@ -31,7 +32,6 @@ import UpdateConsumidorAccount from './templates/UpdateConsumidorAccount';
 import ProductReviewPage from './templates/ProductReviewPage';
 import IndividualProductReviewPage from './templates/IndividualProductReviewPage';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

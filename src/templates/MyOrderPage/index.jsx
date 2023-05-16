@@ -8,8 +8,8 @@ import { LoadScript } from '@react-google-maps/api';
 
 import Loading from '../../components/Loading';
 import Route from '../../components/RouteTester';
-import { socket } from '../../services/api/index';
-import { notify } from '../../utils/notify';
+import { socket } from '../../services/api/websocket';
+import { notify, notifyAsForm } from '../../utils/notify';
 import MessageIcon from '../../imgs/message_icon.png';
 import CallIcon from '../../imgs/call_icon.png';
 
@@ -22,6 +22,7 @@ export const MyOrderPage = () => {
   const [directions, setDirections] = useState(null);
   const [time, setTime] = useState(0);
   const [distance, setDistance] = useState(0);
+  const [finish, setFinish] = useState(false)
 
   useEffect(() => {
     try {
@@ -57,8 +58,14 @@ export const MyOrderPage = () => {
   }, []);
   // TODO add others socket notifications
 
+  useEffect(() => {
+    if (finish) {
+      notifyAsForm('Entrega Finilizada, Recebeu seus pedidos ?', () => {}, () => {}).then(() => {});
+    }
+   }, [finish])
+
   return (
-    <div className={styles['my-order-page-container']}>
+    <div className={finish ? `${styles['my-order-page-container']} ${styles['order-finish']}` : `${styles['my-order-page-container']}`}>
       <Header user={{ picture_uri: '' }} useMargin={false} />
       <div className={styles['my-order-data-container']}>
         {/* <Title text='Meu pedido' /> */}

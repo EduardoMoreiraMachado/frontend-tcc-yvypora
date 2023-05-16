@@ -8,6 +8,17 @@
   outline: 0;
   font-family: 'Space Grotesk', sans-serif;
 }
+
+.custom-button-color {
+  background-color: #538d22 !important;
+  color: white !important;
+}
+
+.custom-button-cancel-color {
+  background-color: rgb(211, 102, 102) !important;
+  color: white !important;
+}
+
 .center-center {
   display: flex;
   align-items: center;

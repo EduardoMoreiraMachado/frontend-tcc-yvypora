@@ -1,4 +1,27 @@
+@keyframes animation-finish-order {
+    from {
+        filter: grayscale(0);
+        transform: scale(1);
+    }
+    to {
+        filter: grayscale(100);
+        transform: scale(0.95);
+    }
+}
+
+.custom-button-color {
+    background-color: #538d22;
+    color: white;
+  }
+  
+.order-finish {
+    transition: 500ms all ease-in-out;
+    animation: animation-finish-order 500ms;
+    filter: grayscale(100);
+    transform: scale(0.95);
+}
 .my-order-data-container {
+
     min-height: 74vh;
     display: flex;
     flex-direction: column;
