@@ -125,6 +125,11 @@
         flex-direction: column;
         gap: 10px;
     }
+
+    .cart-icon-box {
+        display: flex;
+        justify-content: end;
+    }
 }
 
 @media(max-width: 768px) {

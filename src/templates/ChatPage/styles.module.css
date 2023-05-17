@@ -1,0 +1,7 @@
+.chat-page-content {
+    min-height: 74vh;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

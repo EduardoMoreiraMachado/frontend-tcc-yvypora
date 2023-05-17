@@ -14,7 +14,7 @@ export const PurchasesHistoricPage = () => {
 
   useEffect(() => {
     PurchaseFetch.historic().then((data) => {
-      setHistoric(groupByOrder(dat));
+      setHistoric(groupByOrder(data));
       console.log(historic);
     });
   }, []);

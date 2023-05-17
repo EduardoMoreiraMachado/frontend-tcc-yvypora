@@ -31,6 +31,7 @@ import UpdateFeiranteAccount from './templates/UpdateFeiranteAccount';
 import UpdateConsumidorAccount from './templates/UpdateConsumidorAccount';
 import ProductReviewPage from './templates/ProductReviewPage';
 import IndividualProductReviewPage from './templates/IndividualProductReviewPage';
+import ChatPage from './templates/ChatPage'
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -39,15 +40,13 @@ root.render(
       <Routes>
         <Route path='/' element={<GeneralStartPage />} />
         <Route path='/marketer' element={<FeiranteStartPage />} />
-        <Route
-          path='/product/review'
-          element={<IndividualProductReviewPage />}
-        />
+        <Route path='/product/review' element={<IndividualProductReviewPage />}/>
         <Route path='/purchase/review' element={<ProductReviewPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<TypeUserSelect />} />
         <Route path='/fair-near' element={<FairNear />} />
         <Route path='/order/track' element={<OrderPage />} />
+        <Route path='/order/chat' element={<ChatPage />} />
         <Route path='/profile/address/add' element={<AddAdressPage />} />
         <Route path='/fair/add-fair' element={<AddFairPage />} />
         <Route path='/fair/fairs' element={<FairPage />} />
