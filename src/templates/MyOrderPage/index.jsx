@@ -28,9 +28,6 @@ export const MyOrderPage = () => {
     try {
       const orderStoraged = localStorage.getItem('current_travel');
       const order = JSON.parse(orderStoraged);
-
-      console.log(order);
-
       if (order) {
         setOrder(order);
         setDeliveryman(order.order.deliveryman);
@@ -56,13 +53,39 @@ export const MyOrderPage = () => {
       socket.off('travel_accepted');
     };
   }, []);
-  // TODO add others socket notifications
+
+  useEffect(() => {
+    socket.on("updated_of_order", async (data) => {
+      console.log(data);
+      if (data.retreat_products) {
+        await notify("info", "Produtos Coletados!", 15000) 
+      } 
+    })
+    return () => {
+      socket.off("updated_of_order")
+    }
+  }, []);
+
+  useEffect(() => {
+    socket.on("order_arrived",
+    async (data) => {
+      console.log(data);
+      if (data.delivered_status_for_client) {
+        setFinish(true)
+      }
+    })
+    return () => {
+      socket.off("order_arrived")
+    }
+  }, [])
 
   useEffect(() => {
     if (finish) {
-      notifyAsForm('Entrega Finilizada, Recebeu seus pedidos ?', () => {}, () => {}).then(() => {});
+      notifyAsForm('Entrega Finilizada, Recebeu seus pedidos ?', () => {
+        socket.emit("confirm_order_arrived", { order })
+      }, () => {}).then(() => {});
     }
-   }, [finish])
+   }, [finish, order])
 
   return (
     <div className={finish ? `${styles['my-order-page-container']} ${styles['order-finish']}` : `${styles['my-order-page-container']}`}>
