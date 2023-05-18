@@ -107,6 +107,7 @@ export const InsertProductPage = () => {
 
     const categoryOptionSelected =
       categorySelector.options[categorySelector.selectedIndex];
+    console.log(categoryOptionSelected);
     const priceTypeOptionSelected =
       priceTypeSelector.options[priceTypeSelector.selectedIndex];
 
@@ -309,16 +310,16 @@ export const InsertProductPage = () => {
                   : ''
               }
             >
-              <option value='frutas' id='1'>
+              <option value='frutas' id='0'>
                 Fruta
               </option>
-              <option value='verduras' id='2'>
+              <option value='verduras' id='1'>
                 Verdura
               </option>
-              <option value='especiarias' id='3'>
+              <option value='especiarias' id='2'>
                 Especiaria
               </option>
-              <option value='outros'>Outro</option>
+              <option value='outros' id='3'>Outro</option>
             </select>
           </div>
 
