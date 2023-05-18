@@ -49,7 +49,7 @@ const data = [
 export const Chart = () => {
   return (
     <div>
-      <ResponsiveContainer width={600} height={500}>
+      <ResponsiveContainer width={600} height={346}>
         <LineChart  data={data}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />

@@ -23,7 +23,7 @@ export const RatingStars = ({ setExternalRating }) => {
       <Rating
         initialValue={rating}
         style={{ display: "flex", flexDirection: "column" }}
-        size={80}
+        size={60}
         SVGclassName="star-rate-icon"
         onClick={handleRating}
         allowFraction={true}
