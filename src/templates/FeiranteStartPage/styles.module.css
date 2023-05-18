@@ -176,6 +176,7 @@ header img {
 @media(max-width: 1420px) {
     .info-boxes {
         flex-direction: column;
+        padding-right: 0;
         gap: 4vh;
     }
 
