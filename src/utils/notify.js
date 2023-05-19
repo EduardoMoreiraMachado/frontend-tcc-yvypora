@@ -20,12 +20,11 @@ export const notifyAsForm = async (question, onYes, onNo) => {
     title: question,
     icon: 'question',
     showCancelButton: true,
-    
+    preConfirm: onYes,
+    preDeny: onNo,
     customClass: {
       confirmButton: 'custom-button-color',
       cancelButton: 'custom-button-cancel-color',
     },
-  }).then(function () {
-    window.location.href = "/purchases/review";
   });
 }

@@ -9,7 +9,7 @@ export const RatingStars = ({ setExternalRating }) => {
   // pegar o valor da avaliação
   const handleRating = (newRating) => {
     setRating(newRating);
-    setExternalRating(newRating + 0.5);
+    setExternalRating(newRating);
   };
 
   const handleReset = () => {
