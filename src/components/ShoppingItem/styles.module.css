@@ -8,6 +8,13 @@
     border: 1px solid #538D22;
     border-radius: 10px;
     flex: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.shopping-item-container:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
 }
 
 .shopping-item-container-noPromo {
@@ -96,6 +103,14 @@
     background-size: 37px;
     background-color: #245501;
     border-radius: 30px;
+}
+
+.cart-icon:hover {
+    background-color: #327700;
+}
+
+.cart-icon:active {
+    background-color: #153200;
 }
 
 .promotion-img {

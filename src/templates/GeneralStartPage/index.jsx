@@ -184,6 +184,13 @@ export const GeneralStartPage = () => {
                   console.log(product.discount);
                   return (
                     <ShoppingItem
+                      availableQuantity={product?.available_quantity}
+                      fairName={product?.marketer?.tent_name ? product.marketer.tent_name : ""}
+                      marketerId={product?.marketer?.id ? product.marketer.id : 0}
+                      marketerName={product?.marketer?.name ? product.marketer.name : ""}
+                      fairPicture={product?.marketer?.picture_uri ? product.marketer.picture_uri : ""}
+                      cartId={product.id}
+                      id={product.id}
                       promo={product.discount}
                       name={product.name}
                       imgUrl={product.image_of_product.map(

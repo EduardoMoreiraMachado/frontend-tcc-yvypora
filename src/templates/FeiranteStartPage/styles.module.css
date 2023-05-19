@@ -39,6 +39,7 @@ header img {
     box-shadow: 0px 4px 4px #245501;
     margin-right: 4vw;
     margin-left: 4vw;
+    transition: all 0.3s;
 }
 
 .add-products-or-fairs h1 {
@@ -72,22 +73,20 @@ header img {
     transition: all 0.3s;
 }
 
+.add-products:hover,
+.add-fairs:hover {
+    box-shadow: 0px 4px 4px #245501;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
 #products-add img,
 #fairs-add img {
     cursor: pointer;
     transition: all 0.3s;
     padding-bottom: 10px;
 }
-
-/* .add-products:hover #products-add img {
-    transform: scale(1.3);
-    transition: all 0.3s;
-}
-
-.add-fairs:hover #fairs-add img {
-    transform: scale(1.3);
-    transition: all 0.3s;
-} */
 
 .green-add-icon {
     width: 100%;
@@ -168,9 +167,16 @@ header img {
     box-shadow: 0px 4px 4px #245501;
     font-size: 0.7rem;
     text-align: center;
-    text-decoration: underline;
     padding: 10px;
     cursor: pointer;
+}
+
+.all-historic-button:hover {
+    text-decoration: underline;
+}
+
+.all-historic-button:active {
+    color: #245501;
 }
 
 @media(max-width: 1420px) {

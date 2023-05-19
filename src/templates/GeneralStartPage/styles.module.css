@@ -51,6 +51,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 1vw;
+  padding: 10px;
 }
 
 .carousel-items::-webkit-scrollbar {

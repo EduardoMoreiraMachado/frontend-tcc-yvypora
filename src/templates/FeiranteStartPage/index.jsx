@@ -1,22 +1,28 @@
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
-import { NavBar } from '../../components/NavBar'
-import { Footer } from '../../components/Footer'
-import { Header } from '../../components/Header'
+import { NavBar } from '../../components/NavBar';
+import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
 
-import GreenAddIcon from '../../imgs/green_add_icon.svg'
-import AddProductsIcon from '../../imgs/add_products_icon.png'
-import AddFairsIcon from '../../imgs/add_fairs_icon.png'
-import EyeVisible from '../../imgs/eye_visible.png'
-import EyeNotVisible from '../../imgs/eye_not_visible.png'
+import GreenAddIcon from '../../imgs/green_add_icon.svg';
+import AddProductsIcon from '../../imgs/add_products_icon.png';
+import AddFairsIcon from '../../imgs/add_fairs_icon.png';
+import EyeVisible from '../../imgs/eye_visible.png';
+import EyeNotVisible from '../../imgs/eye_not_visible.png';
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const FeiranteStartPage = () => {
     const [ isVisible, setIsVisible ] = useState(true);
+    const navigation = useNavigate();
 
     function toggleVisibility() {
         setIsVisible(!isVisible)
+    }
+
+    const handleNextPage = (path) => {
+        navigation(path)
     }
 
     return(
@@ -31,13 +37,13 @@ export const FeiranteStartPage = () => {
                         <h1>COMECE A FATURAR COM A YVYPORÃ HOJE!</h1>
                         <p>Adicione seus produtos ou cadastre as feiras as quais faz parte</p>
                         <div className={styles['add-icons']}>
-                            <div className={styles['add-products']}>
+                            <div className={styles['add-products']} onClick={() => {handleNextPage('/product/edit')}}>
                                 <div id={styles['products-add']} className={styles['green-add-icon']}>
                                     <img src={GreenAddIcon} alt=""/>
                                 </div>
                                 <img className={styles['products-icon']} src={AddProductsIcon} alt=""/>
                             </div>
-                            <div className={styles['add-fairs']}>
+                            <div className={styles['add-fairs']} onClick={() => {handleNextPage('/fair/add-fair')}}>
                                 <div id={styles['fairs-add']} className={styles['green-add-icon']}>
                                     <img src={GreenAddIcon} alt=""/>
                                 </div>
@@ -58,7 +64,7 @@ export const FeiranteStartPage = () => {
                                 <span>R$ 5,00</span>
                             </div>
                         </div>
-                        <div className={styles['all-historic-button']}>
+                        <div className={styles['all-historic-button']} onClick={() => {handleNextPage('/gains')}}>
                             <h1>Ver histórico completo</h1>
                         </div>
                     </div>

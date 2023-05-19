@@ -3,25 +3,32 @@ import PromoImg from "../../imgs/promotion1.svg";
 import styles from "./styles.module.css";
 
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { addProduct } from '../../utils/cart';
 
-export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
+export const ShoppingItem = ({ id, name, imgUrl, weight, price, promo, availableQuantity, fairName, fairPicture, marketerId, marketerName , cartId}) => {
   const [promoExists, setPromoExists] = useState(0);
   const [promoValue, setPromoValue] = useState(null);
   const priceProcessed = price.toString().replace(/\./g, ",");
-  const oldPrice = price.toFixed(2).toString(2).replace(/\./g, ",")
+  const oldPrice = price.toFixed(2).toString(2).replace(/\./g, ",");
+  const navigation = useNavigate();
 
   useEffect(() => {
     if (promo) {
       // Calc price with discount
-      const value = (price - (price * (promo / 100))).toFixed(2).toString().replace(/\./g, ",")
+      const value = (price - (price * (promo / 100))).toFixed(2).toString().replace(/\./g, ",");
       
-      setPromoValue(value)
+      setPromoValue(value);
       setPromoExists(100);
     }
   }, []);
 
+  const handleNextPage = () => {
+    navigation(`/product/${id}`);
+  }
+
   return (
-    <div className={styles["shopping-item-container"]}>
+    <div className={styles["shopping-item-container"]} onClick={handleNextPage}>
       <div className={styles["item-visual"]}>
         <div className={styles["header-card"]}>
           <h1 className={styles["name"]}>{name}</h1>
@@ -38,7 +45,23 @@ export const ShoppingItem = ({ name, imgUrl, weight, price, promo }) => {
           <span className={styles["price-general"]}>R$ {promoValue ? promoValue : priceProcessed}</span>
         </div>
         <div className={styles["cart-icon-box"]}>
-          <button className={styles["cart-icon"]} />
+          <button 
+            className={styles["cart-icon"]} 
+            onClick={() =>
+              addProduct({
+                id: {cartId},
+                name: {name},
+                picture: {imgUrl},
+                price: {promoValue} ? {promoValue} : {priceProcessed},
+                selectedQuantity: 1,
+                quantity: {availableQuantity},
+                fairName: {fairName},
+                fairPicture: {fairPicture},
+                marketerId: {marketerId},
+                marketerName: {marketerName}
+              })
+            }
+          />
         </div>
       </div>
     </div>
