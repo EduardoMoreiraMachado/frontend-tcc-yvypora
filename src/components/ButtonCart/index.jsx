@@ -1,13 +1,26 @@
+import { useEffect, useState } from 'react'
 import styles from './styles.module.css'
-// import CartImg from '../../imgs/shopping_cart_icon.svg'
 
 export const ButtonCart = () => {
+    const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")))
+
+    const [type, setType] = useState("")
+
+    useEffect(() => {
+        if (user ){
+            if (user.typeof === "COSTUMER") {
+                setType("cart")
+            }
+            else {
+                setType("products")
+            }
+        }
+    }, [user])
+    
     return (
         <>
             <div className={styles["main-circle"]}>
-                <a className={styles['inner-circle']} href="/cart">
-                    {/* <img src={CartImg} alt="" className="icon-cart" /> */}
-                </a>
+                <div className={styles[`inner-circle-${type}`]} href="/cart"></div>
             </div>
         </>
     )

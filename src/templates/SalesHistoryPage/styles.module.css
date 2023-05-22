@@ -1,0 +1,18 @@
+.purchase-historic-content {
+    min-height: 74vh;
+    display: flex;
+    align-items: center;
+}
+
+.historic-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+@media(max-width: 1105px) {
+    .historic-cards {
+        width: 100%;
+        align-items: center;
+    }
+}

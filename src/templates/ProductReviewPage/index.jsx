@@ -15,6 +15,7 @@ const ProductReviewPage = () => {
   const [cart, setCart] = useState(null);
   const [order, setOrder] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user-details")))
 
   const [ratingProducts, setRatingProducts] = useState(0);
   const [ratingDeliveryman, setRatingDeliveryman] = useState(0);

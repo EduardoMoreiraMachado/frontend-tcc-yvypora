@@ -18,6 +18,8 @@
 }
 
 .bought-item-visual h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #245501;
 }
 
@@ -42,11 +44,14 @@
 }
 
 .bought-item-numbers h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
     color: #245501;
     margin-bottom: 10px;
 }
 
 .bought-item-numbers h2 {
+    font-size: 1.3rem;
     font-weight: 400;
     color: #143601;
 }

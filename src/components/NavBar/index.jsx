@@ -6,11 +6,29 @@ import VideoImg from "../../imgs/video.svg";
 import FairImg from "../../imgs/fair.svg";
 import ProfileImg from "../../imgs/profile.svg";
 
+import { useEffect, useState } from "react";
+
 export const NavBar = () => {
+  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")))
+
+  const [type, setType] = useState("")
+
+  useEffect(() => {
+      if (user ){
+          if (user.typeof === "COSTUMER") {
+              setType("marketer")
+          }
+          else {
+              setType("")
+              console.log('else')
+          }
+      }
+  }, [user])
+
   return (
     <div className={styles["nav-bar-container"]}>
       <div className={styles["upper-nav"]}>
-        <a className={styles["bar-image"]} href="/">
+        <a className={styles["bar-image"]} href={`/${type}`}>
           <img src={HomeImg} alt="" className={styles["page-icon"]} />
         </a>
         <a className={styles["bar-image"]} href="#">

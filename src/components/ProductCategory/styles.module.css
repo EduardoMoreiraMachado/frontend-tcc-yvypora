@@ -34,6 +34,7 @@
     color: #000;
     transition: all 0s;
     cursor: pointer;
+    font-size: 1.5rem;
 }
 
 .category-name:hover {

@@ -117,7 +117,7 @@ export const FeiranteStartPage = () => {
               </div>
             </div>
             <div
-              className={styles['all-historic-button']}
+              className={styles['all-history-button']}
               onClick={() => {
                 handleNextPage('/gains');
               }}

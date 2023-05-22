@@ -1,4 +1,4 @@
-.historic-card-container {
+.history-card-container {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     gap: 20px; 
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
     border: 1px solid transparent;
     transition: all 0.3s;
@@ -35,8 +35,6 @@
 }
 
 .purchase-image {
-    width: 170px;
-    height: 120px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,13 +50,17 @@
 .purchase-info h1 {
     font-size: 2rem;
     font-weight: 400;
-    color: #538D22;
+    color: #000;
 }
 
 .purchase-info h2 {
     font-size: 1.3rem;
     font-weight: 400;
-    color: #538D22;
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
+    text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
+    max-width: 400px; /* Define a largura máxima do elemento */
+    color: #245501;
 }
 
 .purchase-info span {

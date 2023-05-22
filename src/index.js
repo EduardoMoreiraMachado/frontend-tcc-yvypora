@@ -17,7 +17,8 @@ import SearchPage from './templates/SearchPage';
 import ProfilePageCostumer from './templates/ConsumidorProfilePage';
 import ProfilePageMarketer from './templates/FeiranteProfilePage';
 import OrderPage from './templates/MyOrderPage';
-import BuyHistory from './templates/PurchasesHistoricPage';
+import BuyHistory from './templates/PurchasesHistoryPage';
+import SalesHistory from './templates/SalesHistoryPage'
 import TypeUserSelect from './templates/TypeUserSelect';
 import CartPage from './templates/CartPage';
 import EntregadorLandingPage from './templates/EntregadorLandingPage';
@@ -34,6 +35,8 @@ import ProductReviewPage from './templates/ProductReviewPage';
 import IndividualProductReviewPage from './templates/IndividualProductReviewPage';
 import ChatPage from './templates/ChatPage'
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { RedirectProfile } from './components/RedirectProfile';
+import { RedirectUpdate } from './components/RedirectUpdate';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -52,10 +55,11 @@ root.render(
         <Route path='/fair/add-fair' element={<AddFairPage />} />
         <Route path='/fair/fairs' element={<FairPage />} />
         <Route path='/search' element={<SearchPage name={'Laranja'} />} />
-
+        <Route path='/profile' element={<RedirectProfile/>}></Route>
         <Route path='/profile/costumer' element={<ProfilePageCostumer />} />
         <Route path='/profile/marketer' element={<ProfilePageMarketer />} />
         <Route path='/profile/purchase-history' element={<BuyHistory />} />
+        <Route path='/profile/sales-history' element={<SalesHistory />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/checkout' element={<PaymentPage />} />
         {/* <Route path='/cart2' element={<ShoppingCartPage/>} /> */}
@@ -64,14 +68,9 @@ root.render(
         <Route path='/sign' element={<SignToContinue />} />
         <Route path='/signup/consumidor' element={<SignUpConsumidor />} />
         <Route path='/signup/marketer' element={<SignUpFeirante />} />
-        <Route
-          path='/profile/update/marketer'
-          element={<UpdateFeiranteAccount />}
-        />
-        <Route
-          path='/profile/update/consumidor'
-          element={<UpdateConsumidorAccount />}
-        />
+        <Route path='/profile/update' element={<RedirectUpdate/>}></Route>
+        <Route path='/profile/update/marketer' element={<UpdateFeiranteAccount />} />
+        <Route path='/profile/update/costumer' element={<UpdateConsumidorAccount />} />
         {/* <Route path="/profile/edit" element={<EditProfilePage />} /> */}
         <Route path='/profile/address' element={<AdressPage />} />
         <Route path='/product/edit' element={<InsertProductPage />} />
