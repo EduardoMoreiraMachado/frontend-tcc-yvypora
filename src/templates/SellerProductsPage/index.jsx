@@ -26,7 +26,7 @@ export const SellerProductsPage = () => {
 
   return (
     <div className='seller-products-page-container'>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <Title text='Produtos cadastrados' />
       {/* <div className={styles['float-button']}>
         {onHoverBtn && (

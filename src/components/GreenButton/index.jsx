@@ -1,14 +1,14 @@
-import styles from "./styles.module.css";
-
-export const GreenButton = ({ text, onClick, type }) => {
+import styles from './styles.module.css';
+import { ReactComponent as Loading } from '../../imgs/spinner.svg';
+export const GreenButton = ({ text, onClick, type, isLoading = false }) => {
   return (
     <button
       type={type}
-      href="#"
-      className={styles["green_button"]}
+      href='#'
+      className={styles['green_button']}
       onClick={onClick}
     >
-      {text}
+      {isLoading ? <Loading /> : text}
     </button>
   );
 };

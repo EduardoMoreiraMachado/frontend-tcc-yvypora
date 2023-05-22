@@ -10,12 +10,12 @@ import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 import { groupByOrder } from '../../utils/groupBy.js'
 import Loading from '../../components/Loading';
 export const PurchasesHistoricPage = () => {
-  const [historic, setHistoric] = useState(null);
+  const [historic, setHistoric] = useState([]);
 
   useEffect(() => {
     PurchaseFetch.historic().then((data) => {
-      setHistoric(groupByOrder(data));
-      console.log(historic);
+      setHistoric(data);
+      console.log(data);
     });
   }, []);
 
@@ -37,8 +37,8 @@ export const PurchasesHistoricPage = () => {
           <div className={styles['purchase-historic-content']}>
             <NavBar />
             <div className={styles['historic-cards']}>
-              {
-                historic.map((data) => {
+              {/* {
+                historic?.map((data) => {
                   return (
                     <HistoricCard
                       fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
@@ -54,7 +54,7 @@ export const PurchasesHistoricPage = () => {
                   />
                   )
                 })
-              }
+              } */}
               <HistoricCard
                 fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
                 tentName='Barraca do Seu Zé'

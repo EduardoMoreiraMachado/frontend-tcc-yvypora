@@ -41,7 +41,7 @@ export const ProductPage = () => {
 
   const MainPage = () => (
     <div className={styles['product-page-container']}>
-      {user ? <Header user={{ picture_uri: '' }} /> : <SignHeader />}
+      {user ? <Header user={user} /> : <SignHeader />}
       <NavBar />
 
       <div className={styles['product-containers']}>

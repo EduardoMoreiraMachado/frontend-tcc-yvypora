@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 // API'S
 export const cepAPI = axios.create({
   baseURL: 'https://viacep.com.br/ws/',
@@ -28,5 +26,3 @@ export const costumerAPI = axios.create({
     },
   },
 });
-
-

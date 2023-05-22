@@ -158,7 +158,7 @@ export const UpdateFeiranteAccount = () => {
 
   return (
     <div className={styles['update-feirante-account-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <Title text='Editar conta' />
       <div className={styles['update-content']}>
         <div className={styles['nav-bar']}>

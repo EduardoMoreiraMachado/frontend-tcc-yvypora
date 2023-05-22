@@ -86,7 +86,6 @@ export const updateItemCount = ({ id, itemCount }) => {
 
   if (cart.products[index].selectedQuantity === itemCount) return;
 
-  
   cart.total = cart.total -
     cart.products[index].price * cart.products[index].selectedQuantity;
 
@@ -94,6 +93,8 @@ export const updateItemCount = ({ id, itemCount }) => {
   cart.total = cart.total + cart.products[index].price * itemCount;
 
   cart.products[index].selectedQuantity = itemCount;
+
+  console.log(cart.products[index].selectedQuantity);
 
   localStorage.setItem("cart", JSON.stringify(cart));
 };

@@ -103,7 +103,7 @@ export const AddAdressPage = () => {
 
   return (
     <div className={styles['add-adress-page-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <div className={styles['add-adress-title']}>
         <Title className={styles['title']} text='Adicione um endereço' />
         <h1 className={styles['add-adress-subtitle']}>

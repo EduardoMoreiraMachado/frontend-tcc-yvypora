@@ -7,23 +7,23 @@ import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
+import CostumerFetch from '../../services/api/fetchs/costumer/costumer.js';
 
 export const AddressPage = () => {
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [addresses, setAddresses] = useState([]);
 
   useEffect(() => {
-    CostumerFetch()
-      .listAddresses()
+    CostumerFetch
+      .listAddress()
       .then((res) => {
         setAddresses(res);
-      });
+      }).catch(err => console.log(err));
   }, []);
 
   return (
     <div className={styles['address-page-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <Title text='Endereços' />
       <div className={styles['address-page-content']}>
         <NavBar />

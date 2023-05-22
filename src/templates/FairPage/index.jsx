@@ -9,8 +9,11 @@ import { GreenButton } from '../../components/GreenButton';
 import { useAsync } from 'react-use';
 import { useNavigate } from 'react-router-dom';
 import MarketerFairFetch from '../../services/api/fetchs/marketer/fair';
+import { useState } from 'react';
 
 export const FairPage = () => {
+  const [user,  setUser] = useState(JSON.parse(localStorage.getItem("user-details")));
+
   const navigation = useNavigate();
   const {
     loading,
@@ -23,11 +26,11 @@ export const FairPage = () => {
 
   const handleNextPage = (path) => {
     navigation(path);
-  }
+  };
 
   return (
     <div className={styles['registered-fairs-page']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <div className={styles['fairs-content']}>
         <NavBar />
         <div className={styles['fairs-list']}>
@@ -59,7 +62,12 @@ export const FairPage = () => {
               );
             })}
           </div>
-          <div id={styles['add-fair-button']} onClick={() => {handleNextPage('/fair/add-fair')}}>
+          <div
+            id={styles['add-fair-button']}
+            onClick={() => {
+              handleNextPage('/fair/add-fair');
+            }}
+          >
             <GreenButton text='Adicionar feira' />
           </div>
         </div>

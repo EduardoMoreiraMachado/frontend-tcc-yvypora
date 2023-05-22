@@ -58,7 +58,7 @@ const ProductReviewPage = () => {
 
   return (
     <div className={styles['product-review-page-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <Title text='Compra #30495' />
       <div className={styles['product-review-content']}>
         <div className={styles['review-containers']}>

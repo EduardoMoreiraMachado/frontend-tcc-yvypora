@@ -5,6 +5,7 @@ import './services/api/websocket.js';
 import { initCart } from './utils/cart.js'
 import { InsertProductPage } from './templates/InsertProductPage';
 import { ProductPage } from './templates/ProductPage';
+import { PaymentPage } from './templates/PaymentPage';
 import { AddAdressPage } from './templates/AddAddressPage';
 import { AddFairPage } from './templates/AddFairPage';
 import { FairPage } from './templates/FairPage';
@@ -56,6 +57,7 @@ root.render(
         <Route path='/profile/marketer' element={<ProfilePageMarketer />} />
         <Route path='/profile/purchase-history' element={<BuyHistory />} />
         <Route path='/cart' element={<CartPage />} />
+        <Route path='/checkout' element={<PaymentPage />} />
         {/* <Route path='/cart2' element={<ShoppingCartPage/>} /> */}
         <Route path='/gains' element={<GainsPage />} />
         {/* DISABLED <Route path="/shoppingcart" element={<ShoppingCartPage />} /> */}

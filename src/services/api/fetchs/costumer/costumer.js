@@ -37,4 +37,5 @@ class CostumerFetch {
 
 const instance = new CostumerFetch();
 
+
 export default instance;

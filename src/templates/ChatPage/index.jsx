@@ -27,10 +27,9 @@ export const ChatPage = () => {
 
   const addMessage = (content) => {
     sendMessageIOSocket({
-      
       content,
       timestamp: new Date().toISOString(),
-      
+
       from: user.id,
       to: to.id,
     });
@@ -54,7 +53,7 @@ export const ChatPage = () => {
 
   return (
     <div className={styles['chat-page-container']}>
-      <Header user={{ picture_uri: '' }} useMargin={false} />
+      <Header user={user} useMargin={false} />
       <div className={styles['chat-page-content']}>
         <div className={styles['delivery-man-info']}>
           <div

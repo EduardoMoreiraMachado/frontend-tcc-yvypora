@@ -8,14 +8,18 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
 import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
+import { useNavigate, use } from 'react-router-dom';
 
 export const CartPage = () => {
+  const navigate = useNavigate();
+
+  const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
   const [displayCart, setDisplayCart] = useState([]);
 
-  const [total, setTotal] = useState(cart.total);
+  const [total, setTotal] = useState(cart.total ? cart.total : 0);
 
-  const processedTotal = total.toFixed(2);
+  const processedTotal = total?.toFixed(2);
   const resultTotal = processedTotal.toString().replace(/\./g, ',');
 
   useEffect(() => {
@@ -23,27 +27,32 @@ export const CartPage = () => {
     setDisplayCart(aggroupedData);
   }, [cart]);
 
+  const refresh = async () => {
+    return new Promise((resolve) => {
+      window.location.reload(true);
+      resolve();
+    });
+  };
+
+  const handleRedirect = (state) => {
+    navigate('/checkout', { state }); // Perform the redirect after reloading
+  };
   const handleClickToPayment = async (event) => {
+    event.preventDefault();
+
     setCart(JSON.parse(localStorage.getItem('cart')));
 
-    const user = JSON.parse(localStorage.getItem('user-details'));
+    const updatedData = groupByMarketer(cart.products);
 
-    const purchase = {
-      costumer_address_id: user.costumer_addresses[0].id,
-      products: cart.products.map(({ id, selectedQuantity }) => {
-        return { id, amount: selectedQuantity };
-      }),
-      freight: 19.99,
-    };
-
-    const stripePaymentLink = await PurchaseFetch.createPurchase(purchase);
-
-    window.location.href = stripePaymentLink;
+    handleRedirect({
+      previewCart: updatedData,
+      total: total,
+    });
   };
 
   return (
     <div className={styles['cartpage-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <Title text={'Meu Carrinho'} />
       <div className={styles['main-container-cart']}>
         <NavBar />
@@ -75,7 +84,7 @@ export const CartPage = () => {
                   );
                 })}
               </div>
-              {Object.entries(displayCart).map(([name, purchase]) =>
+              {Object.entries(displayCart).map(([_, purchase]) =>
                 purchase.map((product) => (
                   <ShoppingCartItem
                     id={product.id}

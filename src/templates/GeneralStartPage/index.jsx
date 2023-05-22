@@ -12,6 +12,8 @@ import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
 import { SearchInput } from '../../components/SearchInput';
+import { motion } from 'framer-motion';
+import InitialTransition from '../../animations/Initial';
 
 import {
   listProductNearToClient,
@@ -130,11 +132,25 @@ export const GeneralStartPage = () => {
   }, [inputFocused]);
 
   return (
-    <div className={styles['general-start-page-container']}>
+    <div
+      initial={{
+        y: 500,
+      }}
+      animate={{
+        y: 0,
+        transition: {
+          easing: 'ease-in-out',
+          duration: 1,
+        },
+      }}
+      className={styles['general-start-page-container']}
+    >
+      <InitialTransition />
+
       <div className={inputFocused ? styles['background'] : ''} />
       {user ? (
         <>
-          <Header user={{ picture_uri: '' }} />
+          <Header user={user} />
         </>
       ) : (
         <>
@@ -185,10 +201,22 @@ export const GeneralStartPage = () => {
                   return (
                     <ShoppingItem
                       availableQuantity={product?.available_quantity}
-                      fairName={product?.marketer?.tent_name ? product.marketer.tent_name : ""}
-                      marketerId={product?.marketer?.id ? product.marketer.id : 0}
-                      marketerName={product?.marketer?.name ? product.marketer.name : ""}
-                      fairPicture={product?.marketer?.picture_uri ? product.marketer.picture_uri : ""}
+                      fairName={
+                        product?.marketer?.tent_name
+                          ? product.marketer.tent_name
+                          : ''
+                      }
+                      marketerId={
+                        product?.marketer?.id ? product.marketer.id : 0
+                      }
+                      marketerName={
+                        product?.marketer?.name ? product.marketer.name : ''
+                      }
+                      fairPicture={
+                        product?.marketer?.picture_uri
+                          ? product.marketer.picture_uri
+                          : ''
+                      }
                       cartId={product.id}
                       id={product.id}
                       promo={product.discount}

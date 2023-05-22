@@ -7,18 +7,21 @@ import { Footer } from '../../components/Footer';
 import { Title } from '../../components/Title';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-
 import { getDetails } from '../../services/api/fetchs/common/user';
 import { useState } from 'react';
 import { login } from '../../services/api/fetchs/common/login';
+import { useNavigate } from 'react-router-dom';
 
 const MySwal = withReactContent(Swal);
 
 export const Login = () => {
+  const navigate = useNavigate();
   const [location, setLocation] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const handleClick = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const inputs = document.querySelectorAll('input');
 
       const email = inputs[0].value;
@@ -40,8 +43,16 @@ export const Login = () => {
         timerProgressBar: true,
       });
 
-      window.location.href = '/';
+      setIsLoading(false);
+
+      if (details.typeof === 'COSTUMER') {
+        navigate('/#');
+      }
+      if (details.typeof === 'MARKETER') {
+        navigate('/marketer');
+      }
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
 
       let message = error.response?.data.message;
@@ -58,53 +69,65 @@ export const Login = () => {
   };
 
   return (
-    <div className={styles['login-container']}>
-      <header className='header-without-margins'>
+    <>
+      <img className={styles['icon']} src={YvyporaTextIcon} alt='' />
+      <div className={styles['login-container']}>
+        {/* <header className='header-without-margins'>
         <div className='header-icon'>
           <img className='icon-yvy' src={YvyporaTextIcon} alt='' />
         </div>
-      </header>
-      <div className={styles['login-content']}>
-        <Title text='Login' />
-        <div className={styles['input-container']}>
-          <div className={styles['input']}>
-            <div className={styles['default-input-container']}>
-              <label
-                className={styles['default-label']}
-                htmlFor='input-default'
-              >
-                E-mail
-              </label>
-              <input
-                className={styles['default-input']}
-                type='text'
-                id='input-default'
-                name='e-mail'
-              />
-            </div>
+      </header> */}
 
-            <div className={styles['default-input-container']}>
-              <label
-                className={styles['default-label']}
-                htmlFor='input-default'
-              >
-                Senha
-              </label>
-              <input
-                className={styles['default-input']}
-                type='password'
-                id='input-default'
-                name='senha'
+        <div className={styles['login-content']}>
+          <div className={styles['input-container']}>
+            <Title text='Login' />
+            <div className={styles['input']}>
+              <div className={styles['default-input-container']}>
+                <label
+                  className={styles['default-label']}
+                  htmlFor='input-default'
+                >
+                  E-mail
+                </label>
+                <input
+                  className={styles['default-input']}
+                  type='text'
+                  id='input-default'
+                  name='e-mail'
+                />
+              </div>
+
+              <div className={styles['default-input-container']}>
+                <label
+                  className={styles['default-label']}
+                  htmlFor='input-default'
+                >
+                  Senha
+                </label>
+                <input
+                  className={styles['default-input']}
+                  type='password'
+                  id='input-default'
+                  name='senha'
+                />
+              </div>
+            </div>
+            <div className={styles['button-container']}>
+              <GreenButton
+                isLoading={isLoading}
+                text='Entrar'
+                onClick={handleClick}
+                type='submit'
               />
             </div>
-          </div>
-          <div className={styles['button-container']}>
-            <GreenButton text='Entrar' onClick={handleClick} type='submit' />
           </div>
         </div>
+
+        <div className={styles['image-and-footer']}></div>
+
+        {/*  */}
       </div>
-      <Footer useMargin={false} />
-    </div>
+    </>
   );
 };
 

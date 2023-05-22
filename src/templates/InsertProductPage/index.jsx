@@ -289,7 +289,7 @@ export const InsertProductPage = () => {
 
   return (
     <div className={styles['insert-product-page']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <Title text='Inserir um novo produto' />
 
       <div className={styles['data-containers']}>
@@ -319,7 +319,9 @@ export const InsertProductPage = () => {
               <option value='especiarias' id='2'>
                 Especiaria
               </option>
-              <option value='outros' id='3'>Outro</option>
+              <option value='outros' id='3'>
+                Outro
+              </option>
             </select>
           </div>
 

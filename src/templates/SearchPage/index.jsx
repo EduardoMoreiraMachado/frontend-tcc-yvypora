@@ -73,7 +73,7 @@ export const SearchPage = ({ context, category }) => {
 
   return (
     <>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <div className={styles['text-input-wrapper']}>
         <SearchInput
           onChange={onValueChange}
@@ -92,6 +92,7 @@ export const SearchPage = ({ context, category }) => {
               {listOfProducts.map((product) => {
                 return (
                   <ShoppingItem
+                    id={product.id}
                     promo={product.discount}
                     name={product.name}
                     imgUrl={product.image_of_product.map((el) => el.image.uri)}
