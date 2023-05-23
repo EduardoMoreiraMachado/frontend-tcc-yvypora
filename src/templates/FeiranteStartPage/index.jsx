@@ -16,16 +16,36 @@ import { useNavigate } from 'react-router-dom';
 export const FeiranteStartPage = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [dailySell, setDailySell] = useState(0);
+  const [lastSell, setLastSell] = useState(null);
 
   const navigation = useNavigate();
 
   const getDay = async () => {
-    const res = await ReportsFetch.getDailyEaring();
-    return res.pop();
+    const res = await ReportsFetch.getDailyEaringA();
+    return { data: res.pop(), sell: res.splice(-2).pop() };
   };
-  
+
   useEffect(() => {
-    getDay().then((res) => setDailySell((res._sum.total).toFixed(2).toString().replace('.', ',')));
+    getDay().then(({ data, sell }) => {
+      if (sell) {
+        const date = new Date(sell.created_at);
+        const time = `${date.getHours()}:${
+          date.getMinutes().toString().length === 1
+            ? '0' + date.getMinutes().toString()
+            : date.getMinutes()
+        }`;
+        const value = (sell.total / 100)
+          .toFixed(2)
+          .toString()
+          .replace('.', ',');
+        setLastSell({
+          time,
+          value,
+        });
+        console.log('sem vendas ainda');
+      }
+      setDailySell(data._sum.total.toFixed(2).toString().replace('.', ','));
+    });
   }, []);
 
   function toggleVisibility() {
@@ -111,10 +131,12 @@ export const FeiranteStartPage = () => {
                   }
                 />
               </div>
-              <div className={styles['sales']}>
-                <h3>Venda às 12:59</h3>
-                <span>R$ 5,00</span>
-              </div>
+              {lastSell && (
+                <div className={styles['sales']}>
+                  <h3>Venda às {lastSell.time}</h3>
+                  <span>R$ {lastSell.value}</span>
+                </div>
+              )}
             </div>
             <div
               className={styles['all-history-button']}
