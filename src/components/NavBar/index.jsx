@@ -14,15 +14,15 @@ export const NavBar = () => {
   const [type, setType] = useState("")
 
   useEffect(() => {
-      if (user ){
-          if (user.typeof === "COSTUMER") {
-              setType("marketer")
-          }
-          else {
-              setType("")
-              console.log('else')
-          }
+    if (user) {
+      if (user.typeof === "COSTUMER") {
+        setType("")
+
       }
+      else {
+        setType("marketer")
+      }
+    }
   }, [user])
 
   return (

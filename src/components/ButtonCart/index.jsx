@@ -4,15 +4,15 @@ import styles from './styles.module.css'
 export const ButtonCart = () => {
     const [user, _] = useState(JSON.parse(localStorage.getItem("user-details")))
 
-    const [type, setType] = useState("")
+    const [route, setRoute] = useState("cart")
 
     useEffect(() => {
         if (user ){
             if (user.typeof === "COSTUMER") {
-                setType("cart")
+                setRoute("cart")
             }
             else {
-                setType("products")
+                setRoute("marketer/products")
             }
         }
     }, [user])
@@ -20,7 +20,7 @@ export const ButtonCart = () => {
     return (
         <>
             <div className={styles["main-circle"]}>
-                <div className={styles[`inner-circle-${type}`]} href="/cart"></div>
+                <a className={route == 'cart' ? styles[`inner-circle-cart`] : styles[`inner-circle-products`]} href={`/${route}`}></a>
             </div>
         </>
     )

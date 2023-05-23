@@ -52,7 +52,7 @@
   margin-bottom: 4vh;
 }
 
-@media(max-width: 1140px) {
+@media(max-width: 1200px) {
   .registered-products {
     display: flex;
     flex-direction: column;
