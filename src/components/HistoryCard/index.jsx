@@ -28,6 +28,8 @@ export const HistoryCard = ({fairImg, tentName, fairName, purchaseDate, listOfPr
                 />  
             )
         })        
+        console.log(productCardData);
+        
 
         setProductCards(productCardData)
     }, [listOfProducts])

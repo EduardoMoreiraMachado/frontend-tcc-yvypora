@@ -24,12 +24,21 @@ export const PurchasesHistoricPage = () => {
   
         const date = dd + '/' + mm + '/' + yyyy;
         const total = (order.shopping_list.total / 100).toFixed(2).toString().replace('.', ',')
-        const object = {
+        console.log("teste", order);
+        let fairName = order.shopping_list.products_in_shopping_list.map(({ product }) => {
+          const { marketer } = product;
+          const { tent_name  } = marketer;
+          console.log(tent_name);
+          return tent_name
+        })
+        fairName = [...new Set(fairName)].join(",")
+
+          const object = {
           total,
           pedido: `Pedido - #${order.id}`,
           date,
+          fairName,
           products: order.shopping_list.products_in_shopping_list.map(({ product }) => {
-            
             const _product = { 
               id: product.id,
               productName: product.name, 
@@ -38,11 +47,11 @@ export const PurchasesHistoricPage = () => {
               price: product.price,
               productQnt: product.available_quantity
               }
-              console.log(_product);
               return _product 
           } )
         }
-
+        console.log(object);
+        
         return object;
       })
       setHistoric(_data);
@@ -67,67 +76,19 @@ export const PurchasesHistoricPage = () => {
           <div className={styles['purchase-historic-content']}>
             <NavBar />
             <div className={styles['historic-cards']}>
-              <HistoryCard
-                fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
-                tentName='Barraca do Seu Zé'
-                fairName='Feira de São Domingos'
-                purchaseDate='41/13/2027'
-                listOfProducts={[]}
-                productName='Abóbora'
-                productImg='https://img.freepik.com/free-photo/close-up-shot-fresh-pumpkins-different-shapes-sizes-perfect_181624-31370.jpg?w=2000&t=st=1681383871~exp=1681384471~hmac=3925907f5157d0f6192b61c3c1ca599433a696bddb2599bf8c69ce954fd2a457'
-                productUnit='800g'
-                productPrice={24.77}
-                productQnt={4}
-                productCount={7}
-              />
-              <HistoryCard
-                fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
-                tentName='Barraca do Seu Zé'
-                fairName='Feira de São Domingos'
-                purchaseDate='41/13/2027'
-                productName='Abóbora'
-                productImg='https://img.freepik.com/free-photo/close-up-shot-fresh-pumpkins-different-shapes-sizes-perfect_181624-31370.jpg?w=2000&t=st=1681383871~exp=1681384471~hmac=3925907f5157d0f6192b61c3c1ca599433a696bddb2599bf8c69ce954fd2a457'
-                productUnit='800g'
-                productPrice={24.77}
-                productQnt={4}
-                productCount={7}
-              />
-              <HistoryCard
-                fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
-                tentName='Barraca do Seu Zé'
-                fairName='Feira de São Domingos'
-                purchaseDate='41/13/2027'
-                productName='Abóbora'
-                productImg='https://img.freepik.com/free-photo/close-up-shot-fresh-pumpkins-different-shapes-sizes-perfect_181624-31370.jpg?w=2000&t=st=1681383871~exp=1681384471~hmac=3925907f5157d0f6192b61c3c1ca599433a696bddb2599bf8c69ce954fd2a457'
-                productUnit='800g'
-                productPrice={24.77}
-                productQnt={4}
-                productCount={7}
-              />
-              <HistoryCard
-                fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
-                tentName='Barraca do Seu Zé'
-                fairName='Feira de São Domingos'
-                purchaseDate='41/13/2027'
-                productName='Abóbora'
-                productImg='https://img.freepik.com/free-photo/close-up-shot-fresh-pumpkins-different-shapes-sizes-perfect_181624-31370.jpg?w=2000&t=st=1681383871~exp=1681384471~hmac=3925907f5157d0f6192b61c3c1ca599433a696bddb2599bf8c69ce954fd2a457'
-                productUnit='800g'
-                productPrice={24.77}
-                productQnt={4}
-                productCount={7}
-              />
-              <HistoryCard
-                fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
-                tentName='Barraca do Seu Zé'
-                fairName='Feira de São Domingos'
-                purchaseDate='41/13/2027'
-                productName='Abóbora'
-                productImg='https://img.freepik.com/free-photo/close-up-shot-fresh-pumpkins-different-shapes-sizes-perfect_181624-31370.jpg?w=2000&t=st=1681383871~exp=1681384471~hmac=3925907f5157d0f6192b61c3c1ca599433a696bddb2599bf8c69ce954fd2a457'
-                productUnit='800g'
-                productPrice={24.77}
-                productQnt={4}
-                productCount={7}
-              />
+              {
+                historic.map((order) => {
+                  return (
+                    <HistoryCard
+                    fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
+                    tentName={order.pedido}
+                    fairName={order.fairName}
+                    purchaseDate={order.date}
+                    listOfProducts={order.products}
+                  />
+                  )
+                })
+              }
             </div>
           </div>
           <Footer />

@@ -12,7 +12,7 @@ export const BoughtItem = ({name, imgUrl, unit, price, qnt}) => {
             </div>
             <div className={styles['bought-item-numbers']}>
                 <span>{unit}</span>
-                <h1>{processedPrice}</h1>
+                <h1>R$ {processedPrice}</h1>
                 <h2>Quant.: {qnt}</h2>
             </div>
         </div>
