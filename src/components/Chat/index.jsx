@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 
+import { AiFillCloseCircle } from 'react-icons/ai'
 import React, { useEffect, useState } from 'react';
 
 import { Header } from '../../components/Header';
@@ -7,7 +8,9 @@ import { Footer } from '../../components/Footer';
 import { MessageList } from '../../components/MessageList';
 import { MessageInput } from '../../components/MessageInput';
 import { socket } from '../../services/api/websocket';
-export const ChatPage = () => {
+import { motion } from 'framer-motion';
+
+export const Chat = () => {
   const [to, setTo] = useState({
     id: 0,
     name: 'Entregador x',
@@ -52,9 +55,14 @@ export const ChatPage = () => {
   };
 
   return (
-    <div className={styles['chat-page-container']}>
-      <Header user={user} useMargin={false} />
-      <div className={styles['chat-page-content']}>
+      <motion.div 
+
+        initial={{ y: 300 }}
+        animate={{ y: 0, transition: {
+          duration: 0.4,
+        } }}
+
+        className={styles['chat-page-content']}>
         <div className={styles['delivery-man-info']}>
           <div
             className={styles['chat-user-image']}
@@ -63,13 +71,14 @@ export const ChatPage = () => {
             }}
           ></div>
           <h1>William Dafoe</h1>
+          <AiFillCloseCircle />
         </div>
         <MessageList messages={messages} />
         <MessageInput addMessage={addMessage} />
-      </div>
-      <Footer useMargin={false} />
-    </div>
+      </motion.div>
   );
 };
 
-export default ChatPage;
+
+export default Chat;
+

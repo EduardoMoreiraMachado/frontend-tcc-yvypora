@@ -33,7 +33,6 @@ import UpdateFeiranteAccount from './templates/UpdateFeiranteAccount';
 import UpdateConsumidorAccount from './templates/UpdateConsumidorAccount';
 import ProductReviewPage from './templates/ProductReviewPage';
 import IndividualProductReviewPage from './templates/IndividualProductReviewPage';
-import ChatPage from './templates/ChatPage'
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { RedirectProfile } from './components/RedirectProfile';
 import { RedirectUpdate } from './components/RedirectUpdate';
@@ -50,7 +49,6 @@ root.render(
         <Route path='/signup' element={<TypeUserSelect />} />
         <Route path='/fair-near' element={<FairNear />} />
         <Route path='/order/track' element={<OrderPage />} />
-        <Route path='/order/chat' element={<ChatPage />} />
         <Route path='/profile/address/add' element={<AddAdressPage />} />
         <Route path='/fair/add-fair' element={<AddFairPage />} />
         <Route path='/fair/fairs' element={<FairPage />} />
