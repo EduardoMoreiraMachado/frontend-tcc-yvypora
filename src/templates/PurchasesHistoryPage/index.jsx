@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 import Loading from '../../components/Loading';
 export const PurchasesHistoricPage = () => {
+  const [user, _] = useState(JSON.parse(localStorage.getItem("user-details"))) 
   const [historic, setHistoric] = useState([]);
 
   useEffect(() => {
@@ -67,10 +68,7 @@ export const PurchasesHistoricPage = () => {
       ) : (
         <div className={styles['purchases-historic-page-container']}>
           <Header
-            user={{
-              picture_uri:
-                'https://upload.wikimedia.org/wikipedia/en/0/03/Walter_White_S5B.png',
-            }}
+            user={user}
           />
           <Title text='Histórico de compras' />
           <div className={styles['purchase-historic-content']}>
