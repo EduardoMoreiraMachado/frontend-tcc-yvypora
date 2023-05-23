@@ -21,7 +21,7 @@ export const FeiranteStartPage = () => {
   const navigation = useNavigate();
 
   const getDay = async () => {
-    const res = await ReportsFetch.getDailyEaringA();
+    const res = await ReportsFetch.getDailyEaring();
     return { data: res.pop(), sell: res.splice(-2).pop() };
   };
 

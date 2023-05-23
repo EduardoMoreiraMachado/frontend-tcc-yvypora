@@ -2,10 +2,35 @@ import styles from './styles.module.css'
 
 import { BoughtItem } from '../BoughtItem'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-export const HistoryCard = ({fairImg, tentName, fairName, purchaseDate, productName, productImg, productUnit, productPrice, productQnt, productCount, sale}) => {
+export const HistoryCard = ({fairImg, tentName, fairName, purchaseDate, listOfProducts, sale}) => {
     const [ click, setClick ] = useState(false)
+    const [productCards, setProductCards] = useState([])
+
+    useEffect(() => {  
+        const productCardData = listOfProducts.map(({
+            id,
+            productName, 
+            productImg, 
+            productUnit, 
+            price,
+            productQnt
+        }) => {
+            return (
+                <BoughtItem 
+                    key={id}
+                    name={productName}
+                    imgUrl={productImg}
+                    unit={productUnit}
+                    price={price}
+                    qnt={productQnt}
+                />  
+            )
+        })        
+
+        setProductCards(productCardData)
+    }, [listOfProducts])
 
     let sizeStyle = {}
 
@@ -25,23 +50,6 @@ export const HistoryCard = ({fairImg, tentName, fairName, purchaseDate, productN
         setClick(!click)
     }
 
-    const counter = productCount
-
-    const price = 'R$ ' + productPrice
-    const productCard = [];
-    for(let i = 0; i < counter; i++) {
-        productCard.push(
-            <BoughtItem 
-                key={i}
-                name={productName}
-                imgUrl={productImg}
-                unit={productUnit}
-                price={price}
-                qnt={productQnt}
-            />
-        )
-    }
-
     return(
         <div className={styles['history-card-container']}>
             <div className={styles['purchase']}>
@@ -55,7 +63,7 @@ export const HistoryCard = ({fairImg, tentName, fairName, purchaseDate, productN
                 </div>
                 {click &&
                     <div className={styles['purchase-products']}>
-                        {productCard}
+                        {productCards}
                     </div>
                 }
             </div>

@@ -9,8 +9,8 @@ export const RatingStarsStatic = ({reviewValue}) => {
     return(
         <div className={styles['rating-stars-static-container']}>
             <Rating
+                emptyStyle={{ display: "flex" }} fillStyle={{ display: "-webkit-inline-box" }} 
                 initialValue={value}
-                style={{ display: "flex", flexDirection: "column" }}
                 size={50}
                 SVGclassName="star-rate-icon"
                 allowFraction={true}

@@ -46,8 +46,8 @@
 
 .review {
     display: flex;
-    align-items: center
-}
+    align-items: center;
+};
 
 .grade {
     font-size: 1.7rem;

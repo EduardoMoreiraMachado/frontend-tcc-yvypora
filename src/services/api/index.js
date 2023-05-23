@@ -10,7 +10,7 @@ export const commonsAPI = axios.create({
 });
 
 export const marketerAPI = axios.create({
-  baseURL: 'http://localhost:8080/api/fair',
+  baseURL: 'http://costumer-api.westus3.cloudapp.azure.com/api/fair',
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem('user-logged-token')}`,

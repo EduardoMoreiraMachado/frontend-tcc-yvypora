@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    transform: rotateX(90deg);
 }
 
 @media(max-width: 1140px) {

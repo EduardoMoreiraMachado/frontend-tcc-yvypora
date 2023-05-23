@@ -15,6 +15,16 @@ import ReportsFetch from '../../services/api/fetchs/marketer/ReportsFetch';
 export const GainsPage = () => {
   const [total, setTotal] = useState(0);
   const [sells, setSells] = useState([]);
+  const [sellsDetails, setSellsDetails] = useState({
+    today: {
+      value: 0,
+      count: 0,
+    },
+    week: {
+      value: 0,
+      count: 0,
+    }
+  })
 
   useEffect(() => {
     const fetch = async () => {
@@ -32,6 +42,25 @@ export const GainsPage = () => {
     fetch()
       .then()
       .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const today = (await ReportsFetch.getDailyEaring()).pop();
+      const week = (await ReportsFetch.getWeekEaring()).pop();
+
+      setSellsDetails({
+        today: {
+          value: today._sums.total.toFixed(2),
+          count: today._nums.sells,
+        },
+        week: {
+          value: week._sums.total.toFixed(2),
+          count: week._nums.sells,
+        }
+      })
+    }
+    fetch().then().catch(err => console.log(err))
   }, []);
 
   // valor da porcentagem de ganho MENSAL (os outros valores estão no componente 'GainsCard')
@@ -53,9 +82,9 @@ export const GainsPage = () => {
         <div className={styles['gains']}>
           <h1 id={styles['container-title']}>Ganhos</h1>
 
-          <GainsCard text='Hoje' value={120.5} percentage={10} />
+          <GainsCard text='Hoje' value={sellsDetails.today.value} percentage={10} />
 
-          <GainsCard text='Semanal' value={850.6} percentage={-5} />
+          <GainsCard text='Semanal' value={sellsDetails.week.value} percentage={-5} />
         </div>
 
         <div className={styles['monthly']}>
@@ -78,11 +107,11 @@ export const GainsPage = () => {
           <h1 id={styles['container-title']}>Vendas</h1>
           <div className={styles['today']}>
             <h1>Hoje</h1>
-            <h2>30</h2>
+            <h2>{sellsDetails.today.count}</h2>
           </div>
           <div className={styles['weekly']}>
             <h1>Semanal</h1>
-            <h2>123</h2>
+            <h2>{sellsDetails.week.count}</h2>
           </div>
         </div>
       </div>

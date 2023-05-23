@@ -21,6 +21,7 @@ export const RatingStars = ({ setExternalRating }) => {
   return (
     <div className={styles["rating-stars-container"]}>
       <Rating
+        emptyStyle={{ display: "flex" }} fillStyle={{ display: "-webkit-inline-box" }} 
         initialValue={rating}
         style={{ display: "flex", flexDirection: "column" }}
         size={60}
