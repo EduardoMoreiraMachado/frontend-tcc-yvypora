@@ -57,14 +57,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1vh;
 }
 
 .unit {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: #5A5A5A;
 }
 
@@ -105,6 +105,8 @@
 }
 
 .delete-cart-product-card h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
     text-align: center;
     color: #31572C;
 }

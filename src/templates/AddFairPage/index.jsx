@@ -179,7 +179,7 @@ export const AddFairPage = () => {
           <DefaultInput name='Horário de encerramento' type='time' />
 
           <div className={styles['days-week-container']}>
-            <h1 className={styles['days-week-title']}>Dias de funcionamento</h1>
+            <span className={styles['days-week-title']}>Dias de funcionamento</span>
             <div className={styles['days-week']}>
               {daysOfWeekFields.map(({ id, name }) => {
                 return (

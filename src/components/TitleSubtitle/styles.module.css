@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    font-size: 1.5rem; 
-    font-weight: lighter;
+    font-size: 2rem; 
+    font-weight: 700;
     text-align: center;
     color: #1A4301;
     margin-bottom: 3vh;
@@ -13,6 +13,7 @@
 
 .title h2 {
     font-size: 1.5rem;
+    font-weight: 400;
     text-align: center;
 }
 

@@ -290,7 +290,7 @@ export const InsertProductPage = () => {
   return (
     <div className={styles['insert-product-page']}>
       <Header user={user} />
-      <Title text='Inserir um novo produto' />
+      <Title text={isUpdate ? 'Atualizar o produto' : 'Inserir um novo produto'} />
 
       <div className={styles['data-containers']}>
         <div className={styles['insert-product-data']}>

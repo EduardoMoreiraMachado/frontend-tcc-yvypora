@@ -40,7 +40,6 @@ export const ShoppingCartItem = ({
   if (deleteProduct === false) {
     return (
       <div className={styles['shopping-cart-item-container']}>
-        {/* <input className='item-check' type='checkbox'/> */}
         <div className={styles['item-info']}>
           <div className={styles['item-image']}>
             <h1 className={styles['name']}>{name}</h1>

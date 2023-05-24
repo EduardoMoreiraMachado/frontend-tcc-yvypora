@@ -183,6 +183,7 @@ select {
 }
 
 .inputs h1 {
+  font-size: 2rem;
   color: #143601;
   padding-bottom: 3vh;
 }

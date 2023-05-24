@@ -29,6 +29,9 @@ export const SellerProduct = ({
   const navigate = useNavigate();
   const [itemCount, setItemCount] = useState(available_quantity);
   const [isEnable, setIsEnable] = useState(status);
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [exclude, setExclude] = useState(false);
+  const [update, setUpdate] = useState(false);
 
   const priceProcessed = price.toString().replace(/\./g, ',');
 
@@ -41,6 +44,18 @@ export const SellerProduct = ({
     await enableProduct({ id });
     setIsEnable(true);
   };
+
+  const handleExcludeClick = () => {
+    setExclude(true);
+  }
+
+  const handleUpdateClick = () => {
+    setUpdate(true);
+  }
+
+  const handlePopUpClick = () => {
+    setShowPopUp(true)
+  }
 
   useEffect(() => {
     updateAvailableQuantity(id, itemCount)
@@ -90,10 +105,10 @@ export const SellerProduct = ({
           </div>
         </div>
         <div className={styles['edit-status']}>
-          <button className={styles['status-button']}>
+          <button className={styles['status-button']} onClick={handleExcludeClick}>
             <img className={styles['status-image']} src={DeleteImage} alt='' />
           </button>
-          <button
+          {/* <button
             className={styles['status-button']}
             onClick={() => {
               navigate('/product/edit', {
@@ -102,14 +117,18 @@ export const SellerProduct = ({
                 },
               });
             }}
-          >
+          > */}
+          <button className={styles['status-button']} onClick={handleUpdateClick}>
             <img className={styles['status-image']} src={UpdateImage} alt='' />
           </button>
           <button
             className={styles['status-button']}
             onClick={async (event) => {
               event.preventDefault();
-              if (isEnable) await disable();
+              if (isEnable) { 
+                setShowPopUp(true)
+                
+              }
               else await enable();
             }}
           >
@@ -120,6 +139,80 @@ export const SellerProduct = ({
           </button>
         </div>
       </div>
+      {exclude && (
+        <div className={styles['edit-seller-product-card']}>
+            <div className={styles['edit-seller-content']}>
+              <h1>Gostaria de remover o produto {name}?</h1>
+              <div className={styles['edit-seller-options']}>
+                <span
+                  id={styles['edit']}
+                >
+                  Remover
+                </span>
+                <span
+                  id={styles['cancel']}
+                  onClick={() => {setExclude(false)}}
+                >
+                  Cancelar
+                </span>
+              </div>
+            </div>
+          </div>
+      )}
+      {update && (
+        <div className={styles['edit-seller-product-card']}>
+            <div className={styles['edit-seller-content']}>
+              <h1>Gostaria de editar o produto {name}?</h1>
+              <div className={styles['edit-seller-options']}>
+                <span
+                  id={styles['edit']}
+                  onClick={() => {
+                    navigate('/product/edit', {
+                      state: {
+                        product: id,
+                      },
+                    });
+                  }}
+                >
+                  Editar
+                </span>
+                <span
+                  id={styles['cancel']}
+                  onClick={() => {setUpdate(false)}}
+                >
+                  Cancelar
+                </span>
+              </div>
+            </div>
+          </div>
+      )}
+      {showPopUp && (
+        <div className={styles['edit-seller-product-card']}>
+            <div className={styles['edit-seller-content']}>
+              <h1>Gostaria de desabilitar o produto {name}?</h1>
+              <div className={styles['edit-seller-options']}>
+                <span
+                  id={styles['edit']}
+                  onClick={async () => {
+                    await disable()
+                    setShowPopUp(false)
+                    
+                  }}
+                >
+                  Desabilitar
+                </span>
+                <span
+                  id={styles['cancel']}
+                  onClick={() => { {
+                    setShowPopUp(false)
+                  }}}
+                >
+                  Cancelar
+                </span>
+              </div>
+            </div>
+          </div>
+      )}
     </div>
   );
 };

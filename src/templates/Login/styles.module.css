@@ -80,7 +80,44 @@
   margin-left: 100px;
 }
 
+.icon-white {
+  display: none;
+  padding: 10px;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
 @media (max-width: 768px) {
+  .icon {
+    display: none;
+  }
+
+  .icon-white {
+    display: flex;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .login-content {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 70%;
+    border-radius: 50px;
+    padding: 20px;
+  }
+
+  .image {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+  }
+
   .input-container {
     flex-direction: column;
   }
@@ -100,7 +137,14 @@
   .default-input {
     width: 100%;
     font-size: 1.5rem;
-    border-bottom: 3px solid white;
     background-color: transparent;
+  }
+
+
+}
+
+@media(max-width: 560px) {
+  .login-content {
+    width: 90%;
   }
 }
