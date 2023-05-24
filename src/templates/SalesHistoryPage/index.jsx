@@ -6,13 +6,13 @@ import { Title } from '../../components/Title';
 import { NavBar } from '../../components/NavBar';
 import { HistoryCard } from '../../components/HistoryCard';
 import { useEffect, useState } from 'react';
-import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
+import ReportsFetch from '../../services/api/fetchs/marketer/ReportsFetch';
 import Loading from '../../components/Loading';
 export const PurchasesHistoricPage = () => {
   const [historic, setHistoric] = useState([]);
 
   useEffect(() => {
-    PurchaseFetch.historic().then((data) => {
+    ReportsFetch.getSaleHistoric().then((data) => {
       setHistoric(data);
       console.log(data);
     });
@@ -36,19 +36,42 @@ export const PurchasesHistoricPage = () => {
           <div className={styles['purchase-historic-content']}>
             <NavBar />
             <div className={styles['historic-cards']}>
-              <HistoryCard
-                fairImg='https://upload.wikimedia.org/wikipedia/en/f/fb/Skyler_White_S5B.png'
-                tentName='Skyler White'
-                fairName='308 Negra Arroyo Lane, Albuquerque, New Mexico. 87104.'
-                purchaseDate='41/13/2027'
-                productName='Abóbora'
-                productImg='https://img.freepik.com/free-photo/close-up-shot-fresh-pumpkins-different-shapes-sizes-perfect_181624-31370.jpg?w=2000&t=st=1681383871~exp=1681384471~hmac=3925907f5157d0f6192b61c3c1ca599433a696bddb2599bf8c69ce954fd2a457'
-                productUnit='800g'
-                productPrice={24.77}
-                productQnt={4}
-                productCount={7}
-                sale={true}
-              />
+              {historic.map(
+                ({ id, updated_at, costumer, products_in_shopping_list }) => {
+                  const products = products_in_shopping_list.map((data) => {
+                    return {
+                      id: data.product.id,
+                      productName: data.product.name,
+                      productImg: data.product.image_of_product[0].image.uri,
+                      productUnit: data.product.type_of_price.name,
+                      price: data.product.price,
+                      productQnt: data.amount,
+                    };
+                  });
+                  const date = new Date(updated_at);
+                  const yyyy = date.getFullYear();
+                  let mm = date.getMonth() + 1; // Months start at 0!
+                  let dd = date.getDate();
+
+                  if (dd < 10) dd = '0' + dd;
+                  if (mm < 10) mm = '0' + mm;
+
+                  const dateFormatted = dd + '/' + mm + '/' + yyyy;
+
+                  console.log(products);
+
+                  return (
+                    <HistoryCard
+                      key={id}
+                      fairImg={costumer.picture_uri}
+                      tentName={`VENDA -#${id}`}
+                      fairName={costumer.name}
+                      purchaseDate={dateFormatted}
+                      listOfProducts={products}
+                    />
+                  );
+                }
+              )}
             </div>
           </div>
           <Footer />
@@ -57,5 +80,4 @@ export const PurchasesHistoricPage = () => {
     </>
   );
 };
-
 export default PurchasesHistoricPage;

@@ -1,16 +1,17 @@
 import axios from 'axios';
 
+const BASE_API_URL = 'http://costumer-api.westus3.cloudapp.azure.com/api';
 // API'S
 export const cepAPI = axios.create({
   baseURL: 'https://viacep.com.br/ws/',
 });
 
 export const commonsAPI = axios.create({
-  baseURL: 'http://costumer-api.westus3.cloudapp.azure.com/api/commons/',
+  baseURL: `${BASE_API_URL}/commons/`,
 });
 
 export const marketerAPI = axios.create({
-  baseURL: 'http://costumer-api.westus3.cloudapp.azure.com/api/fair',
+  baseURL: `${BASE_API_URL}/fair/`,
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem('user-logged-token')}`,
@@ -19,7 +20,7 @@ export const marketerAPI = axios.create({
 });
 
 export const costumerAPI = axios.create({
-  baseURL: 'http://costumer-api.westus3.cloudapp.azure.com/api/costumer/',
+  baseURL: `${BASE_API_URL}/costumer/`,
   headers: {
     common: {
       Authorization: `Bearer ${localStorage.getItem('user-logged-token')}`,
