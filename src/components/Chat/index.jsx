@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { AiFillCloseCircle } from 'react-icons/ai';
 import React, { useEffect, useState } from 'react';
 
 import { Header } from '../../components/Header';
@@ -8,9 +8,20 @@ import { Footer } from '../../components/Footer';
 import { MessageList } from '../../components/MessageList';
 import { MessageInput } from '../../components/MessageInput';
 import { socket } from '../../services/api/websocket';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
-export const Chat = () => {
+const popupVariants = {
+  hidden: { opacity: 0, y: '-100%' },
+  visible: { opacity: 1, y: 0 },
+};
+
+export const Chat = ({ isChatOpen, setChatOpen }) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start(isChatOpen ? 'visible' : 'hidden');
+  }, [isChatOpen]);
+
   const [to, setTo] = useState({
     id: 0,
     name: 'Entregador x',
@@ -55,30 +66,44 @@ export const Chat = () => {
   };
 
   return (
-      <motion.div 
-
-        initial={{ y: 300 }}
-        animate={{ y: 0, transition: {
-          duration: 0.4,
-        } }}
-
-        className={styles['chat-page-content']}>
-        <div className={styles['delivery-man-info']}>
+    <motion.div
+      variants={popupVariants}
+      initial='hidden'
+      animate={controls}
+      className={styles['chat-page-content']}
+    >
+      <div className={styles['delivery-man-info']}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '20px',
+          }}
+        >
           <div
             className={styles['chat-user-image']}
             style={{
               backgroundImage: `url('https://teoriageek.com.br/wp-content/uploads/2021/02/William-Defoe.jpg')`,
             }}
           ></div>
-          <h1>William Dafoe</h1>
-          <AiFillCloseCircle />
+          <h1
+            style={{
+              fontSize: '1.2rem',
+              height: '20px',
+            }}
+          >
+            William Dafoe
+          </h1>
         </div>
-        <MessageList messages={messages} />
-        <MessageInput addMessage={addMessage} />
-      </motion.div>
+        <AiFillCloseCircle
+          className={styles['chat-close-icon']}
+          onClick={() => setChatOpen(false)}
+        />
+      </div>
+      <MessageList messages={messages} />
+      <MessageInput addMessage={addMessage} />
+    </motion.div>
   );
 };
 
-
 export default Chat;
-

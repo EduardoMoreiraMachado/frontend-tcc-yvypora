@@ -4,17 +4,19 @@
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    padding: 0px 20px 20px 20px;
-    gap: 50px;
+    padding: 20px;
+    gap: 20px;
 }
 
 .message-input {
-    width: 70%;
-    height: 50px;
-    border: 2px solid #538D22;
-    border-radius: 15px;
-    font-size: 2rem;
-    padding: 10px;
+    background: #EEE;
+    color: #000;
+    padding: 20px;
+    border: 'none';
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2rem;
+    box-sizing: 'border-box';    
 }
 
 .message-button {

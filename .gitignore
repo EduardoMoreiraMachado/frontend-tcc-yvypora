@@ -4,6 +4,10 @@
 # code editor settings
 /.vscode
 
+# yarn and npm
+yarn.lock
+package-lock.json
+
 # dependencies
 /node_modules
 /.pnp

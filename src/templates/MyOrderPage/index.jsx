@@ -177,7 +177,10 @@ export const MyOrderPage = () => {
                   </div>
                   {                     
                       showChat && (
-                        <Chat />
+                        <Chat 
+                          isChatOpen={showChat}
+                          setChatOpen={setShowChat}
+                        />
                       )
                     }
 
