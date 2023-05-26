@@ -10,11 +10,17 @@ import { GreenButton } from '../../components/GreenButton';
 
 import { indexProducts } from '../../services/api/fetchs/marketer/productFetch';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const SellerProductsPage = () => {
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [listOfProducts, setListOfProducts] = useState([]);
   const [onHoverBtn, setOnHoverBtn] = useState(false);
+  const navigation = useNavigate();
+
+  const handleNextPage = () => {
+    navigation("/product/edit");
+  }
 
   useEffect(() => {
     const fetch = async () => {
@@ -58,7 +64,10 @@ export const SellerProductsPage = () => {
             );
           })}
         </div>
-        <GreenButton text='Adicionar produto' />
+        <GreenButton 
+          text='Adicionar produto' 
+          onClick={handleNextPage}
+        />
       </div>
       <Footer />
     </div>

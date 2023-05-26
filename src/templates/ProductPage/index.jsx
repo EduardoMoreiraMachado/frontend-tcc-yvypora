@@ -57,7 +57,9 @@ export const ProductPage = () => {
               <h1 className={styles['title']}>{data.name}</h1>
               <div className={styles['review']}>
                 {/* <img className={styles['stars']} src={StarsIconTest} alt='' /> */}
+                <div className={'rotate'}>
                 <RatingStarsStatic reviewValue={data.review} />
+                </div>
                 <h2 className={styles['grade']}>{reviewProcessed}</h2>
                 <div className={styles['grade-info']}>
                   {/* <h2 className={styles["review-count"]}>41 avaliações</h2> */}

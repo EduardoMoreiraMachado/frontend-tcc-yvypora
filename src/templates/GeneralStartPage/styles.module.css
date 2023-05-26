@@ -1,3 +1,8 @@
+footer {
+  margin-top: 100px;
+  width: 100vw;
+}
+
 .background {
   position: fixed;
   top: 0;
@@ -37,12 +42,12 @@
 }
 
 .products-carrossel {
-  width: 80vw;
+  width: 75vw;
   height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 5vh;
+  padding-top: 2vh;
   gap: 2vw;
 }
 

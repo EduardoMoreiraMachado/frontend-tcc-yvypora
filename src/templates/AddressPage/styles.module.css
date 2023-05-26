@@ -1,5 +1,5 @@
 .address-page-content {
-    min-height: 74vh;
+    min-height: 52.2vh;
     display: flex;
     align-items: center;
 }
@@ -8,13 +8,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 6vh;
+    align-items: center;
 }
 
 .address-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 }
 
 .address-card {
@@ -52,6 +53,7 @@
 }
 
 .address-info h1 {
+    font-size: 1.5rem;
     font-weight: 400;
 }
 

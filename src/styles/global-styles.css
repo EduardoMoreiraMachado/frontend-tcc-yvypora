@@ -56,7 +56,10 @@ header {
   align-items: center;
   padding: 0px 100px 0px 100px;
 }
-
+.rotate { 
+  display: flex;
+  flex-direction: row;
+ }
 .header-without-margins {
   margin-bottom: 0;
 }
@@ -180,6 +183,7 @@ select {
 }
 
 .inputs h1 {
+  font-size: 2rem;
   color: #143601;
   padding-bottom: 3vh;
 }

@@ -16,7 +16,7 @@ import { fetchCostumerFormFields } from '../../services/api/fetchs/common/form-f
 import { notify } from '../../utils/notify';
 import { getDetails } from '../../services/api/fetchs/common/user';
 
-export const AddAdressPage = () => {
+export const AddAddressPage = () => {
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [values, setValues] = useState({});
   const [formData, setFormData] = useState({});
@@ -164,4 +164,4 @@ export const AddAdressPage = () => {
   );
 };
 
-export default AddAdressPage;
+export default AddAddressPage;

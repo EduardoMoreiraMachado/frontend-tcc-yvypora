@@ -24,6 +24,8 @@ import {
 
 import { useLocation } from 'react-router-dom';
 import { getProduct } from '../../services/api/fetchs/costumer/products';
+import { isValidProductData, validate, validateProduct } from '../../utils/validations/product';
+import { notify } from '../../utils/notify';
 
 const MySwal = withReactContent(Swal);
 
@@ -152,6 +154,15 @@ export const InsertProductPage = () => {
     const saleOffValue = inputSaleOff.current.value;
 
     const data = await getData();
+
+    try {
+      if (!isValidProductData(data)) {
+        await notify("error", "Algo não foi preenchido corretamente!", 5000)
+        return null
+      }
+    } catch (e) {
+      return null
+    }
 
     try {
       const { payload } = await createProduct(data);
@@ -290,7 +301,7 @@ export const InsertProductPage = () => {
   return (
     <div className={styles['insert-product-page']}>
       <Header user={user} />
-      <Title text='Inserir um novo produto' />
+      <Title text={isUpdate ? 'Atualizar o produto' : 'Inserir um novo produto'} />
 
       <div className={styles['data-containers']}>
         <div className={styles['insert-product-data']}>

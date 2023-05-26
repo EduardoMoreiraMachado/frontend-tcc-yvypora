@@ -3,8 +3,9 @@
     flex-direction: column;
     gap: 10px;
 }
+
 .fair-container {
-  width: 70vw;
+  width: 55vw;
   background-color: #73a942;
   display: flex;
   align-items: center;
@@ -42,6 +43,10 @@
   font-size: 2rem;
   font-weight: 700;
   color: white;
+  white-space: nowrap; /* Evita quebra de linha */
+  overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
+  text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
+  max-width: 800px; /* Define a largura máxima do elemento */
 }
 
 .data-type {

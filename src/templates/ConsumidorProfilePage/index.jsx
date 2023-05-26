@@ -5,8 +5,7 @@ import Footer from "../../components/Footer";
 import Option from "../../components/Option";
 import iconUser from "../../imgs/user.svg";
 import iconMap from "../../imgs/map.svg";
-import iconCard from "../../imgs/card.svg";
-import iconBag from "../../imgs/bag.svg";
+import iconBag from "../../imgs/shopping_icon.png";
 import { EmptyHeader } from "../../components/EmptyHeader";
 import { ExitOption } from "../../components/ExitOption";
 import { useState } from "react";
@@ -29,10 +28,10 @@ export const ProfilePage = () => {
       <div className={styles["profile-container"]}>
         <NavBar />
         <div className={styles["options-container"]}>
-          <Option imgUrl={iconUser} text={"Perfil"} link={"/profile/edit"} />
-          <Option imgUrl={iconMap} text={"Endereço"} link={"/profile/address"} />
+          <Option imgUrl={iconUser} text={"Editar conta"} link={"/profile/update"} />
+          <Option imgUrl={iconMap} text={"Endereços"} link={"/profile/address"} />
           {/* <Option imgUrl={iconCard} text={"Formas de Pagamento"} link={""} /> */}
-          <Option imgUrl={iconBag} text={"Histórico de compras"} link={"/profile/buy-history"}/>
+          <Option imgUrl={iconBag} text={"Histórico de compras"} link={"/profile/purchase-history"}/>
           <ExitOption />
         </div>
       </div>

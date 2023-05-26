@@ -18,7 +18,7 @@
 }
 
 .map-container {
-    width: 80%;
+    width: 55%;
     height: 60vh;
     display: flex;
     align-items: center;
@@ -54,6 +54,7 @@
 
 @media(max-width: 980px) {
     .map-container {
+        width: 90%;
         margin: 0;
     }
 }

@@ -19,7 +19,7 @@ export const MessageInput = ({ addMessage }) => {
 
   return (
     <form onSubmit={handleFormSubmit} className={styles['message-input-container']}>
-      <input type="text" value={text} onChange={handleInputChange} className={styles['message-input']}/>
+      <input type="text" value={text} onChange={handleInputChange} className={styles['message-input']} placeholder='digite sua mensagem...'/>
       <button type="submit" className={styles['message-button']}></button>
     </form>
   );

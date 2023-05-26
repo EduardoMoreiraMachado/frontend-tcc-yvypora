@@ -39,6 +39,7 @@
 }
 
 .header-card h2 {
+    font-size: 1.5rem;
     white-space: nowrap; /* Evita quebra de linha */
     overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
     text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */

@@ -1,6 +1,8 @@
 import styles from './styles.module.css';
 
 import YvyporaTextIcon from '../../imgs/yvypora_text_icon.svg';
+import YvyporaWhiteTextIcon from '../../imgs/yvypora_white_text_icon.svg'
+import LoginBackgroundImage from '../../imgs/login_background_image.jpg'
 
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
@@ -71,6 +73,7 @@ export const Login = () => {
   return (
     <>
       <img className={styles['icon']} src={YvyporaTextIcon} alt='' />
+      <img className={styles['icon-white']} src={YvyporaWhiteTextIcon} alt='' />
       <div className={styles['login-container']}>
         {/* <header className='header-without-margins'>
         <div className='header-icon'>
@@ -123,10 +126,11 @@ export const Login = () => {
           </div>
         </div>
 
-        <div className={styles['image-and-footer']}></div>
+        <div className={styles['image']} style={{backgroundImage: `url(${LoginBackgroundImage})`}}></div>
 
         {/*  */}
       </div>
+      <Footer useMargin={false} />
     </>
   );
 };

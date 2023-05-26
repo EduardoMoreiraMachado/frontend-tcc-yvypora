@@ -1,6 +1,6 @@
 .shopping-item-container {
     width: 300px;
-    height: 350px;
+    height: 370px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -46,6 +46,7 @@
 .name {
     color: #245501;
     font-size: 1.6rem;
+    font-weight: 700;
     white-space: nowrap; /* Evita quebra de linha */
     overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
     text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
@@ -75,15 +76,16 @@
 }
 
 .old-price {
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-decoration: line-through;
     color: #7D7D7D;
 }
 
 .weight {
     width: 100%;
-    font-size: 1rem;
-    color: #000;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #747474;
 }
 
 .price-general {

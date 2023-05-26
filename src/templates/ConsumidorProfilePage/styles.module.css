@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     gap: 36px;
-    margin-bottom: 9.1vh;
+    margin-bottom: 16vh;
 }
 
 @media (max-width: 768px) {

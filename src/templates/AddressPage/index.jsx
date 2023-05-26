@@ -5,13 +5,16 @@ import { Title } from '../../components/Title';
 import { NavBar } from '../../components/NavBar';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import CostumerFetch from '../../services/api/fetchs/costumer/costumer.js';
 
 export const AddressPage = () => {
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [addresses, setAddresses] = useState([]);
+  const navigation = useNavigate();
 
   useEffect(() => {
     CostumerFetch
@@ -20,6 +23,10 @@ export const AddressPage = () => {
         setAddresses(res);
       }).catch(err => console.log(err));
   }, []);
+
+  const handleNextPage = () => {
+    navigation('/profile/address/add')
+  }
 
   return (
     <div className={styles['address-page-container']}>
@@ -47,7 +54,7 @@ export const AddressPage = () => {
               );
             })}
           </div>
-          <div className={styles['add-address-button']}>
+          <div className={styles['add-address-button']} onClick={handleNextPage}>
             <GreenButton text='Adicionar' />
           </div>
         </div>

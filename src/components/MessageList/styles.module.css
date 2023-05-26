@@ -1,52 +1,53 @@
 .message-list-container {
-    width: 97%;
-    height: 78vh;
-    background-color: #dddddd;
-    border-radius: 30px;
+  width: 97%;
+  margin-top: 20px;
+  height: 70vh;
+  background-color: #EEE;
+  border-radius: 30px;
 }
 
 .message-list {
-    position: relative;
-    max-height: 100%;
-    overflow-y: scroll;
-    padding-bottom: 50px;
+  position: relative;
+  max-height: 90%;
+  overflow-y: scroll;
+  padding-bottom: 50px;
 }
 
 .message-list::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .message-box {
-    width: 100%;
+  width: 100%;
 }
 
 .message-item {
-    width: fit-content;
-    list-style: none;
-    font-size: 2rem;
-    margin: 20px 50px;
-    padding: 10px;
+  width: fit-content;
+  list-style: none;
+  font-size: 2rem;
+  margin: 20px 50px;
+  padding: 10px;
 }
 
 #send {
-    display: flex;
-    justify-content: end;
-    color: #fff;
+  display: flex;
+  justify-content: end;
+  color: #fff;
 }
 
 #received {
-    display: flex;
-    justify-content: start;
+  display: flex;
+  justify-content: start;
 }
 
 #send .message-item {
-    background-color: #AAD576;
-    border-radius: 20px 0px 20px 20px;
+  background-color: #aad576;
+  border-radius: 20px 0px 20px 20px;
 }
 
 #received .message-item {
-    background-color: #fff;
-    border-radius: 0px 20px 20px 20px;
+  background-color: #fff;
+  border-radius: 0px 20px 20px 20px;
 }
 
 /* #received {

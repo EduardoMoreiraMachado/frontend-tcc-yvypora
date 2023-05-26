@@ -68,3 +68,5 @@ export const updateAvailableQuantity = async (id, newQuantity) => {
   const res = await marketerAPI.put(`product/quantity/${id}/${newQuantity}`);
   return res.data;
 };
+
+

@@ -13,11 +13,13 @@ import { notify, notifyAsForm } from '../../utils/notify';
 import MessageIcon from '../../imgs/message_icon.png';
 import CallIcon from '../../imgs/call_icon.png';
 import { useNavigate } from 'react-router-dom';
+import { Chat } from '../../components/Chat'
 
 export const MyOrderPage = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user-details")));
-
   const [order, setOrder] = useState({});
+  const [showChat, setShowChat] = useState(false);
+
   const navigation = useNavigate();
   const [deliveryman, setDeliveryman] = useState({
     name: 'teste de nome gigante mds nem da pra ler',
@@ -162,14 +164,26 @@ export const MyOrderPage = () => {
                         </span>
                       </div>
                     </div>
-
+                          
+                   
                     <div className={styles['delivery-buttons']}>
-                      <button id={styles['message']}>
+                      <button id={styles['message']} onClick={() => {
+                        setShowChat(true)
+                      }}>
                         <img src={MessageIcon} />
                         <span>Mensagem</span>
                       </button>
-                    </div>
+                    </div> 
                   </div>
+                  {                     
+                      showChat && (
+                        <Chat 
+                          isChatOpen={showChat}
+                          setChatOpen={setShowChat}
+                        />
+                      )
+                    }
+
                 </>
               ) : (
                 <Loading />

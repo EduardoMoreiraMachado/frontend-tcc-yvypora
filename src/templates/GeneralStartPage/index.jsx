@@ -175,25 +175,6 @@ export const GeneralStartPage = () => {
             <PrevButton onClick={handleLeftClick} />
             <div className={styles['carousel-items']} ref={carousel}>
               {genericList.map((product) => {
-                // if (product.type_of_price.name === 'Duzia') {
-                //   setWeightName('dúzia');
-                // } else if (
-                //   product.type_of_price.name === 'Unitario' &&
-                //   product.available_quantity < 10
-                // ) {
-                //   setWeightName('unidade');
-                // } else if (
-                //   product.type_of_price.name === 'Unitario' &&
-                //   product.available_quantity >= 10
-                // ) {
-                //   setWeightName('unidades');
-                // }
-
-                // console.log(weightName);
-                // else if(product.type_of_price.name === '') {
-
-                // }
-
                 if (genericList.length === 0) {
                   return <h1>Que pena! Não há feiras ativas no momento.</h1>;
                 } else {

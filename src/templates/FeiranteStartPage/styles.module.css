@@ -44,6 +44,8 @@ header img {
 
 .add-products-or-fairs h1 {
     width: 70%;
+    font-size: 2rem;
+    font-weight: 700;
     color: #245501;
     padding-bottom: 1vh;
 }
@@ -51,6 +53,7 @@ header img {
 .add-products-or-fairs p {
     width: 60%;
     font-size: 1.3rem;
+    font-weight: 700;
     color: #666666;
     padding-bottom: 5vh;
 }
@@ -112,14 +115,17 @@ header img {
 }
 
 .half-historic h1 {
+    font-size: 2rem;
+    font-weight: 700;
     color: #245501;
     padding-bottom: 4vh;
     text-align: center;
 }
 
 .half-historic h2 {
-    color: #666666;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #7f7f7f;
 }
 
 .money-visibility {
@@ -135,6 +141,7 @@ header img {
     padding-bottom: 0vh;
     border-radius: 10px;
     transition: all 0.3s;
+    font-size: 2.5rem;
 }
 
 .money-visibility button {
@@ -163,7 +170,7 @@ header img {
     font-size: 1rem;
 }
 
-.all-historic-button {
+.all-history-button {
     box-shadow: 0px 4px 4px #245501;
     font-size: 0.7rem;
     text-align: center;
@@ -171,12 +178,16 @@ header img {
     cursor: pointer;
 }
 
-.all-historic-button:hover {
+.all-history-button:hover {
     text-decoration: underline;
 }
 
-.all-historic-button:active {
+.all-history-button:active {
     color: #245501;
+}
+
+.all-history-button h1 {
+    font-size: 1.3rem;
 }
 
 @media(max-width: 1420px) {
