@@ -31,7 +31,7 @@ export const ProfilePage = () => {
           <Option imgUrl={iconUser} text={"Editar conta"} link={"/profile/update"} />
           <Option imgUrl={iconMap} text={"Endereços"} link={"/profile/address"} />
           {/* <Option imgUrl={iconCard} text={"Formas de Pagamento"} link={""} /> */}
-          <Option imgUrl={iconBag} text={"Histórico de compras"} link={"/profile/buy-history"}/>
+          <Option imgUrl={iconBag} text={"Histórico de compras"} link={"/profile/purchase-history"}/>
           <ExitOption />
         </div>
       </div>

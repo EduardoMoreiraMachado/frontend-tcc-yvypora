@@ -6,7 +6,7 @@ import { initCart } from './utils/cart.js'
 import { InsertProductPage } from './templates/InsertProductPage';
 import { ProductPage } from './templates/ProductPage';
 import { PaymentPage } from './templates/PaymentPage';
-import { AddAdressPage } from './templates/AddAddressPage';
+import { AddAddressPage } from './templates/AddAddressPage';
 import { AddFairPage } from './templates/AddFairPage';
 import { FairPage } from './templates/FairPage';
 import GeneralStartPage from './templates/GeneralStartPage';
@@ -33,6 +33,7 @@ import UpdateFeiranteAccount from './templates/UpdateFeiranteAccount';
 import UpdateConsumidorAccount from './templates/UpdateConsumidorAccount';
 import ProductReviewPage from './templates/ProductReviewPage';
 import IndividualProductReviewPage from './templates/IndividualProductReviewPage';
+import LivePage from './templates/LivePage'
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { RedirectProfile } from './components/RedirectProfile';
 import { RedirectUpdate } from './components/RedirectUpdate';
@@ -49,7 +50,7 @@ root.render(
         <Route path='/signup' element={<TypeUserSelect />} />
         <Route path='/fair-near' element={<FairNear />} />
         <Route path='/order/track' element={<OrderPage />} />
-        <Route path='/profile/address/add' element={<AddAdressPage />} />
+        <Route path='/profile/address/add' element={<AddAddressPage />} />
         <Route path='/fair/add-fair' element={<AddFairPage />} />
         <Route path='/fair/fairs' element={<FairPage />} />
         <Route path='/search' element={<SearchPage name={'Laranja'} />} />
@@ -75,6 +76,7 @@ root.render(
         <Route path='/product/:id' element={<ProductPage />} />
         <Route path='/marketer/products' element={<SellerProductPage />} />
         <Route path='/delivery' element={<EntregadorLandingPage />} />
+        <Route path='/live' element={<LivePage />}/> 
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -33,7 +33,7 @@ export const NavBar = () => {
         <a className={styles["bar-image"]} href={`/${type}`}>
           <img src={HomeImg} alt="" className={styles["page-icon"]} />
         </a>
-        <a className={styles["bar-image"]} href="#">
+        <a className={styles["bar-image"]} href='/live'>
           <img src={VideoImg} alt="" className={styles["page-icon"]} />
         </a>
       </div>
