@@ -20,6 +20,7 @@ export const AddressPage = () => {
     CostumerFetch
       .listAddress()
       .then((res) => {
+        
         setAddresses(res);
       }).catch(err => console.log(err));
   }, []);
@@ -39,9 +40,11 @@ export const AddressPage = () => {
             {addresses.map(({ address }) => {
               return (
                 <div className={styles['address-card']}>
+                  {address.default &&
                   <div className={styles['main-address-card']}>
                     <span>Endereço principal</span>
                   </div>
+                  }
                   <div className={styles['address-info']}>
                     <h1>{address.type.name}</h1>
 

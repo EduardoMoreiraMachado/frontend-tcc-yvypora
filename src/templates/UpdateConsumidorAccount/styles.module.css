@@ -16,6 +16,7 @@
 }
 
 .update-inputs {
+    width: 50%;
     height: fit-content;
 }
 
@@ -33,7 +34,17 @@
 
 @media(max-width: 980px) {
     .update-content {
-        justify-content: center;
+        width: 100%;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
+
+    .info-inputs {
+        justify-content: space-between;
+    }
+
+    .update-inputs {
+        width: 100%;
     }
 
     .nav-bar {
@@ -45,7 +56,6 @@
     .update-content {
         flex-direction: column;
         align-items: center;
-        padding: 0px 100px 0px 100px;
     }
 
     .info-inputs {

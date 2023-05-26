@@ -68,6 +68,9 @@ export const addProduct = ({
     cart.total = cart.total + parseFloat(price) * selectedQuantity;
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    
+    window.location.reload(true)
+    
     console.log(cart);
   }
 };
