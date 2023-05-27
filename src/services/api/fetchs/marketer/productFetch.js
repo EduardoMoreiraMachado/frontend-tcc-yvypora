@@ -70,3 +70,7 @@ export const updateAvailableQuantity = async (id, newQuantity) => {
 };
 
 
+export const deleteProduct = async (id) => {
+  await marketerAPI.delete(`product/${id}`);
+  return true
+}

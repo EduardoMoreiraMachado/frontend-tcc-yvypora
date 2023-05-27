@@ -10,11 +10,13 @@ import { VscDebugStart, VscDebugPause } from 'react-icons/vsc';
 
 import { useNavigate } from 'react-router-dom';
 import {
+  deleteProduct,
   disableProduct,
   enableProduct,
   updateAvailableQuantity,
 } from '../../services/api/fetchs/marketer/productFetch';
 import { ToggleSwitchWithoutInput } from '../ToggleSwitchWithoutInput';
+import { notify } from '../../utils/notify';
 
 export const SellerProduct = ({
   id,
@@ -146,6 +148,14 @@ export const SellerProduct = ({
               <div className={styles['edit-seller-options']}>
                 <span
                   id={styles['edit']}
+                  onClick={async () => {
+                    try {
+                      await deleteProduct(id)
+                    } catch (e) {
+                      notify("error", "Não foi possível excluir o produto!")
+                    }
+                  }
+                }
                 >
                   Remover
                 </span>
