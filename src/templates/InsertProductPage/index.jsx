@@ -156,7 +156,7 @@ export const InsertProductPage = () => {
     const data = await getData();
 
     try {
-      if (!isValidProductData(data)) {
+      if (!isValidProductData({ ...data, quantity: 100 })) {
         await notify("error", "Algo não foi preenchido corretamente!", 5000)
         return null
       }

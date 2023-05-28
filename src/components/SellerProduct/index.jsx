@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import DeleteImage from '../../imgs/delete_icon.svg';
 import UpdateImage from '../../imgs/update_icon.svg';
 import PauseImage from '../../imgs/pause_icon.svg';
-
+import { motion, AnimatePresence } from 'framer-motion';
 import { VscDebugStart, VscDebugPause } from 'react-icons/vsc';
 
 import { useNavigate } from 'react-router-dom';
@@ -34,6 +34,7 @@ export const SellerProduct = ({
   const [showPopUp, setShowPopUp] = useState(false);
   const [exclude, setExclude] = useState(false);
   const [update, setUpdate] = useState(false);
+  const [deleted, setDeleted] = useState(false);
 
   const priceProcessed = price.toString().replace(/\./g, ',');
 
@@ -68,7 +69,13 @@ export const SellerProduct = ({
   }, [itemCount]);
 
   return (
-    <div className={styles['seller-product-container']}>
+    <>
+    <AnimatePresence>
+    {!deleted && ( 
+    <motion.div  
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.5 }} 
+            className={styles['seller-product-container']}>
       <div className={styles['product-data']}>
         <h1 className={styles['name']}>{name}</h1>
 
@@ -151,6 +158,7 @@ export const SellerProduct = ({
                   onClick={async () => {
                     try {
                       await deleteProduct(id)
+                      setDeleted(true)
                     } catch (e) {
                       notify("error", "Não foi possível excluir o produto!")
                     }
@@ -213,9 +221,9 @@ export const SellerProduct = ({
                 </span>
                 <span
                   id={styles['cancel']}
-                  onClick={() => { {
+                  onClick={() => { 
                     setShowPopUp(false)
-                  }}}
+                    }}
                 >
                   Cancelar
                 </span>
@@ -223,6 +231,9 @@ export const SellerProduct = ({
             </div>
           </div>
       )}
-    </div>
+    </ motion.div>
+    )}
+    </AnimatePresence>
+    </>
   );
 };
