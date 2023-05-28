@@ -14,7 +14,7 @@ import {
 import { listCategories } from '../../services/api/fetchs/common/category';
 import { useLocation } from 'react-router-dom';
 
-export const SearchPage = ({ context, category }) => {
+export const SearchPage = ({ context }) => {
   const location = useLocation();
 
   const [user, setUser] = useState(
@@ -24,6 +24,8 @@ export const SearchPage = ({ context, category }) => {
   const [listOfProducts, setListOfProducts] = useState([]);
   const [search_key, setSearchKey] = useState(null);
   const [categories, setCateories] = useState([]);
+  const [category, setCategory] = useState(null);
+
 
   useEffect(() => {
     const fetch = async () => {
@@ -40,16 +42,20 @@ export const SearchPage = ({ context, category }) => {
   }, [location]);
 
   useEffect(() => {
-    if (!category) return;
+    const { state } = location;
+    console.log(state.category);
+
+    if (!state.category) return;
 
     const fetch = async () => {
-      const { data } = await listByCategory(category.id);
+      setCategory(state.category)
+      const { data } = await listByCategory(state.category.id);
 
       setListOfProducts(data);
     };
 
     fetch().then();
-  }, [category]);
+  }, [location]);
 
   useEffect(() => {
     console.log(search_key);

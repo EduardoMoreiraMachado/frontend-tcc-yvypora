@@ -181,11 +181,11 @@ export const AddFairPage = () => {
           <div className={styles['days-week-container']}>
             <span className={styles['days-week-title']}>Dias de funcionamento</span>
             <div className={styles['days-week']}>
-              {daysOfWeekFields.map(({ id, name }) => {
+              {daysOfWeekFields.map(({ id, name, abbr }) => {
                 return (
                   <div className={styles['day']} id='day'>
                     <input type='checkbox' id={name} name='scales' value={id} />
-                    <label for={name}>{name}</label>
+                    <label for={name}>{abbr}</label>
                   </div>
                 );
               })}
