@@ -24,7 +24,6 @@ export const AddFairPage = () => {
   const cepInput = useRef(null);
   const nameTitle = useRef(null);
   const [values, setValues] = useState({});
-  const [address, setAddress] = useState({});
   const [daysOfWeekFields, setDaysOfWeek] = useState([]);
 
   useEffect(() => {
@@ -49,8 +48,8 @@ export const AddFairPage = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const dataCEP = await consumeCep(cepInput.current.value);
-    if (!dataCEP) {
+    const address = await consumeCep(cepInput.current.value.replaceAll('-', ''));
+    if (!address) {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
@@ -61,9 +60,8 @@ export const AddFairPage = () => {
       });
       document.querySelector('input[name="cep"]').value = '';
     } else {
-      setAddress(dataCEP);
       const name = nameTitle.current;
-      name.textContent = `Feira do ${dataCEP.bairro} - ${dataCEP.logradouro}`;
+      name.textContent = `Feira do ${address.bairro} - ${address.logradouro}`;
     }
 
     const daysSelected = [];
