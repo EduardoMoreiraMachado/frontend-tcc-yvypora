@@ -1,0 +1,17 @@
+.under-construction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.under-construction-container h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    color: #245501;
+}
+
+.under-construction-gif {
+    width: 100%;
+}

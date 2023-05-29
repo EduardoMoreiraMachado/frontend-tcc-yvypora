@@ -1,4 +1,4 @@
-import PromoImg from '../../imgs/promotion1.svg';
+import PromoImg from '../../imgs/promotion_icon.png';
 
 import styles from './styles.module.css';
 

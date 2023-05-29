@@ -30,6 +30,10 @@
     font-weight: bolder;
     color: #245501;
     font-size: 2.2rem;
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
+    text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
+    max-width: 20vw; /* Define a largura máxima do elemento */
     width: fit-content;
 }
 

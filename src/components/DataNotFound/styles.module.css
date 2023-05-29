@@ -1,0 +1,30 @@
+.data-not-found-container {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-not-found-container h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    color: #245501;
+}
+
+.data-not-found-gif {
+    width: 100%;
+}
+
+@media(max-width: 1380px) {
+    .data-not-found-container h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .data-not-found-container h1 {
+        font-size: 1rem;
+    }
+}

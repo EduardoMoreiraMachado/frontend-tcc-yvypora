@@ -1,5 +1,4 @@
 .address-page-content {
-    min-height: 52.2vh;
     display: flex;
     align-items: center;
 }
@@ -12,6 +11,7 @@
 }
 
 .address-list {
+    min-height: 52.2vh;
     display: flex;
     flex-direction: column;
     align-items: start;

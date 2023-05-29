@@ -13,8 +13,8 @@ export function Maps({ locations }) {
   };
 
   const containerStyle = {
-    width: '50vw',
-    height: '50vh',
+    width: '100vw',
+    height: '100vh',
   };
 
   console.log(locations);

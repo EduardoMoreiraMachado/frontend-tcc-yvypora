@@ -12,6 +12,7 @@ import { PrevButton } from '../../components/PrevButton';
 import { ShoppingItem } from '../../components/ShoppingItem';
 import { Footer } from '../../components/Footer';
 import { SearchInput } from '../../components/SearchInput';
+import { DataNotFound } from '../../components/DataNotFound';
 import { motion } from 'framer-motion';
 import InitialTransition from '../../animations/Initial';
 
@@ -171,50 +172,56 @@ export const GeneralStartPage = () => {
             <ProductCategory />
           </div>
           <ProductCategorySelect onClick={handleCategorySelect} />
-          <div className={styles['products-carrossel']}>
-            <PrevButton onClick={handleLeftClick} />
-            <div className={styles['carousel-items']} ref={carousel}>
-              {genericList.map((product) => {
-                if (genericList.length === 0) {
-                  return <h1>Que pena! Não há feiras ativas no momento.</h1>;
-                } else {
-                  console.log(product.discount);
-                  return (
-                    <ShoppingItem
-                      availableQuantity={product?.available_quantity}
-                      fairName={
-                        product?.marketer?.tent_name
-                          ? product.marketer.tent_name
-                          : ''
-                      }
-                      marketerId={
-                        product?.marketer?.id ? product.marketer.id : 0
-                      }
-                      marketerName={
-                        product?.marketer?.name ? product.marketer.name : ''
-                      }
-                      fairPicture={
-                        product?.marketer?.picture_uri
-                          ? product.marketer.picture_uri
-                          : ''
-                      }
-                      cartId={product.id}
-                      id={product.id}
-                      promo={product.discount}
-                      name={product.name}
-                      imgUrl={product.image_of_product.map(
-                        (el) => el.image.uri
-                      )}
-                      weight={`${product.available_quantity} ${product.type_of_price.name}`}
-                      price={product.price}
-                      key={product.id}
-                    />
-                  );
-                }
-              })}
+          {genericList.length == 0 ? 
+            <DataNotFound 
+              text='Produtos não encontrados!'
+            /> 
+            :
+            <div className={styles['products-carrossel']}>
+              <PrevButton onClick={handleLeftClick} />
+              <div className={styles['carousel-items']} ref={carousel}>
+                {genericList.map((product) => {
+                  if (genericList.length === 0) {
+                    return <h1>Que pena! Não há feiras ativas no momento.</h1>;
+                  } else {
+                    console.log(product.discount);
+                    return (
+                      <ShoppingItem
+                        availableQuantity={product?.available_quantity}
+                        fairName={
+                          product?.marketer?.tent_name
+                            ? product.marketer.tent_name
+                            : ''
+                        }
+                        marketerId={
+                          product?.marketer?.id ? product.marketer.id : 0
+                        }
+                        marketerName={
+                          product?.marketer?.name ? product.marketer.name : ''
+                        }
+                        fairPicture={
+                          product?.marketer?.picture_uri
+                            ? product.marketer.picture_uri
+                            : ''
+                        }
+                        cartId={product.id}
+                        id={product.id}
+                        promo={product.discount}
+                        name={product.name}
+                        imgUrl={product.image_of_product.map(
+                          (el) => el.image.uri
+                        )}
+                        weight={`${product.available_quantity} ${product.type_of_price.name}`}
+                        price={product.price}
+                        key={product.id}
+                      />
+                    );
+                  }
+                })}
+              </div>
+              <NextButton onClick={handleRightClick} />
             </div>
-            <NextButton onClick={handleRightClick} />
-          </div>
+          }
         </div>
       </div>
       <Footer />

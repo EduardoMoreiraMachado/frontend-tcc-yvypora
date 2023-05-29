@@ -5,6 +5,7 @@ import { Footer } from '../../components/Footer';
 import { Title } from '../../components/Title';
 import { NavBar } from '../../components/NavBar';
 import { HistoryCard } from '../../components/HistoryCard';
+import { DataNotFound } from '../../components/DataNotFound'
 import { useEffect, useState } from 'react';
 import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 import Loading from '../../components/Loading';
@@ -73,21 +74,29 @@ export const PurchasesHistoricPage = () => {
           <Title text='Histórico de compras' />
           <div className={styles['purchase-historic-content']}>
             <NavBar />
-            <div className={styles['historic-cards']}>
-              {
-                historic.map((order) => {
-                  return (
-                    <HistoryCard
-                    fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
-                    tentName={order.pedido}
-                    fairName={order.fairName}
-                    purchaseDate={order.date}
-                    listOfProducts={order.products}
-                  />
-                  )
-                })
-              }
-            </div>
+            {historic ? 
+              <div className={styles['history-not-found']}>
+                <DataNotFound 
+                  text='Você ainda não fez sua primeira compra!'
+                />
+              </div>
+            :
+              <div className={styles['historic-cards']}>
+                {
+                  historic.map((order) => {
+                    return (
+                      <HistoryCard
+                      fairImg='https://pocosdecaldas.mg.gov.br/wp-content/uploads/2020/05/WhatsApp-Image-2020-04-09-at-09.41.39-2-1024x768.jpeg'
+                      tentName={order.pedido}
+                      fairName={order.fairName}
+                      purchaseDate={order.date}
+                      listOfProducts={order.products}
+                    />
+                    )
+                  })
+                }
+              </div>
+            }
           </div>
           <Footer />
         </div>
