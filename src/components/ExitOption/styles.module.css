@@ -71,12 +71,12 @@
 }
 
 #yes {
-    background-color: greenyellow;
+    background-color: rgba(153, 255, 0, 0.671);
     color: black;
 }
 
 #no {
-    background-color: red;
+    background-color: rgb(238, 103, 103);
     color: white;
 }
 

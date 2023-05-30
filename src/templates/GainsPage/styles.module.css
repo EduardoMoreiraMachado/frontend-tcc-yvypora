@@ -128,3 +128,13 @@
         font-size: 2.7rem;
     }
 }
+
+@media(max-width: 680px) {
+    .monthly h1 {
+        margin: 0;
+    }
+
+    .graphic {
+        display: none;
+    }
+}

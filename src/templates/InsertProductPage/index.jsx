@@ -182,7 +182,7 @@ export const InsertProductPage = () => {
           MySwal.fire({
             timer: 1500,
             showConfirmButton: false,
-            title: <p>Produto Cadastrado Com Sucesso!</p>,
+            title: <p>Produto cadastrado com sucesso</p>,
             icon: 'success',
             buttonsStyling: false,
             timerProgressBar: true,
@@ -191,7 +191,7 @@ export const InsertProductPage = () => {
           MySwal.fire({
             timer: 1500,
             showConfirmButton: false,
-            title: <p>Falha Ao Cadastrar!</p>,
+            title: <p>Falha ao cadastrar produto</p>,
             icon: 'error',
             buttonsStyling: false,
             timerProgressBar: true,
@@ -201,7 +201,7 @@ export const InsertProductPage = () => {
         MySwal.fire({
           timer: 1500,
           showConfirmButton: false,
-          title: <p>Produto Cadastrado Com Sucesso!</p>,
+          title: <p>Produto cadastrado com sucesso</p>,
           icon: 'success',
           buttonsStyling: false,
           timerProgressBar: true,
@@ -211,7 +211,7 @@ export const InsertProductPage = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Falha Ao Cadastrar!</p>,
+        title: <p>Falha ao cadastrar produto</p>,
         icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,

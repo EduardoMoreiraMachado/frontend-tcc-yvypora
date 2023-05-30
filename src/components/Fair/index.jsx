@@ -16,6 +16,7 @@ export const Fair = ({ id, imgUrl, name, days, hours }) => {
       <ToggleSwitchWithoutInput
         checkedValue={associated}
         setState={setAssociated}
+        useShadow
       />
       <div
         className={`${styles[`fair-container`]} ${

@@ -39,7 +39,7 @@ export const Login = () => {
       await MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Bem Vindo de volta {details.name}</p>,
+        title: <p>Boas-vindas de volta {details.name}!</p>,
         icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
@@ -62,7 +62,7 @@ export const Login = () => {
       await MySwal.fire({
         timer: 4500,
         showConfirmButton: false,
-        title: <p>Erro! Verifique o email ou a senha</p>,
+        title: <p>E-mail e/ou senha inválidos</p>,
         icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,
@@ -72,8 +72,12 @@ export const Login = () => {
 
   return (
     <>
-      <img className={styles['icon']} src={YvyporaTextIcon} alt='' />
-      <img className={styles['icon-white']} src={YvyporaWhiteTextIcon} alt='' />
+      <a href='/'>
+        <img className={styles['icon']} src={YvyporaTextIcon} alt='' />
+      </a>
+      <a href='/'>
+        <img className={styles['icon-white']} src={YvyporaWhiteTextIcon} alt='' />
+      </a>
       <div className={styles['login-container']}>
         {/* <header className='header-without-margins'>
         <div className='header-icon'>

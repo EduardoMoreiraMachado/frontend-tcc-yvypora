@@ -14,9 +14,9 @@ export const EntregadorLandingPage = () => {
     return(
         <div className={styles["entregador-landing-page-container"]}>
             <header id={styles['header-entregador']}>
-                <div className={styles['header-icon']} id={styles['default-header-icon']}>
+                <a className={styles['header-icon']} id={styles['default-header-icon']} href='/signup'>
                     <img className='text-icon' src={YvyporaTextIcon} alt=''/>
-                </div>
+                </a>
                 <div className={styles["header-links"]}>
                     <a href='#benefits'>Vantagens</a>
                     <a href='#info'>Entregas</a>
@@ -52,7 +52,7 @@ export const EntregadorLandingPage = () => {
             </div>
             <div className={styles["info-content"]} id='info'>
                 <h1>Entregas</h1>
-                <div className={'entregador-options-container'}>
+                <div className={styles['entregador-options-container']}>
                     <MoreTextOption 
                         title='Como começar?'
                         text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.'
