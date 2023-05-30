@@ -119,7 +119,7 @@ const ProductReviewPage = () => {
             <RatingStars key={2} setExternalRating={setRatingProducts} />
             <p>
               Caso queira avaliar cada item de sua compra individialmente{' '}
-              <a href='https://www.figma.com/file/fB4sbEBD7WK4YvojWURH27/yvypora?node-id=138-908&t=EFDptxKA7JqO3ogY-0'>
+              <a href='/product/review'>
                 clique aqui
               </a>
             </p>

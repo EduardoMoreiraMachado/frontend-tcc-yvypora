@@ -28,6 +28,8 @@ export const PaymentPage = () => {
   const total = subtotal + deliveryFee;
 
   const [address, setAdress] = useState(null);
+  const [size, setSize] = useState(0);
+
 
   const getFormattedValue = (value) =>
     value.toFixed(2).toString().replace('.', ',');
@@ -183,10 +185,13 @@ export const PaymentPage = () => {
                     ))
                 )}
               </div>
-              <div className={styles['nav-buttons']}>
-                <PrevButton onClick={handleLeftClick} />
-                <NextButton onClick={handleRightClick} />
-              </div>
+              {/* {setSize(Object.entries(previewCart ? previewCart : {})[1].length)} */}
+                {size > 2 && (
+                  <div className={styles['nav-buttons']}>
+                    <PrevButton onClick={handleLeftClick} />
+                    <NextButton onClick={handleRightClick} />
+                  </div>
+                )} 
             </div>
           </div>
         </div>
