@@ -107,14 +107,17 @@ export const GeneralStartPage = () => {
     if (id === 'all') {
       const newList = await listProducts();
       setListOfProducts([]);
+      console.log(newList);
       setListOfProducts(newList);
     } else if (id === 'discount') {
       const newList = await listProductsInSaleOff();
+      console.log(newList);
       setListOfProducts([]);
 
       setListOfProducts(newList);
     } else if (id === 'close') {
       const newList = await listProductNearToClient();
+      console.log(newList);
       setListOfProducts([]);
 
       setListOfProducts(newList);
@@ -172,7 +175,7 @@ export const GeneralStartPage = () => {
             <ProductCategory />
           </div>
           <ProductCategorySelect onClick={handleCategorySelect} />
-          {genericList.length == 0 ? 
+          {genericList.length === 0 ? 
             <DataNotFound 
               text='Produtos não encontrados!'
             /> 

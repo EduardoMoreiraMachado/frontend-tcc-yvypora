@@ -43,16 +43,16 @@ export const listWithFilters = async (category, score, lowerPrice) => {
 
 export const listAllProductsWithFilters = async (score, lowerPrice) => {
   const { data: category1 } = await costumerAPI.get(
-    `product/?category=1&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+    `product/?category=0&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
   );
   const { data: category2 } = await costumerAPI.get(
-    `product/?category=2&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+    `product/?category=1&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
   );
   const { data: category3 } = await costumerAPI.get(
-    `product/?category=3&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+    `product/?category=2&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
   );
   const { data: category4 } = await costumerAPI.get(
-    `product/?category=4&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
+    `product/?category=3&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`
   );
   const { data: category5 } = await costumerAPI.get(
     `product/?category=5&score=${score}&lowerPrice=${lowerPrice}&higherPrice=100000`

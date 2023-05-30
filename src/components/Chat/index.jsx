@@ -59,10 +59,10 @@ export const Chat = ({ isChatOpen, setChatOpen }) => {
     return () => {
       socket.off('chat_message');
     };
-  }, [messages]);
+  }, [messages, to.name]);
 
   const sendMessageIOSocket = ({ content, from, to, timestamp }) => {
-    socket.emit('chat_message', { content, from, to, timestamp });
+    socket.emit('send_message', { content, from, to, timestamp });
   };
 
   return (

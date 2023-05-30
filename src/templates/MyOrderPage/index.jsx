@@ -86,6 +86,17 @@ export const MyOrderPage = () => {
   }, []);
 
   useEffect(() => {
+    socket.on('chat_message', async (data) => {
+      const { content } = data;
+      console.log(data);
+    });
+    return () => {
+      socket.off('chat_message');
+    };
+  }, []);
+
+
+  useEffect(() => {
     if (finish) {
       notifyAsForm(
         'Entrega Finilizada, Recebeu seus pedidos ?',
