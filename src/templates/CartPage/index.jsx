@@ -7,7 +7,6 @@ import { Footer } from '../../components/Footer';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
-import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 import { useNavigate, use } from 'react-router-dom';
 
 export const CartPage = () => {

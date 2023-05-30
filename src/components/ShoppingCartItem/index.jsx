@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styles from './styles.module.css';
 
 import { useState } from 'react';
-import { addProduct, updateItemCount } from '../../utils/cart';
+import { addProduct, removeFromCart, updateItemCount } from '../../utils/cart';
 
 function calculateResult(num1, num2) {
   const result = num1 * num2;
@@ -82,6 +82,7 @@ export const ShoppingCartItem = ({
                   onClick={() => {
                     // TODO in cart storage
                     setDeleteProduct(true);
+                    removeFromCart(id)
                   }}
                 >
                   Remover

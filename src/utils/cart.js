@@ -107,3 +107,19 @@ export const updateTotal = (value) => {
   cart.total = value;
   localStorage.setItem("cart", JSON.stringify(cart));
 };
+
+export const removeFromCart = (_id) => {
+  let cart = JSON.parse(localStorage.getItem('cart'))
+  
+  cart.products.forEach(({ id }, idx) => {
+    if (id === _id) {
+      cart.products.slice(idx, 1)
+    }
+  })
+
+  console.log(cart.products)
+
+  localStorage.setItem("cart", JSON.stringify(cart));  
+
+  window.location.reload(true)
+}

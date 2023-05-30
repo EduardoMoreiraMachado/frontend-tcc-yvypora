@@ -9,14 +9,18 @@ import { MessageList } from '../../components/MessageList';
 import { MessageInput } from '../../components/MessageInput';
 import { socket } from '../../services/api/websocket';
 import { motion, useAnimation } from 'framer-motion';
+import { getListOfMessages } from '../../services/api/fetchs/chat';
 
 const popupVariants = {
   hidden: { opacity: 0, y: '-100%' },
   visible: { opacity: 1, y: 0 },
 };
 
-export const Chat = ({ isChatOpen, setChatOpen }) => {
-  const controls = useAnimation();
+export const Chat = ({ isChatOpen, setChatOpen, from, _to }) => {
+  const controls = useAnimation();  
+  const [messages, setMessages] = useState([
+
+  ]);
 
   useEffect(() => {
     controls.start(isChatOpen ? 'visible' : 'hidden');
@@ -27,25 +31,26 @@ export const Chat = ({ isChatOpen, setChatOpen }) => {
     name: 'Entregador x',
     photo: 'teste',
   });
+
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
-  const [messages, setMessages] = useState([
-    {
-      content: 'teste',
-      sender: 'user',
-    },
-    {
-      content: 'teste 2',
-      sender: to.name,
-    },
-  ]);
+  
+  useEffect(() => {
+    const fetch = async () => {
+      const res = await getListOfMessages(from , _to)
+      setMessages(res)
+    }  
+    fetch().then()
+  }, [])
+
 
   const addMessage = (content) => {
     sendMessageIOSocket({
       content,
       timestamp: new Date().toISOString(),
-
+      fromName: user.name,
       from: user.id,
       to: to.id,
+      to: _to
     });
 
     setMessages([...messages, { content, sender: 'user' }]);
