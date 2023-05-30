@@ -52,6 +52,12 @@
   margin-bottom: 4vh;
 }
 
+.history-not-found {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 @media(max-width: 1200px) {
   .registered-products {
     display: flex;
