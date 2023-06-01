@@ -21,7 +21,7 @@ export function Maps({ locations }) {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyCQfb1qbVCwR8biTe469v_uBuVWaO9JxtY',
+    googleMapsApiKey: 'AIzaSyCDdjSa4towU8PmPM69QoPItOkOz7xOXII',
   });
 
   const [map, setMap] = React.useState(null);
@@ -53,26 +53,15 @@ export function Maps({ locations }) {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {/* 
-          Dá pra mudar a imagem do clusterer, na hora de realmente colocar no yvy
-         <MarkerClusterer options={imgs}>  
-      */}
-      {/* <MarkerClusterer>
-        {(clusterer) =>
-          locations.map((location) => {
+        {locations.map((location) => {
             return (
               <Marker
                 key={createKey(location)}
                 position={location}
-                clusterer={clusterer}
-              />
+              ></Marker>
             );
           })
-        }
-      </MarkerClusterer> */}
-      <Marker position={locations[0]}></Marker>
-      {/* Child components, such as markers, info windows, etc. */}
-      <></>
+      }
     </GoogleMap>
   ) : (
     <>

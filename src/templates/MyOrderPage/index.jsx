@@ -86,16 +86,6 @@ export const MyOrderPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    socket.on('chat_message', async (data) => {
-      const { content } = data;
-      console.log(data);
-    });
-    return () => {
-      socket.off('chat_message');
-    };
-  }, []);
-
 
   useEffect(() => {
     if (finish) {
@@ -125,7 +115,7 @@ export const MyOrderPage = () => {
         <h1 className={styles['page-title']}>Meu pedido</h1>
         <div className={styles['my-order-content']}>
           {deliveryman ? (
-            <LoadScript googleMapsApiKey='AIzaSyCQfb1qbVCwR8biTe469v_uBuVWaO9JxtY'>
+            <LoadScript googleMapsApiKey='AIzaSyCDdjSa4towU8PmPM69QoPItOkOz7xOXII'>
               <div className={styles['route-container']}>
                 <Route
                   setPreviewTime={setTime}
