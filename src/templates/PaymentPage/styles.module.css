@@ -62,6 +62,7 @@
 .historic {
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
 }
 
 .purchase {

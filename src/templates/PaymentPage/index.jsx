@@ -47,7 +47,7 @@ export const PaymentPage = () => {
   useEffect(() => {
     const { state } = location;
     const { previewCart: lastData, total: lastTotal } = state;
-    getSanitizePreviewCart(lastData)
+    getSanitizePreviewCart(lastData);
     setPreviewCart(lastData);
     setSubtotal(lastTotal);
     console.log(lastData);
@@ -55,14 +55,16 @@ export const PaymentPage = () => {
 
   const getSanitizePreviewCart = (previewCart) => {
     Object.entries(previewCart).map(([_s, products]) => {
-      const _products = products.filter(({ selectedQuantity }) => selectedQuantity > 0)
+      const _products = products.filter(
+        ({ selectedQuantity }) => selectedQuantity > 0
+      );
       if (_products.length === 0) {
-        delete previewCart[_s]
+        delete previewCart[_s];
       } else {
-        previewCart[_s] = _products
+        previewCart[_s] = _products;
       }
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     const fetch = async () => {
@@ -99,7 +101,7 @@ export const PaymentPage = () => {
     };
 
     const stripePaymentLink = await PurchaseFetch.createPurchase(purchase);
-    
+
     setIsLoading(false);
     window.location.href = stripePaymentLink;
   };
@@ -112,8 +114,8 @@ export const PaymentPage = () => {
   const handleUseAddress = (id) => {};
 
   const handleCancel = () => {
-    navigation('/cart')
-  }
+    navigation('/cart');
+  };
 
   return (
     <div className={styles['payment-page-container']}>
@@ -159,57 +161,56 @@ export const PaymentPage = () => {
           </div>
 
           <div className={styles['historic']}>
-            <div className={styles['purchase']}>
-              <div className={styles['main-purchase-info']}>
-                {Object.entries(previewCart ? previewCart : {}).map(
-                  ([name, purchase]) => {
-                    const date = new Date();
-                    return (
-                      <>
-                        <div
-                          className={styles['purchase-image']}
-                          style={{
-                            backgroundImage: `url('${purchase[0].fairPicture}')`,
-                          }}
-                        ></div>
-                        <div className={styles['purchase-info']}>
-                          <h1>{name}</h1>
-                          <h2>{purchase[0].fairName}</h2>
-                          {
-                            <span>
-                              Data: {date.getDate()}/{date.getMonth()}/
-                              {date.getFullYear()}
-                            </span>
-                          }
-                        </div>
-                      </>
-                    );
-                  }
-                )}
-              </div>
-              <div className={styles['purchase-products']} ref={carousel}>
-                {Object.entries(previewCart ? previewCart : {}).map(
-                  ([_, purchase]) =>
-                    purchase.map((product) => (
-                      <BoughtItem
-                        id={product.id}
-                        name={product.name}
-                        imgUrl={product.picture}
-                        unit={`${product.quantity} unidade`}
-                        price={`R$ ${product.price}`}
-                        qnt={product.selectedQuantity}
-                      />
-                    ))
-                )}
-              </div>
-              {/* {setSize(Object.entries(previewCart ? previewCart : {})[1].length)} */}
-                {size > 2 && (
-                  <div className={styles['nav-buttons']}>
-                    <PrevButton onClick={handleLeftClick} />
-                    <NextButton onClick={handleRightClick} />
+            {Object.entries(previewCart ? previewCart : {}).map(([name, purchase]) => {
+              const date = new Date();
+              return (
+                <>
+                  <div className={styles['purchase']}>
+                    <div className={styles['main-purchase-info']}>
+                      {
+                        <>
+                          <div
+                            className={styles['purchase-image']}
+                            style={{
+                              backgroundImage: `url('${purchase[0].fairPicture}')`,
+                            }}></div>
+                          <div className={styles['purchase-info']}>
+                            <h1>{name}</h1>
+                            <h2>{purchase[0].fairName}</h2>
+                            {
+                              <span>
+                                Data: {date.getDate()}/{date.getMonth()}/
+                                {date.getFullYear()}
+                              </span>
+                            }
+                          </div>
+                        </>
+                      }
+                    </div>
+                    <div className={styles['purchase-products']} ref={carousel}>
+                      {purchase.map((product) => (
+                            <BoughtItem
+                              id={product.id}
+                              name={product.name}
+                              imgUrl={product.picture}
+                              unit={`${product.quantity} unidade`}
+                              price={`R$ ${product.price}`}
+                              qnt={product.selectedQuantity}
+                            />
+                          ))
+                      }
+                    </div>
+                    {/* {setSize(Object.entries(previewCart ? previewCart : {})[1].length)} */}
+                    {size > 2 && (
+                      <div className={styles['nav-buttons']}>
+                        <PrevButton onClick={handleLeftClick} />
+                        <NextButton onClick={handleRightClick} />
+                      </div>
+                    )}
                   </div>
-                )} 
-            </div>
+                </>
+              );
+            })}
           </div>
         </div>
 
@@ -231,10 +232,7 @@ export const PaymentPage = () => {
               onClick={handlePayment}
               isLoading={isLoading}
             />
-            <WhiteButton 
-              text='Cancelar' 
-              onClick={handleCancel}
-            />
+            <WhiteButton text='Cancelar' onClick={handleCancel} />
           </div>
         </div>
       </div>
