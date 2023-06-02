@@ -10,7 +10,7 @@ import { DefaultInput } from '../../components/DefaultInput';
 import { SpecialInput } from '../../components/SpecialInput';
 import { GreenButton } from '../../components/GreenButton';
 import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AddImage from '../../components/AddImage';
 import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
 import { getDetails } from '../../services/api/fetchs/common/user';
@@ -25,6 +25,10 @@ export const UpdateConsumidorAccount = () => {
 
   const inputCpf = useRef(null);
   const inputImage = useRef(null);
+  const nameInput = useRef(null);
+  const emailInput = useRef(null);
+  const phoneInput = useRef(null);
+  const birthdayInput = useRef(null);
 
   const [formData, setFormData] = useState({
     Nome: '',
@@ -32,6 +36,22 @@ export const UpdateConsumidorAccount = () => {
     Senha: '',
     'Data de nascimento': '',
   });
+
+  useEffect(() => {
+    console.log(user);
+
+    nameInput.current.value = user.name;
+    emailInput.current.value = user.email;
+
+    if (user.cpf) inputCpf.current.value = user.cpf;
+
+    if (user.phone) phoneInput.current.value = user.phone;
+
+    let birthday = user.birthday.split('-');
+    birthday = `${birthday[2]}/${birthday[1]}/${birthday[0]}`;
+
+    birthdayInput.current.value = birthday;
+  }, [user]);
 
   const handleChangeFields = (event) => {
     const { name, value } = event.target;
@@ -106,11 +126,13 @@ export const UpdateConsumidorAccount = () => {
             <DefaultInput
               name='Nome'
               type='text'
+              inputRef={nameInput}
               onChange={handleChangeFields}
             />
             <DefaultInput
               name='Email'
               type='email'
+              inputRef={emailInput}
               onChange={handleChangeFields}
             />
             <DefaultInput
@@ -129,11 +151,12 @@ export const UpdateConsumidorAccount = () => {
             <DefaultInput
               name='Data de nascimento'
               type='date'
+              inputRef={birthdayInput}
               onChange={handleChangeFields}
             />
           </form>
           <div className={styles['green-button']}>
-            <AddImage inputRef={inputImage} />
+            <AddImage inputRef={inputImage} currentImage={user.picture_uri} />
             <GreenButton onClick={handleClick} text='Salvar' />
           </div>
         </div>

@@ -46,10 +46,22 @@ export const PaymentPage = () => {
   useEffect(() => {
     const { state } = location;
     const { previewCart: lastData, total: lastTotal } = state;
+    getSanitizePreviewCart(lastData)
     setPreviewCart(lastData);
     setSubtotal(lastTotal);
-    console.log(previewCart);
+    console.log(lastData);
   }, []);
+
+  const getSanitizePreviewCart = (previewCart) => {
+    Object.entries(previewCart).map(([_s, products]) => {
+      const _products = products.filter(({ selectedQuantity }) => selectedQuantity > 0)
+      if (_products.length === 0) {
+        delete previewCart[_s]
+      } else {
+        previewCart[_s] = _products
+      }
+    })
+  }
 
   useEffect(() => {
     const fetch = async () => {
@@ -75,7 +87,7 @@ export const PaymentPage = () => {
     event.preventDefault();
 
     const user = JSON.parse(localStorage.getItem('user-details'));
-    const cart = JSON.parse(localStorage.getItem('cart'));
+    const cart = JSON.parse(sessionStorage.getItem('cart'));
 
     const purchase = {
       costumer_address_id: user.costumer_addresses[0].id,

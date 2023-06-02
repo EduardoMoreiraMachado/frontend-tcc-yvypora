@@ -13,11 +13,15 @@ export const MessageList = ({ messages }) => {
     return (
         <div className={styles['message-list-container']}>
             <ul className={styles['message-list']} ref={messageListRef} style={{ height: '100%', overflowY: 'auto'}}>
-            {messages.map((message, index) => (
+            {messages.map((message, index) =>  {
+                console.log(message.sender);
+                console.log(message.sender !== 'user');    
+                return (
+                
                 <div className={styles['message-box']} id={styles[message.sender !== 'user' ? 'received' : 'send']}>
                     <li key={index} className={styles['message-item']}>{message.content}</li>
                 </div>
-            ))}
+            )})}
             </ul>
         </div>
     );

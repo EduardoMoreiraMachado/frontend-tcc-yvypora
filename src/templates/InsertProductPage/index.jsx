@@ -24,7 +24,11 @@ import {
 
 import { useLocation } from 'react-router-dom';
 import { getProduct } from '../../services/api/fetchs/costumer/products';
-import { isValidProductData, validate, validateProduct } from '../../utils/validations/product';
+import {
+  isValidProductData,
+  validate,
+  validateProduct,
+} from '../../utils/validations/product';
 import { notify } from '../../utils/notify';
 
 const MySwal = withReactContent(Swal);
@@ -49,6 +53,7 @@ export const InsertProductPage = () => {
 
   const descriptionInput = useRef(null);
   const nameInput = useRef(null);
+  const [previousImage, setPreviousImage] = useState(null);
   const priceInput = useRef(null);
   const availableInput = useRef(null);
 
@@ -67,9 +72,11 @@ export const InsertProductPage = () => {
 
     if (state) {
       setIsUpdate(true);
+      
       getProduct(state.product)
         .then(({ data }) => {
-          console.log(data);
+          const image = data.image_of_product.map(({ image }) => image.uri)[0]
+          setPreviousImage(image);
           setPreviousProduct(data);
           setDescription(data.description);
           setName(data.name);
@@ -157,11 +164,11 @@ export const InsertProductPage = () => {
 
     try {
       if (!isValidProductData({ ...data, quantity: 100 })) {
-        await notify("error", "Algo não foi preenchido corretamente!", 5000)
-        return null
+        await notify('error', 'Algo não foi preenchido corretamente!', 5000);
+        return null;
       }
     } catch (e) {
-      return null
+      return null;
     }
 
     try {
@@ -301,7 +308,9 @@ export const InsertProductPage = () => {
   return (
     <div className={styles['insert-product-page']}>
       <Header user={user} />
-      <Title text={isUpdate ? 'Atualizar o produto' : 'Inserir um novo produto'} />
+      <Title
+        text={isUpdate ? 'Atualizar o produto' : 'Inserir um novo produto'}
+      />
 
       <div className={styles['data-containers']}>
         <div className={styles['insert-product-data']}>
@@ -461,6 +470,7 @@ export const InsertProductPage = () => {
             previousProduct?.image_of_product?.map(({ image }) => image.uri)[0]
           )}
           <AddImage
+            currentImage={previousImage}
             text='Imagem do produto'
             subtext='Anexe uma imagem do produto que ficará visível ao cliente'
           />

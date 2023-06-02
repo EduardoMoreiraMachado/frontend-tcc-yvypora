@@ -205,7 +205,7 @@ export const UpdateFeiranteAccount = () => {
             />
           </div>
           <div className={styles['green-button']}>
-            <AddImage inputRef={imageInput} />
+            <AddImage inputRef={imageInput} currentImage={user.picture_uri}/>
             <GreenButton text='Salvar' onClick={handleClick} />
           </div>
         </div>

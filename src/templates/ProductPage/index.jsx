@@ -21,7 +21,7 @@ export const ProductPage = () => {
   const [user, _setUser] = useState(
     JSON.parse(localStorage.getItem('user-details'))
   );
-  const [cart, _setCart] = useState(JSON.parse(localStorage.getItem('cart')));
+  const [cart, _setCart] = useState(JSON.parse(sessionStorage.getItem('cart')));
 
   const { id } = useParams();
   const [data, setData] = useState(null);

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styles from './styles.module.css';
 
 import { useState } from 'react';
-import { addProduct, updateItemCount } from '../../utils/cart';
+import { addProduct, removeFromCart, updateItemCount } from '../../utils/cart';
 
 function calculateResult(num1, num2) {
   const result = num1 * num2;
@@ -21,23 +21,25 @@ export const ShoppingCartItem = ({
   setCartTotal,
 }) => {
   const [itemCount, setItemCount] = useState(itemCountProp);
-  const [deleteProduct, setDeleteProduct] = useState(false);
+  const [deleteProduct, setDeleteProduct] = useState(localStorage.getItem(`deleted-${id}`));
 
   const resultValue = calculateResult(price, itemCount);
+  
+  console.log(localStorage.getItem(`deleted-${id}`));
 
   useEffect(() => {
     updateItemCount({
       id,
       itemCount,
     });
-    const cart = JSON.parse(localStorage.getItem('cart'));
+    const cart = JSON.parse(sessionStorage.getItem('cart'));
     setCartTotal(cart.total);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    sessionStorage.setItem('cart', JSON.stringify(cart));
   }, [itemCount, id]);
 
   const refresh = () => window.location.reload(true);
 
-  if (deleteProduct === false) {
+  if (!deleteProduct) {
     return (
       <div className={styles['shopping-cart-item-container']}>
         <div className={styles['item-info']}>
@@ -80,8 +82,10 @@ export const ShoppingCartItem = ({
                 <span
                   id={styles['delete']}
                   onClick={() => {
-                    // TODO in cart storage
                     setDeleteProduct(true);
+                    // localStorage.setItem(`deleted-${id}`, true) 
+                    removeFromCart(id)
+                    refresh()
                   }}
                 >
                   Remover

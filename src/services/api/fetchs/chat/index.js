@@ -6,11 +6,16 @@ export const getListOfMessages = async (from, to) => {
   );
 
   const messagesList = data.data;
+  const { name } = JSON.parse(localStorage.getItem('user-details'));
 
-  messagesList.map((message) => {
-   return {
-      from: message.senderId,
-      to: message.receiverId,
-    }
+  const _messagesList = []
+
+  messagesList.forEach(({ senderName, receiverId, content, createdAt }) => {
+    const sender = senderName === name ? 'user' : senderName;
+    _messagesList.push({
+      content,
+      sender,
+    });
   });
+  return _messagesList;
 };
