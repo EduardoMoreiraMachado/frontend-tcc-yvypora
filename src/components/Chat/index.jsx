@@ -17,31 +17,24 @@ const popupVariants = {
 };
 
 export const Chat = ({ isChatOpen, setChatOpen, from, _to }) => {
-  const controls = useAnimation();  
-  const [messages, setMessages] = useState([
-
-  ]);
+  const controls = useAnimation();
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     controls.start(isChatOpen ? 'visible' : 'hidden');
   }, [isChatOpen]);
 
-  const [to, setTo] = useState({
-    id: 0,
-    name: 'Entregador x',
-    photo: 'teste',
-  });
+  const [to, setTo] = useState(_to);
 
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
-  
+
   useEffect(() => {
     const fetch = async () => {
-      const res = await getListOfMessages(from , _to)
-      setMessages(res)
-    }  
-    fetch().then()
-  }, [])
-
+      const res = await getListOfMessages(from, to.id);
+      setMessages(res);
+    };
+    fetch().then();
+  }, []);
 
   const addMessage = (content) => {
     sendMessageIOSocket({
@@ -50,7 +43,7 @@ export const Chat = ({ isChatOpen, setChatOpen, from, _to }) => {
       fromName: user.name,
       from: user.id,
       to: to.id,
-      to: _to
+      toName: to.name,
     });
 
     setMessages([...messages, { content, sender: 'user' }]);
@@ -66,8 +59,22 @@ export const Chat = ({ isChatOpen, setChatOpen, from, _to }) => {
     };
   }, [messages, to.name]);
 
-  const sendMessageIOSocket = ({ content, from, to, timestamp }) => {
-    socket.emit('send_message', { content, from, to, timestamp });
+  const sendMessageIOSocket = ({
+    content,
+    from,
+    to,
+    timestamp,
+    fromName,
+    toName,
+  }) => {
+    socket.emit('send_message', {
+      content,
+      from,
+      to,
+      timestamp,
+      fromName,
+      toName,
+    });
   };
 
   return (
@@ -88,7 +95,7 @@ export const Chat = ({ isChatOpen, setChatOpen, from, _to }) => {
           <div
             className={styles['chat-user-image']}
             style={{
-              backgroundImage: `url('https://teoriageek.com.br/wp-content/uploads/2021/02/William-Defoe.jpg')`,
+              backgroundImage: `url('${to.photo}')`,
             }}
           ></div>
           <h1
@@ -97,7 +104,7 @@ export const Chat = ({ isChatOpen, setChatOpen, from, _to }) => {
               height: '20px',
             }}
           >
-            William Dafoe
+            {to.name}
           </h1>
         </div>
         <AiFillCloseCircle

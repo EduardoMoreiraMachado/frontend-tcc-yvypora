@@ -183,7 +183,12 @@ export const MyOrderPage = () => {
                           isChatOpen={showChat}
                           setChatOpen={setShowChat}
                           from={(JSON.parse(localStorage.getItem('user-details'))).id}
-                          _to={deliveryman.id}
+                          _to={{ 
+                            id: deliveryman.id,
+                            name: deliveryman.name,
+                            photo: deliveryman.picture_uri,
+
+                          }}
                         />
                       )
                     }
