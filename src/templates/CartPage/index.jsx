@@ -57,53 +57,59 @@ export const CartPage = () => {
         <NavBar />
         <div className={styles['card-payment-container']}>
           <div className={styles['card-cart-container']}>
-            <div className={styles['card-cart']}>
-              <div className={styles['main-purchase-info']}>
-                {Object.entries(displayCart).map(([name, purchase]) => {
-                  const date = new Date();
-                  return (
-                    <>
-                      { purchase.length > 0 && (<><div
-                        className={styles['purchase-image']}
-                        style={{
-                          backgroundImage: `url('${purchase[0].fairPicture}')`,
-                        }}
-                      ></div>
-                      <div className={styles['purchase-info']}>
-                        <h1>{name}</h1>
-                        <h2>{purchase[0].fairName}</h2>
-                        {
-                          <span>
-                            Data: {date.getDate()}/{date.getMonth()}/
-                            {date.getFullYear()}
-                          </span>
-                        }
-                      </div>
-                      </>)}
+            {Object.entries(displayCart).map(([name, purchase]) => {
+              const date = new Date();
+              return (
+                <>
+                  <div className={styles['cart-cart']}>
+                    <div className={styles['main-purchase-info']}>
+                      {
+                        <>
+                          {purchase.length > 0 && (
+                            <>
+                              <div
+                                className={styles['purchase-image']}
+                                style={{
+                                  backgroundImage: `url('${purchase[0].fairPicture}')`,
+                                }}
+                              ></div>
+                              <div className={styles['purchase-info']}>
+                                <h1>{name}</h1>
+                                <h2>{purchase[0].fairName}</h2>
+                                {
+                                  <span>
+                                    Data: {date.getDate()}/{date.getMonth()}/
+                                    {date.getFullYear()}
+                                  </span>
+                                }
+                              </div>
+                            </>
+                          )}
+                        </>
+                      }
+                    </div>
+                    {
+                      <>
+                      {purchase.length === 0 && (
+                        <h1>nada aqui</h1>
+                      )}
+                      {purchase.map((product) => (
+                        <ShoppingCartItem
+                          id={product.id}
+                          name={product.name}
+                          imgUrl={product.picture}
+                          unit={product.quantity}
+                          price={product.price}
+                          itemCountProp={product.selectedQuantity}
+                          setCartTotal={setTotal}
+                        />
+                      ))}
                     </>
-                  );
-                })}
-              </div>
-              {Object.entries(displayCart).map(([_, purchase]) => {
-                console.log(purchase)
-                if(purchase.length === 0) {
-                    return (
-                      <h1>nada aqui</h1>
-                    )
-                }
-                return purchase.map((product) => (
-                  <ShoppingCartItem
-                    id={product.id}
-                    name={product.name}
-                    imgUrl={product.picture}
-                    unit={product.quantity}
-                    price={product.price}
-                    itemCountProp={product.selectedQuantity}
-                    setCartTotal={setTotal}
-                  />
-                ))
-              })}
-            </div>
+                    }
+                  </div>
+                </>
+              );
+            })}
           </div>
           <div className={styles['payment-card']}>
             <h1>Resumo do pedido</h1>
