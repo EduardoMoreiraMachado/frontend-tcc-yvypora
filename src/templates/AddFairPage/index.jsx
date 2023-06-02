@@ -53,7 +53,7 @@ export const AddFairPage = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Cep Errado!</p>,
+        title: <p>CEP inválido</p>,
         icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,
@@ -129,8 +129,8 @@ export const AddFairPage = () => {
       MySwal.fire({
         timer: 3000,
         showConfirmButton: false,
-        title: <p>Nova Feira</p>,
-        html: <p>Successo! Nova Feira Cadastrada</p>,
+        title: <p>Nova feira</p>,
+        html: <p>Feira cadastrada com sucesso</p>,
         icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
@@ -142,7 +142,7 @@ export const AddFairPage = () => {
       MySwal.fire({
         timer: 3000,
         showConfirmButton: false,
-        title: <p>Falha ao Cadastrar Feira</p>,
+        title: <p>Falha ao cadastrar feira</p>,
         html: <p>{message}</p>,
         icon: 'error',
         buttonsStyling: false,

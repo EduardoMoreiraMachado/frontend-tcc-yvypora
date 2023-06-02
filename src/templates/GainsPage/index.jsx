@@ -89,7 +89,9 @@ export const GainsPage = () => {
 
         <div className={styles['monthly']}>
           <h1>Mensal</h1>
-          <Chart sells={sells} />
+          <div className={styles['graphic']}>
+            <Chart sells={sells} />
+          </div>
           <h2 id={styles['total']}>Total</h2>
           <div className={styles['value']}>
             <h2>R$ {processedMoneyValue(total)}</h2>

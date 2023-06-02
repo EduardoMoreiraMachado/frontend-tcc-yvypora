@@ -5,7 +5,7 @@ const MySwal = withReactContent(Swal);
 
 export const notify = async (type, title, timer = 1500) => {
   await MySwal.fire({
-    timer: 1500,
+    timer: 2000,
     showConfirmButton: false,
     title: <p>{title}</p>,
     icon: type,

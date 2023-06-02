@@ -100,7 +100,7 @@ export const UpdateFeiranteAccount = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Erro! Confirme as informaçoes fornecidas</p>,
+        title: <p>Confirme as informações fornecidas</p>,
         icon: 'error',
         timerProgressBar: true,
       });
@@ -110,7 +110,7 @@ export const UpdateFeiranteAccount = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Perfil Atualizado</p>,
+        title: <p>Perfil atualizado</p>,
         icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
@@ -137,7 +137,7 @@ export const UpdateFeiranteAccount = () => {
       await MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Perfil Atualizado</p>,
+        title: <p>Perfil atualizado</p>,
         icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
@@ -149,7 +149,7 @@ export const UpdateFeiranteAccount = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Erro! Confirme as informaçoes fornecidas</p>,
+        title: <p>Confirme as informações fornecidas</p>,
         icon: 'error',
         timerProgressBar: true,
       });

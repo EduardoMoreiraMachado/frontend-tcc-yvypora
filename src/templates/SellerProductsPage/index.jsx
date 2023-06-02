@@ -7,6 +7,7 @@ import { Title } from '../../components/Title';
 import { SellerProduct } from '../../components/SellerProduct';
 import { Header } from '../../components/Header';
 import { GreenButton } from '../../components/GreenButton';
+import { DataNotFound } from '../../components/DataNotFound'
 
 import { indexProducts } from '../../services/api/fetchs/marketer/productFetch';
 import { useEffect, useState } from 'react';
@@ -47,23 +48,31 @@ export const SellerProductsPage = () => {
         </div>
       </div> */}
       <div className={styles['seller-products-content']}>
-        <div className={styles['registered-products']}>
-          {listOfProducts.map((product) => {
-            return (
-              <SellerProduct
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                imgUrl={product.image_of_product[0]?.image.uri}
-                unit={product.available_quantity}
-                price={product.price}
-                available_quantity={product.available_quantity}
-                type_of_price={product.type_of_price.name}
-                status={product.active_for_selling}
-              />
-            );
-          })}
-        </div>
+        {listOfProducts ?
+          <div className={styles['history-not-found']}>
+            <DataNotFound 
+              text='Você ainda não tem produtos cadastrados!'
+            />
+          </div>
+        :
+          <div className={styles['registered-products']}>
+            {listOfProducts.map((product) => {
+              return (
+                <SellerProduct
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  imgUrl={product.image_of_product[0]?.image.uri}
+                  unit={product.available_quantity}
+                  price={product.price}
+                  available_quantity={product.available_quantity}
+                  type_of_price={product.type_of_price.name}
+                  status={product.active_for_selling}
+                />
+              );
+            })}
+          </div>
+        }
         <GreenButton 
           text='Adicionar produto' 
           onClick={handleNextPage}

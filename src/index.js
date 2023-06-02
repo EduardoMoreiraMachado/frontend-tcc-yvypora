@@ -65,7 +65,7 @@ root.render(
         <Route path='/gains' element={<GainsPage />} />
         {/* DISABLED <Route path="/shoppingcart" element={<ShoppingCartPage />} /> */}
         <Route path='/sign' element={<SignToContinue />} />
-        <Route path='/signup/consumidor' element={<SignUpConsumidor />} />
+        <Route path='/signup/costumer' element={<SignUpConsumidor />} />
         <Route path='/signup/marketer' element={<SignUpFeirante />} />
         <Route path='/profile/update' element={<RedirectUpdate/>}></Route>
         <Route path='/profile/update/marketer' element={<UpdateFeiranteAccount />} />

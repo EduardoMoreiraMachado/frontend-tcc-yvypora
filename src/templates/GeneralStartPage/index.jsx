@@ -162,7 +162,9 @@ export const GeneralStartPage = () => {
         </>
       )}
       <div className={styles['page-content']}>
-        <NavBar />
+        {user &&
+          <NavBar />
+        }
         <div className={styles['products-container']}>
           <div className={styles['search-category']}>
             <div className={styles['general-search']}>

@@ -137,7 +137,7 @@ export const SignUpConsumidor = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Seja Bem Vindo!</p>,
+        title: <p>Boas-vindas!</p>,
         icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
@@ -148,7 +148,7 @@ export const SignUpConsumidor = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Erro no Cadastro!</p>,
+        title: <p>Erro ao cadastrar</p>,
         icon: 'error',
         buttonsStyling: false,
         timerProgressBar: true,

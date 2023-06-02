@@ -17,9 +17,9 @@ export const SignHeader = () => {
             Criar conta
           </a>
         </span>
-        <span className='sign-in'>
-          <a href='/login'>Login</a>
-        </span>
+        <a className='sign-in' href='/login'>
+          <span>Login</span>
+        </a>
       </div>
     </header>
   );

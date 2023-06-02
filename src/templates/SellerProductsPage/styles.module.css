@@ -44,12 +44,18 @@
 
 .registered-products {
   display: grid;
-  min-height: 74vh;
+  min-height: 52.2vh;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   place-items: center;
   gap: 50px;
   margin-bottom: 4vh;
+}
+
+.history-not-found {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media(max-width: 1200px) {

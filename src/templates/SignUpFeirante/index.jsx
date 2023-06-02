@@ -128,7 +128,7 @@ export const SignUpFeirante = () => {
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Seja Bem Vindo!</p>,
+        title: <p>Boas-vindas!</p>,
         icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,
