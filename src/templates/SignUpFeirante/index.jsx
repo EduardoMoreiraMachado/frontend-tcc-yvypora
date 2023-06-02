@@ -185,10 +185,10 @@ export const SignUpFeirante = () => {
             type='date'
             onChange={handleChangeFields}
           />
-          <div className='genders'>
+          <div className={styles['genders']}>
             {genders.map(({ name, id }) => (
-              <label className='label cursor-pointer'>
-                <span className='label-text'>{name}</span>
+              <label className={styles['cursor-pointer']}>
+                <span className={styles['label-text']}>{name}</span>
                 <input
                   value={name}
                   type='radio'

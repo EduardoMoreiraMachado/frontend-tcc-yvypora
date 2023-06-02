@@ -89,11 +89,11 @@ export const SearchPage = ({ context }) => {
       <div className={styles['all-container']}>
         <div className={styles['main-content-container']}>
           <div className={styles['result-search']}>
-            <p>
+            {/* <p>
               {' '}
               Resultados de:{' '}
               {search_key ? search_key : category ? category.name : ''}
-            </p>
+            </p> */}
             <div className={styles['cards-result']}>
               {listOfProducts.map((product) => {
                 return (

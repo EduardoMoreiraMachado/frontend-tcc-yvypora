@@ -166,40 +166,40 @@ export const SignUpConsumidor = () => {
       <Title text='Cadastre-se' />
       <div className={styles['input-container']}>
         <div className={styles['inputs']}>
-          <DefaultInput name='Nome' type='text' onChange={handleChangeFields} />
-          <DefaultInput
-            name='Email'
-            type='email'
-            onChange={handleChangeFields}
-          />
-          <DefaultInput
-            name='Senha'
-            type='password'
-            onChange={handleChangeFields}
-          />
-          <SpecialInput
-            name='cpf'
-            label='CPF'
-            mask='999.999.999-99'
-            value={values.cpf}
-            onChange={handleChange}
-          />
-          <SpecialInput
-            name='cep'
-            label='CEP'
-            mask='99999-999'
-            value={values.cep}
-            onChange={handleChange}
-          />
-          <DefaultInput
-            name='Data de nascimento'
-            type='date'
-            onChange={handleChangeFields}
-          />
+            <DefaultInput name='Nome' type='text' onChange={handleChangeFields} />
+            <DefaultInput
+              name='Email'
+              type='email'
+              onChange={handleChangeFields}
+            />
+            <DefaultInput
+              name='Senha'
+              type='password'
+              onChange={handleChangeFields}
+            />
+            <SpecialInput
+              name='cpf'
+              label='CPF'
+              mask='999.999.999-99'
+              value={values.cpf}
+              onChange={handleChange}
+            />
+            <SpecialInput
+              name='cep'
+              label='CEP'
+              mask='99999-999'
+              value={values.cep}
+              onChange={handleChange}
+            />
+            <DefaultInput
+              name='Data de nascimento'
+              type='date'
+              onChange={handleChangeFields}
+            />
           <div className={styles['genders']}>
             {genders.map(({ name, id }) => (
-              <label className='label cursor-pointer'>
-                <span className='label-text'>{name}</span>
+              <label className={styles['cursor-pointer']}>
+                <span className={styles['label-text']}>{name}</span>
                 <input
                   value={name}
                   type='radio'
@@ -209,10 +209,10 @@ export const SignUpConsumidor = () => {
               </label>
             ))}
           </div>
-          <div className={styles['typesOfAddresses']}>
+          <div className={styles['type-of-address']}>
             {addressTypes.map(({ name, id }) => (
-              <label className='label cursor-pointer'>
-                <span className='label-text'>{name}</span>
+              <label className={styles['cursor-pointer']}>
+                <span className={styles['label-text']}>{name}</span>
                 <input
                   value={id}
                   type='radio'

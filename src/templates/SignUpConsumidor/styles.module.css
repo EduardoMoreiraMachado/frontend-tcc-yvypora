@@ -1,14 +1,50 @@
 .input-container{
-    height: 70%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
-    padding: 2vh 5vw 10vh 5vw;
+    padding: 0vh 5vw 0vh 5vw;
 }
 
-@media (max-width:730px) {
+.inputs {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.genders {
+    margin-bottom: 30px;
+}
+
+.genders,
+.type-of-address {
+    display: flex;
+    gap: 30px;
+}
+
+.cursor-pointer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.label-text {
+    font-size: 1.5rem;
+}
+
+@media(max-width: 1400px) {
+    .inputs {
+        width: 50%;
+    }
+}
+
+@media (max-width: 940px) {
     .input-container{
         flex-direction: column;
+    }
+
+    .inputs {
+        width: 100%;
     }
 }
