@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
-export const AddImage = ({ text, subtext, inputRef }) => {
-  const [image, setImage] = useState(null);
-
+export const AddImage = ({ text, subtext, inputRef, currentImage}) => {
+  const [image, setImage] = useState(currentImage ? currentImage : null);
+  {
+    console.log(`url('${image}')`)
+  }
   const handleImageChange = (event) => {
     const selectedImage = event.target.files[0];
 

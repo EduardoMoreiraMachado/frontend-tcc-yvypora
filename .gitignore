@@ -2,7 +2,7 @@
 
 
 # code editor settings
-/.vscode
+/.vscode/*
 
 # yarn and npm
 yarn.lock

@@ -22,6 +22,7 @@ export const ShoppingItem = ({
 }) => {
   const [promoExists, setPromoExists] = useState(0);
   const [promoValue, setPromoValue] = useState(null);
+  const [priceAsNumber, setPriceAsNumber] = useState(price.toFixed(2).toString());
   const priceProcessed = price.toString().replace(/\./g, ',');
   const oldPrice = price.toFixed(2).toString(2).replace(/\./g, ',');
   const navigation = useNavigate();
@@ -34,6 +35,7 @@ export const ShoppingItem = ({
         .toString()
         .replace(/\./g, ',');
 
+      setPriceAsNumber((price - price * (promo / 100)).toFixed(2));
       setPromoValue(value);
       setPromoExists(100);
     }
@@ -76,25 +78,11 @@ export const ShoppingItem = ({
           <button
             className={styles['cart-icon']}
             onClick={() => {
-              console.log({
-                id,
-                name,
-                imgUrl,
-                weight,
-                price,
-                promo,
-                availableQuantity,
-                fairName,
-                fairPicture,
-                marketerId,
-                marketerName,
-                cartId,
-              });
               addProduct({
                 id: cartId,
                 name: name,
                 picture: imgUrl,
-                price: promoValue ? promoValue : priceProcessed,
+                price: priceAsNumber,
                 selectedQuantity: 1,
                 quantity: availableQuantity,
                 fairName: fairName,

@@ -1,3 +1,8 @@
+
+class Cart {
+  
+}
+
 export const addProduct = ({
   id,
   picture,
@@ -10,17 +15,17 @@ export const addProduct = ({
   fairPicture,
   fairName,
 }) => {
-  let cart = JSON.parse(localStorage.getItem("cart"));
+  let cart = JSON.parse(sessionStorage.getItem("cart"));
 
   if (!cart) {
-    localStorage.setItem(
+    sessionStorage.setItem(
       "cart",
       JSON.stringify({
         products: [],
         total: 0,
       })
     );
-    cart = JSON.parse(localStorage.getItem("cart"));
+    cart = JSON.parse(sessionStorage.getItem("cart"));
   }
 
   const isInCart = cart.products.findIndex(
@@ -46,7 +51,7 @@ export const addProduct = ({
 
       cart.total = cart.total + parseFloat(price) * selectedQuantity;
 
-      localStorage.setItem("cart", JSON.stringify(cart));
+      sessionStorage.setItem("cart", JSON.stringify(cart));
       console.log(cart);
     } else {
       return;
@@ -67,7 +72,7 @@ export const addProduct = ({
 
     cart.total = cart.total + parseFloat(price) * selectedQuantity;
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    sessionStorage.setItem("cart", JSON.stringify(cart));
     
     window.location.reload(true)
     
@@ -77,11 +82,11 @@ export const addProduct = ({
 
 export const initCart = () => {
   const cart = { products: [], total: 0 };
-  localStorage.setItem("cart", JSON.stringify(cart));
+  sessionStorage.setItem("cart", JSON.stringify(cart));
 };
 
 export const updateItemCount = ({ id, itemCount }) => {
-  let cart = JSON.parse(localStorage.getItem("cart"));
+  let cart = JSON.parse(sessionStorage.getItem("cart"));
 
   const index = cart.products.findIndex(
     ({ id: productId }) => id === productId
@@ -99,27 +104,27 @@ export const updateItemCount = ({ id, itemCount }) => {
 
   console.log(cart.products[index].selectedQuantity);
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+  sessionStorage.setItem("cart", JSON.stringify(cart));
 };
 
 export const updateTotal = (value) => {
-  let cart = JSON.parse(localStorage.getItem("cart"));
+  let cart = JSON.parse(sessionStorage.getItem("cart"));
   cart.total = value;
-  localStorage.setItem("cart", JSON.stringify(cart));
+  sessionStorage.setItem("cart", JSON.stringify(cart));
 };
 
 export const removeFromCart = (_id) => {
-  let cart = JSON.parse(localStorage.getItem('cart'))
+  let cart = JSON.parse(sessionStorage.getItem('cart'))
   
-  cart.products.forEach(({ id }, idx) => {
-    if (id === _id) {
-      cart.products.slice(idx, 1)
-    }
-  })
+  const index = cart.products.findIndex(product => product.id === _id)
+
+  cart.products.slice(index, 1)
+  
+  if (cart.products.length === 1) {
+    cart.products = []  
+  }
 
   console.log(cart.products)
 
-  localStorage.setItem("cart", JSON.stringify(cart));  
-
-  window.location.reload(true)
+  sessionStorage.setItem("cart", JSON.stringify(cart));  
 }

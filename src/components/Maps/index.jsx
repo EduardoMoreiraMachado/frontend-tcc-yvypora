@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   GoogleMap,
-  Marker,
+  MarkerF,
   MarkerClusterer,
   useJsApiLoader,
 } from '@react-google-maps/api';
@@ -16,8 +16,6 @@ export function Maps({ locations }) {
     width: '100vw',
     height: '100vh',
   };
-
-  console.log(locations);
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -55,10 +53,10 @@ export function Maps({ locations }) {
     >
         {locations.map((location) => {
             return (
-              <Marker
+              <MarkerF
                 key={createKey(location)}
                 position={location}
-              ></Marker>
+              ></MarkerF>
             );
           })
       }

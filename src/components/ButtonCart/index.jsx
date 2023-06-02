@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 
 export const ButtonCart = () => {
     const [user, _setUser] = useState(JSON.parse(localStorage.getItem("user-details")))
-    const [cart, _setCart] = useState(JSON.parse(localStorage.getItem("cart")))
+    const [cart, _setCart] = useState(JSON.parse(sessionStorage.getItem("cart")))
     const [sizeOfCart, setSizeOfCart] = useState(null)
 
     const [route, setRoute] = useState("cart")
@@ -25,7 +25,7 @@ export const ButtonCart = () => {
         <>
             <div className={styles["main-circle"]}>
                 <a className={route == 'cart' ? styles[`inner-circle-cart`] : styles[`inner-circle-products`]} href={`/${route}`}></a>
-                {sizeOfCart && (
+                {sizeOfCart > 0 && (
                     <h1>{sizeOfCart}</h1>
                 )}
             </div>

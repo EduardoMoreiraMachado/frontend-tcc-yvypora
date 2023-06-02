@@ -13,7 +13,7 @@ export const CartPage = () => {
   const navigate = useNavigate();
 
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
+  const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem('cart')));
   const [displayCart, setDisplayCart] = useState([]);
 
   const [total, setTotal] = useState(cart.total ? cart.total : 0);
@@ -39,7 +39,7 @@ export const CartPage = () => {
   const handleClickToPayment = async (event) => {
     event.preventDefault();
 
-    setCart(JSON.parse(localStorage.getItem('cart')));
+    setCart(JSON.parse(sessionStorage.getItem('cart')));
 
     const updatedData = groupByMarketer(cart.products);
 
@@ -63,7 +63,7 @@ export const CartPage = () => {
                   const date = new Date();
                   return (
                     <>
-                      <div
+                      { purchase.length > 0 && (<><div
                         className={styles['purchase-image']}
                         style={{
                           backgroundImage: `url('${purchase[0].fairPicture}')`,
@@ -79,6 +79,7 @@ export const CartPage = () => {
                           </span>
                         }
                       </div>
+                      </>)}
                     </>
                   );
                 })}
