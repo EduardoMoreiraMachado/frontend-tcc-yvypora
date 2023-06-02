@@ -137,6 +137,7 @@
         position: absolute;
         top: 0px;
         left: 0px;
+        z-index: 6;
     }
 
     .burger {
@@ -169,5 +170,16 @@
 @media(max-width: 600px) {
     .burger {
         left: 20px;
+    }
+}
+
+@media(max-width: 400px) {
+    .menu.menu-open {
+        width: 300px;
+        height: 70vh;
+    }
+
+    .list {
+        font-size: 1rem;
     }
 }

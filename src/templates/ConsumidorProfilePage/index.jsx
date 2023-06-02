@@ -7,7 +7,9 @@ import iconUser from "../../imgs/user.svg";
 import iconMap from "../../imgs/map.svg";
 import iconBag from "../../imgs/shopping_icon.png";
 import { EmptyHeader } from "../../components/EmptyHeader";
+import { Header } from "../../components/Header"
 import { ExitOption } from "../../components/ExitOption";
+
 import { useState } from "react";
 
 export const ProfilePage = () => {
@@ -15,7 +17,12 @@ export const ProfilePage = () => {
   
   return (
     <div className={"profile-main"}>
-      <EmptyHeader />
+      <div id={styles["empty-header"]}>
+        <EmptyHeader />
+      </div>
+      <div id={styles["default-header"]}>
+        <Header user={user.picture_uri} />
+      </div>
       <div className={styles["user-info"]}>
         <UserCard
           name={user.name}

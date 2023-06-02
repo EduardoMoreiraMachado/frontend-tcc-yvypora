@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CostumerFetch from '../../services/api/fetchs/costumer/costumer.js';
 import { FaLeaf } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 export const PaymentPage = () => {
   const location = useLocation();
@@ -29,7 +30,7 @@ export const PaymentPage = () => {
 
   const [address, setAdress] = useState(null);
   const [size, setSize] = useState(0);
-
+  const navigation = useNavigate();
 
   const getFormattedValue = (value) =>
     value.toFixed(2).toString().replace('.', ',');
@@ -109,6 +110,10 @@ export const PaymentPage = () => {
   };
 
   const handleUseAddress = (id) => {};
+
+  const handleCancel = () => {
+    navigation('/cart')
+  }
 
   return (
     <div className={styles['payment-page-container']}>
@@ -226,7 +231,10 @@ export const PaymentPage = () => {
               onClick={handlePayment}
               isLoading={isLoading}
             />
-            <WhiteButton text='Cancelar' />
+            <WhiteButton 
+              text='Cancelar' 
+              onClick={handleCancel}
+            />
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ import { useParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { getProduct } from '../../services/api/fetchs/costumer/products';
 import { addProduct } from '../../utils/cart';
+import { useNavigate } from 'react-router-dom';
 
 import { calculateResult } from '../../utils/calcFunctions';
 
@@ -30,6 +31,7 @@ export const ProductPage = () => {
     data?.discount ? data?.price - data?.discount / 100 : data?.price,
     itemCount
   );
+  const navigation = useNavigate();
 
   useEffect(() => {
     getProduct(id).then(({ data }) => {
@@ -39,11 +41,16 @@ export const ProductPage = () => {
 
   const reviewProcessed = data?.review.toFixed(1);
 
+  const handleNextPage = () => {
+    navigation('/sign')
+  }
+
   const MainPage = () => (
     <div className={styles['product-page-container']}>
       {user ? <Header user={user} /> : <SignHeader />}
-      <NavBar />
-
+      {user && (
+        <NavBar />
+      )}
       <div className={styles['product-containers']}>
         <div className={styles['product-info']}>
           <div className={styles['product-main']}>
@@ -100,7 +107,8 @@ export const ProductPage = () => {
             </div>
             <button
               className={styles['add-cart-button']}
-              onClick={() =>
+              onClick={user ?
+                () =>
                 addProduct({
                   id: data.id,
                   name: data.name,
@@ -115,6 +123,8 @@ export const ProductPage = () => {
                   marketerId: data.marketer.id,
                   marketerName: data.marketer.name,
                 })
+                :
+                handleNextPage
               }
             >
               <img src={AddCartIcon} alt='' />

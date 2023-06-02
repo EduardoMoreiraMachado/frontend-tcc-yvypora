@@ -32,6 +32,7 @@
 .message-box h1 {
     width: 30vw;
     color: #143601;
+    font-size: 2rem;
     text-align: center;
     padding-bottom: 5vh;
 }
@@ -45,5 +46,11 @@
 @media(max-width: 920px) {
     .message-box h1 {
         width: 50vw;
+    }
+}
+
+@media(max-width: 570px) {
+    .message-box h1 {
+        font-size: 1.5rem;
     }
 }

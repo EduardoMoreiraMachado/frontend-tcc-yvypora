@@ -84,8 +84,14 @@ export const CartPage = () => {
                   );
                 })}
               </div>
-              {Object.entries(displayCart).map(([_, purchase]) =>
-                purchase.map((product) => (
+              {Object.entries(displayCart).map(([_, purchase]) => {
+                console.log(purchase)
+                if(purchase.length === 0) {
+                    return (
+                      <h1>nada aqui</h1>
+                    )
+                }
+                return purchase.map((product) => (
                   <ShoppingCartItem
                     id={product.id}
                     name={product.name}
@@ -96,7 +102,7 @@ export const CartPage = () => {
                     setCartTotal={setTotal}
                   />
                 ))
-              )}
+              })}
             </div>
           </div>
           <div className={styles['payment-card']}>

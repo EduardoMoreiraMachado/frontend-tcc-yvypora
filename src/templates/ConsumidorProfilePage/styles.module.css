@@ -27,11 +27,11 @@
 
 @media (max-width: 768px) {
     #empty-header {
-        display: flex;
+        display: none;
     }
 
     #default-header {
-        display: flex;
+        display: contents;
     }
 
     .user-info {
