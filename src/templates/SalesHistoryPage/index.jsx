@@ -11,6 +11,7 @@ import ReportsFetch from '../../services/api/fetchs/marketer/ReportsFetch';
 import Loading from '../../components/Loading';
 export const PurchasesHistoricPage = () => {
   const [historic, setHistoric] = useState([]);
+  const [user, _setUser] = useState(JSON.parse(localStorage.getItem('user-details')))
 
   useEffect(() => {
     ReportsFetch.getSaleHistoric().then((data) => {
@@ -28,15 +29,12 @@ export const PurchasesHistoricPage = () => {
       ) : (
         <div className={styles['purchases-historic-page-container']}>
           <Header
-            user={{
-              picture_uri:
-                'https://upload.wikimedia.org/wikipedia/en/0/03/Walter_White_S5B.png',
-            }}
+            user={user}
           />
           <Title text='Histórico de vendas' />
           <div className={styles['purchase-historic-content']}>
             <NavBar />
-            {historic ?
+            {!historic ?
                 <div className={styles['history-not-found']}>
                   <DataNotFound 
                     text='Você ainda não fez sua primeira venda!'

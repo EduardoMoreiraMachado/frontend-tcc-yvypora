@@ -13,6 +13,7 @@ import {
 } from '../../services/api/fetchs/costumer/search';
 import { listCategories } from '../../services/api/fetchs/common/category';
 import { useLocation } from 'react-router-dom';
+import { SignHeader } from '../../components/SignHeader';
 
 export const SearchPage = ({ context }) => {
   const location = useLocation();
@@ -79,7 +80,11 @@ export const SearchPage = ({ context }) => {
 
   return (
     <>
-      <Header user={user} />
+      {user ?
+        <Header user={user} />
+        :
+        <SignHeader />
+      }
       <div className={styles['text-input-wrapper']}>
         <SearchInput
           onChange={onValueChange}

@@ -12,7 +12,7 @@
 .custom-button-color {
     background-color: #538d22;
     color: white;
-  }
+}
   
 .order-finish {
     transition: 500ms all ease-in-out;
@@ -20,8 +20,8 @@
     filter: grayscale(100);
     transform: scale(0.95);
 }
-.my-order-data-container {
 
+.my-order-data-container {
     min-height: 74vh;
     display: flex;
     flex-direction: column;
@@ -159,6 +159,7 @@
 #message:active {
     background-color: transparent;
 }
+
 /* 
 #call {
     background-color: #538D22;

@@ -48,7 +48,7 @@ export const MyOrderPage = () => {
   useEffect(() => {
     socket.on('travel_accepted', async (data) => {
       localStorage.setItem('current_travel', JSON.stringify(data));
-      await notify('success', 'Entregador Encontrado!');
+      await notify('success', 'Entregador encontrado!');
 
       console.log(data);
       setOrder(data.order);
@@ -66,7 +66,7 @@ export const MyOrderPage = () => {
     socket.on('updated_of_order', async (data) => {
       console.log(data);
       if (data.retreat_products) {
-        await notify('info', 'Produtos Coletados!', 15000);
+        await notify('info', 'Produtos coletados!', 15000);
       }
     });
     return () => {
@@ -90,7 +90,7 @@ export const MyOrderPage = () => {
   useEffect(() => {
     if (finish) {
       notifyAsForm(
-        'Entrega Finilizada, Recebeu seus pedidos ?',
+        'Entrega finalizada! O pedido foi entregue corretamente?',
         async () => {
           socket.emit('confirm_order_arrived', { order: order.order });
 
@@ -177,21 +177,21 @@ export const MyOrderPage = () => {
                       </button>
                     </div> 
                   </div>
-                  {                     
-                      showChat && (
-                        <Chat 
-                          isChatOpen={showChat}
-                          setChatOpen={setShowChat}
-                          from={(JSON.parse(localStorage.getItem('user-details'))).id}
-                          _to={{ 
-                            id: deliveryman.id,
-                            name: deliveryman.name,
-                            photo: deliveryman.picture_uri,
+                  {                    
+                    showChat && (
+                      <Chat 
+                        isChatOpen={showChat}
+                        setChatOpen={setShowChat}
+                        from={(JSON.parse(localStorage.getItem('user-details'))).id}
+                        _to={{ 
+                          id: deliveryman.id,
+                          name: deliveryman.name,
+                          photo: deliveryman.picture_uri,
 
-                          }}
-                        />
-                      )
-                    }
+                        }}
+                      />
+                    )
+                  }
 
                 </>
               ) : (

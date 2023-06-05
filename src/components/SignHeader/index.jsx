@@ -8,9 +8,9 @@ export const SignHeader = () => {
       <div id='burger-menu-container'>
         <BurgerMenu />
       </div>
-      <div className='header-icon'>
+      <a className='header-icon' href='/'>
         <img className='text-icon' src={YvyporaTextIcon} alt='' />
-      </div>
+      </a>
       <div className='sign-container'>
         <span className='sign-up'>
           <a href='/signup' className='link-black-color'>

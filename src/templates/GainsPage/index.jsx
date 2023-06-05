@@ -16,6 +16,8 @@ export const GainsPage = () => {
   const [total, setTotal] = useState(0);
   const [sells, setSells] = useState([]);
   const [sellsDetails, setSellsDetails] = useState({
+
+    // TODO 
     today: {
       value: 0,
       count: 0,
@@ -29,11 +31,14 @@ export const GainsPage = () => {
   useEffect(() => {
     const fetch = async () => {
       const data = await ReportsFetch.getMonthEaring();
+      console.log(data)
       const _counts = data.pop();
+      console.log("counts", _counts)
       setTotal(_counts._sum.total.toFixed(2));
       const _sells = data.slice(0, -1).map((sell) => {
         const day = new Date(sell.updated_at).getDate();
         const value = Number((sell.total / 100).toFixed(2));
+        console.log(day, value)
         return { day, value };
       });
       setSells(_sells);

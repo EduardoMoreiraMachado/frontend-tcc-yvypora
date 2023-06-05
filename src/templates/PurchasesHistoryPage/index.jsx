@@ -74,7 +74,7 @@ export const PurchasesHistoricPage = () => {
           <Title text='Histórico de compras' />
           <div className={styles['purchase-historic-content']}>
             <NavBar />
-            {historic ? 
+            {!historic ? 
               <div className={styles['history-not-found']}>
                 <DataNotFound 
                   text='Você ainda não fez sua primeira compra!'

@@ -22,7 +22,7 @@ import {
   updateProduct,
 } from '../../services/api/fetchs/marketer/productFetch';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getProduct } from '../../services/api/fetchs/costumer/products';
 import {
   isValidProductData,
@@ -39,9 +39,13 @@ export const InsertProductPage = () => {
   const [amount, setAmount] = useState(0);
   const [isUpdate, setIsUpdate] = useState(false);
   const [previousProduct, setPreviousProduct] = useState(null);
+  const [previousProductImage, setPreviousProductImage] = useState(null);
+
   const location = useLocation();
+  const [loading, setLoading] = useState(false)
   const inputSaleOff = useRef(null);
   const inputWeight = useRef(null);
+  const navigate = useNavigate();
 
   const [price, setPrice] = useState(0);
   const [name, setName] = useState('');
@@ -78,6 +82,7 @@ export const InsertProductPage = () => {
           const image = data.image_of_product.map(({ image }) => image.uri)[0]
           setPreviousImage(image);
           setPreviousProduct(data);
+          setPreviousImage(data.image_of_product.map((image) => image.uri)[0])
           setDescription(data.description);
           setName(data.name);
           setPrice(data.price);
@@ -155,6 +160,7 @@ export const InsertProductPage = () => {
   };
 
   const create = async (event) => {
+    setLoading(true)
     event.preventDefault();
     const image = document.getElementById('file-selection').files[0];
 
@@ -214,7 +220,10 @@ export const InsertProductPage = () => {
           timerProgressBar: true,
         });
       }
+      setLoading(false)
+      navigate('/marketer/products')
     } catch (e) {
+      setLoading(false)
       MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
@@ -228,6 +237,7 @@ export const InsertProductPage = () => {
 
   const update = async (event) => {
     event.preventDefault();
+    setLoading(true)
     const image = document.getElementById('file-selection').files[0];
 
     const saleOffValue = inputSaleOff.current.value;
@@ -268,8 +278,13 @@ export const InsertProductPage = () => {
           formData: pictureFormData,
         });
       }
+      notify("success", "Produto atualizado com sucesso", 5000)
+      setLoading(false)
+      navigate('/marketer/products')
     } catch (err) {
+      setLoading(false)
       console.log(err);
+      notify("error", "Falha ao atualizar produto", 10000)
     }
   };
 
@@ -467,7 +482,7 @@ export const InsertProductPage = () => {
             />
           </div>
           {console.log(
-            previousProduct?.image_of_product?.map(({ image }) => image.uri)[0]
+            previousImage
           )}
           <AddImage
             currentImage={previousImage}

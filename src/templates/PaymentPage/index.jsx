@@ -14,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import CostumerFetch from '../../services/api/fetchs/costumer/costumer.js';
 import { FaLeaf } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { removeFromCart } from '../../utils/cart';
 
 export const PaymentPage = () => {
   const location = useLocation();
@@ -43,6 +44,17 @@ export const PaymentPage = () => {
 
     return main.address;
   };
+
+  const sanitize = () => {
+    for(let i=0; i<100; i++) {
+      const item = localStorage.getItem(`deleted-${i}`)
+      if (item) {
+        removeFromCart(i)
+        localStorage.removeItem(`deleted-${i}`) 
+      }
+      
+    }
+  }
 
   useEffect(() => {
     const { state } = location;
@@ -87,16 +99,27 @@ export const PaymentPage = () => {
   };
   const handlePayment = async (event) => {
     setIsLoading(true);
+    sanitize();
     event.preventDefault();
 
     const user = JSON.parse(localStorage.getItem('user-details'));
     const cart = JSON.parse(sessionStorage.getItem('cart'));
+    const products = []
+    
+    
+    cart.products.forEach(({ id, selectedQuantity }) => {
+      products.push({ id, amount: selectedQuantity });
+    })
+
+    console.log(products)
+    
+    const res_products = products.filter(({ amount }) => {
+      return amount > 0
+    })
 
     const purchase = {
       costumer_address_id: user.costumer_addresses[0].id,
-      products: cart.products.map(({ id, selectedQuantity }) => {
-        return { id, amount: selectedQuantity };
-      }),
+      products: res_products, 
       freight: 19.99,
     };
 

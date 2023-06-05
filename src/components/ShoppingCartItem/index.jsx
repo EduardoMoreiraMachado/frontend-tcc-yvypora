@@ -83,7 +83,7 @@ export const ShoppingCartItem = ({
                   id={styles['delete']}
                   onClick={() => {
                     setDeleteProduct(true);
-                    // localStorage.setItem(`deleted-${id}`, true) 
+                    localStorage.setItem(`deleted-${id}`, true) 
                     removeFromCart(id)
                     refresh()
                   }}

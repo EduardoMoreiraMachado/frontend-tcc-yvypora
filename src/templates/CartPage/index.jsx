@@ -11,7 +11,6 @@ import { useNavigate, use } from 'react-router-dom';
 
 export const CartPage = () => {
   const navigate = useNavigate();
-
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem('cart')));
   const [displayCart, setDisplayCart] = useState([]);
@@ -94,15 +93,17 @@ export const CartPage = () => {
                         <h1>nada aqui</h1>
                       )}
                       {purchase.map((product) => (
-                        <ShoppingCartItem
-                          id={product.id}
-                          name={product.name}
-                          imgUrl={product.picture}
-                          unit={product.quantity}
-                          price={product.price}
-                          itemCountProp={product.selectedQuantity}
-                          setCartTotal={setTotal}
-                        />
+                        <div style={{marginBottom: '10px'}}>
+                          <ShoppingCartItem
+                            id={product.id}
+                            name={product.name}
+                            imgUrl={product.picture}
+                            unit={product.quantity}
+                            price={product.price}
+                            itemCountProp={product.selectedQuantity}
+                            setCartTotal={setTotal}
+                          />
+                        </div>
                       ))}
                     </>
                     }

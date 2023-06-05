@@ -25,8 +25,8 @@ export const EntregadorLandingPage = () => {
             </header>
             <div className={styles["welcome-message-content"]}>
                 <div className={styles['welcome-message']}>
-                    <h1>Lorem ipsum dolor sit amet</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fugit explicabo iure eaque ratione, ab tempore ad, odit minus facilis sunt inventore quisquam beatae quidem esse. Explicabo eligendi adipisci necessitatibus.</p>
+                    <h1>Faça parte da família yvyporã!</h1>
+                    <p>Junte-se a nós e seja um motorista de entrega na yvyporã! Explore novos lugares, tenha flexibilidade de horários e ganhe dinheiro enquanto entrega produtos frescos e saborosos aos clientes que desejam experimentar o melhor das feiras típicas de bairros brasileiros. Baixe o nosso aplicativo de entregadores e faça parte dessa oportunidade única!</p>
                 </div>
             </div>
             <div className={styles["benefits-content"]} id='benefits'>

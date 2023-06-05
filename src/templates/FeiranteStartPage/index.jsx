@@ -17,6 +17,7 @@ export const FeiranteStartPage = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [dailySell, setDailySell] = useState(0);
   const [lastSell, setLastSell] = useState(null);
+  const [user, _setUser] = useState(JSON.parse(localStorage.getItem('user-details')));
 
   const navigation = useNavigate();
 
@@ -58,7 +59,7 @@ export const FeiranteStartPage = () => {
 
   return (
     <div className={styles['feirante-start-page-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <div className={styles['page-content']}>
         <div className={styles['nav-bar']}>
           <NavBar />

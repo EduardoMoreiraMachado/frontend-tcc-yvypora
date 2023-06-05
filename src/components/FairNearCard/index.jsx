@@ -19,7 +19,7 @@ export const FairNearCard = ({
   const [registered, setRegistered] = useState('');
 
   useEffect(() => {
-    if (fairmanQnt >= 10) {
+    if (fairmanQnt > 1) {
       setQnt('feirantes');
       setRegistered('cadastrados')
     } else {

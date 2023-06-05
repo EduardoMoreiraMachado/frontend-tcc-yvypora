@@ -10,6 +10,7 @@ import { AddImage } from '../../components/AddImage';
 import { GreenButton } from '../../components/GreenButton';
 import { Footer } from '../../components/Footer';
 import { SpecialInput } from '../../components/SpecialInput';
+import { EmptyHeader } from '../../components/EmptyHeader'
 
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
@@ -140,11 +141,12 @@ export const SignUpFeirante = () => {
 
   return (
     <div className={styles['main-cadastro']}>
-      <header>
+      {/* <header>
         <div className='header-icon'>
           <img className='icon-yvy' src={YvyporaTextIcon} alt='' />
         </div>
-      </header>
+      </header> */}
+      <EmptyHeader />
       <Title text='Cadastre-se' />
       <div className={styles['input-container']}>
         <div className={styles['inputs']}>

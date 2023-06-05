@@ -16,6 +16,7 @@ import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
 import { cepAPI, commonsAPI } from '../../services/api/index';
 import { fetchCostumerFormFields } from '../../services/api/fetchs/common/form-fields';
 import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
+import { EmptyHeader } from '../../components/EmptyHeader';
 
 const MySwal = withReactContent(Swal);
 
@@ -158,11 +159,12 @@ export const SignUpConsumidor = () => {
 
   return (
     <div className={styles['main-cadastro']}>
-      <header>
+      {/* <header>
         <div className='header-icon'>
           <img className='icon-yvy' src={YvyporaTextIcon} alt='' />
         </div>
-      </header>
+      </header> */}
+      <EmptyHeader />
       <Title text='Cadastre-se' />
       <div className={styles['input-container']}>
         <div className={styles['inputs']}>

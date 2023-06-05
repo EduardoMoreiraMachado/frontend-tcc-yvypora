@@ -20,6 +20,7 @@ export const ShoppingItem = ({
   marketerName,
   cartId,
 }) => {
+  const [user, _setUser] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [promoExists, setPromoExists] = useState(0);
   const [promoValue, setPromoValue] = useState(null);
   const [priceAsNumber, setPriceAsNumber] = useState(price.toFixed(2).toString());
@@ -44,6 +45,10 @@ export const ShoppingItem = ({
   const handleNextPage = () => {
     navigation(`/product/${id}`);
   };
+
+  const handleSignPage = () => {
+    navigation('/sign');
+  }
 
   return (
     <div className={styles['shopping-item-container']} onClick={handleNextPage}>
@@ -77,7 +82,8 @@ export const ShoppingItem = ({
         <div className={styles['cart-icon-box']}>
           <button
             className={styles['cart-icon']}
-            onClick={() => {
+            onClick={user ?
+              () => 
               addProduct({
                 id: cartId,
                 name: name,
@@ -89,8 +95,10 @@ export const ShoppingItem = ({
                 fairPicture: fairPicture,
                 marketerId: marketerId,
                 marketerName: marketerName,
-              });
-            }}
+              })
+              :
+              handleSignPage
+            }
           />
         </div>
       </div>
