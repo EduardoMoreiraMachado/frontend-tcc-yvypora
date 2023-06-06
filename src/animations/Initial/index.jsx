@@ -42,7 +42,7 @@ const text = {
   },
 };
 
-const InitialTransition = () => {
+const InitialTransition = ({ setTransition }) => {
   return (
     <>
       <div className='absolute inset-0 flex items-center justify-center'>
@@ -54,8 +54,9 @@ const InitialTransition = () => {
             document.body.classList.add('overflow-hidden')
           }
           onAnimationComplete={() => {
-            document.body.classList.remove('overflow-hidden');
-            document.body.querySelector('.absolute').remove();
+            setTransition(false)
+            // document.body.classList.remove('overflow-hidden');
+            // document.body.querySelector('.absolute').remove();
           }}
           variants={blackBox}
         />

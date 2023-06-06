@@ -48,10 +48,19 @@ export const Login = () => {
       setIsLoading(false);
 
       if (details.typeof === 'COSTUMER') {
-        navigate('/#');
+        navigate('/#', { 
+          state: {
+            transition: true 
+          }
+        });
       }
       if (details.typeof === 'MARKETER') {
-        navigate('/marketer');
+        navigate('/marketer', { 
+          state: {
+            transition: true 
+          }
+        }
+      );
       }
     } catch (error) {
       setIsLoading(false);
