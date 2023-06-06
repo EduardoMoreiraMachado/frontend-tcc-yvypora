@@ -14,6 +14,8 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Header } from '../../components/Header';
 import { useRef } from 'react';
+import { notify, notifyAsForm } from '../../utils/notify';
+import { useNavigate } from 'react-router-dom';
 
 const MySwal = withReactContent(Swal);
 
@@ -21,6 +23,7 @@ export const AddFairPage = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('user-details'))
   );
+  const navigate = useNavigate
   const cepInput = useRef(null);
   const nameTitle = useRef(null);
   const [values, setValues] = useState({});
@@ -32,7 +35,6 @@ export const AddFairPage = () => {
         latitude: 20,
         longitude: -20,
       });
-      console.log(fields);
       setDaysOfWeek(fields[0].daysOfWeeks);
     };
     fetch().then().catch();
@@ -82,9 +84,6 @@ export const AddFairPage = () => {
       'input[name="Horário de encerramento"]'
     ).value;
 
-    const dayOfWeekSelector = document.querySelector('#day-of-week');
-
-    console.log(address);
     const data = {
       name,
       address: {
@@ -105,8 +104,6 @@ export const AddFairPage = () => {
         };
       }),
     };
-
-    console.log(data);
 
     try {
       const { payload } = await MarketerFairFetch.create(data);
@@ -139,7 +136,23 @@ export const AddFairPage = () => {
       console.log(e);
       let message = e.response?.data.message;
 
-      MySwal.fire({
+      console.log(e.response.data.code);
+
+      if (e.response?.data.code === 409) {
+        const fair = e.response.data.payload.data
+        console.log(fair);
+        await notifyAsForm("Essa Feira já está cadastrada em nosso sistema, deseja fazer parte ?", async () => {
+          // YES
+          await MarketerFairFetch.associate(fair.id)
+          navigate("/fair/fairs")
+          
+        }, async () => {
+          // NO
+  
+        })
+      }
+
+      await MySwal.fire({
         timer: 3000,
         showConfirmButton: false,
         title: <p>Falha ao cadastrar feira</p>,
