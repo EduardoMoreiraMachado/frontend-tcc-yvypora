@@ -89,23 +89,20 @@ export const CartPage = () => {
                     </div>
                     {
                       <>
-                      {purchase.length === 0 && (
-                        <h1>nada aqui</h1>
-                      )}
-                      {purchase.map((product) => (
-                        <div style={{marginBottom: '10px'}}>
-                          <ShoppingCartItem
-                            id={product.id}
-                            name={product.name}
-                            imgUrl={product.picture}
-                            unit={product.quantity}
-                            price={product.price}
-                            itemCountProp={product.selectedQuantity}
-                            setCartTotal={setTotal}
-                          />
-                        </div>
-                      ))}
-                    </>
+                        {purchase.map((product) => (
+                          <div style={{marginBottom: '10px'}}>
+                            <ShoppingCartItem
+                              id={product.id}
+                              name={product.name}
+                              imgUrl={product.picture}
+                              unit={product.quantity}
+                              price={product.price}
+                              itemCountProp={product.selectedQuantity}
+                              setCartTotal={setTotal}
+                            />
+                          </div>
+                        ))}
+                      </>
                     }
                   </div>
                 </>

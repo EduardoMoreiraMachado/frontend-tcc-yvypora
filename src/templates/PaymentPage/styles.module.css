@@ -117,19 +117,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 1vw;
-}
-
-.purchase-products::-webkit-scrollbar {
-  display: none;
-}
-
-.nav-buttons {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 10px;
+  padding-bottom: 10px;
 }
 
 .payment-info {

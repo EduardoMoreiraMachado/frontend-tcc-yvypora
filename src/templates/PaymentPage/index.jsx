@@ -223,13 +223,6 @@ export const PaymentPage = () => {
                           ))
                       }
                     </div>
-                    {/* {setSize(Object.entries(previewCart ? previewCart : {})[1].length)} */}
-                    {size > 2 && (
-                      <div className={styles['nav-buttons']}>
-                        <PrevButton onClick={handleLeftClick} />
-                        <NextButton onClick={handleRightClick} />
-                      </div>
-                    )}
                   </div>
                 </>
               );

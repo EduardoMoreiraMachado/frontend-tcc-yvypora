@@ -12,9 +12,9 @@ export const GainsCard = ({text, value, percentage}) => {
             <h1>{text}</h1>
             <div className={styles['value']}>
                 <h2>R$ {processedValue}</h2>
-                <span>
+                {/* <span>
                     <span style={{color: color}}>{symbol}{percentage}%</span> vs ontem
-                </span>
+                </span> */}
             </div>
         </div>
     )

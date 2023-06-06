@@ -101,13 +101,13 @@ export const GainsPage = () => {
           <h2 id={styles['total']}>Total</h2>
           <div className={styles['value']}>
             <h2>R$ {processedMoneyValue(total)}</h2>
-            <span>
+            {/* <span>
               <span style={{ color: percentageColor }}>
                 {valueSymbol}
                 {percentageValue}%
               </span>{' '}
               vs último mês
-            </span>
+            </span> */}
           </div>
         </div>
 
