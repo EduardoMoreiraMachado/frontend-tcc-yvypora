@@ -26,7 +26,7 @@ export const PurchasesHistoricPage = () => {
         <div style={{ width: '100vw', height: '100vh' }}>
           <Loading />
         </div>
-      ) : (
+        ) : (
         <div className={styles['purchases-historic-page-container']}>
           <Header
             user={user}
@@ -34,7 +34,7 @@ export const PurchasesHistoricPage = () => {
           <Title text='Histórico de vendas' />
           <div className={styles['purchase-historic-content']}>
             <NavBar />
-            {!historic ?
+            {historic.length === 0 ?
                 <div className={styles['history-not-found']}>
                   <DataNotFound 
                     text='Você ainda não fez sua primeira venda!'
