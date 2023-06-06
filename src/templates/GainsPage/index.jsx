@@ -55,16 +55,20 @@ export const GainsPage = () => {
       const today = (await ReportsFetch.getDailyEaring()).pop();
       const week = (await ReportsFetch.getWeekEaring()).pop();
 
+
+      console.log("teste", today);
       setSellsDetails({
         today: {
-          value: today._sums.total.toFixed(2),
+          value: today._sum.total.toFixed(2),
           count: today._nums.sells,
         },
         week: {
-          value: week._sums.total.toFixed(2),
+          value: week._sum.total.toFixed(2),
           count: week._nums.sells,
         }
       })
+
+      console.log("teste", sellsDetails);
     }
     fetch().then().catch(err => console.log(err))
   }, []);
