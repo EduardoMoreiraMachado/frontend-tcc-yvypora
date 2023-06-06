@@ -32,6 +32,7 @@
 }
 
 .products-filters-container {
+    z-index: 7;
     position: fixed;
     top: 50%;
     transform: translateY(-50%);

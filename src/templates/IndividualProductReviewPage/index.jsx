@@ -7,10 +7,14 @@ import { BoughtItem } from '../../components/BoughtItem'
 import { RatingStars } from '../../components/RatingStars'
 import { GreenButton } from '../../components/GreenButton'
 
+import { useState } from 'react'
+
 const IndividualProductReviewPage = () => {
+    const [user, _setUser] = useState(JSON.parse(localStorage.getItem('user-details')));
+
     return(
         <div className={styles["individual-product-review-page-container"]}>
-            <Header user={{picture_uri:""}}/>
+            <Header user={user} />
             <TitleSubtitle
                 text='Compra #30495'
                 subtitle='Nota dos produtos'

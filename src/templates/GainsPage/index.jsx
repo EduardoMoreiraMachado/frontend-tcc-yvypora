@@ -15,6 +15,7 @@ import ReportsFetch from '../../services/api/fetchs/marketer/ReportsFetch';
 export const GainsPage = () => {
   const [total, setTotal] = useState(0);
   const [sells, setSells] = useState([]);
+  const [user, _setUser] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [sellsDetails, setSellsDetails] = useState({
 
     // TODO 
@@ -81,7 +82,7 @@ export const GainsPage = () => {
 
   return (
     <div className={styles['gains-page-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <Title text='Relatório de ganhos e vendas' />
       <div className={styles['gains-content']}>
         <div className={styles['gains']}>

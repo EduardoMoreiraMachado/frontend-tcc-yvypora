@@ -41,7 +41,7 @@ export const InsertProductPage = () => {
 
   return (
     <div className={styles["insert-product-page"]}>
-      <Header user={{picture_uri:""}}/>
+      <Header user={user}/>
       <Title text="Editar o produto (...)" />
 
       <div className={styles["data-containers"]}>

@@ -142,7 +142,7 @@ export const PaymentPage = () => {
 
   return (
     <div className={styles['payment-page-container']}>
-      <Header user={{ picture_uri: '' }} />
+      <Header user={user} />
       <div className={styles['payment-content']}>
         <div className={styles['itens-info']}>
           <div className={styles['address-card']}>

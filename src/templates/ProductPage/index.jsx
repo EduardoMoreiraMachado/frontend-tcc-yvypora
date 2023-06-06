@@ -71,7 +71,7 @@ export const ProductPage = () => {
                 <div className={styles['grade-info']}>
                   {/* <h2 className={styles["review-count"]}>41 avaliações</h2> */}
                   <h2 className={styles['order-count']}>
-                    {data.order_count} pedidos
+                    {data.order_count} {data.order_count == 1 ? 'pedido' : 'pedidos'}
                   </h2>
                 </div>
               </div>

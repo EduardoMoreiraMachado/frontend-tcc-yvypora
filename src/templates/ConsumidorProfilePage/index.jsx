@@ -21,7 +21,7 @@ export const ProfilePage = () => {
         <EmptyHeader />
       </div>
       <div id={styles["default-header"]}>
-        <Header user={user.picture_uri} />
+        <Header user={user} />
       </div>
       <div className={styles["user-info"]}>
         <UserCard
