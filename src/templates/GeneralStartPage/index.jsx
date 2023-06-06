@@ -22,10 +22,26 @@ import {
   listProductsInSaleOff,
 } from '../../services/api/fetchs/costumer/products';
 import { getDetails } from '../../services/api/fetchs/common/user';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const GeneralStartPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [animation, setAnimation] = useState(false);
+
+
+  useEffect(() => {
+
+    const { state } = location;
+
+    if (state) {
+      if (state.transition) {
+        setAnimation(true)
+      }
+    } 
+
+  }, [location])
+
   const [user, setUser] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
   const [genericList, setListOfProducts] = useState([]);
@@ -149,7 +165,11 @@ export const GeneralStartPage = () => {
       }}
       className={styles['general-start-page-container']}
     >
-      <InitialTransition />
+      {
+        animation && (
+          <InitialTransition setTransition={setAnimation} />
+        )
+      }
 
       <div className={inputFocused ? styles['background'] : ''} />
       {user ? (
@@ -177,10 +197,10 @@ export const GeneralStartPage = () => {
             <ProductCategory />
           </div>
           <ProductCategorySelect onClick={handleCategorySelect} />
-          {genericList.length === 0 ? 
-            <DataNotFound 
+          {genericList.length === 0 ?
+            <DataNotFound
               text='Produtos não encontrados!'
-            /> 
+            />
             :
             <div className={styles['products-carrossel']}>
               <PrevButton onClick={handleLeftClick} />

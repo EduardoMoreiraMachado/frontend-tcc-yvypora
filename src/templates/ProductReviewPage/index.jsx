@@ -9,12 +9,15 @@ import { useEffect, useState } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
 import PurchaseFetch from '../../services/api/fetchs/costumer/purchase';
 import { FaSpinner } from 'react-icons/fa';
+import { notify } from '../../utils/notify'
 import ReviewFetch from '../../services/api/fetchs/costumer/review';
+import { useNavigate } from 'react-router-dom';
 
 const ProductReviewPage = () => {
   const [cart, setCart] = useState(null);
   const [order, setOrder] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user-details")))
 
   const [ratingProducts, setRatingProducts] = useState(0);
@@ -50,8 +53,13 @@ const ProductReviewPage = () => {
           }
         ),
       });
+      
+      await notify("success", "Avaliação Bem Sucedida!", 5000)
+
+      navigate('/#')
     } catch (err) {
       console.log(err);
+      await notify("error", "Não foi possível avaliar!", 5000)
     }
 
     setIsLoading(false);

@@ -19,11 +19,13 @@ import { getLocation } from '../../utils/location';
 import { singUpMarketer } from '../../services/api/fetchs/marketer/marketer';
 import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
 import { commonsAPI } from '../../services/api/index';
+import { useNavigate } from 'react-router-dom';
 
 const MySwal = withReactContent(Swal);
 
 export const SignUpFeirante = () => {
   const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
+  const navigate = useNavigate();
   const [values, setValues] = useState({});
   const [genders, setGenders] = useState([]);
 
@@ -126,7 +128,7 @@ export const SignUpFeirante = () => {
 
       await appendPictureToUser(formdata);
 
-      MySwal.fire({
+      await MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
         title: <p>Boas-vindas!</p>,
@@ -134,6 +136,8 @@ export const SignUpFeirante = () => {
         buttonsStyling: false,
         timerProgressBar: true,
       });
+
+      navigate('/login')
     } catch (e) {
       console.log(e);
     }

@@ -17,10 +17,12 @@ import { cepAPI, commonsAPI } from '../../services/api/index';
 import { fetchCostumerFormFields } from '../../services/api/fetchs/common/form-fields';
 import { appendPictureToUser } from '../../services/api/fetchs/common/picture';
 import { EmptyHeader } from '../../components/EmptyHeader';
+import { useNavigate } from 'react-router-dom';
 
 const MySwal = withReactContent(Swal);
 
 export const SignUpConsumidor = () => {
+  const navigate = useNavigate()
   const [values, setValues] = useState({});
   const [genders, setGenders] = useState([]);
   const [addressTypes, setAddressType] = useState([]);
@@ -135,7 +137,7 @@ export const SignUpConsumidor = () => {
 
       await appendPictureToUser(formdata);
 
-      MySwal.fire({
+      await MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
         title: <p>Boas-vindas!</p>,
@@ -143,6 +145,9 @@ export const SignUpConsumidor = () => {
         buttonsStyling: false,
         timerProgressBar: true,
       });
+
+      navigate('/login')
+
     } catch (e) {
       console.log(e);
 

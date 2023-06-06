@@ -492,6 +492,7 @@ export const InsertProductPage = () => {
 
           <div className={styles['register-button']}>
             <GreenButton
+              isLoading={loading}
               text={isUpdate ? 'Atualizar' : 'Cadastrar'}
               onClick={async (event) => {
                 if (!isUpdate) await create(event);

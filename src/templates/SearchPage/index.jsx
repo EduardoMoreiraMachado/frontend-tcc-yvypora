@@ -116,6 +116,7 @@ export const SearchPage = ({ context }) => {
             </div>
           </div>
           <ProductsFilters
+            setSearchValue={setSearchKey}
             categories={categories}
             setListOfProducts={setListOfProducts}
           />
