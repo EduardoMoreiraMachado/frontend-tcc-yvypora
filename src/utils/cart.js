@@ -115,16 +115,15 @@ export const updateTotal = (value) => {
 
 export const removeFromCart = (_id) => {
   let cart = JSON.parse(sessionStorage.getItem('cart'))
-  
-  const index = cart.products.findIndex(product => product.id === _id)
 
-  cart.products.slice(index, 1)
-  
-  if (cart.products.length === 1) {
-    cart.products = []  
+  const updatedProducts = cart.products.filter((
+    { id }
+  ) => id !== _id)
+
+  let newCart = {
+    ...cart,
+    products: updatedProducts 
   }
 
-  console.log(cart.products)
-
-  sessionStorage.setItem("cart", JSON.stringify(cart));  
+  sessionStorage.setItem("cart", JSON.stringify(newCart));  
 }

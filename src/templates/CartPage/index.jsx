@@ -27,7 +27,7 @@ export const CartPage = () => {
 
   const refresh = async () => {
     return new Promise((resolve) => {
-      window.location.reload(true);
+      window.location.  reload(true);
       resolve();
     });
   };
