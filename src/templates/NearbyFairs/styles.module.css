@@ -36,6 +36,10 @@
     border-radius: 30px;
 } */
 
+.map-container {
+    min-height: 52.2vh;
+}
+
 .button-container {
     position: fixed;
     left: 0;
