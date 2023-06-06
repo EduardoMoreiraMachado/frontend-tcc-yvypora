@@ -48,7 +48,7 @@ export const SellerProductsPage = () => {
         </div>
       </div> */}
       <div className={styles['seller-products-content']}>
-        {!listOfProducts ?
+        {listOfProducts.length === 0 ?
           <div className={styles['history-not-found']}>
             <DataNotFound 
               text='Você ainda não tem produtos cadastrados!'
