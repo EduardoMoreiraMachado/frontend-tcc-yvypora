@@ -111,10 +111,6 @@ export const InsertProductPage = () => {
       formData['available'] = availableInput.current.value;
     }
 
-    const image = document.getElementById('file-selection').files[0];
-
-    const inputs = document.querySelectorAll('.product-input');
-
     const categorySelector = document.getElementById('type');
 
     const priceTypeSelector = document.getElementById('price-type');
@@ -137,6 +133,10 @@ export const InsertProductPage = () => {
     const saleOffValue = inputSaleOff.current.value;
 
     if (priceTypeOptionSelected.value === 'peso') {
+      const type = document.querySelector(".type_of_weight").value
+      if (type === 'g') {
+        priceTypeOptionSelected.id = 4
+      }
       quantity = inputWeight.current.value;
     }
 
@@ -167,6 +167,8 @@ export const InsertProductPage = () => {
     const saleOffValue = inputSaleOff.current.value;
 
     const data = await getData();
+
+    console.log(data);
 
     try {
       if (!isValidProductData({ ...data, quantity: 100 })) {
@@ -406,7 +408,7 @@ export const InsertProductPage = () => {
                   </option>
                   <option value='peso' id='1'>
                     Peso
-                  </option>
+                  </option> 
                   <option value='unitario' id='2'>
                     Unitário
                   </option>
@@ -414,7 +416,7 @@ export const InsertProductPage = () => {
 
                 {selectedValue === 'peso' && (
                   <div className={styles['product-weight']}>
-                    <select name='product-unit' id={styles['unit']}>
+                    <select name='product-unit' className='type_of_weight' id={styles['unit']}>
                       <option value='kg'>kg</option>
                       <option value='g'>g</option>
                     </select>

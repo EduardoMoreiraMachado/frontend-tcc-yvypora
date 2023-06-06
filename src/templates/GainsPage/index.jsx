@@ -54,9 +54,7 @@ export const GainsPage = () => {
     const fetch = async () => {
       const today = (await ReportsFetch.getDailyEaring()).pop();
       const week = (await ReportsFetch.getWeekEaring()).pop();
-
-
-      console.log("teste", today);
+      
       setSellsDetails({
         today: {
           value: today._sum.total.toFixed(2),
