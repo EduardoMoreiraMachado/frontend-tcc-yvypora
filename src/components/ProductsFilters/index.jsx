@@ -11,7 +11,7 @@ import {
   listWithFilters,
 } from '../../services/api/fetchs/costumer/products';
 
-export const ProductsFilters = ({ categories, setListOfProducts }) => {
+export const ProductsFilters = ({ categories, setListOfProducts, setSearchValue}) => {
   const [minPrice, setMinPrice] = useState(0.0);
   const [selectedCategory, setSelectedCategory] = useState(''); // default is all
   const [stars, setStars] = useState(0);
@@ -41,6 +41,7 @@ export const ProductsFilters = ({ categories, setListOfProducts }) => {
   }, [minPrice, selectedCategory, stars, setListOfProducts]);
 
   const handleClickInCategory = async (event) => {
+    setSearchValue("")
     event.preventDefault();
     const { target } = event;
     const { id: categoryId } = target;
