@@ -23,6 +23,7 @@ export const MyOrderPage = () => {
   const navigation = useNavigate();
   const [deliveryman, setDeliveryman] = useState(null);
   const [directions, setDirections] = useState(null);
+  const [routes, setRoutes] = useState();
   const [time, setTime] = useState(0);
   const [distance, setDistance] = useState(0);
   const [finish, setFinish] = useState(false);
@@ -32,7 +33,9 @@ export const MyOrderPage = () => {
       const orderStoraged = localStorage.getItem('current_travel');
       const order = JSON.parse(orderStoraged);
       if (order) {
-        setOrder(order);
+        setOrder(order.order);
+        setRoutes(order.routes)
+        console.log(order.routes);
         setDeliveryman(order.order.deliveryman);
       }
     } catch (error) {
@@ -45,10 +48,12 @@ export const MyOrderPage = () => {
       localStorage.setItem('current_travel', JSON.stringify(data));
       await notify('success', 'Entregador encontrado!');
 
-      console.log(data);
+      console.log(typeof(data));
       setOrder(data.order);
+      console.log("teste", data.routes);
+      setRoutes(data.routes)
+      console.log(routes);
       setDeliveryman(data.deliveryman);
-
       window.location.reload(true);
     });
     // Cleanup the listener when component unmounts
@@ -112,16 +117,15 @@ export const MyOrderPage = () => {
           {deliveryman ? (
             <LoadScript googleMapsApiKey='AIzaSyCDdjSa4towU8PmPM69QoPItOkOz7xOXII'>
               <div className={styles['route-container']}>
+                {
+                  console.log(order)
+                }
                 <Route
                   setPreviewTime={setTime}
                   setDistance={setDistance}
-                  destination={
-                    order?.routes?.arrived ? order.routes.arrived : [0, 0]
-                  }
-                  origin={order?.routes?.origin ? order.routes.origin : [0, 0]}
-                  waypoints={
-                    order?.routes?.waypoints ? order.routes.waypoints : [[0, 0]]
-                  }
+                  destination={routes?.arrived ? routes.arrived : [0,0]}
+                  origin={routes?.origin ? routes.origin : [0,0]}
+                  waypoints={routes?.waypoints ? routes.waypoints : []}
                 />
               </div>
               {deliveryman ? (

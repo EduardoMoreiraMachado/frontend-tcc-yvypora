@@ -100,6 +100,8 @@
     font-weight: 400;
     color: #143601;
     padding-left: 10px;
+    font-size: 1.5rem;
+    text-transform: capitalize;
     white-space: nowrap; /* Evita quebra de linha */
     overflow: hidden; /* Esconde o conteúdo que não couber no espaço disponível */
     text-overflow: ellipsis; /* Adiciona reticências para indicar que há mais conteúdo além do que está sendo mostrado */
@@ -148,6 +150,7 @@
 }
 
 #message {
+    background-color: white;
     border: 1.7px solid #73A942;
     border-radius: 15px 0px;
 }
