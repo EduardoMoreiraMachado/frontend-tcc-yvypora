@@ -33,6 +33,7 @@ import UpdateFeiranteAccount from './templates/UpdateFeiranteAccount';
 import UpdateConsumidorAccount from './templates/UpdateConsumidorAccount';
 import ProductReviewPage from './templates/ProductReviewPage';
 import IndividualProductReviewPage from './templates/IndividualProductReviewPage';
+import { PaymentSuccessful } from './templates/PaymentSuccessful'
 import LivePage from './templates/LivePage'
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { RedirectProfile } from './components/RedirectProfile';
@@ -76,7 +77,8 @@ root.render(
         <Route path='/product/:id' element={<ProductPage />} />
         <Route path='/marketer/products' element={<SellerProductPage />} />
         <Route path='/delivery' element={<EntregadorLandingPage />} />
-        <Route path='/live' element={<LivePage />}/> 
+        <Route path='/live' element={<LivePage />} /> 
+        <Route path='/payment-successful' element={<PaymentSuccessful />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
