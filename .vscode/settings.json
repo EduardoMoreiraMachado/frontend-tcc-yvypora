@@ -173,5 +173,5 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "workbench.editor.untitled.hint": "hidden",
-  "workbench.colorTheme": "SynthWave '84"
+  "workbench.colorTheme": "Dark++ Italic"
 }

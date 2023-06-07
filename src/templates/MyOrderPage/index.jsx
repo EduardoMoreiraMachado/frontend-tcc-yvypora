@@ -28,6 +28,24 @@ export const MyOrderPage = () => {
   const [distance, setDistance] = useState(0);
   const [finish, setFinish] = useState(false);
 
+  const getCurrentDimension = () =>{
+    return {
+          width: window.innerWidth,
+          height: window.innerHeight
+    }
+}
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+
+  useEffect(() => {
+      const  {width } = screenSize
+      console.log(width);
+      if (width <= 900 ) {
+        navigation('/payment-successful')
+      }
+  }, [screenSize, setScreenSize])
+
+
+
   useEffect(() => {
     try {
       const orderStoraged = localStorage.getItem('current_travel');
@@ -92,7 +110,8 @@ export const MyOrderPage = () => {
       notifyAsForm(
         'Entrega finalizada! O pedido foi entregue corretamente?',
         async () => {
-          socket.emit('confirm_order_arrived', { order: order.order });
+          console.log(order);
+          socket.emit('confirm_order_arrived', { order: order });
 
           navigation('/purchase/review')
         },
