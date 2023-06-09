@@ -1,0 +1,31 @@
+.payment-successful-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px 0 50px;
+}
+
+.check-circle-icon {
+    width: 150px;
+    height: 150px;
+    background-image: url(../../imgs/check_circle_icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.payment-successful-container h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #73A942;
+}
+
+.payment-successful-container p {
+    font-size: 1rem;
+    text-align: center;
+    color: #245501;
+}

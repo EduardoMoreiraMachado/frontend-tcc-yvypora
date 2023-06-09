@@ -125,12 +125,12 @@ const ProductReviewPage = () => {
           <div className={styles['produtos-stars']}>
             <h1>Nota dos produtos</h1>
             <RatingStars key={2} setExternalRating={setRatingProducts} />
-            <p>
+            {/* <p>
               Caso queira avaliar cada item de sua compra individialmente{' '}
               <a href='/product/review'>
                 clique aqui
               </a>
-            </p>
+            </p> */}
           </div>
           <GreenButton
             text={isLoading ? <FaSpinner className='spin' /> : 'Enviar'}

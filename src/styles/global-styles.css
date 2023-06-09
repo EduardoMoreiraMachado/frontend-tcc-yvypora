@@ -48,6 +48,8 @@ html ::-webkit-scrollbar-track {
 
 body {
   margin: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -69,10 +71,12 @@ header {
   align-items: center;
   padding: 0px 100px 0px 100px;
 }
+
 .rotate { 
   display: flex;
   flex-direction: row;
- }
+}
+
 .header-without-margins {
   margin-bottom: 0;
 }
