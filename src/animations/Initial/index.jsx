@@ -51,7 +51,7 @@ const InitialTransition = ({ setTransition }) => {
           initial='initial'
           animate='animate'
           onAnimationStart={() =>
-            document.body.classList.add('overflow-hidden')
+            document.body.classList.add('')
           }
           onAnimationComplete={() => {
             setTransition(false)
