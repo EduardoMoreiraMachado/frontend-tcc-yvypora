@@ -48,8 +48,6 @@ const Route = ({
       setPreviewTime(travelTimeInSeconds / 60)
       setDistance(distanceInMetters / 1000)
       
-
-      
       setDirections(result);
     }
   });
