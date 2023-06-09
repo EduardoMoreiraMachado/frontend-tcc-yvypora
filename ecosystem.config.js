@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'yvypora-api',
+      name: 'yvypora-frontend',
       script: 'npm run start',
       instances: '1',
       autorestart: false,
