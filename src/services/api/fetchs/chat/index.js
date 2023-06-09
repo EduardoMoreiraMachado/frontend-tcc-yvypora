@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getListOfMessages = async (from, to) => {
   console.log(from, to);
   const { data } = await axios.get(
-    `http://yvypora-backend.eastus.cloudapp.azure.com/no-relational/chat?receiverId=${to}&senderId=${from}`
+    `https://yvypora-backend.eastus.cloudapp.azure.com/no-relational/chat?receiverId=${to}&senderId=${from}`
   );
 
   const messagesList = data.data;
