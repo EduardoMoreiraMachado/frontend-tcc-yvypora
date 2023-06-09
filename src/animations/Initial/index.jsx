@@ -50,9 +50,6 @@ const InitialTransition = ({ setTransition }) => {
           className={`${styles['background']} relative z-50 w-full `}
           initial='initial'
           animate='animate'
-          onAnimationStart={() =>
-            document.body.classList.add('')
-          }
           onAnimationComplete={() => {
             setTransition(false)
             // document.body.classList.remove('overflow-hidden');
