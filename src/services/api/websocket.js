@@ -1,7 +1,7 @@
 import { io } from 'socket.io-client';
 import { notify } from '../../utils/notify';
 // Websocket
-export const socket = io('https://yvypora-backend.eastus.cloudapp.azure.com', {
+export const socket = io('https://yvypora.eastus.cloudapp.azure.com', {
   query: {
     token: localStorage.getItem('user-logged-token'),
   },

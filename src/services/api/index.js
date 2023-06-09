@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_API_URL = 'https://yvypora-backend.eastus.cloudapp.azure.com/api';
+const BASE_API_URL = 'https://yvypora.eastus.cloudapp.azure.com/api';
 const LOCAL_API_URL = "http://localhost:8080/api"
 
 // API'S
