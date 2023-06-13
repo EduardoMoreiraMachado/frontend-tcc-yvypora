@@ -68,7 +68,7 @@ export const UpdateFeiranteAccount = () => {
     const name = nameInput.current.value;
     const email = emailInput.current.value;
     const password = passwordInput.current.value;
-    const cpf = cpfInput.current.value;
+    // const cpf = cpfInput.current.value;
     const phone = phoneInput.current.value;
     const birthday = birthdayInput.current.value;
     const tent_name = tentNameInput.current.value;
@@ -89,8 +89,8 @@ export const UpdateFeiranteAccount = () => {
       tent_name,
     };
 
-    if (cpf)
-      marketer.cpf = cpf.replaceAll('.', '').replaceAll('-', '').toString();
+    // if (cpf)
+    //   marketer.cpf = cpf.replaceAll('.', '').replaceAll('-', '').toString();
     if (password) marketer.password = password;
 
     try {

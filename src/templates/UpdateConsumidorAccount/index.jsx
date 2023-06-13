@@ -72,13 +72,13 @@ export const UpdateConsumidorAccount = () => {
   const handleClick = async (event) => {
     event.preventDefault();
 
-    const cpf = inputCpf.current.value.replaceAll('.', '').replaceAll('-', '');
+    // const cpf = inputCpf.current.value.replaceAll('.', '').replaceAll('-', '');
 
     const data = {};
 
     data.id = user.id;
 
-    if (cpf) data.cpf = formData.cpf;
+    // if (cpf) data.cpf = formData.cpf;
     if (formData.Nome) data.name = formData.Nome;
     if (formData['Data de nascimento'])
       data.birthday = formData['Data de nascimento'];
