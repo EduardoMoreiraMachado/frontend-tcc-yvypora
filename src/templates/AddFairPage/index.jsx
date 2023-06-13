@@ -28,6 +28,13 @@ export const AddFairPage = () => {
   const nameTitle = useRef(null);
   const [values, setValues] = useState({});
   const [daysOfWeekFields, setDaysOfWeek] = useState([]);
+  const [redirect, setRedirect] = useState(false)
+
+  useEffect(() => {
+    if (redirect) {
+      navigate('/fair/fairs')
+    }
+  }, [redirect])
 
   useEffect(() => {
     const fetch = async () => {
@@ -135,32 +142,19 @@ export const AddFairPage = () => {
     } catch (e) {
       console.log(e);
       let message = e.response?.data.message;
-
       console.log(e.response.data.code);
-
       if (e.response?.data.code === 409) {
         const fair = e.response.data.payload.data
         console.log(fair);
         await notifyAsForm("Essa Feira já está cadastrada em nosso sistema, deseja fazer parte ?", async () => {
           // YES
           await MarketerFairFetch.associate(fair.id)
-          navigate("/fair/fairs")
-          
+          window.location.href = "/fair/fairs"
         }, async () => {
           // NO
-  
+          window.location.reload(true)
         })
       }
-
-      await MySwal.fire({
-        timer: 3000,
-        showConfirmButton: false,
-        title: <p>Falha ao cadastrar feira</p>,
-        html: <p>{message}</p>,
-        icon: 'error',
-        buttonsStyling: false,
-        timerProgressBar: true,
-      });
     }
   };
 
