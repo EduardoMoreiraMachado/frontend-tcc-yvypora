@@ -139,6 +139,8 @@ export const AddFairPage = () => {
         buttonsStyling: false,
         timerProgressBar: true,
       });
+
+      navigate('/fair/fairs')
     } catch (e) {
       console.log(e);
       let message = e.response?.data.message;
