@@ -134,7 +134,7 @@ export const AddFairPage = () => {
       });
 
       
-      ('/fair/fairs')
+      navigate('/fair/fairs')
     } catch (e) {
       console.log(e);
       let message = e.response?.data.message;
@@ -144,7 +144,7 @@ export const AddFairPage = () => {
       if (e.response?.data.code === 409) {
         const fair = e.response.data.payload.data
         console.log(fair);
-        await notifyAsForm("Essa Feira já está cadastrada em nosso sistema, deseja fazer parte ?", async () => {
+        await notifyAsForm("Essa feira já está cadastrada em nosso sistema, deseja fazer parte dela?", async () => {
           // YES
           await MarketerFairFetch.associate(fair.id)
           navigate("/fair/fairs")
@@ -235,7 +235,7 @@ export const AddFairPage = () => {
           </div>
         </div>
         <div className={'button-add-image-container'}>
-          <AddImage text='Adicione uma foto de perfil' />
+          <AddImage text='Adicione uma foto do estabelecimento' />
           <GreenButton text='Cadastrar' onClick={handleClick} />
         </div>
       </div>
