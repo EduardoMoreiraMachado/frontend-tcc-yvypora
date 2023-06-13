@@ -23,7 +23,7 @@ export const AddFairPage = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('user-details'))
   );
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const cepInput = useRef(null);
   const nameTitle = useRef(null);
   const [values, setValues] = useState({});
@@ -130,7 +130,7 @@ export const AddFairPage = () => {
 
       await MarketerFairFetch.associate(id);
 
-      MySwal.fire({
+      await MySwal.fire({
         timer: 3000,
         showConfirmButton: false,
         title: <p>Nova feira</p>,
@@ -140,7 +140,8 @@ export const AddFairPage = () => {
         timerProgressBar: true,
       });
 
-      navigate('/fair/fairs')
+      
+      ('/fair/fairs')
     } catch (e) {
       console.log(e);
       let message = e.response?.data.message;
