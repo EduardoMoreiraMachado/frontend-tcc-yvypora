@@ -140,14 +140,14 @@ export const UpdateConsumidorAccount = () => {
               type='password'
               onChange={handleChangeFields}
             />
-            <SpecialInput
+            {/* <SpecialInput
               name='cpf'
               label='CPF'
               mask='999.999.999-99'
               value={values.cpf}
               onChange={handleChange}
               inputRef={inputCpf}
-            />
+            /> */}
             <DefaultInput
               name='Data de nascimento'
               type='date'

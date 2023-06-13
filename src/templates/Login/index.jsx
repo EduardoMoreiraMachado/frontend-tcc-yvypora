@@ -39,7 +39,7 @@ export const Login = () => {
       await MySwal.fire({
         timer: 1500,
         showConfirmButton: false,
-        title: <p>Boas-vindas de volta {details.name}!</p>,
+        title: <p>Boas-vindas, {details.name}!</p>,
         icon: 'success',
         buttonsStyling: false,
         timerProgressBar: true,

@@ -9,6 +9,7 @@ import { Header } from '../../components/Header';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { consumeCep } from '../../services/api/fetchs/common/cep';
 import { useRef } from 'react';
 import CostumerFetch from '../../services/api/fetchs/costumer/costumer';
@@ -17,6 +18,7 @@ import { notify } from '../../utils/notify';
 import { getDetails } from '../../services/api/fetchs/common/user';
 
 export const AddAddressPage = () => {
+  const navigate = useNavigate();
   const [user, _] = useState(JSON.parse(localStorage.getItem('user-details')));
   const [values, setValues] = useState({});
   const [formData, setFormData] = useState({});
@@ -80,6 +82,7 @@ export const AddAddressPage = () => {
       await notify('success', 'Novo endereço cadastrado');
       const newDetails = await getDetails();
       localStorage.setItem('user-details', JSON.stringify(newDetails));
+      navigate('/profile/address')
     } catch (error) {
       console.log(error);
       await notify('error', 'Não foi possivel adicionar novo endereço');

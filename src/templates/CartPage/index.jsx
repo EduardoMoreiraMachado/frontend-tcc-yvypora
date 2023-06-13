@@ -7,7 +7,7 @@ import { Footer } from '../../components/Footer';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { groupByMarketer } from '../../utils/groupBy';
-import { useNavigate, use } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { initCart } from '../../utils/cart';
 import { DataNotFound } from '../../components/DataNotFound';
 

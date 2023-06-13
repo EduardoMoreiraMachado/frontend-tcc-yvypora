@@ -173,14 +173,14 @@ export const UpdateFeiranteAccount = () => {
               type='password'
               inputRef={passwordInput}
             />
-            <SpecialInput
+            {/* <SpecialInput
               inputRef={cpfInput}
               name='cpf'
               label='CPF'
               mask='999.999.999-99'
               value={values.cpf}
               onChange={handleChange}
-            />
+            /> */}
             <SpecialInput
               inputRef={phoneInput}
               name='phone'
